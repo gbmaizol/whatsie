@@ -11,9 +11,37 @@ WebEngineProfileManager &WebEngineProfileManager::instance() {
     return inst;
 }
 
+// Strip the "QtWebEngine/x.y.z" token from an engine-provided User-Agent so
+// WhatsApp Web sees a plain Chrome UA. Qt's built-in UA always carries the
+// Chrome version that matches the installed Chromium, so the result tracks the
+// engine automatically (no hardcoded version to go stale on Qt upgrades).
+static QString stripQtWebEngineToken(QString userAgent) {
+    const int idx = userAgent.indexOf(QStringLiteral("QtWebEngine"));
+    if (idx == -1)
+        return userAgent; // already clean (e.g. a user-defined UA)
+
+    // Token runs from "QtWebEngine" up to and including the following space.
+    int end = userAgent.indexOf(QLatin1Char(' '), idx);
+    if (end == -1)
+        end = userAgent.length();
+    else
+        end += 1; // also drop the separating space
+    userAgent.remove(idx, end - idx);
+    return userAgent.simplified();
+}
+
 WebEngineProfileManager::WebEngineProfileManager() {
     // Named profile → persistent storage is enabled automatically.
     m_profile = new QWebEngineProfile(QStringLiteral("whatsie"));
+
+    // Derive the default UA from the engine itself *before* we ever override
+    // httpUserAgent, so it always matches the installed Chromium version and
+    // stays current across Qt WebEngine upgrades. The hardcoded value in
+    // common.cpp only survives as a fallback if this ever yields nothing.
+    const QString engineUA = stripQtWebEngineToken(m_profile->httpUserAgent());
+    if (!engineUA.isEmpty())
+        defaultUserAgentStr = engineUA;
+    qDebug() << "Engine-derived default UserAgent:" << defaultUserAgentStr;
 
     const QString dataPath  = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
     const QString cachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
