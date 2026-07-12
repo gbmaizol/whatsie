@@ -97,6 +97,48 @@ WebEngineProfileManager::WebEngineProfileManager() {
     persistScript.setWorldId(QWebEngineScript::MainWorld);
     persistScript.setRunsOnSubFrames(false);
     m_profile->scripts()->insert(persistScript);
+
+    // Connection watchdog probe: wrap window.WebSocket at document creation so
+    // we can observe WhatsApp's connection. The native side polls
+    // window.__whatsieWsStuck() periodically and reloads when the socket has
+    // died or gone silent. Must run in the MainWorld and before page scripts so
+    // it patches the constructor WhatsApp actually uses.
+    QWebEngineScript wsProbe;
+    wsProbe.setName(QStringLiteral("whatsie-ws-watchdog"));
+    wsProbe.setSourceCode(QStringLiteral(
+        "(function(){"
+        "  if(window.__whatsieWsPatched)return;"
+        "  var Native=window.WebSocket;"
+        "  if(!Native)return;"
+        "  window.__whatsieWsPatched=true;"
+        "  var st={open:0,everOpened:false,last:Date.now()};"
+        "  window.__whatsieWs=st;"
+        "  function P(u,pr){"
+        "    var ws=pr!==undefined?new Native(u,pr):new Native(u);"
+        "    try{"
+        "      ws.addEventListener('open',function(){st.open++;st.everOpened=true;st.last=Date.now();});"
+        "      ws.addEventListener('message',function(){st.last=Date.now();});"
+        "      var dec=function(){if(st.open>0)st.open--;};"
+        "      ws.addEventListener('close',dec);"
+        "      ws.addEventListener('error',dec);"
+        "    }catch(e){}"
+        "    return ws;"
+        "  }"
+        "  P.prototype=Native.prototype;"
+        "  P.CONNECTING=Native.CONNECTING;P.OPEN=Native.OPEN;"
+        "  P.CLOSING=Native.CLOSING;P.CLOSED=Native.CLOSED;"
+        "  window.WebSocket=P;"
+        "  window.__whatsieWsStuck=function(){"
+        "    if(!st.everOpened)return false;"       // still logging in / no socket yet
+        "    if(!navigator.onLine)return false;"    // offline: user's network, not a hang
+        "    if(st.open<=0)return true;"            // socket died and never reopened
+        "    return (Date.now()-st.last)>90000;"    // socket open but silent >90s
+        "  };"
+        "})();"));
+    wsProbe.setInjectionPoint(QWebEngineScript::DocumentCreation);
+    wsProbe.setWorldId(QWebEngineScript::MainWorld);
+    wsProbe.setRunsOnSubFrames(false);
+    m_profile->scripts()->insert(wsProbe);
 }
 
 WebEngineProfileManager::~WebEngineProfileManager() {

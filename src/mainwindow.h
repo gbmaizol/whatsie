@@ -1,9 +1,11 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QElapsedTimer>
 #include <QMainWindow>
 #include <QMenu>
 #include <QSystemTrayIcon>
+#include <QTimer>
 
 #include "autolockeventfilter.h"
 #include "downloadmanagerwidget.h"
@@ -56,6 +58,7 @@ private:
   void tryLock();
   void checkLoadedCorrectly();
   void loadingQuirk(const QString &test);
+  void checkConnectionHealth();
   void setNotificationPresenter(QWebEngineProfile *profile);
   Notification::EventPtr notify(const QString& title, const QString& body, qint32 timeout);
   void initRateWidget();
@@ -75,6 +78,12 @@ private:
   DownloadManagerWidget m_downloadManagerWidget;
   QScopedPointer<QWebEngineProfile> m_otrProfile;
   int m_correctlyLoadedRetries = 4;
+
+  // Connection watchdog: polls the injected WebSocket health probe and reloads
+  // the page when WhatsApp's socket has died or gone silent (aggressive mode).
+  QTimer *m_connectionWatchdog = nullptr;
+  QElapsedTimer m_lastWatchdogReload;
+  int m_watchdogStrikes = 0;
 
   QAction *m_reloadAction = nullptr;
   QAction *m_minimizeAction = nullptr;

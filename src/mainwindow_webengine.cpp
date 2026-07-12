@@ -31,6 +31,16 @@ void MainWindow::createWebEngine() {
   webEngineView->addAction(m_quitAction);
 
   createWebPage(false);
+
+  // Connection watchdog: poll the injected WebSocket health probe and reload
+  // the page when WhatsApp's socket has died or gone silent.
+  if (!m_connectionWatchdog) {
+    m_connectionWatchdog = new QTimer(this);
+    m_connectionWatchdog->setInterval(20000);
+    connect(m_connectionWatchdog, &QTimer::timeout, this,
+            &MainWindow::checkConnectionHealth);
+    m_connectionWatchdog->start();
+  }
 }
 
 void MainWindow::createWebPage(bool offTheRecord) {
@@ -183,9 +193,42 @@ void MainWindow::doReload(bool byPassCache, bool isAskedByCLI,
                                  byPassCache);
 }
 
+void MainWindow::checkConnectionHealth() {
+  if (!m_webEngine || !m_webEngine->page())
+    return;
+  // Don't reload while the app is locked (would fight the lock screen).
+  if (m_lockWidget && m_lockWidget->getIsLocked())
+    return;
+  // Cooldown: never auto-reload more than once per 60s, to avoid reload storms.
+  if (m_lastWatchdogReload.isValid() && m_lastWatchdogReload.elapsed() < 60000)
+    return;
+
+  m_webEngine->page()->runJavaScript(
+      QStringLiteral("(typeof window.__whatsieWsStuck==='function')?"
+                     "window.__whatsieWsStuck():false"),
+      [this](const QVariant &result) {
+        if (!result.toBool()) {
+          m_watchdogStrikes = 0; // healthy: reset
+          return;
+        }
+        // Require two consecutive "stuck" reports (~20-40s) before acting, so a
+        // brief reconnect gap or a momentarily idle socket is not mistaken for
+        // a hang.
+        if (++m_watchdogStrikes < 2)
+          return;
+        m_watchdogStrikes = 0;
+        qWarning()
+            << "Connection watchdog: WhatsApp WebSocket stuck, reloading page.";
+        m_lastWatchdogReload.restart();
+        if (m_webEngine)
+          m_webEngine->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
+      });
+}
+
 void MainWindow::handleLoadFinished(bool loaded) {
   if (loaded) {
     qDebug() << "Loaded";
+    m_watchdogStrikes = 0; // fresh document, start clean
     checkLoadedCorrectly();
     updatePageTheme();
     handleZoom();
