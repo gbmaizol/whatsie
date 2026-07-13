@@ -255,11 +255,15 @@ target_link_libraries(whatsie PRIVATE
     Qt${QT_VERSION_MAJOR}::Network
 )
 
-# Linux-only libraries: D-Bus notifications and X11 (Caps Lock detection)
+# Linux-only libraries: D-Bus notifications and X11 (Caps Lock detection).
+# Qt DBus is needed directly to build the freedesktop "image-data" notification
+# hint with the byte order the spec requires (see MainWindow::notificationImageHint).
 if(UNIX AND NOT APPLE)
+    find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS DBus)
     target_link_libraries(whatsie PRIVATE
         notify-qt
         X11
+        Qt${QT_VERSION_MAJOR}::DBus
     )
 endif()
 

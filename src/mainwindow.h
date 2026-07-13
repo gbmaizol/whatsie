@@ -64,6 +64,7 @@ private:
   void setNotificationPresenter(QWebEngineProfile *profile);
 #ifdef Q_OS_LINUX
   Notification::EventPtr notify(const QString& title, const QString& body, qint32 timeout);
+  static QVariant notificationImageHint(const QPixmap &pixmap);
 #endif
   void initRateWidget();
   void handleZoomOnWindowStateChange(const QWindowStateChangeEvent *ev);

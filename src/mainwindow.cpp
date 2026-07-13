@@ -8,6 +8,9 @@
 #include <QScreen>
 #include <QStyleFactory>
 #include <QUrlQuery>
+#ifdef Q_OS_LINUX
+#include <QDBusArgument>
+#endif
 
 #include "about.h"
 #include "common.h"
@@ -333,10 +336,10 @@ void MainWindow::showNotification(QString title, QString message) {
                          this->notificationClicked();
                      });
 
-    ntf->setIconFromPixmap(windowIcon()
-                             .pixmap(windowIcon()
-                                       .actualSize(QSize(32,32), QIcon::Normal),
-                                       QIcon::Normal, QIcon::On));
+    ntf->setHint("image-data",
+                 notificationImageHint(windowIcon().pixmap(
+                     windowIcon().actualSize(QSize(32, 32), QIcon::Normal),
+                     QIcon::Normal, QIcon::On)));
     ntf->show();
     return;
 #else
@@ -445,6 +448,33 @@ void MainWindow::loadSchemaUrl(const QString &arg) {
 }
 
 #ifdef Q_OS_LINUX
+// Serialize a pixmap into the freedesktop.org "image-data" notification hint.
+//
+// libnotify-qt's setIconFromPixmap() cannot be used: it converts to
+// QImage::Format_ARGB32 and dumps the raw buffer. ARGB32 packs a pixel as the
+// 32-bit value 0xAARRGGBB, so on little-endian machines the bytes land in
+// memory as B,G,R,A — while the spec wants R,G,B,A. The daemon therefore reads
+// red as blue and vice versa, which is why avatars showed up with swapped
+// colours. Format_RGBA8888 is byte-ordered (R,G,B,A on every architecture), so
+// it matches the spec exactly.
+QVariant MainWindow::notificationImageHint(const QPixmap &pixmap) {
+  const QImage img = pixmap.toImage().convertToFormat(QImage::Format_RGBA8888);
+
+  QDBusArgument arg;
+  arg.beginStructure();
+  arg << img.width() << img.height()
+      << static_cast<qint32>(img.bytesPerLine()) // rowstride
+      << true                                    // has alpha
+      << 8                                       // bits per sample
+      << 4                                       // channels (R,G,B,A)
+      // Deep copy: the argument outlives this function, so it must not
+      // reference the local QImage's buffer.
+      << QByteArray(reinterpret_cast<const char *>(img.constBits()),
+                    static_cast<int>(img.sizeInBytes()));
+  arg.endStructure();
+  return QVariant::fromValue(arg);
+}
+
 Notification::EventPtr MainWindow::notify(const QString& title, const QString& body, qint32 timeout) {
   Notification::EventPtr ntf = m_notifier.createNotification(title, body, "whatsie");
 

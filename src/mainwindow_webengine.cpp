@@ -121,7 +121,8 @@ void MainWindow::setNotificationPresenter(QWebEngineProfile *profile) {
                 ? QPixmap::fromImage(img)
                 : Identicons::letterTile(proxy->notif->title(), QSize(96, 96));
           } (proxy->notif->icon());
-          ntf->setIconFromPixmap(Identicons::clipRRect(pix) /* for eyecandy */ );
+          ntf->setHint("image-data", notificationImageHint(
+                                        Identicons::clipRRect(pix) /* for eyecandy */));
           connect(ntf.get(), &Notification::Event::actionInvoked, this,
               [this, proxy](const QString & action) {
                 if (action != "open") return;
