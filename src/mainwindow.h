@@ -13,7 +13,9 @@
 #include "notificationpopup.h"
 #include "settingswidget.h"
 #include "webenginepage.h"
+#ifdef Q_OS_LINUX
 #include <libnotify-qt.h>
+#endif
 
 class MainWindow : public QMainWindow {
   Q_OBJECT
@@ -60,7 +62,9 @@ private:
   void loadingQuirk(const QString &test);
   void checkConnectionHealth();
   void setNotificationPresenter(QWebEngineProfile *profile);
+#ifdef Q_OS_LINUX
   Notification::EventPtr notify(const QString& title, const QString& body, qint32 timeout);
+#endif
   void initRateWidget();
   void handleZoomOnWindowStateChange(const QWindowStateChangeEvent *ev);
   void handleZoom();
@@ -71,13 +75,22 @@ private:
   void triggerNewChat(const QString &phone, const QString &text);
   void restoreMainWindow();
 
+#ifdef Q_OS_LINUX
   Notification::Manager m_notifier;
+#else
+  // Routes QSystemTrayIcon::messageClicked to the most recent notification
+  QMetaObject::Connection m_trayNotificationClickConnection;
+#endif
   QIcon m_trayIconNormal;
   QRegularExpression m_notificationsTitleRegExp;
   QRegularExpression m_unreadMessageCountRegExp;
   DownloadManagerWidget m_downloadManagerWidget;
   QScopedPointer<QWebEngineProfile> m_otrProfile;
   int m_correctlyLoadedRetries = 4;
+  // Set while quitApp() runs so closeEvent() does not turn an intentional
+  // quit into minimize-to-tray (Qt 6.3+ quit() closes windows first and a
+  // vetoed close cancels the quit).
+  bool m_isQuitting = false;
 
   // Connection watchdog: polls the injected WebSocket health probe and reloads
   // the page when WhatsApp's socket has died or gone silent (aggressive mode).
