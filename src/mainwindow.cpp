@@ -409,11 +409,7 @@ void MainWindow::quitApp() {
   QTimer::singleShot(500, this, [=]() { qApp->quit(); });
 }
 
-void MainWindow::runMinimized() {
-  m_minimizeAction->trigger();
-  showNotification("Whatsie",
-                   "Whatsie started minimized in system tray. Click to Open.");
-}
+void MainWindow::runMinimized() { m_minimizeAction->trigger(); }
 
 void MainWindow::alreadyRunning() {
   setWindowState((windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
