@@ -425,10 +425,7 @@ void MainWindow::runMinimized() {
                    "Whatsie started minimized in system tray. Click to Open.");
 }
 
-void MainWindow::alreadyRunning(bool notify) {
-  if (notify)
-    showNotification(QApplication::applicationName(),
-                     "Restored an already running instance.");
+void MainWindow::alreadyRunning() {
   setWindowState((windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
   show();
 }
