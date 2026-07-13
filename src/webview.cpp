@@ -1,7 +1,13 @@
 #include "webview.h"
 
+#include <QBuffer>
+#include <QChildEvent>
+#include <QClipboard>
 #include <QContextMenuEvent>
+#include <QGuiApplication>
+#include <QImage>
 #include <QMenu>
+#include <QMimeData>
 #include <mainwindow.h>
 #include <QWebEngineContextMenuRequest>
 
@@ -92,4 +98,75 @@ void WebView::contextMenuEvent(QContextMenuEvent *event) {
 
   connect(menu, &QMenu::aboutToHide, menu, &QObject::deleteLater);
   menu->popup(event->globalPos());
+}
+
+// ── Clipboard image paste ─────────────────────────────────────────────────────
+//
+// Qt WebEngine drops the image when the clipboard also carries url/html
+// flavours — which is exactly what a browser puts there on "Copy image". The
+// page then only receives a text/uri-list and nothing is pasted. A clipboard
+// holding just an image (a screenshot tool) arrives correctly as a File, so
+// only the mixed case needs rescuing: read the image with QClipboard, which
+// does see it, and hand it to the page as a File in a synthetic paste event.
+
+// QWebEngineView delivers input through an internal child widget, so the key
+// press has to be caught there rather than on the view itself.
+bool WebView::event(QEvent *event) {
+  if (event->type() == QEvent::ChildAdded) {
+    auto *childEvent = static_cast<QChildEvent *>(event);
+    if (childEvent->child() && childEvent->child()->isWidgetType())
+      childEvent->child()->installEventFilter(this);
+  }
+  return QWebEngineView::event(event);
+}
+
+bool WebView::eventFilter(QObject *watched, QEvent *event) {
+  if (event->type() == QEvent::KeyPress) {
+    auto *keyEvent = static_cast<QKeyEvent *>(event);
+    if (keyEvent->matches(QKeySequence::Paste) && pasteClipboardImage())
+      return true; // handled here; skip the native paste that would drop it
+  }
+  return QWebEngineView::eventFilter(watched, event);
+}
+
+bool WebView::pasteClipboardImage() {
+  const QMimeData *mimeData = QGuiApplication::clipboard()->mimeData();
+  if (!mimeData || !mimeData->hasImage())
+    return false; // no image at all: nothing to rescue
+
+  // An image-only clipboard already pastes correctly; leave that path alone.
+  if (!mimeData->hasUrls() && !mimeData->hasHtml())
+    return false;
+
+  const QImage image = qvariant_cast<QImage>(mimeData->imageData());
+  if (image.isNull())
+    return false;
+
+  QByteArray png;
+  QBuffer buffer(&png);
+  if (!buffer.open(QIODevice::WriteOnly) || !image.save(&buffer, "PNG"))
+    return false;
+  buffer.close();
+
+  static const QString kInject = QStringLiteral(R"JS(
+(function () {
+  try {
+    var binary = atob("%1");
+    var bytes = new Uint8Array(binary.length);
+    for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    var file = new File([bytes], "image.png", { type: "image/png" });
+    var transfer = new DataTransfer();
+    transfer.items.add(file);
+    var target = document.activeElement || document.body;
+    target.dispatchEvent(new ClipboardEvent("paste", {
+      clipboardData: transfer, bubbles: true, cancelable: true
+    }));
+  } catch (e) {
+    console.error("whatsie: pasting the clipboard image failed: " + e);
+  }
+})();
+)JS");
+
+  page()->runJavaScript(kInject.arg(QString::fromLatin1(png.toBase64())));
+  return true;
 }
