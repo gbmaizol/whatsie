@@ -204,22 +204,51 @@ void MainWindow::checkConnectionHealth() {
     return;
 
   m_webEngine->page()->runJavaScript(
-      QStringLiteral("(typeof window.__whatsieWsStuck==='function')?"
-                     "window.__whatsieWsStuck():false"),
+      QStringLiteral("(typeof window.__whatsieWsState==='function')?"
+                     "window.__whatsieWsState():'idle'"),
       [this](const QVariant &result) {
-        if (!result.toBool()) {
-          m_watchdogStrikes = 0; // healthy: reset
+        const QString state = result.toString();
+
+        if (state == QLatin1String("ok")) {
+          // Connection healthy again: reset so a future, unrelated hang gets a
+          // fresh set of recovery attempts.
+          m_watchdogStrikes = 0;
+          m_watchdogReloads = 0;
+          m_watchdogGaveUp = false;
           return;
         }
+
+        if (state != QLatin1String("stuck")) {
+          // "idle": still connecting or offline — nothing a reload would fix.
+          m_watchdogStrikes = 0;
+          return;
+        }
+
         // Require two consecutive "stuck" reports (~20-40s) before acting, so a
         // brief reconnect gap or a momentarily idle socket is not mistaken for
         // a hang.
         if (++m_watchdogStrikes < 2)
           return;
         m_watchdogStrikes = 0;
-        qWarning()
-            << "Connection watchdog: WhatsApp WebSocket stuck, reloading page.";
+
+        // Cap recovery at 3 reloads per hang episode. If the connection is still
+        // stuck after 3 reloads the cause is not something a reload fixes (no
+        // disk space, network down, ...), so stop hammering — repeated reloads
+        // are expensive and pointless. The counter resets once the connection
+        // reports healthy again (state == "ok").
+        if (m_watchdogReloads >= 3) {
+          if (!m_watchdogGaveUp) {
+            m_watchdogGaveUp = true;
+            qWarning() << "Connection watchdog: still stuck after 3 reloads, "
+                          "giving up until the connection recovers.";
+          }
+          return;
+        }
+
+        ++m_watchdogReloads;
         m_lastWatchdogReload.restart();
+        qWarning() << "Connection watchdog: WhatsApp WebSocket stuck, reload"
+                   << m_watchdogReloads << "of 3.";
         if (m_webEngine)
           m_webEngine->triggerPageAction(QWebEnginePage::ReloadAndBypassCache);
       });

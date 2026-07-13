@@ -128,11 +128,11 @@ WebEngineProfileManager::WebEngineProfileManager() {
         "  P.CONNECTING=Native.CONNECTING;P.OPEN=Native.OPEN;"
         "  P.CLOSING=Native.CLOSING;P.CLOSED=Native.CLOSED;"
         "  window.WebSocket=P;"
-        "  window.__whatsieWsStuck=function(){"
-        "    if(!st.everOpened)return false;"       // still logging in / no socket yet
-        "    if(!navigator.onLine)return false;"    // offline: user's network, not a hang
-        "    if(st.open<=0)return true;"            // socket died and never reopened
-        "    return (Date.now()-st.last)>90000;"    // socket open but silent >90s
+        "  window.__whatsieWsState=function(){"
+        "    if(!st.everOpened||!navigator.onLine)return 'idle';" // connecting/offline: neutral
+        "    if(st.open<=0)return 'stuck';"          // socket died and never reopened
+        "    if((Date.now()-st.last)>90000)return 'stuck';" // socket open but silent >90s
+        "    return 'ok';"                           // connected and active
         "  };"
         "})();"));
     wsProbe.setInjectionPoint(QWebEngineScript::DocumentCreation);
