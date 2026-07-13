@@ -152,6 +152,8 @@ cmake -S . -B build -G Ninja -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
 
 | Problem | Solution |
 |---------|----------|
+| `Qt 6.10 or newer is required` (distro ships Qt 6.4) | Install a newer Qt with the [Qt online installer](https://www.qt.io/download-qt-installer) and configure with `-DCMAKE_PREFIX_PATH=/path/to/Qt/6.10.0/gcc_64`. The floor cannot be lowered: the code needs `QWebEnginePermission` (Qt 6.8+) and WhatsApp Web rejects the older Chromium. |
+| `libnotify-qt submodule requires CMake 4.0` | Install `notify-qt6` from your distribution (the submodule is then not built), or upgrade CMake. |
 | Qt6 not found | `export CMAKE_PREFIX_PATH=/usr/lib/cmake/Qt6` |
 | Ninja not found | `sudo apt install ninja-build` |
 | `notify-qt` submodule missing | `git submodule update --init --recursive` |

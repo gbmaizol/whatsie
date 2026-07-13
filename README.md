@@ -118,10 +118,21 @@ WhatSie's own shortcuts. The same list is available in the app under
 ## Build from Source (Linux)
 
 ### Requirements
- - git, cmake >= 3.24, ninja-build
- - Qt6 >= 6.10 (qt6-base-dev, qt6-webengine-dev, qt6-positioning-dev)
+ - git, ninja-build
+ - **cmake >= 3.24**, or **>= 4.0** if the bundled `libnotify-qt` submodule has
+   to be built — that happens whenever `notify-qt6` is not installed as a system
+   package, and the submodule itself requires CMake 4.0
+ - **Qt6 >= 6.10** (qt6-base-dev, qt6-webengine-dev, qt6-positioning-dev)
  - C++17 compiler (GCC 7+, Clang 5+)
  - libx11-dev
+
+> **Qt 6.10 is a hard floor.** Debian 13, Ubuntu 24.04 and Linux Mint 22.x still
+> ship Qt 6.4, which will not work: the code needs `QWebEnginePermission`
+> (Qt 6.8+), and WhatsApp Web refuses to load in the older Chromium those builds
+> bundle. On those distributions, install a newer Qt with the official
+> [Qt online installer](https://www.qt.io/download-qt-installer) (select the
+> **Qt WebEngine** and **Qt Positioning** modules) and point CMake at it with
+> `-DCMAKE_PREFIX_PATH=/path/to/Qt/6.10.0/gcc_64`.
 
 ### Install Dependencies
 
@@ -205,9 +216,12 @@ rm -rf build
 | Problem | Solution |
 |---------|----------|
 | CMake not found | `sudo apt install cmake` |
+| `Qt 6.10 or newer is required` (distro ships Qt 6.4) | Install a newer Qt with the [Qt online installer](https://www.qt.io/download-qt-installer) and configure with `-DCMAKE_PREFIX_PATH=/path/to/Qt/6.10.0/gcc_64`. Lowering the minimum does not help — see the note above. |
+| `libnotify-qt submodule requires CMake 4.0` | Install `notify-qt6` from your distribution (the submodule is then not built), or upgrade CMake. |
 | Qt6 not found | `sudo apt install qt6-base-dev qt6-webengine-dev` (or `export CMAKE_PREFIX_PATH=/usr/lib/cmake/Qt6`) |
 | Ninja not found | `sudo apt install ninja-build` |
 | `notify-qt` submodule missing | `git submodule update --init --recursive` |
+| `make: *** No rule to make target 'build-release'` | There is no Makefile — this project builds with CMake. Use the commands above. |
 | Permission denied on install | Reconfigure with `-DCMAKE_INSTALL_PREFIX=$HOME/.local` (no sudo) |
 
 For detailed build instructions, see [`DOCS/BUILD_QUICK_REFERENCE.md`](DOCS/BUILD_QUICK_REFERENCE.md)

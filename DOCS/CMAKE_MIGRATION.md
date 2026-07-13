@@ -4,7 +4,9 @@
 This document outlines the migration from qmake to CMake for building Whatsie with Qt6.
 
 ## Prerequisites
-- CMake 3.24 or later
+- CMake 3.24 or later — or 4.0 or later if the bundled `libnotify-qt` submodule
+  has to be built (i.e. when `notify-qt6` is not installed as a system package;
+  the submodule requires CMake 4.0)
 - Qt6 (6.10 or later) with development packages
 - Ninja build tool (optional but recommended)
 - C++17 compatible compiler (GCC 7+, Clang 5+, or MSVC 2017+)

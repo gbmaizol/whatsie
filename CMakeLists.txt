@@ -37,8 +37,17 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-# Find required packages
-find_package(Qt${QT_VERSION_MAJOR} ${QT_VERSION_MAJOR}.${QT_VERSION_MINOR} REQUIRED COMPONENTS
+# Find required packages.
+# Qt ${QT_VERSION_MAJOR}.${QT_VERSION_MINOR} is a hard floor for two independent reasons, so it cannot simply
+# be lowered to match an older distro Qt:
+#   * the code uses QWebEnginePermission / QWebEnginePage::permissionRequested,
+#     which only exist from Qt 6.8;
+#   * the bundled Chromium must be recent enough that WhatsApp Web does not
+#     reject the client as an outdated browser (the User-Agent is derived from
+#     it, so it always reports the truth).
+# Several distros (Debian 13, Ubuntu 24.04, Linux Mint 22.x) still ship Qt 6.4,
+# which is why this check fails for them — hence the explicit guidance below.
+find_package(Qt${QT_VERSION_MAJOR} ${QT_VERSION_MAJOR}.${QT_VERSION_MINOR} QUIET COMPONENTS
     Core
     Gui
     Widgets
@@ -47,6 +56,22 @@ find_package(Qt${QT_VERSION_MAJOR} ${QT_VERSION_MAJOR}.${QT_VERSION_MINOR} REQUI
     Network
 )
 
+if (NOT Qt${QT_VERSION_MAJOR}_FOUND)
+    set(_qt_found_note "")
+    if (Qt${QT_VERSION_MAJOR}_VERSION)
+        set(_qt_found_note " (found ${Qt${QT_VERSION_MAJOR}_VERSION})")
+    endif()
+    message(FATAL_ERROR
+        "Qt ${QT_VERSION_MAJOR}.${QT_VERSION_MINOR} or newer is required${_qt_found_note}.\n"
+        "Many distributions still package Qt 6.4, which is too old: the code needs "
+        "QWebEnginePermission (Qt 6.8+), and WhatsApp Web refuses to load in the "
+        "older Chromium those builds bundle.\n"
+        "Install a newer Qt (for example with the official Qt online installer, "
+        "selecting the Qt WebEngine and Qt Positioning modules) and point CMake at "
+        "it:\n"
+        "    cmake -S . -B build -DCMAKE_PREFIX_PATH=/path/to/Qt/6.10.0/gcc_64")
+endif()
+
 # libnotify-qt is a D-Bus (org.freedesktop.Notifications) client and is only
 # used on Linux; other platforms fall back to QSystemTrayIcon notifications.
 if (UNIX AND NOT APPLE)
@@ -54,6 +79,18 @@ if (UNIX AND NOT APPLE)
     if (notify-qt${QT_VERSION_MAJOR}_FOUND)
         add_library(notify-qt ALIAS notify-qt${QT_VERSION_MAJOR})
     elseif (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/src/libnotify-qt/CMakeLists.txt")
+        # The bundled submodule declares cmake_minimum_required(VERSION 4.0), so
+        # building it needs a newer CMake than this project itself does. Say so
+        # here instead of letting the error surface from inside the submodule,
+        # and point out that a system notify-qt package avoids it entirely.
+        if (CMAKE_VERSION VERSION_LESS 4.0)
+            message(FATAL_ERROR
+                "The bundled src/libnotify-qt submodule requires CMake 4.0 or newer "
+                "(you have ${CMAKE_VERSION}).\n"
+                "Either install the notify-qt${QT_VERSION_MAJOR} package from your distribution — the "
+                "submodule is then not built and CMake ${CMAKE_MINIMUM_REQUIRED_VERSION} is enough — "
+                "or upgrade CMake.")
+        endif()
         add_subdirectory(src/libnotify-qt)
     else()
         message(FATAL_ERROR
