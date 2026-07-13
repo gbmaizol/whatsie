@@ -19,13 +19,22 @@ About::About(QWidget *parent) : QWidget(parent), ui(new Ui::About) {
   appDescription = "WhatsApp Web client for Linux Desktop";
 #endif
   isOpenSource = true;
+
+  // Original author of WhatSie — kept credited: this project is an MIT-licensed
+  // fork and the upstream authorship/copyright must be preserved.
   appAuthorName = "Keshav Bhatt";
   appAuthorEmail = "keshavnrj@gmail.com";
   appAuthorLink = "http://ktechpit.com";
-  donateLink = "https://paypal.me/keshavnrj/5";
-  moreAppsLink = "https://snapcraft.io/publisher/keshavnrj";
 
-  appSourceCodeLink = "https://github.com/keshavbhatt/whatsie";
+  // Maintainer of this fork.
+  maintainerName = "Ángel Guzmán Maeso";
+  maintainerEmail = "angel@guzmanmaeso.com";
+  maintainerLink = "https://shakaran.net";
+
+  donateLink = "https://paypal.me/shakaran/5";
+  moreAppsLink = "https://github.com/shakaran";
+
+  appSourceCodeLink = "https://github.com/shakaran/whatsie";
   appRateLink = "snap://whatsie";
 
   ui->appNameDesc->setText(
@@ -40,11 +49,15 @@ About::About(QWidget *parent) : QWidget(parent), ui(new Ui::About) {
   ui->desc2->setText(
       QString("<p><span style=' font-weight:600;'>Designed &amp; Developed "
               "by:</span>"
-              " %1 </p><p><span style=' font-weight:600;'>"
-              "Email: </span>%2</p>"
+              " %1 </p><p><span style=' font-weight:600;'>Website:</span>"
+              " %2</p>"
+              "<p><span style=' font-weight:600;'>Fork maintained by:</span>"
+              " %3</p><p><span style=' font-weight:600;'>"
+              "Email: </span>%4</p>"
               "<p><span style=' font-weight:600;'>Website:</span>"
-              " %3</p>")
-          .arg(appAuthorName, appAuthorEmail, appAuthorLink));
+              " %5</p>")
+          .arg(appAuthorName, appAuthorLink, maintainerName, maintainerEmail,
+               maintainerLink));
 
   ui->version->setText("Version: " + QApplication::applicationVersion());
 
@@ -58,9 +71,9 @@ About::About(QWidget *parent) : QWidget(parent), ui(new Ui::About) {
     ui->source_code->hide();
   }
 
-#ifdef Q_OS_WIN
-  ui->rate->hide(); // rate link points to the snap store, which is Linux-only
-#endif
+  // The rate link points at the Snap store (snap://whatsie), which hosts the
+  // upstream project, not this fork — hide it rather than send users elsewhere.
+  ui->rate->hide();
 
   connect(ui->donate, &QPushButton::clicked,
           [=]() { QDesktopServices::openUrl(QUrl(donateLink)); });

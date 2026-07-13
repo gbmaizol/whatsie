@@ -139,13 +139,13 @@ void RateApp::reset() {
 }
 
 void RateApp::on_rateOnGithub_clicked() {
-  QDesktopServices::openUrl(QUrl("https://github.com/keshavbhatt/whatsie"));
+  QDesktopServices::openUrl(QUrl("https://github.com/shakaran/whatsie"));
   this->reset();
   this->close();
 }
 
 void RateApp::on_donate_clicked() {
-  QDesktopServices::openUrl(QUrl("https://paypal.me/keshavnrj/5.00"));
+  QDesktopServices::openUrl(QUrl("https://paypal.me/shakaran/5.00"));
   this->reset();
   this->close();
 }

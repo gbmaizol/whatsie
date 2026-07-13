@@ -24,8 +24,8 @@ apps:
     command: usr/bin/whatsie
     environment:
       DICPATH: $SNAP/usr/share/hunspell
-    desktop: usr/share/applications/com.ktechpit.whatsie.desktop
-    common-id: com.ktechpit.whatsie
+    desktop: usr/share/applications/net.shakaran.whatsie.desktop
+    common-id: net.shakaran.whatsie
     extensions:
       - kde-neon-6
     plugs:
@@ -55,7 +55,7 @@ parts:
     plugin: cmake
     source: .
     parse-info:
-      - dist/linux/com.ktechpit.whatsie.appdata.xml
+      - dist/linux/net.shakaran.whatsie.appdata.xml
     build-snaps:
       - hunspell-dictionaries
       - cmake/latest/stable
@@ -74,12 +74,12 @@ parts:
       craftctl default
 
       mkdir -p ${CRAFT_PART_INSTALL}/meta/gui
-      cp ${CRAFT_PART_INSTALL}/usr/share/icons/hicolor/256x256/apps/com.ktechpit.whatsie.png \
+      cp ${CRAFT_PART_INSTALL}/usr/share/icons/hicolor/256x256/apps/net.shakaran.whatsie.png \
         ${CRAFT_PART_INSTALL}/meta/gui/icon.png
 
       sed -i \
         "s|^Icon=.*|Icon=\${SNAP}/meta/gui/icon.png|" \
-        ${CRAFT_PART_INSTALL}/usr/share/applications/com.ktechpit.whatsie.desktop
+        ${CRAFT_PART_INSTALL}/usr/share/applications/net.shakaran.whatsie.desktop
 
     prime:
       - -usr/bug

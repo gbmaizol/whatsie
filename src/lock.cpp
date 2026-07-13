@@ -14,14 +14,10 @@ Lock::Lock(QWidget *parent) : QWidget(parent), ui(new Ui::Lock) {
   ui->setPass->setEnabled(false);
   ui->wrong->hide();
 
-  m_moreApps =
-      new MoreApps(this, nullptr, "keshavnrj",
-                   QUrl("https://raw.githubusercontent.com/keshavbhatt/appdata/"
-                        "main/moreapps.txt"),
-                   false);
-  m_moreApps->setWindowTitle("More Applications by developer");
-  m_moreApps->setFixedHeight(104);
-  ui->moreAppsLayout->addWidget(m_moreApps);
+  // The "More Applications by developer" widget fetched an app list from the
+  // upstream author's feed. This fork has no such feed and does not advertise
+  // third-party apps on the lock screen, so the widget is not created (its
+  // only other use site, rotateApps(), is already null-guarded).
 
   passcodeLoginAction = ui->passcodeLogin->addAction(
       QIcon(":/icons/green_arrow-right-line.png"), QLineEdit::TrailingPosition);

@@ -25,6 +25,10 @@ private:
 
   QString appName, appDescription, appSourceCodeLink, appAuthorLink,
       appAuthorName, appAuthorEmail, donateLink, moreAppsLink, appRateLink;
+  // This is a fork: the original author keeps the authorship credit, the fork
+  // maintainer is listed separately (the MIT licence requires preserving the
+  // original copyright notice).
+  QString maintainerName, maintainerEmail, maintainerLink;
   bool isOpenSource;
 };
 

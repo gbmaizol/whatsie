@@ -255,12 +255,12 @@ install(TARGETS whatsie DESTINATION ${BINDIR})
 if(UNIX AND NOT APPLE)
 
 # Install desktop file
-install(FILES dist/linux/com.ktechpit.whatsie.desktop
+install(FILES dist/linux/net.shakaran.whatsie.desktop
     DESTINATION ${DATADIR}/applications
 )
 
 # Install appdata file
-install(FILES dist/linux/com.ktechpit.whatsie.appdata.xml
+install(FILES dist/linux/net.shakaran.whatsie.appdata.xml
     DESTINATION ${DATADIR}/metainfo
 )
 
@@ -270,25 +270,25 @@ install(FILES LICENSE
 )
 
 # Install icons
-install(FILES dist/linux/hicolor/16x16/apps/com.ktechpit.whatsie.png
+install(FILES dist/linux/hicolor/16x16/apps/net.shakaran.whatsie.png
     DESTINATION ${DATADIR}/icons/hicolor/16x16/apps
 )
-install(FILES dist/linux/hicolor/32x32/apps/com.ktechpit.whatsie.png
+install(FILES dist/linux/hicolor/32x32/apps/net.shakaran.whatsie.png
     DESTINATION ${DATADIR}/icons/hicolor/32x32/apps
 )
-install(FILES dist/linux/hicolor/64x64/apps/com.ktechpit.whatsie.png
+install(FILES dist/linux/hicolor/64x64/apps/net.shakaran.whatsie.png
     DESTINATION ${DATADIR}/icons/hicolor/64x64/apps
 )
-install(FILES dist/linux/hicolor/128x128/apps/com.ktechpit.whatsie.png
+install(FILES dist/linux/hicolor/128x128/apps/net.shakaran.whatsie.png
     DESTINATION ${DATADIR}/icons/hicolor/128x128/apps
 )
-install(FILES dist/linux/hicolor/256x256/apps/com.ktechpit.whatsie.png
+install(FILES dist/linux/hicolor/256x256/apps/net.shakaran.whatsie.png
     DESTINATION ${DATADIR}/icons/hicolor/256x256/apps
 )
-install(FILES dist/linux/hicolor/scalable/apps/com.ktechpit.whatsie.svg
+install(FILES dist/linux/hicolor/scalable/apps/net.shakaran.whatsie.svg
     DESTINATION ${DATADIR}/icons/hicolor/scalable/apps
 )
-install(FILES dist/linux/hicolor/symbolic/apps/com.ktechpit.whatsie-symbolic.svg
+install(FILES dist/linux/hicolor/symbolic/apps/net.shakaran.whatsie-symbolic.svg
     DESTINATION ${DATADIR}/icons/hicolor/symbolic/apps
 )
 

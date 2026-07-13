@@ -6,7 +6,7 @@
    ```bash
    1. Clone source code
 
-   git clone https://github.com/keshavbhatt/whatsie.git
+   git clone https://github.com/shakaran/whatsie.git
 
    2. Enter into the source directory  
 

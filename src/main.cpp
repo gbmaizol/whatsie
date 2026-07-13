@@ -1,5 +1,9 @@
 #include <QApplication>
 #include <QDebug>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QStandardPaths>
 #include <QtWidgets>
 #include <QtWebEngineCore>
 
@@ -9,6 +13,54 @@
 #include "settingsmanager.h"
 #include "webengineprofilemanager.h"
 #include <singleapplication.h>
+
+static bool copyDirRecursively(const QString &from, const QString &to) {
+  QDir src(from);
+  if (!src.exists())
+    return false;
+  if (!QDir().mkpath(to))
+    return false;
+
+  const auto entries = src.entryInfoList(
+      QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot | QDir::Hidden);
+  for (const QFileInfo &entry : entries) {
+    const QString target = to + QLatin1Char('/') + entry.fileName();
+    if (entry.isDir())
+      copyDirRecursively(entry.absoluteFilePath(), target);
+    else if (!QFile::exists(target))
+      QFile::copy(entry.absoluteFilePath(), target);
+  }
+  return true;
+}
+
+// Upstream stored user data under the "org.keshavnrj.ubuntu" organisation; this
+// fork uses "shakaran", which moves every QStandardPaths location — including
+// the WebEngine profile that holds the logged-in WhatsApp session. Copy the
+// legacy directories over on first run so existing installs keep their settings
+// and stay linked instead of being silently logged out. The originals are left
+// untouched (copied, not moved), so an older build still works.
+static void migrateLegacyUserData() {
+  const QString legacyOrg = QStringLiteral("org.keshavnrj.ubuntu");
+  const QString currentOrg = QApplication::organizationName();
+  if (currentOrg.isEmpty() || currentOrg == legacyOrg)
+    return;
+
+  const auto migrate = [&](QStandardPaths::StandardLocation location) {
+    const QString base = QStandardPaths::writableLocation(location);
+    if (base.isEmpty())
+      return;
+    const QString legacy = base + QLatin1Char('/') + legacyOrg;
+    const QString current = base + QLatin1Char('/') + currentOrg;
+    // Already migrated (or a fresh install), or nothing to carry over.
+    if (QDir(current).exists() || !QDir(legacy).exists())
+      return;
+    qInfo() << "Migrating legacy user data:" << legacy << "->" << current;
+    copyDirRecursively(legacy, current);
+  };
+
+  migrate(QStandardPaths::GenericConfigLocation); // settings
+  migrate(QStandardPaths::GenericDataLocation);   // WebEngine profile / session
+}
 
 // Must run before QApplication is created so Qt WebEngine picks these up.
 static void setChromiumFlags() {
@@ -74,10 +126,16 @@ int main(int argc, char *argv[]) {
   instance.setQuitOnLastWindowClosed(false);
   instance.setWindowIcon(themeIcon("whatsie", ":/icons/app/icon-64.png"));
   QApplication::setApplicationName("WhatSie");
-  QApplication::setDesktopFileName("com.ktechpit.whatsie");
-  QApplication::setOrganizationDomain("com.ktechpit");
-  QApplication::setOrganizationName("org.keshavnrj.ubuntu");
+  QApplication::setDesktopFileName("net.shakaran.whatsie");
+  QApplication::setOrganizationDomain("net.shakaran");
+  QApplication::setOrganizationName("shakaran");
   QApplication::setApplicationVersion(VERSIONSTR);
+
+  // This fork changed the organisation name, which moves every QStandardPaths
+  // location (settings, and the WebEngine profile that holds the WhatsApp
+  // session). Carry the old data over on first run so users are not silently
+  // logged out.
+  migrateLegacyUserData();
 
 
   QCommandLineParser parser;

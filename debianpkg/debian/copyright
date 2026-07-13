@@ -1,10 +1,11 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: whatsie
 Upstream-Contact: krafairus <krafairuspc@gmail.com>
-Source: https://github.com/keshavbhatt/whatsie
+Source: https://github.com/shakaran/whatsie
 
 Files: *
 Copyright: 2021 Keshav Bhatt
+           2026 Ángel Guzmán Maeso
 License: MIT
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal

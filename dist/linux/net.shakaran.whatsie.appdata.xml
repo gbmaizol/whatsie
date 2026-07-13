@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-  <id>com.ktechpit.whatsie</id>
+  <id>net.shakaran.whatsie</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>MIT</project_license>
   <name>Whatsie</name>
   <summary>Feature-rich WhatsApp Web client for the Linux desktop</summary>
 
-  <developer id="com.ktechpit">
-    <name>Keshav Bhatt</name>
+  <developer id="net.shakaran">
+    <name>Ángel Guzmán Maeso</name>
   </developer>
 
   <branding>
@@ -17,10 +17,14 @@
 
   <description>
     <p>
-      Whatsie is a native Linux desktop wrapper for WhatsApp Web, built on Qt
+      Whatsie is a native desktop wrapper for WhatsApp Web, built on Qt
       and QtWebEngine.  It brings WhatsApp out of the browser tab and into a
       proper desktop application with system integration, privacy controls, and
       customization options unavailable in a plain browser.
+    </p>
+    <p>
+      This is a fork maintained by Ángel Guzmán Maeso, based on the original
+      WhatSie created by Keshav Bhatt and released under the MIT licence.
     </p>
     <p>Core features:</p>
     <ul>
@@ -41,12 +45,12 @@
     </ul>
   </description>
 
-  <launchable type="desktop-id">com.ktechpit.whatsie.desktop</launchable>
+  <launchable type="desktop-id">net.shakaran.whatsie.desktop</launchable>
 
-  <url type="homepage">https://github.com/keshavbhatt/whatsie</url>
-  <url type="bugtracker">https://github.com/keshavbhatt/whatsie/issues</url>
-  <url type="vcs-browser">https://github.com/keshavbhatt/whatsie</url>
-  <url type="donation">https://www.paypal.me/keshavnrj/10</url>
+  <url type="homepage">https://github.com/shakaran/whatsie</url>
+  <url type="bugtracker">https://github.com/shakaran/whatsie/issues</url>
+  <url type="vcs-browser">https://github.com/shakaran/whatsie</url>
+  <url type="donation">https://www.paypal.me/shakaran/10</url>
 
   <keywords>
     <keyword translate="no">WhatsApp</keyword>
@@ -60,23 +64,23 @@
   <screenshots>
     <screenshot type="default">
       <caption>Main window — Light theme</caption>
-      <image>https://raw.githubusercontent.com/keshavbhatt/whatsie/main/screenshots/1.jpg</image>
+      <image>https://raw.githubusercontent.com/shakaran/whatsie/main/screenshots/1.jpg</image>
     </screenshot>
     <screenshot>
       <caption>Main window — Dark theme</caption>
-      <image>https://raw.githubusercontent.com/keshavbhatt/whatsie/main/screenshots/2.jpg</image>
+      <image>https://raw.githubusercontent.com/shakaran/whatsie/main/screenshots/2.jpg</image>
     </screenshot>
     <screenshot>
       <caption>Settings</caption>
-      <image>https://raw.githubusercontent.com/keshavbhatt/whatsie/main/screenshots/3.jpg</image>
+      <image>https://raw.githubusercontent.com/shakaran/whatsie/main/screenshots/3.jpg</image>
     </screenshot>
     <screenshot>
       <caption>App lock screen</caption>
-      <image>https://raw.githubusercontent.com/keshavbhatt/whatsie/main/screenshots/4.jpg</image>
+      <image>https://raw.githubusercontent.com/shakaran/whatsie/main/screenshots/4.jpg</image>
     </screenshot>
     <screenshot>
       <caption>Hardware access controls and keyboard shortcuts</caption>
-      <image>https://raw.githubusercontent.com/keshavbhatt/whatsie/main/screenshots/5.jpg</image>
+      <image>https://raw.githubusercontent.com/shakaran/whatsie/main/screenshots/5.jpg</image>
     </screenshot>
   </screenshots>
 

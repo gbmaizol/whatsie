@@ -30,11 +30,11 @@ install: build
 	install -d $(DESTDIR)/usr/bin/whatsie
 	install -m 755 data/whatsie $(DESTDIR)/usr/bin/whatsie
 	install -d $(DESTDIR)/usr/share/icons/hicolor/256x256/apps
-	install -m 644 data/com.ktechpit.whatsie.png $(DESTDIR)/usr/share/icons/hicolor/256x256/apps/
+	install -m 644 data/net.shakaran.whatsie.png $(DESTDIR)/usr/share/icons/hicolor/256x256/apps/
 	install -d $(DESTDIR)/usr/share/icons/hicolor/symbolic/apps
-	install -m 644 data/com.ktechpit.whatsie-symbolic.svg $(DESTDIR)/usr/share/icons/hicolor/symbolic/apps/
+	install -m 644 data/net.shakaran.whatsie-symbolic.svg $(DESTDIR)/usr/share/icons/hicolor/symbolic/apps/
 	install -d $(DESTDIR)/usr/share/applications
-	install -m 644 data/com.ktechpit.whatsie.desktop $(DESTDIR)/usr/share/applications/
+	install -m 644 data/net.shakaran.whatsie.desktop $(DESTDIR)/usr/share/applications/
 	cp -r src/* $(DESTDIR)/usr/bin/whatsie/
 
 # Build architecture-independent files here.
