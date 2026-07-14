@@ -1,3 +1,85 @@
+## Unreleased
+
+First release of the fork maintained at https://github.com/shakaran/whatsie.
+Everything below is on top of upstream 5.1.0. The application IDs moved to the
+`net.shakaran` namespace; existing settings and the logged-in session are copied
+over on first run, so nobody is logged out by upgrading.
+
+#### 🎁 Features
+
+* **Spell checker, working.** It was not broken, it was gone — and the build
+  asserted that the system hunspell package supplied the dictionaries. Qt
+  WebEngine uses Chromium's spell checker, which reads `.bdic` and cannot read
+  hunspell's `.dic`/`.aff` at all, so the language list was empty on every
+  distribution. The 31 dictionaries already in the tree are now converted at
+  build time and installed.
+* **Chat themes.** Fourteen of them, recolouring WhatsApp Web itself. Keyed on
+  the colour *values*, since WhatsApp's CSS variable names are
+  compiler-generated and change with each of its deploys. Photos and avatars are
+  untouched.
+* **Chat wallpaper** — your own image behind the messages.
+* **Privacy blur.** Blurs the chat list and the open conversation until you
+  hover a row, so someone glancing at the screen cannot read them. Five levels.
+* **Theme and blur buttons inside WhatsApp's own sidebar**, above the avatar,
+  reachable without opening Settings.
+* **Interface translations**, with a language picker. 15 languages (Italian was
+  human-written; the other 14 are machine-translated and unreviewed).
+* **Windows support**, behind `Q_OS` guards, with a build workflow.
+* Image paste from a browser's clipboard.
+* A connection watchdog that reloads the page when WhatsApp's WebSocket hangs,
+  capped at three reloads per episode.
+* Identify as WhatSie in the phone's linked-devices list, instead of as Chrome.
+* Close the emoji panel by clicking outside it (opt-in).
+* `F1` opens About; its **Report a Bug** button fills in the GitHub issue with
+  the version, commit, memory usage of the whole process tree, and the recent
+  log — including WhatsApp Web's console.
+
+#### 🐞 Bug Fixes
+
+* **The theme could not be set to dark in any language but English.** The
+  setting was stored as the combo box's *displayed* text, which is translated:
+  running in Spanish wrote `windowTheme=claro`, and every comparison in the code
+  is against `"dark"`. A value written by an older build is repaired at startup.
+* **The permissions dialog did nothing at all** — wrong enum, a double-prefixed
+  settings key, and a signal nothing was connected to. It never once reached the
+  engine. This is also why voice and video calls appeared not to work: the
+  microphone and camera could not be granted.
+* **Notifications went to the app's own popup, on the primary monitor**, rather
+  than to the desktop's notification service and the screen the window is on.
+* Notification avatars had red and blue swapped (a byte-order mismatch between
+  `QImage` and the freedesktop `image-data` hint).
+* The window would not restore down from maximized (Wayland reports the
+  maximized geometry as the normal one).
+* The theme was reset to light on every exit.
+* Pasting an image copied from a browser silently produced "no content".
+* Attachments: the desktop's file chooser is used, and the last directory is
+  remembered. Qt's built-in dialog has no bookmarks, no Recent and no address
+  bar, so a file outside the directory it happened to open in was unreachable.
+* Quitting could turn into minimize-to-tray.
+* "Restore" in the tray menu could be left permanently disabled, with no way
+  left to bring the window back.
+* Logging out hung on the "Logging out" overlay and opened a browser tab.
+* Unhandled permission types were denied *and the denial was persisted*, so they
+  stayed denied forever once the app learned to ask.
+* The injected sidebar buttons burned about 40% of a CPU core with the app
+  idle — a MutationObserver whose own repaints retriggered it.
+* The User-Agent is derived from the engine, so it always reports the truth.
+
+#### 📖 Documentation
+
+* The build docs describe the actual CMake build. Old Qt or CMake now fails with
+  an actionable error instead of a confusing one.
+* `DOCS/TRANSLATIONS.md`, `DOCS/WINDOWS_BUILD.md`.
+
+#### ⚠️ Known limitations
+
+* **Screen sharing during a call does not work.** Qt WebEngine as packaged
+  enumerates zero screens and zero windows (measured, on Wayland and on X11
+  alike); it is built without PipeWire. Nothing in the application can change
+  that.
+* Memory use is Chromium's, not the app's: with every injected script disabled,
+  the renderer still accounts for the great majority of it.
+
 ## 5.1.0 (2026-04-03)
 
 #### 🎁 Feature
