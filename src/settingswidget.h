@@ -27,6 +27,7 @@ signals:
   void webTweaksChanged();
   void chatWallpaperChanged();
   void chatThemeChanged();
+  void privacyBlurChanged();
   void spellCheckChanged();
   void notify(QString message);
   void zoomChanged();
@@ -88,7 +89,10 @@ private slots:
   void on_chooseChatWallpaperButton_clicked();
   void on_clearChatWallpaperButton_clicked();
   void on_chatThemeComboBox_currentIndexChanged(int index);
+  void on_privacyBlurComboBox_currentIndexChanged(int index);
   void on_spellCheckCheckBox_toggled(bool checked);
+  void on_themeToggleButtonCheckBox_toggled(bool checked);
+  void on_privacyBlurButtonCheckBox_toggled(bool checked);
   void on_spellCheckLanguageComboBox_currentIndexChanged(int index);
   void on_userAgentLineEdit_editingFinished();
   void on_userAgentLineEdit_textChanged(const QString &arg1);
@@ -107,6 +111,7 @@ private slots:
 private:
   void updateChatWallpaperButtons();
   void populateChatThemes();
+  void populatePrivacyBlur();
   void populateSpellCheck();
   // Fills the language picker from the .qm files compiled into the binary, so
   // adding a translation needs no code change.

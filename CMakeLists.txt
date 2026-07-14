@@ -167,6 +167,7 @@ set(SOURCES
     src/chattheme.cpp
     src/dictionaries.cpp
     src/chatwallpaper.cpp
+    src/privacyblur.cpp
     src/webtweaks.cpp
     src/webview.cpp
     src/widgets/elidedlabel/elidedlabel.cpp
@@ -200,6 +201,7 @@ set(HEADERS
     src/chattheme.h
     src/dictionaries.h
     src/chatwallpaper.h
+    src/privacyblur.h
     src/pagebridge.h
     src/webtweaks.h
     src/webview.h

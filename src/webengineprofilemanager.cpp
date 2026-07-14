@@ -5,6 +5,7 @@
 #include "chattheme.h"
 #include "dictionaries.h"
 #include "chatwallpaper.h"
+#include "privacyblur.h"
 #include "webtweaks.h"
 
 #include <QDebug>
@@ -177,5 +178,6 @@ void WebEngineProfileManager::applyUserSettings() {
     WebTweaks::install(m_profile);
     ChatWallpaper::install(m_profile);
     ChatTheme::install(m_profile);
+    PrivacyBlur::install(m_profile);
     LinkedDeviceName::install(m_profile);
 }

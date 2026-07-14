@@ -16,6 +16,7 @@
 #include "chattheme.h"
 #include "chatwallpaper.h"
 #include "dictionaries.h"
+#include "privacyblur.h"
 
 // The theme combo's two entries, in .ui order. The stored value is derived
 // from these, never from the item text — which is translated.
@@ -111,6 +112,16 @@ SettingsWidget::SettingsWidget(QWidget *parent, int screenNumber,
           .settings()
           .value("webtweaks/dismissExpressionsPanel", false)
           .toBool());
+  ui->themeToggleButtonCheckBox->setChecked(
+      SettingsManager::instance()
+          .settings()
+          .value("webtweaks/themeToggleButton", true)
+          .toBool());
+  ui->privacyBlurButtonCheckBox->setChecked(
+      SettingsManager::instance()
+          .settings()
+          .value("webtweaks/privacyBlurButton", true)
+          .toBool());
   ui->identifyInLinkedDevicesCheckBox->setChecked(
       SettingsManager::instance()
           .settings()
@@ -118,6 +129,7 @@ SettingsWidget::SettingsWidget(QWidget *parent, int screenNumber,
           .toBool());
   populateLanguages();
   populateChatThemes();
+  populatePrivacyBlur();
   populateSpellCheck();
   updateChatWallpaperButtons();
 
@@ -291,6 +303,7 @@ SettingsWidget::~SettingsWidget() {
 
 void SettingsWidget::refresh() {
   ui->themeComboBox->setCurrentIndex(themeIndexFromSettings());
+  populatePrivacyBlur();
 
   ui->cookieSize->setText(Utils::refreshCacheSize(persistentStoragePath()));
 }
@@ -696,6 +709,18 @@ void SettingsWidget::populateSpellCheck() {
   ui->spellCheckLanguageComboBox->blockSignals(false);
 }
 
+void SettingsWidget::on_themeToggleButtonCheckBox_toggled(bool checked) {
+  SettingsManager::instance().settings().setValue(
+      "webtweaks/themeToggleButton", checked);
+  emit webTweaksChanged();
+}
+
+void SettingsWidget::on_privacyBlurButtonCheckBox_toggled(bool checked) {
+  SettingsManager::instance().settings().setValue(
+      "webtweaks/privacyBlurButton", checked);
+  emit webTweaksChanged();
+}
+
 void SettingsWidget::on_spellCheckCheckBox_toggled(bool checked) {
   SettingsManager::instance().settings().setValue("spellCheckEnabled", checked);
   ui->spellCheckLanguageComboBox->setEnabled(checked);
@@ -707,6 +732,25 @@ void SettingsWidget::on_spellCheckLanguageComboBox_currentIndexChanged(int index
       "spellCheckLanguage",
       ui->spellCheckLanguageComboBox->itemData(index).toString());
   emit spellCheckChanged();
+}
+
+void SettingsWidget::populatePrivacyBlur() {
+  ui->privacyBlurComboBox->blockSignals(true);
+  ui->privacyBlurComboBox->clear();
+  const QString current = PrivacyBlur::currentLevelId();
+  for (const PrivacyBlur::Level &level : PrivacyBlur::levels()) {
+    ui->privacyBlurComboBox->addItem(level.name, level.id);
+    if (level.id == current)
+      ui->privacyBlurComboBox->setCurrentIndex(
+          ui->privacyBlurComboBox->count() - 1);
+  }
+  ui->privacyBlurComboBox->blockSignals(false);
+}
+
+void SettingsWidget::on_privacyBlurComboBox_currentIndexChanged(int index) {
+  PrivacyBlur::setCurrentLevelId(
+      ui->privacyBlurComboBox->itemData(index).toString());
+  emit privacyBlurChanged();
 }
 
 void SettingsWidget::on_chatThemeComboBox_currentIndexChanged(int index) {

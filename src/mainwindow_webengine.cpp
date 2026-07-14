@@ -101,6 +101,8 @@ void MainWindow::installPageBridge(QWebEnginePage *page) {
     m_pageBridge = new PageBridge(this);
     connect(m_pageBridge, &PageBridge::themeToggleRequested, this,
             &MainWindow::toggleTheme);
+    connect(m_pageBridge, &PageBridge::privacyBlurToggleRequested, this,
+            &MainWindow::togglePrivacyBlur);
   }
   if (!m_webChannel) {
     m_webChannel = new QWebChannel(this);

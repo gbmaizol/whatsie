@@ -19,6 +19,7 @@
 #include "theme.h"
 #include "chattheme.h"
 #include "chatwallpaper.h"
+#include "privacyblur.h"
 #include "webengineprofilemanager.h"
 #include "webtweaks.h"
 
@@ -371,6 +372,13 @@ void MainWindow::initSettingWidget() {
                     : js);
           });
 
+  connect(m_settingsWidget, &SettingsWidget::privacyBlurChanged,
+          m_settingsWidget, [=]() {
+            PrivacyBlur::install(WebEngineProfileManager::instance().profile());
+            if (m_webEngine && m_webEngine->page())
+              m_webEngine->page()->runJavaScript(PrivacyBlur::scriptSource());
+          });
+
   connect(m_settingsWidget, &SettingsWidget::spellCheckChanged, m_settingsWidget,
           [=]() { WebEngineProfileManager::instance().applyUserSettings(); });
 
@@ -566,6 +574,30 @@ void MainWindow::toggleTheme() {
     m_settingsWidget->toggleTheme();
 }
 
+// The button in WhatsApp's rail is a switch, but the setting has five values.
+// Flipping it off remembers which one was on, so flipping it back on restores
+// what the user actually chose rather than resetting them to a default.
+void MainWindow::togglePrivacyBlur() {
+  QSettings &settings = SettingsManager::instance().settings();
+  const QString current = PrivacyBlur::currentLevelId();
+
+  if (current == QLatin1String("off")) {
+    QString previous = settings.value(QStringLiteral("privacyBlurLast"))
+                           .toString();
+    if (previous.isEmpty() || previous == QLatin1String("off"))
+      previous = QStringLiteral("both");
+    PrivacyBlur::setCurrentLevelId(previous);
+  } else {
+    settings.setValue(QStringLiteral("privacyBlurLast"), current);
+    PrivacyBlur::setCurrentLevelId(QStringLiteral("off"));
+  }
+
+  PrivacyBlur::install(WebEngineProfileManager::instance().profile());
+  if (m_webEngine && m_webEngine->page())
+    m_webEngine->page()->runJavaScript(PrivacyBlur::scriptSource());
+  if (m_settingsWidget)
+    m_settingsWidget->refresh();   // keep the combo box telling the truth
+}
 
 // ── Chat / URL helpers ────────────────────────────────────────────────────────
 

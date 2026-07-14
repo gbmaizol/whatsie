@@ -13,11 +13,13 @@ public:
   explicit PageBridge(QObject *parent = nullptr) : QObject(parent) {}
 
 public slots:
-  // Invoked by the theme button injected next to the profile avatar.
+  // Invoked by the buttons injected next to the profile avatar.
   void toggleTheme() { emit themeToggleRequested(); }
+  void togglePrivacyBlur() { emit privacyBlurToggleRequested(); }
 
 signals:
   void themeToggleRequested();
+  void privacyBlurToggleRequested();
 };
 
 #endif // PAGEBRIDGE_H

@@ -41,6 +41,7 @@ public slots:
   void showAbout();
   void lockApp();
   void toggleTheme();
+  void togglePrivacyBlur();
   void newChat();
 
 protected slots:
