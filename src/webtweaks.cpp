@@ -110,13 +110,21 @@ static const char kScriptTemplate[] = R"JS(
     },
   ];
 
+  // Idempotent, and that is not an optimisation but a correctness requirement:
+  // writing innerHTML is a DOM mutation, and this used to be called from a
+  // MutationObserver watching the DOM. Every repaint retriggered the observer,
+  // which repainted again — a feedback loop that burned ~40% of a core with the
+  // app sitting idle. The label identifies the state, so if it has not changed
+  // there is nothing to write.
   var paint = function (spec, button) {
+    var label = spec.label();
+    if (button.getAttribute('data-whatsie-state') === label) return;
     var svg = button.querySelector('svg');
     if (!svg) return;
+    button.setAttribute('data-whatsie-state', label);
     svg.setAttribute('viewBox', '0 0 24 24');
     svg.setAttribute('fill', 'currentColor');
     svg.innerHTML = spec.icon();
-    var label = spec.label();
     button.setAttribute('aria-label', label);
     button.setAttribute('title', label);
   };
@@ -138,7 +146,18 @@ static const char kScriptTemplate[] = R"JS(
     }
     return null;
   };
+  // Is every button that should be there, there — and none that should not be?
+  // Two getElementById calls. This runs on a timer, so it must not touch layout.
+  var settled = function () {
+    for (var n = 0; n < BUTTONS.length; n++) {
+      var entry = document.getElementById(BUTTONS[n].id);
+      if (BUTTONS[n].enabled() !== !!(entry && entry.isConnected)) return false;
+    }
+    return true;
+  };
+
   var install = function () {
+    if (settled()) return;   // the common case, and it costs nothing
     try {
       // Each one goes directly above the avatar, so inserting them in order
       // leaves them on screen in the order they are listed above.
@@ -150,10 +169,7 @@ static const char kScriptTemplate[] = R"JS(
           if (existing) existing.remove();
           continue;
         }
-        if (existing && existing.isConnected) {
-          paint(spec, existing.querySelector('button') || existing);
-          continue;
-        }
+        if (existing && existing.isConnected) continue;
 
         var rail = railButtons();
         var avatar = null, template = null;
@@ -203,21 +219,22 @@ static const char kScriptTemplate[] = R"JS(
     }
   };
 
-  window.__whatsieInstallThemeButton = install;
+  window.__whatsieInstallThemeButton = function () { install(); repaint(); };
 
-  // WhatsApp rebuilds the rail on navigation, so keep putting the buttons back.
+  // WhatsApp rebuilds the rail on navigation, so the buttons have to be put
+  // back. A MutationObserver over the body is the obvious way and the wrong
+  // one: WhatsApp mutates its DOM continuously, so the callback ran constantly,
+  // and each run measured the rail — a forced layout — several times a second.
+  // A timer costs two getElementById calls per tick instead, and a button
+  // reappearing up to a second after WhatsApp tore it out is not something
+  // anyone can perceive.
   install();
-  var scheduled = false;
-  new MutationObserver(function () {
-    if (scheduled) return;
-    scheduled = true;
-    setTimeout(function () { scheduled = false; install(); }, 300);
-  }).observe(document.body, {childList: true, subtree: true});
+  setInterval(install, 1000);
 
-  // The icons have to follow the state they report even when nothing else on
-  // the page moves: the theme lives in a class on <html>, and the blur in a
-  // stylesheet in <head>. Watch both rather than waiting for a DOM change
-  // elsewhere.
+  // The icons follow state that changes without anything else on the page
+  // moving: the theme lives in a class on <html>, the blur in a stylesheet in
+  // <head>. Both observers are narrow, and paint() is a no-op when the state it
+  // would draw is the state already drawn.
   new MutationObserver(repaint).observe(document.documentElement, {
     attributes: true, attributeFilter: ['class'],
   });
