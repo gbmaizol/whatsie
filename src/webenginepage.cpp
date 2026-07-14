@@ -45,10 +45,33 @@ bool WebEnginePage::acceptNavigationRequest(const QUrl &url,
   return QWebEnginePage::acceptNavigationRequest(url, type, isMainFrame);
 }
 
+// A window request — middle-clicking a link, target="_blank" — used to return a
+// fresh WebEnginePage that was never put into a view and had no parent. Such a
+// page leaks, and QWebEnginePage::view() returns nullptr for it, which the
+// dialog handlers below dereference to parent their message boxes. Links belong
+// in the browser here anyway (acceptNavigationRequest already sends a plain
+// click there), so hand the URL to the desktop and discard the page. It is a
+// plain QWebEnginePage on purpose: none of this class's dialog handlers are
+// wired to it, so nothing can reach a view that does not exist.
 QWebEnginePage *
 WebEnginePage::createWindow(QWebEnginePage::WebWindowType type) {
   Q_UNUSED(type);
-  return new WebEnginePage(this->profile());
+  auto *scratch = new QWebEnginePage(profile(), this);
+  connect(scratch, &QWebEnginePage::urlChanged, scratch,
+          [scratch](const QUrl &url) {
+            if (url.isValid() && !url.isEmpty())
+              QDesktopServices::openUrl(url);
+            scratch->deleteLater();
+          });
+  return scratch;
+}
+
+// view() is null for any page that is not inside a view. A null parent is fine
+// for a dialog — it just becomes top-level — whereas dereferencing view() is a
+// crash.
+QWidget *WebEnginePage::dialogParent() {
+  QWidget *currentView = view();
+  return currentView ? currentView->window() : nullptr;
 }
 
 inline QString questionForPermission(const QWebEnginePermission &permission) {
@@ -111,7 +134,7 @@ void WebEnginePage::handlePermissionRequested(QWebEnginePermission permission) {
     qWarning() << "Denying permission type with no prompt:"
                << static_cast<int>(permission.permissionType());
     permission.deny();
-  } else if (QMessageBox::question(view()->window(), title, question) ==
+  } else if (QMessageBox::question(dialogParent(), title, question) ==
              QMessageBox::Yes) {
     permission.grant();
     SettingsManager::instance().settings().setValue(permissionTypeStr, true);
@@ -199,7 +222,7 @@ QStringList WebEnginePage::chooseFiles(QWebEnginePage::FileSelectionMode mode,
 void WebEnginePage::handleCertificateError(
     const QWebEngineCertificateError &error) {
   QString description = error.description();
-  QWidget *mainWindow = view()->window();
+  QWidget *mainWindow = dialogParent();
   if (error.isOverridable()) {
     QDialog dialog(mainWindow);
     dialog.setModal(true);
@@ -226,7 +249,7 @@ void WebEnginePage::handleCertificateError(
 
 void WebEnginePage::handleAuthenticationRequired(const QUrl &requestUrl,
                                                  QAuthenticator *auth) {
-  QWidget *mainWindow = view()->window();
+  QWidget *mainWindow = dialogParent();
   QDialog dialog(mainWindow);
   dialog.setModal(true);
   dialog.setWindowFlags(dialog.windowFlags() &
@@ -257,7 +280,7 @@ void WebEnginePage::handleAuthenticationRequired(const QUrl &requestUrl,
 
 void WebEnginePage::handleProxyAuthenticationRequired(
     const QUrl &, QAuthenticator *auth, const QString &proxyHost) {
-  QWidget *mainWindow = view()->window();
+  QWidget *mainWindow = dialogParent();
   QDialog dialog(mainWindow);
   dialog.setModal(true);
   dialog.setWindowFlags(dialog.windowFlags() &
@@ -289,7 +312,7 @@ void WebEnginePage::handleProxyAuthenticationRequired(
 void WebEnginePage::handleRegisterProtocolHandlerRequested(
     QWebEngineRegisterProtocolHandlerRequest request) {
   auto answer = QMessageBox::question(
-      view()->window(), tr("Permission Request"),
+      dialogParent(), tr("Permission Request"),
       tr("Allow %1 to open all %2 links?")
           .arg(request.origin().host(), request.scheme()));
   if (answer == QMessageBox::Yes)

@@ -42,6 +42,12 @@ protected:
       return QWebEngineView::forPage(this);
   }
 
+  // Parent for the dialogs below. view() is null for a page that is not inside
+  // a view — createWindow() used to hand back exactly such a page — and
+  // dereferencing it is a crash. A null parent merely makes the dialog
+  // top-level.
+  QWidget *dialogParent();
+
 public slots:
   void handlePermissionRequested(QWebEnginePermission permission);
   void handleLoadFinished(bool ok);
