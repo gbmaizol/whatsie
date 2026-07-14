@@ -58,6 +58,11 @@ parts:
     build-packages:
       - libxkbcommon-dev
       - libdrm-dev
+      # Provides qwebengine_convert_dict, which the build uses to turn the
+      # hunspell dictionaries into the .bdic format Qt WebEngine needs. Without
+      # it the build stops with an error rather than shipping a spell checker
+      # that silently does nothing.
+      - qt6-webengine-dev-tools
 
     stage-packages:
       - libdrm2
