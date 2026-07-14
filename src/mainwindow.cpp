@@ -148,6 +148,12 @@ void MainWindow::restoreMainWindow() {
 
 void MainWindow::showEvent(QShowEvent *event) {
   QMainWindow::showEvent(event);
+
+  // Refresh the tray menu here as well as from its aboutToShow signal: a menu
+  // the desktop shell renders itself may never emit that, leaving the entries
+  // stale (see checkWindowState).
+  checkWindowState();
+
   if (m_geometryRestored)
     return;
   m_geometryRestored = true;
@@ -156,6 +162,11 @@ void MainWindow::showEvent(QShowEvent *event) {
   // Queued, so the window is actually mapped at its normal size before the
   // compositor is asked to maximize it.
   QTimer::singleShot(0, this, [this]() { showMaximized(); });
+}
+
+void MainWindow::hideEvent(QHideEvent *event) {
+  QMainWindow::hideEvent(event);
+  checkWindowState();
 }
 
 void MainWindow::resizeEvent(QResizeEvent *event) {

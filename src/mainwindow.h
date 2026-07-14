@@ -46,6 +46,7 @@ protected slots:
   void resizeEvent(QResizeEvent *event) override;
   void moveEvent(QMoveEvent *event) override;
   void showEvent(QShowEvent *event) override;
+  void hideEvent(QHideEvent *event) override;
   void changeEvent(QEvent *e) override;
 
 private:
