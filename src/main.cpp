@@ -94,6 +94,25 @@ static void clearSilentlyDeniedPermissions() {
   s.setValue(QStringLiteral("permissionPromptsFixed"), true);
 }
 
+// The theme used to be stored as whatever the combo box said, and the combo box
+// is translated — so running the app in Spanish wrote windowTheme=claro, and
+// every comparison against "dark" then failed for good: the app could switch to
+// light and never back. The setting is keyed on the entry's position now, but a
+// value written by an older build has to be repaired, and there is no way to
+// know which language it was in. Anything unrecognised falls back to light,
+// which is the default anyway.
+static void normalizeWindowTheme() {
+  QSettings &s = SettingsManager::instance().settings();
+  const QString theme = s.value(QStringLiteral("windowTheme")).toString();
+  if (theme.isEmpty() || theme == QLatin1String("dark") ||
+      theme == QLatin1String("light"))
+    return;
+
+  qInfo() << "Repairing a theme setting written in the display language:"
+          << theme << "-> light";
+  s.setValue(QStringLiteral("windowTheme"), QStringLiteral("light"));
+}
+
 // The tr() strings were never actually translated: no QTranslator was ever
 // installed and the .ts files were not even compiled, so the Italian
 // translation in the tree had never once been used. Load one for the system
@@ -214,6 +233,7 @@ int main(int argc, char *argv[]) {
   // logged out.
   migrateLegacyUserData();
   clearSilentlyDeniedPermissions();
+  normalizeWindowTheme();
 
 
   QCommandLineParser parser;

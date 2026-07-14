@@ -16,6 +16,20 @@
 #include "chattheme.h"
 #include "chatwallpaper.h"
 
+// The theme combo's two entries, in .ui order. The stored value is derived
+// from these, never from the item text — which is translated.
+static const int kThemeIndexDark = 0;
+static const int kThemeIndexLight = 1;
+
+static int themeIndexFromSettings() {
+  return SettingsManager::instance()
+                     .settings()
+                     .value("windowTheme", "light")
+                     .toString() == QLatin1String("dark")
+             ? kThemeIndexDark
+             : kThemeIndexLight;
+}
+
 extern QString defaultUserAgentStr;
 extern int defaultAppAutoLockDuration;
 extern bool defaultAppAutoLock;
@@ -61,11 +75,10 @@ SettingsWidget::SettingsWidget(QWidget *parent, int screenNumber,
                                             .settings()
                                             .value("autoPlayMedia", false)
                                             .toBool());
-  ui->themeComboBox->setCurrentText(
-      Utils::toCamelCase(SettingsManager::instance()
-                             .settings()
-                             .value("windowTheme", "light")
-                             .toString()));
+  // By index, never by text: the items are translated, and keying the stored
+  // theme on what they happen to say in the current language is what used to
+  // write windowTheme=claro and leave the app permanently unable to go dark.
+  ui->themeComboBox->setCurrentIndex(themeIndexFromSettings());
 
   ui->userAgentLineEdit->setText(SettingsManager::instance()
                                      .settings()
@@ -248,10 +261,10 @@ void SettingsWidget::themeSwitchTimerTimeout() {
 
     if (inRange(sunsetSeconds, sunriseSeconds, currentSeconds)) {
       qDebug() << "is night: ";
-      ui->themeComboBox->setCurrentText("Dark");
+      ui->themeComboBox->setCurrentIndex(kThemeIndexDark);
     } else {
       qDebug() << "is morn: ";
-      ui->themeComboBox->setCurrentText("Light");
+      ui->themeComboBox->setCurrentIndex(kThemeIndexLight);
     }
   }
 }
@@ -275,11 +288,7 @@ SettingsWidget::~SettingsWidget() {
 }
 
 void SettingsWidget::refresh() {
-  ui->themeComboBox->setCurrentText(
-      Utils::toCamelCase(SettingsManager::instance()
-                             .settings()
-                             .value("windowTheme", "light")
-                             .toString()));
+  ui->themeComboBox->setCurrentIndex(themeIndexFromSettings());
 
   ui->cookieSize->setText(Utils::refreshCacheSize(persistentStoragePath()));
 }
@@ -333,18 +342,18 @@ void SettingsWidget::on_notificationCheckBox_toggled(bool checked) {
                                                   checked);
 }
 
-void SettingsWidget::on_themeComboBox_currentTextChanged(const QString &arg1) {
+void SettingsWidget::on_themeComboBox_currentIndexChanged(int index) {
   applyThemeQuirks();
-  SettingsManager::instance().settings().setValue("windowTheme",
-                                                  QString(arg1).toLower());
+  SettingsManager::instance().settings().setValue(
+      "windowTheme", index == kThemeIndexDark ? QStringLiteral("dark")
+                                              : QStringLiteral("light"));
   emit updateWindowTheme();
   emit updatePageTheme();
 }
 
 void SettingsWidget::applyThemeQuirks() {
   // little quirks
-  if (QString::compare(ui->themeComboBox->currentText(), "dark",
-                       Qt::CaseInsensitive) == 0) {
+  if (ui->themeComboBox->currentIndex() == kThemeIndexDark) {
     ui->bottomLine->setStyleSheet("background-color: rgb(0, 117, 96);");
     ui->label_7->setStyleSheet(
         "color:#c2c5d1;padding: 0px 8px 0px 8px;background:transparent;");

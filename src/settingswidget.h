@@ -81,7 +81,7 @@ private slots:
   void on_showShortcutsButton_clicked();
   void on_startMinimized_toggled(bool checked);
   void on_styleComboBox_currentTextChanged(const QString &arg1);
-  void on_themeComboBox_currentTextChanged(const QString &arg1);
+  void on_themeComboBox_currentIndexChanged(int index);
   void on_tryNotification_clicked();
   void on_useNativeFileDialog_toggled(bool checked);
   void on_chooseChatWallpaperButton_clicked();
