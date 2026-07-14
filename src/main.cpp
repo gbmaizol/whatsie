@@ -12,6 +12,7 @@
 
 #include "common.h"
 #include "def.h"
+#include "dictionaries.h"
 #include "mainwindow.h"
 #include "settingsmanager.h"
 #include "webengineprofilemanager.h"
@@ -234,6 +235,16 @@ int main(int argc, char *argv[]) {
   migrateLegacyUserData();
   clearSilentlyDeniedPermissions();
   normalizeWindowTheme();
+
+  // Qt reads QTWEBENGINE_DICTIONARIES_PATH once, when the profile is
+  // constructed, so this has to happen before anything touches the profile.
+  // Without it Chromium looks beside the executable, finds nothing, and the
+  // spell checker silently does nothing at all — which is how it shipped.
+  const QString dictionaries = Dictionaries::dictionaryPath();
+  if (dictionaries.isEmpty())
+    qWarning() << "No spell-check dictionaries found; spell checking is off";
+  else
+    qputenv("QTWEBENGINE_DICTIONARIES_PATH", dictionaries.toLocal8Bit());
 
 
   QCommandLineParser parser;

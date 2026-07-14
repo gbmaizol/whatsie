@@ -3,6 +3,7 @@
 #include "linkeddevicename.h"
 #include "settingsmanager.h"
 #include "chattheme.h"
+#include "dictionaries.h"
 #include "chatwallpaper.h"
 #include "webtweaks.h"
 
@@ -162,6 +163,16 @@ void WebEngineProfileManager::applyUserSettings() {
     m_profile->settings()->setAttribute(
         QWebEngineSettings::PlaybackRequiresUserGesture,
         s.value(QStringLiteral("autoPlayMedia"), false).toBool());
+
+    // Chromium's spell checker underlines nothing unless it is given a language
+    // whose .bdic it can actually find, so an empty list is the same as off.
+    const QString dictionary = Dictionaries::preferredDictionary();
+    const bool spellCheck =
+        s.value(QStringLiteral("spellCheckEnabled"), true).toBool() &&
+        !dictionary.isEmpty();
+    m_profile->setSpellCheckEnabled(spellCheck);
+    m_profile->setSpellCheckLanguages(spellCheck ? QStringList{dictionary}
+                                                 : QStringList{});
 
     WebTweaks::install(m_profile);
     ChatWallpaper::install(m_profile);

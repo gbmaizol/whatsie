@@ -15,6 +15,7 @@
 #include "automatictheme.h"
 #include "chattheme.h"
 #include "chatwallpaper.h"
+#include "dictionaries.h"
 
 // The theme combo's two entries, in .ui order. The stored value is derived
 // from these, never from the item text — which is translated.
@@ -117,6 +118,7 @@ SettingsWidget::SettingsWidget(QWidget *parent, int screenNumber,
           .toBool());
   populateLanguages();
   populateChatThemes();
+  populateSpellCheck();
   updateChatWallpaperButtons();
 
   this->appAutoLockingSetChecked(
@@ -650,6 +652,61 @@ void SettingsWidget::populateChatThemes() {
       ui->chatThemeComboBox->setCurrentIndex(ui->chatThemeComboBox->count() - 1);
   }
   ui->chatThemeComboBox->blockSignals(false);
+}
+
+// The dictionaries are whatever .bdic files the build installed, so a new
+// language needs no code change here.
+void SettingsWidget::populateSpellCheck() {
+  const QStringList available = Dictionaries::availableDictionaries();
+
+  ui->spellCheckCheckBox->blockSignals(true);
+  ui->spellCheckCheckBox->setChecked(
+      SettingsManager::instance()
+          .settings()
+          .value("spellCheckEnabled", true)
+          .toBool() &&
+      !available.isEmpty());
+  // Nothing to spell-check with is worth saying plainly, rather than offering a
+  // switch that cannot do anything.
+  ui->spellCheckCheckBox->setEnabled(!available.isEmpty());
+  ui->spellCheckCheckBox->setText(
+      available.isEmpty()
+          ? tr("Spell checker (no dictionaries installed)")
+          : tr("Check spelling as I type"));
+  ui->spellCheckCheckBox->blockSignals(false);
+
+  const QString current = Dictionaries::preferredDictionary();
+  ui->spellCheckLanguageComboBox->blockSignals(true);
+  ui->spellCheckLanguageComboBox->clear();
+  for (const QString &dictionary : available) {
+    // "es_ES" reads better as "Español (España)".
+    const QLocale locale(dictionary);
+    const QString name = locale.language() == QLocale::C
+                             ? dictionary
+                             : locale.nativeLanguageName() +
+                                   QStringLiteral(" (") + dictionary +
+                                   QStringLiteral(")");
+    ui->spellCheckLanguageComboBox->addItem(name, dictionary);
+    if (dictionary == current)
+      ui->spellCheckLanguageComboBox->setCurrentIndex(
+          ui->spellCheckLanguageComboBox->count() - 1);
+  }
+  ui->spellCheckLanguageComboBox->setEnabled(
+      !available.isEmpty() && ui->spellCheckCheckBox->isChecked());
+  ui->spellCheckLanguageComboBox->blockSignals(false);
+}
+
+void SettingsWidget::on_spellCheckCheckBox_toggled(bool checked) {
+  SettingsManager::instance().settings().setValue("spellCheckEnabled", checked);
+  ui->spellCheckLanguageComboBox->setEnabled(checked);
+  emit spellCheckChanged();
+}
+
+void SettingsWidget::on_spellCheckLanguageComboBox_currentIndexChanged(int index) {
+  SettingsManager::instance().settings().setValue(
+      "spellCheckLanguage",
+      ui->spellCheckLanguageComboBox->itemData(index).toString());
+  emit spellCheckChanged();
 }
 
 void SettingsWidget::on_chatThemeComboBox_currentIndexChanged(int index) {

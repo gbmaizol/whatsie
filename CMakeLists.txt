@@ -165,6 +165,7 @@ set(SOURCES
     src/webenginenotifproxy.cpp
     src/webengineprofilemanager.cpp
     src/chattheme.cpp
+    src/dictionaries.cpp
     src/chatwallpaper.cpp
     src/webtweaks.cpp
     src/webview.cpp
@@ -197,6 +198,7 @@ set(HEADERS
     src/webenginepage.h
     src/webengineprofilemanager.h
     src/chattheme.h
+    src/dictionaries.h
     src/chatwallpaper.h
     src/pagebridge.h
     src/webtweaks.h
@@ -379,9 +381,76 @@ install(FILES dist/linux/hicolor/symbolic/apps/net.shakaran.whatsie-symbolic.svg
 
 endif()
 
-# Spell-check dictionaries are provided at runtime by the system hunspell
-# package (or the hunspell-dictionaries content snap in the snap build).
-# No compile-time dictionary conversion is needed.
+# ── Spell-check dictionaries ──────────────────────────────────────────────────
+#
+# Qt WebEngine's spell checker is Chromium's, and Chromium reads its own .bdic
+# format — it cannot read hunspell's .dic/.aff at all. Pointing it at the system
+# hunspell directory therefore finds nothing, which is exactly why the language
+# dropdown was always empty and no word was ever underlined.
+#
+# The hunspell sources in src/dictionaries are converted here, once, with the
+# tool Qt ships for it, and installed as .bdic. QTWEBENGINE_DICTIONARIES_PATH is
+# pointed at the result at startup (see main.cpp).
+option(WHATSIE_SPELLCHECK "Build the spell-check dictionaries" ON)
+
+if(WHATSIE_SPELLCHECK)
+
+find_program(QWEBENGINE_CONVERT_DICT
+    NAMES qwebengine_convert_dict
+    HINTS "${QT6_INSTALL_PREFIX}/libexec" /usr/lib/qt6/libexec
+          /usr/lib/x86_64-linux-gnu/qt6/libexec /usr/lib64/qt6/libexec
+)
+
+file(GLOB WHATSIE_HUNSPELL_DICTS "${CMAKE_CURRENT_SOURCE_DIR}/src/dictionaries/*.dic")
+
+if(NOT QWEBENGINE_CONVERT_DICT)
+    # Not a warning to be ignored: without this tool there are no dictionaries,
+    # and the spell checker silently does nothing. That is how it shipped broken.
+    message(FATAL_ERROR
+        "qwebengine_convert_dict was not found.\n"
+        "It converts the hunspell dictionaries into the .bdic format Qt WebEngine "
+        "requires; without it the spell checker cannot work at all.\n"
+        "It ships with Qt WebEngine's development package:\n"
+        "  Debian/Ubuntu:  sudo apt install qt6-webengine-dev\n"
+        "  Fedora:         sudo dnf install qt6-qtwebengine-devel\n"
+        "  Arch:           sudo pacman -S qt6-webengine\n"
+        "Or pass its location explicitly: -DQWEBENGINE_CONVERT_DICT=/path/to/qwebengine_convert_dict\n"
+        "To build without a spell checker instead, pass -DWHATSIE_SPELLCHECK=OFF."
+    )
+endif()
+
+set(WHATSIE_DICT_DIR "${CMAKE_CURRENT_BINARY_DIR}/qtwebengine_dictionaries")
+file(MAKE_DIRECTORY "${WHATSIE_DICT_DIR}")
+
+set(WHATSIE_BDICS "")
+foreach(dict ${WHATSIE_HUNSPELL_DICTS})
+    get_filename_component(dict_name "${dict}" NAME_WE)
+    set(bdic "${WHATSIE_DICT_DIR}/${dict_name}.bdic")
+    add_custom_command(
+        OUTPUT "${bdic}"
+        COMMAND "${QWEBENGINE_CONVERT_DICT}" "${dict}" "${bdic}"
+        DEPENDS "${dict}" "${CMAKE_CURRENT_SOURCE_DIR}/src/dictionaries/${dict_name}.aff"
+        COMMENT "Converting dictionary ${dict_name} to .bdic"
+        VERBATIM
+    )
+    list(APPEND WHATSIE_BDICS "${bdic}")
+endforeach()
+
+add_custom_target(whatsie_dictionaries ALL DEPENDS ${WHATSIE_BDICS})
+add_dependencies(whatsie whatsie_dictionaries)
+
+list(LENGTH WHATSIE_BDICS WHATSIE_DICT_COUNT)
+
+if(UNIX AND NOT APPLE)
+    install(FILES ${WHATSIE_BDICS}
+        DESTINATION ${DATADIR}/whatsie/qtwebengine_dictionaries
+    )
+endif()
+
+else()
+    set(WHATSIE_DICT_COUNT 0)
+    target_compile_definitions(whatsie PRIVATE WHATSIE_NO_SPELLCHECK)
+endif()
 
 # Summary message
 message(STATUS "")

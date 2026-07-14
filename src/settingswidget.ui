@@ -382,6 +382,23 @@ background:transparent;
               </property>
              </widget>
             </item>
+            <item row="10" column="0">
+             <widget class="QCheckBox" name="spellCheckCheckBox">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Underlines misspelt words as you type, and offers corrections in the right-click menu.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+              <property name="text">
+               <string>Check spelling as I type</string>
+              </property>
+             </widget>
+            </item>
+            <item row="10" column="1">
+             <widget class="QComboBox" name="spellCheckLanguageComboBox">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The language to check against.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
             <item row="8" column="0">
              <widget class="QLabel" name="chatThemeLabel">
               <property name="text">

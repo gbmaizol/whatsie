@@ -371,6 +371,9 @@ void MainWindow::initSettingWidget() {
                     : js);
           });
 
+  connect(m_settingsWidget, &SettingsWidget::spellCheckChanged, m_settingsWidget,
+          [=]() { WebEngineProfileManager::instance().applyUserSettings(); });
+
   connect(m_settingsWidget, &SettingsWidget::notify, m_settingsWidget,
           [=](QString message) { showNotification("", message); });
 
@@ -562,6 +565,7 @@ void MainWindow::toggleTheme() {
   if (m_settingsWidget != nullptr)
     m_settingsWidget->toggleTheme();
 }
+
 
 // ── Chat / URL helpers ────────────────────────────────────────────────────────
 

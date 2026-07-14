@@ -11,9 +11,10 @@ public:
 
     QWebEngineProfile *profile() const;
 
-    // Re-reads user-configurable settings (UA, spell-check, autoplay) from
-    // QSettings and applies them to the profile. Call whenever these settings
-    // change without recreating the page.
+    // Re-reads the user-configurable settings — user agent, autoplay, spell
+    // check — and the injected scripts from QSettings, and applies them to the
+    // profile. Call whenever any of them changes, instead of recreating the
+    // page.
     void applyUserSettings();
 
 private:
