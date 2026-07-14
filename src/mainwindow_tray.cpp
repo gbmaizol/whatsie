@@ -90,6 +90,17 @@ void MainWindow::createTrayIcon() {
   connect(m_systemTrayIcon, &QSystemTrayIcon::activated, this,
           &MainWindow::iconActivated);
 
+  // Do NOT connect QSystemTrayIcon::messageClicked here under Linux, however
+  // tempting it looks. Qt's QDBusTrayIcon subscribes to the *global*
+  // org.freedesktop.Notifications signals and emits messageClicked() from
+  // actionInvoked() without checking that the notification id is one of its
+  // own — so clicking a notification from any other application on the desktop
+  // fires it. That is what used to raise this window when someone clicked a
+  // notification from their mail client. On Linux, notification clicks come
+  // from libnotify-qt instead, which does match the id (see the notification
+  // presenter); the messageClicked path is only wired up on other platforms,
+  // where the signal belongs to our own toast.
+
   m_systemTrayIcon->show();
 
   if (qApp->styleHints()->showShortcutsInContextMenus()) {
