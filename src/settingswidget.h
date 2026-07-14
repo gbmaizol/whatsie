@@ -25,6 +25,8 @@ signals:
   void linkedDeviceNameChanged();
   void notificationPopupTimeOutChanged();
   void webTweaksChanged();
+  void chatWallpaperChanged();
+  void chatThemeChanged();
   void notify(QString message);
   void zoomChanged();
   void zoomMaximizedChanged();
@@ -82,6 +84,9 @@ private slots:
   void on_themeComboBox_currentTextChanged(const QString &arg1);
   void on_tryNotification_clicked();
   void on_useNativeFileDialog_toggled(bool checked);
+  void on_chooseChatWallpaperButton_clicked();
+  void on_clearChatWallpaperButton_clicked();
+  void on_chatThemeComboBox_currentIndexChanged(int index);
   void on_userAgentLineEdit_editingFinished();
   void on_userAgentLineEdit_textChanged(const QString &arg1);
   void on_viewPassword_clicked();
@@ -97,6 +102,8 @@ private slots:
   void on_deletePersistentData_clicked();
 
 private:
+  void updateChatWallpaperButtons();
+  void populateChatThemes();
   // Fills the language picker from the .qm files compiled into the binary, so
   // adding a translation needs no code change.
   void populateLanguages();

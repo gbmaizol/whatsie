@@ -52,6 +52,7 @@ find_package(Qt${QT_VERSION_MAJOR} ${QT_VERSION_MAJOR}.${QT_VERSION_MINOR} QUIET
     Gui
     Widgets
     WebEngineWidgets
+    WebChannel
     Positioning
     Network
 )
@@ -163,6 +164,8 @@ set(SOURCES
     src/webenginepage.cpp
     src/webenginenotifproxy.cpp
     src/webengineprofilemanager.cpp
+    src/chattheme.cpp
+    src/chatwallpaper.cpp
     src/webtweaks.cpp
     src/webview.cpp
     src/widgets/elidedlabel/elidedlabel.cpp
@@ -193,6 +196,9 @@ set(HEADERS
     src/utils.h
     src/webenginepage.h
     src/webengineprofilemanager.h
+    src/chattheme.h
+    src/chatwallpaper.h
+    src/pagebridge.h
     src/webtweaks.h
     src/webview.h
     src/webenginenotifproxy.h
@@ -288,6 +294,7 @@ target_link_libraries(whatsie PRIVATE
     Qt${QT_VERSION_MAJOR}::Gui
     Qt${QT_VERSION_MAJOR}::Widgets
     Qt${QT_VERSION_MAJOR}::WebEngineWidgets
+    Qt${QT_VERSION_MAJOR}::WebChannel
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt${QT_VERSION_MAJOR}::Network
 )

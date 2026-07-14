@@ -3,6 +3,9 @@
 
 #include "mainwindow.h"
 #include <QDateTime>
+#include <QFileDialog>
+#include <QImageReader>
+#include <QStandardPaths>
 #include <QDir>
 #include <QLocale>
 #include <QMessageBox>
@@ -10,6 +13,8 @@
 #include <QStyleFactory>
 
 #include "automatictheme.h"
+#include "chattheme.h"
+#include "chatwallpaper.h"
 
 extern QString defaultUserAgentStr;
 extern int defaultAppAutoLockDuration;
@@ -98,6 +103,8 @@ SettingsWidget::SettingsWidget(QWidget *parent, int screenNumber,
           .value("identifyInLinkedDevices", true)
           .toBool());
   populateLanguages();
+  populateChatThemes();
+  updateChatWallpaperButtons();
 
   this->appAutoLockingSetChecked(
       SettingsManager::instance()
@@ -595,6 +602,55 @@ void SettingsWidget::on_dismissEmojiPanelCheckBox_toggled(bool checked) {
   SettingsManager::instance().settings().setValue(
       "webtweaks/dismissExpressionsPanel", checked);
   emit webTweaksChanged();
+}
+
+void SettingsWidget::on_chooseChatWallpaperButton_clicked() {
+  const QString path = QFileDialog::getOpenFileName(
+      this, tr("Choose a chat wallpaper"),
+      QStandardPaths::writableLocation(QStandardPaths::PicturesLocation),
+      tr("Images (%1)")
+          .arg("*." + QImageReader::supportedImageFormats().join(" *.")));
+  if (path.isEmpty())
+    return;
+
+  QString error;
+  if (!ChatWallpaper::setImage(path, &error)) {
+    QMessageBox::warning(this, tr("Chat wallpaper"),
+                         tr("Could not use that image: %1").arg(error));
+    return;
+  }
+  updateChatWallpaperButtons();
+  emit chatWallpaperChanged();
+}
+
+void SettingsWidget::on_clearChatWallpaperButton_clicked() {
+  ChatWallpaper::clear();
+  updateChatWallpaperButtons();
+  emit chatWallpaperChanged();
+}
+
+// The themes are data, not UI: adding one to ChatTheme::themes() puts it in
+// this list with no change here.
+void SettingsWidget::populateChatThemes() {
+  ui->chatThemeComboBox->blockSignals(true);
+  ui->chatThemeComboBox->clear();
+  const QString current = ChatTheme::currentThemeId();
+  for (const ChatTheme::Theme &theme : ChatTheme::themes()) {
+    ui->chatThemeComboBox->addItem(theme.name, theme.id);
+    if (theme.id == current)
+      ui->chatThemeComboBox->setCurrentIndex(ui->chatThemeComboBox->count() - 1);
+  }
+  ui->chatThemeComboBox->blockSignals(false);
+}
+
+void SettingsWidget::on_chatThemeComboBox_currentIndexChanged(int index) {
+  ChatTheme::setCurrentThemeId(ui->chatThemeComboBox->itemData(index).toString());
+  emit chatThemeChanged();
+}
+
+void SettingsWidget::updateChatWallpaperButtons() {
+  ui->clearChatWallpaperButton->setEnabled(
+      !ChatWallpaper::storedImagePath().isEmpty());
 }
 
 // The translations are compiled into the binary as :/i18n/<locale>.qm, so the

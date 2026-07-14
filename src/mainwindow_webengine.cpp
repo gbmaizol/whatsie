@@ -1,6 +1,9 @@
 // WebEngine page/profile lifecycle, reload, download, and page-theme handling.
 #include "mainwindow.h"
 
+#include <QWebEngineScript>
+#include <QWebEngineScriptCollection>
+#include <QFile>
 #include <QRandomGenerator>
 #include <QScreen>
 
@@ -58,6 +61,7 @@ void MainWindow::createWebPage(bool offTheRecord) {
   setNotificationPresenter(profile);
 
   QWebEnginePage *page = new WebEnginePage(profile, m_webEngine);
+  installPageBridge(page);
   if (SettingsManager::instance()
           .settings()
           .value("windowTheme", "light")
@@ -87,6 +91,55 @@ void MainWindow::createWebPage(bool offTheRecord) {
                              .value("zoomFactor", 1.0)
                              .toDouble();
   m_webEngine->page()->setZoomFactor(currentFactor);
+}
+
+// Buttons WhatSie injects into WhatsApp's own UI need a way back into the app.
+// QWebChannel is that way: it exposes exactly one object, with exactly the slots
+// PageBridge declares — the page can reach nothing else.
+void MainWindow::installPageBridge(QWebEnginePage *page) {
+  if (!m_pageBridge) {
+    m_pageBridge = new PageBridge(this);
+    connect(m_pageBridge, &PageBridge::themeToggleRequested, this,
+            &MainWindow::toggleTheme);
+  }
+  if (!m_webChannel) {
+    m_webChannel = new QWebChannel(this);
+    m_webChannel->registerObject(QStringLiteral("whatsieBridge"), m_pageBridge);
+  }
+  page->setWebChannel(m_webChannel);
+
+  // Qt puts the transport in place, but the page still has to speak the
+  // protocol: qwebchannel.js ships inside the QtWebChannel library as a
+  // resource, and is injected here rather than vendored into the tree.
+  QFile js(QStringLiteral(":/qtwebchannel/qwebchannel.js"));
+  if (!js.open(QIODevice::ReadOnly)) {
+    qWarning() << "qwebchannel.js is missing; injected page buttons will do "
+                  "nothing";
+    return;
+  }
+
+  QWebEngineScript bridge;
+  bridge.setName(QStringLiteral("whatsie-page-bridge"));
+  bridge.setSourceCode(QString::fromUtf8(js.readAll()) + QStringLiteral(R"js(
+    (function connect() {
+      if (typeof qt === 'undefined' || !qt.webChannelTransport) {
+        setTimeout(connect, 50);   // the transport lands slightly after us
+        return;
+      }
+      new QWebChannel(qt.webChannelTransport, function (channel) {
+        window.__whatsieBridge = channel.objects.whatsieBridge;
+      });
+    })();
+  )js"));
+  bridge.setInjectionPoint(QWebEngineScript::DocumentCreation);
+  bridge.setWorldId(QWebEngineScript::MainWorld);
+  bridge.setRunsOnSubFrames(false);
+
+  QWebEngineScriptCollection &scripts = page->scripts();
+  const auto stale = scripts.find(bridge.name());
+  for (const auto &script : stale)
+    scripts.remove(script);
+  scripts.insert(bridge);
 }
 
 void MainWindow::setNotificationPresenter(QWebEngineProfile *profile) {

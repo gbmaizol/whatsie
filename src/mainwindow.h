@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QMenu>
 #include <QSystemTrayIcon>
+#include <QWebChannel>
 #include <QTimer>
 
 #include "autolockeventfilter.h"
@@ -12,6 +13,7 @@
 #include "lock.h"
 #include "notificationpopup.h"
 #include "settingswidget.h"
+#include "pagebridge.h"
 #include "webenginepage.h"
 #ifdef Q_OS_LINUX
 #include <libnotify-qt.h>
@@ -67,6 +69,8 @@ private:
   void askToReloadPage();
   void updateSettingsUserAgentWidget();
   void createWebPage(bool offTheRecord = false);
+  // Lets buttons WhatSie injects into WhatsApp's UI call back into the app.
+  void installPageBridge(QWebEnginePage *page);
   void initSettingWidget();
   void tryLock();
   void checkLoadedCorrectly();
@@ -126,6 +130,8 @@ private:
   QMenu *m_trayIconMenu = nullptr;
   QSystemTrayIcon *m_systemTrayIcon = nullptr;
   QWebEngineView *m_webEngine = nullptr;
+  PageBridge *m_pageBridge = nullptr;
+  QWebChannel *m_webChannel = nullptr;
   SettingsWidget *m_settingsWidget = nullptr;
   Lock *m_lockWidget = nullptr;
   AutoLockEventFilter *m_autoLockEventFilter = nullptr;

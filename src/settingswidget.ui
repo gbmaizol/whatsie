@@ -382,6 +382,48 @@ background:transparent;
               </property>
              </widget>
             </item>
+            <item row="8" column="0">
+             <widget class="QLabel" name="chatThemeLabel">
+              <property name="text">
+               <string>Chat theme</string>
+              </property>
+             </widget>
+            </item>
+            <item row="8" column="1">
+             <widget class="QComboBox" name="chatThemeComboBox">
+              <property name="toolTip">
+               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Recolours WhatsApp Web itself. Photos, avatars and stickers keep their own colours. Works on top of the light or dark theme, whichever is active.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="0">
+             <widget class="QLabel" name="chatWallpaperLabel">
+              <property name="text">
+               <string>Chat wallpaper</string>
+              </property>
+             </widget>
+            </item>
+            <item row="7" column="1">
+             <layout class="QHBoxLayout" name="chatWallpaperLayout">
+              <item>
+               <widget class="QPushButton" name="chooseChatWallpaperButton">
+                <property name="toolTip">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use one of your own images as the background of the chat pane, as WhatsApp does on Android. The image is stored inside WhatSie, not uploaded anywhere, and is only visible to you.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+                <property name="text">
+                 <string>Choose image…</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="clearChatWallpaperButton">
+                <property name="text">
+                 <string>Clear</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
             <item row="5" column="0" colspan="2">
              <widget class="QCheckBox" name="identifyInLinkedDevicesCheckBox">
               <property name="toolTip">

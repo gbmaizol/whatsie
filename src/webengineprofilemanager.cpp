@@ -2,6 +2,8 @@
 #include "common.h"
 #include "linkeddevicename.h"
 #include "settingsmanager.h"
+#include "chattheme.h"
+#include "chatwallpaper.h"
 #include "webtweaks.h"
 
 #include <QDebug>
@@ -162,5 +164,7 @@ void WebEngineProfileManager::applyUserSettings() {
         s.value(QStringLiteral("autoPlayMedia"), false).toBool());
 
     WebTweaks::install(m_profile);
+    ChatWallpaper::install(m_profile);
+    ChatTheme::install(m_profile);
     LinkedDeviceName::install(m_profile);
 }

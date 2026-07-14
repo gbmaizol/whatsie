@@ -17,6 +17,8 @@
 #include "linkeddevicename.h"
 #include "rateapp.h"
 #include "theme.h"
+#include "chattheme.h"
+#include "chatwallpaper.h"
 #include "webengineprofilemanager.h"
 #include "webtweaks.h"
 
@@ -344,6 +346,29 @@ void MainWindow::initSettingWidget() {
             WebTweaks::install(WebEngineProfileManager::instance().profile());
             if (m_webEngine && m_webEngine->page())
               m_webEngine->page()->runJavaScript(WebTweaks::scriptSource());
+          });
+
+  connect(m_settingsWidget, &SettingsWidget::chatWallpaperChanged,
+          m_settingsWidget, [=]() {
+            ChatWallpaper::install(WebEngineProfileManager::instance().profile());
+            if (m_webEngine && m_webEngine->page())
+              m_webEngine->page()->runJavaScript(ChatWallpaper::scriptSource());
+          });
+
+  connect(m_settingsWidget, &SettingsWidget::chatThemeChanged, m_settingsWidget,
+          [=]() {
+            ChatTheme::install(WebEngineProfileManager::instance().profile());
+            if (!m_webEngine || !m_webEngine->page())
+              return;
+            const QString js = ChatTheme::scriptSource();
+            // "none" injects nothing, so the live page needs to be told to drop
+            // the stylesheet a previous theme left behind.
+            m_webEngine->page()->runJavaScript(
+                js.isEmpty()
+                    ? QStringLiteral("(function(){var e=document.getElementById("
+                                     "'whatsie-chat-theme'); if (e) e.remove();"
+                                     "window.__whatsieChatThemeApply = null;})();")
+                    : js);
           });
 
   connect(m_settingsWidget, &SettingsWidget::notify, m_settingsWidget,
