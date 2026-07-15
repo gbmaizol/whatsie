@@ -108,21 +108,30 @@ if (UNIX AND NOT APPLE)
     endif()
 endif()
 
+# The extra hardening flags are opt-out. A distribution builds with its own
+# hardening policy and its own optimisation flags, and forcing these on top
+# fights that — which is exactly what a Gentoo maintainer reported. Packagers
+# can pass -DWHATSIE_HARDENING=OFF to leave the toolchain's own flags in place;
+# for a normal source build they stay on.
+option(WHATSIE_HARDENING "Add stack-protector/FORTIFY hardening compile flags" ON)
+
 # Compiler flags
 if(MSVC)
     # Source files contain UTF-8 characters; MSVC needs to be told explicitly.
     add_compile_options(/utf-8)
 else()
-    add_compile_options(
-        -fstack-protector-strong
-        -fstack-clash-protection
-        -D_FORTIFY_SOURCE=3
-        -D_GLIBCXX_ASSERTIONS
-    )
+    if(WHATSIE_HARDENING)
+        add_compile_options(
+            -fstack-protector-strong
+            -fstack-clash-protection
+            -D_FORTIFY_SOURCE=3
+            -D_GLIBCXX_ASSERTIONS
+        )
 
-    # Architecture-specific flags
-    if(CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64")
-        add_compile_options(-mbranch-protection=standard)
+        # Architecture-specific hardening.
+        if(CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64")
+            add_compile_options(-mbranch-protection=standard)
+        endif()
     endif()
 
     # Release and Debug specific flags
