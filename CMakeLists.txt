@@ -143,6 +143,7 @@ set(DATADIR ${CMAKE_INSTALL_PREFIX}/share)
 # Main application source files
 set(SOURCES
     src/about.cpp
+    src/appprofile.cpp
     src/automatictheme.cpp
     src/common.cpp
     src/debuglog.cpp
@@ -178,6 +179,7 @@ set(SOURCES
 
 set(HEADERS
     src/about.h
+    src/appprofile.h
     src/autolockeventfilter.h
     src/automatictheme.h
     src/common.h

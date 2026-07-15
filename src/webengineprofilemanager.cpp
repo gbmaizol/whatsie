@@ -1,4 +1,5 @@
 #include "webengineprofilemanager.h"
+#include "appprofile.h"
 #include "common.h"
 #include "linkeddevicename.h"
 #include "settingsmanager.h"
@@ -37,8 +38,13 @@ static QString stripQtWebEngineToken(QString userAgent) {
 }
 
 WebEngineProfileManager::WebEngineProfileManager() {
-    // Named profile → persistent storage is enabled automatically.
-    m_profile = new QWebEngineProfile(QStringLiteral("whatsie"));
+    // Named profile → persistent storage is enabled automatically. The storage
+    // name carries the account suffix, so a second account is a genuinely
+    // separate Chromium partition — separate cookies, separate WhatsApp session
+    // — rather than the same one shared. The default account keeps the bare
+    // "whatsie" name so its existing session survives the upgrade untouched.
+    m_profile = new QWebEngineProfile(
+        QStringLiteral("whatsie") + AppProfile::suffix());
 
     // Derive the default UA from the engine itself *before* we ever override
     // httpUserAgent, so it always matches the installed Chromium version and
@@ -52,8 +58,12 @@ WebEngineProfileManager::WebEngineProfileManager() {
     const QString dataPath  = QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation);
     const QString cachePath = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
 
-    m_profile->setPersistentStoragePath(dataPath  + QStringLiteral("/QtWebEngine"));
-    m_profile->setCachePath(cachePath + QStringLiteral("/QtWebEngine"));
+    // The default account keeps ".../QtWebEngine"; a named one gets its own
+    // sibling directory, so the two sessions never touch.
+    const QString engineSub =
+        QStringLiteral("/QtWebEngine") + AppProfile::suffix();
+    m_profile->setPersistentStoragePath(dataPath + engineSub);
+    m_profile->setCachePath(cachePath + engineSub);
     m_profile->setPersistentCookiesPolicy(QWebEngineProfile::AllowPersistentCookies);
 
     qDebug() << "WebEngineProfile persistent storage:" << m_profile->persistentStoragePath();

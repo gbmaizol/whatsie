@@ -2,6 +2,7 @@
 // zoom, and navigation helpers.
 // WebEngine, tray, and lock logic live in mainwindow_webengine/tray/lock.cpp.
 #include "mainwindow.h"
+#include "appprofile.h"
 
 #include <QInputDialog>
 #include <QRegularExpression>
@@ -39,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
       m_unreadMessageCountRegExp("\\([^\\d]*(\\d+)[^\\d]*\\)") {
 
   setObjectName("MainWindow");
-  setWindowTitle(QApplication::applicationName());
+  setWindowTitle(QApplication::applicationName() + AppProfile::label());
   setWindowIcon(themeIcon("whatsie", ":/icons/app/icon-64.png"));
   setMinimumWidth(525);
   setMinimumHeight(448);

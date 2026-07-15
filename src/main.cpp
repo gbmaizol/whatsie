@@ -11,6 +11,7 @@
 #include <QtWebEngineCore>
 
 #include "common.h"
+#include "appprofile.h"
 #include "debuglog.h"
 #include "def.h"
 #include "dictionaries.h"
@@ -211,6 +212,13 @@ static void setChromiumFlags() {
 int main(int argc, char *argv[]) {
   DebugLog::install();   // before anything can log
 
+  // Which account this is has to be settled before anything else: it feeds the
+  // single-instance key below, the settings file, and the WebEngine storage,
+  // all of which are fixed the moment they are first touched. Parsed straight
+  // from argv because QCommandLineParser needs a QApplication that does not
+  // exist yet.
+  AppProfile::initFromArgs(argc, argv);
+
   // Qt6 on Linux routes qDebug/qWarning to journald when the process is not
   // attached to a TTY (e.g. when launched from an IDE).  Force stderr output
   // so the IDE Run console always captures debug logs.
@@ -220,7 +228,13 @@ int main(int argc, char *argv[]) {
 
   setChromiumFlags();
 
-  SingleApplication instance(argc, argv, true);
+  // The account id is folded into SingleApplication's instance key (it hashes
+  // userData into the key), so two accounts are two primary instances that do
+  // not see each other, while a second launch of the *same* account still
+  // collapses into the running one. The default account passes nothing, keeping
+  // its key byte-for-byte what it was.
+  SingleApplication instance(argc, argv, true, SingleApplication::Mode::User,
+                             1000, AppProfile::id());
   instance.setQuitOnLastWindowClosed(false);
   instance.setWindowIcon(themeIcon("whatsie", ":/icons/app/icon-64.png"));
   QApplication::setApplicationName("WhatSie");
@@ -301,6 +315,16 @@ int main(int argc, char *argv[]) {
                                                    << "build-info",
                                      "Shows detailed current build infomation");
 
+  // Already consumed by AppProfile::initFromArgs() before QApplication existed;
+  // registered here only so it shows up in --help and does not trip the parser
+  // as an unknown option.
+  QCommandLineOption profileOption(
+      QStringList() << "p"
+                    << "profile",
+      QObject::tr("Run as a separate account with its own session and settings, "
+                  "in its own window"),
+      QStringLiteral("name"));
+
   QCommandLineOption showAppWindowOption(
       QStringList() << "w"
                     << "show-window",
@@ -317,6 +341,7 @@ int main(int argc, char *argv[]) {
   parser.addOption(toggleThemeOption);
   parser.addOption(reloadAppOption);
   parser.addOption(newChatOption);
+  parser.addOption(profileOption);
 
   secondaryInstanceCLIOptions << showAppWindowOption << openSettingsOption
                               << lockAppOption << openAboutOption

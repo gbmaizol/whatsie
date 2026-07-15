@@ -1,5 +1,6 @@
 // Tray icon, actions, and window-title/notification-count handling.
 #include "mainwindow.h"
+#include "appprofile.h"
 #include "common.h"
 
 #include <algorithm>
@@ -162,7 +163,7 @@ const QIcon MainWindow::getTrayIcon(const int &notificationCount) const {
 }
 
 void MainWindow::handleWebViewTitleChanged(const QString &title) {
-  setWindowTitle(QApplication::applicationName() + ": " + title);
+  setWindowTitle(QApplication::applicationName() + AppProfile::label() + ": " + title);
 
   QRegularExpressionMatch notificationsTitleMatch =
       m_notificationsTitleRegExp.match(title);
