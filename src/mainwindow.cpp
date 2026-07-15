@@ -4,6 +4,7 @@
 #include "mainwindow.h"
 #include "appprofile.h"
 
+#include <algorithm>
 #include <QInputDialog>
 #include <QRegularExpression>
 #include <QScreen>
@@ -43,8 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
   setObjectName("MainWindow");
   setWindowTitle(QApplication::applicationName() + AppProfile::label());
   setWindowIcon(themeIcon("whatsie", ":/icons/app/icon-64.png"));
-  setMinimumWidth(525);
-  setMinimumHeight(448);
+  applyMinimumSize();
   restoreMainWindow();
   createActions();
   createTrayIcon();
@@ -211,6 +211,21 @@ void MainWindow::handleZoomOnWindowStateChange(
   }
 }
 
+// The minimum window size follows the normal zoom factor. At a zoom below 1 the
+// content is smaller, so the window should be allowed to shrink with it —
+// otherwise a user who zooms out to tuck the window into a corner cannot resize
+// it down to match, which is the whole point of zooming out. A zoom above 1 does
+// not force a larger minimum: WhatsApp Web reflows, so the base size still fits.
+void MainWindow::applyMinimumSize() {
+  const double zoom = SettingsManager::instance()
+                          .settings()
+                          .value("zoomFactor", 1.0)
+                          .toDouble();
+  const double factor = std::clamp(zoom, 0.5, 1.0);
+  setMinimumWidth(static_cast<int>(kBaseMinWidth * factor));
+  setMinimumHeight(static_cast<int>(kBaseMinHeight * factor));
+}
+
 void MainWindow::handleZoom() {
   if (windowState().testFlag(Qt::WindowMaximized) ||
       windowState().testFlag(Qt::WindowFullScreen)) {
@@ -226,6 +241,7 @@ void MainWindow::handleZoom() {
                                .value("zoomFactor", 1.0)
                                .toDouble();
     m_webEngine->page()->setZoomFactor(currentFactor);
+    applyMinimumSize();   // let the window shrink to match a zoomed-out page
   }
 }
 

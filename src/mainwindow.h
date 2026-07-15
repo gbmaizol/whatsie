@@ -109,6 +109,7 @@ private:
   QStackedWidget *m_accountStack = nullptr;
   void initSettingWidget();
   void tryLock();
+  void ensureLockVisible();
   void checkLoadedCorrectly();
   void loadingQuirk(const QString &test);
   void checkConnectionHealth();
@@ -120,6 +121,9 @@ private:
   void initRateWidget();
   void handleZoomOnWindowStateChange(const QWindowStateChangeEvent *ev);
   void handleZoom();
+  void applyMinimumSize();
+  static constexpr int kBaseMinWidth = 525;
+  static constexpr int kBaseMinHeight = 448;
   void forceLogOut();
   bool isLoggedIn();
   void tryLogOut();
