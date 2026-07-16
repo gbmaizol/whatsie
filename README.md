@@ -126,15 +126,27 @@ On top of upstream WhatSie, this fork adds:
 
 <img src="docs/img/card-themes.png" width="720" alt="Whatly — fourteen chat themes"/>
 
+<img src="docs/img/card-wallpaper.png" width="720" alt="Whatly — chat wallpaper"/>
+
+<img src="docs/img/card-sidebar.png" width="720" alt="Whatly — theme and blur buttons in the sidebar"/>
+
 <img src="docs/img/card-lightdark.png" width="720" alt="Whatly — light and dark window theme"/>
+
+<img src="docs/img/card-accounts.png" width="720" alt="Whatly — multiple accounts"/>
 
 <img src="docs/img/card-lock.png" width="720" alt="Whatly — app lock"/>
 
+<img src="docs/img/card-spellcheck.png" width="720" alt="Whatly — multi-language spell check"/>
+
 <img src="docs/img/card-tray.png" width="720" alt="Whatly — a smarter system tray"/>
+
+<img src="docs/img/card-notifications.png" width="720" alt="Whatly — native notifications"/>
 
 <img src="docs/img/card-shortcuts.png" width="720" alt="Whatly — keyboard shortcuts"/>
 
 <img src="docs/img/card-watchdog.png" width="720" alt="Whatly — connection watchdog"/>
+
+<img src="docs/img/card-windows.png" width="720" alt="Whatly — runs on Windows too"/>
 
 <img src="docs/img/card-settings.png" width="720" alt="Whatly settings — every feature is a toggle"/>
 
