@@ -449,8 +449,14 @@ QString Utils::appDebugInfoMarkdown() {
       << QStringLiteral("| System | %1 |").arg(QSysInfo::prettyProductName())
       << QStringLiteral("| Architecture | %1 |")
              .arg(QSysInfo::currentCpuArchitecture())
-      << QStringLiteral("| Install mode | %1 |").arg(installMode)
-      << QStringLiteral("| Memory | %1 |").arg(Utils::processMemoryInfo())
+      << QStringLiteral("| Install mode | %1 |").arg(installMode);
+  // Inside a snap the store sets SNAP_REVISION; it pins down exactly which
+  // build a report came from, which the version alone cannot.
+  if (installMode == QLatin1String("snap"))
+    out << QStringLiteral("| Snap revision | %1 |")
+               .arg(qEnvironmentVariable("SNAP_REVISION",
+                                         QStringLiteral("unknown")));
+  out << QStringLiteral("| Memory | %1 |").arg(Utils::processMemoryInfo())
       << QStringLiteral("");
 
   const QString log = DebugLog::recent();

@@ -4,7 +4,7 @@
 
 
 ## enhancements
-    [] add snap revision in debug info if install type is snap package
+    [x] add snap revision in debug info if install type is snap package
     [x] add quick theme toggle action in system tray menu
     [] add option in settings that let user set : lock app on minimize to tray
     [] add ability to activate whatly window using global shortcut
