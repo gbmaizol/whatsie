@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1">
+<TS version="2.1" language="ja_JP">
 <context>
     <name>About</name>
     <message>
@@ -49,9 +49,25 @@ p, li { white-space: pre-wrap; }
         <translation>ソースコード</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="205"/>
+        <location filename="../about.ui" line="203"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copies the debug information below to the clipboard and opens the issue tracker, so it can be pasted straight into the report.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;下のデバッグ情報をクリップボードにコピーし、issue トラッカーを開くので、そのままレポートに貼り付けられます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../about.ui" line="206"/>
+        <location filename="../about.cpp" line="114"/>
+        <source>Report a Bug</source>
+        <translation>バグを報告</translation>
+    </message>
+    <message>
+        <location filename="../about.ui" line="215"/>
         <source>Debug Info</source>
         <translation>デバッグ情報</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="115"/>
+        <source>The debug information was too long for the browser to carry, so it has been copied to your clipboard instead. Paste it into the issue.</source>
+        <translation>デバッグ情報がブラウザーで扱うには長すぎたため、クリップボードにコピーしました。issue に貼り付けてください。</translation>
     </message>
 </context>
 <context>
@@ -112,6 +128,79 @@ Do you wish to override the security check and continue ?   </source>
         <translation>ご希望であれば、検証されていない証明書のまま続行できます。検証されていない証明書を受け入れるということは、接続しようとしたホストに接続されていない可能性があるということです。
 
 セキュリティ確認を無視して続行しますか？   </translation>
+    </message>
+</context>
+<context>
+    <name>ChatTheme</name>
+    <message>
+        <location filename="../chattheme.cpp" line="156"/>
+        <source>WhatsApp (default)</source>
+        <translation>WhatsApp（既定）</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="158"/>
+        <source>Barbie pink</source>
+        <translation>バービーピンク</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="160"/>
+        <source>Dusty rose</source>
+        <translation>ダスティローズ</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="162"/>
+        <source>Lavender</source>
+        <translation>ラベンダー</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="164"/>
+        <source>Violet</source>
+        <translation>バイオレット</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="166"/>
+        <source>Sky blue</source>
+        <translation>スカイブルー</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="168"/>
+        <source>Deep ocean</source>
+        <translation>ディープオーシャン</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="170"/>
+        <source>Teal</source>
+        <translation>ティール</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="172"/>
+        <source>Mint</source>
+        <translation>ミント</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="174"/>
+        <source>Coral</source>
+        <translation>コーラル</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="176"/>
+        <source>Peach</source>
+        <translation>ピーチ</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="178"/>
+        <source>Gold</source>
+        <translation>ゴールド</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="180"/>
+        <source>Crimson</source>
+        <translation>クリムゾン</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="182"/>
+        <source>Graphite</source>
+        <translation>グラファイト</translation>
     </message>
 </context>
 <context>
@@ -278,32 +367,32 @@ Do you wish to override the security check and continue ?   </source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../mainwindow.cpp" line="446"/>
         <source>Unlock to access Settings.</source>
         <translation>設定にアクセスするにはロックを解除してください。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="575"/>
+        <location filename="../mainwindow.cpp" line="679"/>
         <source>Open</source>
         <translation>開く</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="585"/>
+        <location filename="../mainwindow.cpp" line="689"/>
         <source>New Chat</source>
         <translation>新規チャット</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="586"/>
+        <location filename="../mainwindow.cpp" line="690"/>
         <source>Enter a valid WhatsApp number with country code (ex- +91XXXXXXXXXX)</source>
         <translation>国番号付きの有効な WhatsApp 番号を入力してください（例: +81XXXXXXXXXX）</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="616"/>
+        <location filename="../mainwindow.cpp" line="720"/>
         <source>Rate Application</source>
         <translation>アプリを評価</translation>
     </message>
     <message>
-        <location filename="../mainwindow_lock.cpp" line="112"/>
+        <location filename="../mainwindow_lock.cpp" line="135"/>
         <source>App lock is not configured, 
 Please setup the password in the Settings first.
 
@@ -314,67 +403,119 @@ Open Settings now?</source>
 今すぐ設定を開きますか？</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="17"/>
+        <location filename="../mainwindow_tray.cpp" line="18"/>
         <source>Fullscreen</source>
         <translation>全画面</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="23"/>
+        <location filename="../mainwindow_tray.cpp" line="24"/>
         <source>Mi&amp;nimize to tray</source>
         <translation>トレイに最小化(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="31"/>
+        <location filename="../mainwindow_tray.cpp" line="32"/>
         <source>&amp;Restore</source>
         <translation>元に戻す(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="35"/>
+        <location filename="../mainwindow_tray.cpp" line="36"/>
         <source>Re&amp;load</source>
         <translation>再読み込み(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="41"/>
+        <location filename="../mainwindow_tray.cpp" line="42"/>
         <source>Loc&amp;k</source>
         <translation>ロック(&amp;K)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="46"/>
+        <location filename="../mainwindow_tray.cpp" line="47"/>
+        <source>&amp;Mute audio</source>
+        <translation>音声をミュート(&amp;M)</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_tray.cpp" line="56"/>
         <source>&amp;Settings</source>
         <translation>設定(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="52"/>
+        <location filename="../mainwindow_tray.cpp" line="62"/>
         <source>&amp;Toggle theme</source>
         <translation>テーマを切り替え(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="59"/>
+        <location filename="../mainwindow_tray.cpp" line="69"/>
         <source>&amp;About</source>
         <translation>このアプリについて(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="62"/>
+        <location filename="../mainwindow_tray.cpp" line="78"/>
         <source>&amp;Quit</source>
         <translation>終了(&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="156"/>
+        <location filename="../mainwindow_accounts.cpp" line="55"/>
+        <source>Rename…</source>
+        <translation>名前を変更…</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="56"/>
+        <source>Remove account</source>
+        <translation>アカウントを削除</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="133"/>
+        <source>Add another account</source>
+        <translation>別のアカウントを追加</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="146"/>
+        <location filename="../mainwindow_accounts.cpp" line="151"/>
         <source>Restore</source>
         <translation>元に戻す</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="157"/>
+        <location filename="../mainwindow_accounts.cpp" line="147"/>
         <source>messages</source>
         <translation>件のメッセージ</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="157"/>
+        <location filename="../mainwindow_accounts.cpp" line="147"/>
         <source>message</source>
         <translation>件のメッセージ</translation>
     </message>
     <message>
-        <location filename="../mainwindow_webengine.cpp" line="214"/>
+        <location filename="../mainwindow_accounts.cpp" line="167"/>
+        <source>Add account</source>
+        <translation>アカウントを追加</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="168"/>
+        <source>Name for the new account:</source>
+        <translation>新しいアカウントの名前:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="169"/>
+        <location filename="../mainwindow_accounts.cpp" line="242"/>
+        <source>Account %1</source>
+        <translation>アカウント %1</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="187"/>
+        <source>Rename account</source>
+        <translation>アカウント名を変更</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="187"/>
+        <source>Account name:</source>
+        <translation>アカウント名:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="238"/>
+        <source>Account 1</source>
+        <translation>アカウント 1</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_webengine.cpp" line="260"/>
         <source>Unlock to Reload the App.</source>
         <translation>アプリを再読み込みするにはロックを解除してください。</translation>
     </message>
@@ -447,135 +588,187 @@ Open Settings now?</source>
     </message>
 </context>
 <context>
+    <name>PrivacyBlur</name>
+    <message>
+        <location filename="../privacyblur.cpp" line="85"/>
+        <source>Off</source>
+        <translation>オフ</translation>
+    </message>
+    <message>
+        <location filename="../privacyblur.cpp" line="87"/>
+        <source>Chat list</source>
+        <translation>チャット一覧</translation>
+    </message>
+    <message>
+        <location filename="../privacyblur.cpp" line="89"/>
+        <source>Open conversation</source>
+        <translation>開いている会話</translation>
+    </message>
+    <message>
+        <location filename="../privacyblur.cpp" line="91"/>
+        <source>Chat list and conversation</source>
+        <translation>チャット一覧と会話</translation>
+    </message>
+    <message>
+        <location filename="../privacyblur.cpp" line="94"/>
+        <source>Everything, photos included</source>
+        <translation>写真を含むすべて</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="68"/>
-        <location filename="../about.cpp" line="108"/>
+        <location filename="../about.cpp" line="73"/>
+        <location filename="../about.cpp" line="142"/>
         <source>Show Debug Info</source>
         <translation>デバッグ情報を表示</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="113"/>
+        <location filename="../about.cpp" line="99"/>
+        <source>&lt;!-- What did you do, what did you expect, and what happened instead? --&gt;
+
+
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="147"/>
         <source>Hide Debug Info</source>
         <translation>デバッグ情報を隠す</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="221"/>
+        <location filename="../main.cpp" line="269"/>
         <source>Feature rich WhatsApp web client based on Qt WebEngine</source>
         <translation>Qt WebEngine ベースの多機能な WhatsApp Web クライアント</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="228"/>
+        <location filename="../main.cpp" line="276"/>
         <source>Displays help on commandline options</source>
         <translation>コマンドラインオプションのヘルプを表示します</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="233"/>
+        <location filename="../main.cpp" line="281"/>
         <source>Opens Settings dialog in a running instance of </source>
         <translation>実行中のインスタンスで設定を開きます: </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="238"/>
+        <location filename="../main.cpp" line="286"/>
         <source>Locks a running instance of </source>
         <translation>実行中のインスタンスをロックします: </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="244"/>
+        <location filename="../main.cpp" line="292"/>
         <source>Opens About dialog in a running instance of </source>
         <translation>実行中のインスタンスで「このアプリについて」を開きます: </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="250"/>
+        <location filename="../main.cpp" line="298"/>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>実行中のインスタンスでライトとダークのテーマを切り替えます: </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="257"/>
+        <location filename="../main.cpp" line="305"/>
         <source>Reload the app in a running instance of </source>
         <translation>実行中のインスタンスでアプリを再読み込みします: </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="263"/>
+        <location filename="../main.cpp" line="311"/>
         <source>Open new chat prompt in a running instance of </source>
         <translation>実行中のインスタンスで新規チャット画面を開きます: </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="273"/>
+        <location filename="../main.cpp" line="324"/>
+        <source>Run as a separate account with its own session and settings, in its own window</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;独自のセッションと設定を持つ別アカウントとして、専用のウィンドウで実行します&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="331"/>
         <source>Show main window of running instance of </source>
         <translation>実行中のインスタンスのメインウィンドウを表示します: </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="355"/>
+        <location filename="../main.cpp" line="414"/>
         <source>App lock is not configured, 
 Please setup the password in the Settings first.</source>
         <translation>アプリロックが設定されていません。
 先に設定でパスワードを登録してください。</translation>
     </message>
     <message>
-        <location filename="../mainwindow_webengine.cpp" line="212"/>
+        <location filename="../mainwindow_webengine.cpp" line="257"/>
         <source>Reloading...</source>
         <translation>再読み込み中...</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="266"/>
-        <location filename="../utils.cpp" line="300"/>
+        <location filename="../utils.cpp" line="315"/>
+        <location filename="../utils.cpp" line="349"/>
         <source>Install mode</source>
         <translation>インストール方式</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="284"/>
+        <location filename="../utils.cpp" line="333"/>
         <source>Version</source>
         <translation>バージョン</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="286"/>
+        <location filename="../utils.cpp" line="335"/>
         <source>Source Branch</source>
         <translation>ソースブランチ</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="288"/>
+        <location filename="../utils.cpp" line="337"/>
         <source>Commit Hash</source>
         <translation>コミットハッシュ</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="290"/>
+        <location filename="../utils.cpp" line="339"/>
         <source>Build Datetime</source>
         <translation>ビルド日時</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="292"/>
+        <location filename="../utils.cpp" line="341"/>
         <source>Qt Runtime Version</source>
         <translation>Qt ランタイムバージョン</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="294"/>
+        <location filename="../utils.cpp" line="343"/>
         <source>Qt Compiled Version</source>
         <translation>Qt コンパイルバージョン</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="296"/>
+        <location filename="../utils.cpp" line="345"/>
         <source>System</source>
         <translation>システム</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="298"/>
+        <location filename="../utils.cpp" line="347"/>
         <source>Architecture</source>
         <translation>アーキテクチャ</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="316"/>
+        <location filename="../utils.cpp" line="480"/>
         <source>Exception</source>
         <translation>例外</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="319"/>
+        <location filename="../utils.cpp" line="483"/>
         <source> has encountered a problem.</source>
         <translation> で問題が発生しました。</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="322"/>
+        <location filename="../utils.cpp" line="486"/>
         <source> may need to Restart. Please report the error to developer.</source>
         <translation> の再起動が必要な場合があります。エラーを開発者に報告してください。</translation>
+    </message>
+    <message>
+        <location filename="../chatwallpaper.cpp" line="150"/>
+        <location filename="../customcss.cpp" line="84"/>
+        <source>Cannot create %1</source>
+        <translation>%1 を作成できません</translation>
+    </message>
+    <message>
+        <location filename="../chatwallpaper.cpp" line="156"/>
+        <source>Cannot write %1</source>
+        <translation>%1 に書き込めません</translation>
     </message>
 </context>
 <context>
@@ -711,7 +904,7 @@ Please setup the password in the Settings first.</source>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="287"/>
-        <location filename="../settingswidget.ui" line="808"/>
+        <location filename="../settingswidget.ui" line="953"/>
         <source> Secs</source>
         <translation> 秒</translation>
     </message>
@@ -752,197 +945,356 @@ Please setup the password in the Settings first.</source>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="374"/>
+        <source>Interface language</source>
+        <translation>インターフェースの言語</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="381"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Language of WhatSie&apos;s own interface. Takes effect after restarting the app. The language of the chats themselves comes from WhatsApp Web and cannot be changed here.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatSie 自身のインターフェースの言語です。アプリを再起動すると有効になります。チャット自体の言語は WhatsApp Web によるもので、ここでは変更できません。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="388"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds a light/dark button to WhatsApp&apos;s own sidebar, just above your profile picture.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatsApp のサイドバー、プロフィール写真のすぐ上にライト/ダークボタンを追加します。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="391"/>
+        <source>Theme button in WhatsApp&apos;s sidebar</source>
+        <translation>WhatsApp のサイドバーのテーマボタン</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="398"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds a button to WhatsApp&apos;s own sidebar that blurs and unblurs your chats in one click, without opening Settings.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;設定を開かずにワンクリックでチャットをぼかしたり解除したりするボタンを WhatsApp のサイドバーに追加します。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="401"/>
+        <source>Blur button in WhatsApp&apos;s sidebar</source>
+        <translation>WhatsApp のサイドバーのぼかしボタン</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="408"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Animate scrolling instead of jumping line by line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;行ごとに飛ぶのではなく、スクロールをアニメーション表示します。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="411"/>
+        <source>Smooth scrolling</source>
+        <translation>スムーズスクロール</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="418"/>
+        <location filename="../settingswidget.cpp" line="677"/>
+        <source>Custom CSS</source>
+        <translation>カスタム CSS</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="427"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Load a .css file to restyle WhatsApp Web — the community stylesheets (catppuccin and the like) work here. Applied on top of the chat theme.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatsApp Web のスタイルを変更する .css ファイルを読み込みます。コミュニティのスタイルシート（catppuccin など）が使えます。チャットのテーマの上に適用されます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="430"/>
+        <source>Choose file…</source>
+        <translation>ファイルを選択…</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="437"/>
+        <location filename="../settingswidget.ui" line="510"/>
+        <source>Clear</source>
+        <translation>クリア</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="446"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Underlines misspelt words as you type, and offers corrections in the right-click menu.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;入力中にスペルの誤りに下線を引き、右クリックメニューで修正候補を表示します。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="449"/>
+        <location filename="../settingswidget.cpp" line="734"/>
+        <source>Check spelling as I type</source>
+        <translation>入力中にスペルチェック</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="456"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The language to check against.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;チェックの対象となる言語。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="463"/>
+        <source>Privacy blur</source>
+        <translation>プライバシーぼかし</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="470"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Blurs your chats until you hover over them, so someone glancing at the screen cannot read them. Hovering a row reveals just that row.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;画面をちらっと見た人が読めないよう、ポインタを乗せるまでチャットをぼかします。行にポインタを乗せると、その行だけが表示されます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="477"/>
+        <source>Chat theme</source>
+        <translation>チャットのテーマ</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="484"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Recolours WhatsApp Web itself. Photos, avatars and stickers keep their own colours. Works on top of the light or dark theme, whichever is active.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatsApp Web 自体を配色し直します。写真・アバター・ステッカーは元の色を保ちます。有効なライトまたはダークテーマの上で機能します。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="491"/>
+        <location filename="../settingswidget.cpp" line="653"/>
+        <source>Chat wallpaper</source>
+        <translation>チャットの壁紙</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="500"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use one of your own images as the background of the chat pane, as WhatsApp does on Android. The image is stored inside WhatSie, not uploaded anywhere, and is only visible to you.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatsApp の Android 版のように、チャット領域の背景に自分の画像を使えます。画像は WhatSie 内に保存され、どこにもアップロードされず、あなただけに見えます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="503"/>
+        <source>Choose image…</source>
+        <translation>画像を選択…</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="519"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New logins appear as &amp;quot;WhatSie for Linux&amp;quot; (or the matching platform) in your phone&apos;s linked-devices list instead of &amp;quot;Google Chrome (Linux)&amp;quot;. The name is stored on the phone when a device is linked, so changing this only affects future links — log out and re-link to rename an existing session.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;新しいログインは、スマートフォンのリンク済みデバイス一覧に「Google Chrome (Linux)」ではなく「WhatSie for Linux」（または対応するプラットフォーム名）として表示されます。この名前はデバイスをリンクしたときにスマートフォンへ保存されるため、変更しても以後のリンクにのみ反映されます。既存のセッション名を変更するには、ログアウトして再リンクしてください。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="377"/>
+        <location filename="../settingswidget.ui" line="522"/>
         <source>Identify as WhatSie in linked devices</source>
         <translation>リンク済みデバイスで WhatSie として識別する</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="388"/>
+        <location filename="../settingswidget.ui" line="533"/>
         <source>User Agent</source>
         <translation>ユーザーエージェント</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="398"/>
+        <location filename="../settingswidget.ui" line="543"/>
         <source>  Set</source>
         <translation>  適用</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="409"/>
+        <location filename="../settingswidget.ui" line="554"/>
         <source>Reset to default</source>
         <translation>既定値に戻す</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="432"/>
+        <location filename="../settingswidget.ui" line="577"/>
         <source>Zoom factor when normal</source>
         <translation>通常ウィンドウ時の拡大率</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="460"/>
-        <location filename="../settingswidget.ui" line="595"/>
+        <location filename="../settingswidget.ui" line="605"/>
+        <location filename="../settingswidget.ui" line="740"/>
         <source>Zoom Out</source>
         <translation>縮小</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="499"/>
-        <location filename="../settingswidget.ui" line="634"/>
+        <location filename="../settingswidget.ui" line="644"/>
+        <location filename="../settingswidget.ui" line="779"/>
         <source>Zoom In</source>
         <translation>拡大</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="544"/>
-        <location filename="../settingswidget.ui" line="679"/>
+        <location filename="../settingswidget.ui" line="689"/>
+        <location filename="../settingswidget.ui" line="824"/>
         <source>reset</source>
         <translation>リセット</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="567"/>
+        <location filename="../settingswidget.ui" line="712"/>
         <source>Zoom factor when maximized/fullscreen</source>
         <translation>最大化/全画面時の拡大率</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="702"/>
+        <location filename="../settingswidget.ui" line="847"/>
         <source>Minimize to tray</source>
         <translation>トレイに最小化</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="711"/>
+        <location filename="../settingswidget.ui" line="856"/>
         <source>Quit</source>
         <translation>終了</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="723"/>
+        <location filename="../settingswidget.ui" line="868"/>
         <source>Global shortcuts</source>
         <translation>グローバルショートカット</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="730"/>
+        <location filename="../settingswidget.ui" line="875"/>
         <source>Close button action</source>
         <translation>閉じるボタンの動作</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="737"/>
+        <location filename="../settingswidget.ui" line="882"/>
         <source>  Show shortcuts</source>
         <translation>  ショートカットを表示</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="748"/>
+        <location filename="../settingswidget.ui" line="893"/>
         <source>Permissions</source>
         <translation>権限</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="755"/>
+        <location filename="../settingswidget.ui" line="900"/>
         <source>  Show permissions</source>
         <translation>  権限を表示</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="770"/>
+        <location filename="../settingswidget.ui" line="915"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable lock screen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ロック画面を有効にします。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="773"/>
+        <location filename="../settingswidget.ui" line="918"/>
         <source>Enable App lock on start</source>
         <translation>起動時にアプリロックを有効にする</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="780"/>
+        <location filename="../settingswidget.ui" line="925"/>
         <source>Current Password</source>
         <translation>現在のパスワード</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="787"/>
-        <location filename="../settingswidget.ui" line="821"/>
+        <location filename="../settingswidget.ui" line="932"/>
+        <location filename="../settingswidget.ui" line="966"/>
         <source>Change password</source>
         <translation>パスワードを変更</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="790"/>
-        <location filename="../settingswidget.ui" line="899"/>
+        <location filename="../settingswidget.ui" line="935"/>
+        <location filename="../settingswidget.ui" line="1044"/>
         <source>Change</source>
         <translation>変更</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="801"/>
+        <location filename="../settingswidget.ui" line="946"/>
         <source>Enable auto locking after</source>
         <translation>次の時間が経過したら自動ロックする</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="824"/>
+        <location filename="../settingswidget.ui" line="969"/>
         <source>Reset</source>
         <translation>リセット</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="856"/>
+        <location filename="../settingswidget.ui" line="1001"/>
         <source>View password</source>
         <translation>パスワードを表示</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="883"/>
+        <location filename="../settingswidget.ui" line="1028"/>
         <source>Default Download location</source>
         <translation>既定のダウンロード先</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="896"/>
+        <location filename="../settingswidget.ui" line="1041"/>
         <source>Change Download Location</source>
         <translation>ダウンロード先を変更</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="915"/>
+        <location filename="../settingswidget.ui" line="1060"/>
         <source>Storage </source>
         <translation>ストレージ </translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="935"/>
+        <location filename="../settingswidget.ui" line="1080"/>
         <source>Property</source>
         <translation>プロパティ</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="942"/>
+        <location filename="../settingswidget.ui" line="1087"/>
         <source>  Clear (requires restart)</source>
         <translation>  消去（再起動が必要）</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="953"/>
+        <location filename="../settingswidget.ui" line="1098"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Persistent data includes persistent cookies, HTML5 local storage, and visited links.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;永続データには、永続的な Cookie、HTML5 ローカルストレージ、訪問済みリンクが含まれます。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="956"/>
+        <location filename="../settingswidget.ui" line="1101"/>
         <source>Persistent data</source>
         <translation>永続データ</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="963"/>
+        <location filename="../settingswidget.ui" line="1108"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="985"/>
+        <location filename="../settingswidget.ui" line="1130"/>
         <source>Size</source>
         <translation>サイズ</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1007"/>
+        <location filename="../settingswidget.ui" line="1152"/>
         <source>Action</source>
         <translation>操作</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="448"/>
+        <location filename="../settingswidget.cpp" line="493"/>
         <source>Automatic theme switching was disabled due to manual theme toggle.</source>
         <translation>テーマを手動で切り替えたため、自動テーマ切り替えは無効になりました。</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="533"/>
+        <location filename="../settingswidget.cpp" line="578"/>
         <source>Feature permissions</source>
         <translation>機能の権限</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="717"/>
-        <location filename="../settingswidget.cpp" line="728"/>
+        <location filename="../settingswidget.cpp" line="644"/>
+        <source>Choose a chat wallpaper</source>
+        <translation>チャットの壁紙を選択</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="646"/>
+        <source>Images (%1)</source>
+        <translation>画像 (%1)</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="654"/>
+        <source>Could not use that image: %1</source>
+        <translation>その画像を使用できませんでした: %1</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="669"/>
+        <source>Choose a CSS file</source>
+        <translation>CSS ファイルを選択</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="671"/>
+        <source>Stylesheets (*.css);;All files (*)</source>
+        <translation>スタイルシート (*.css);;すべてのファイル (*)</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="678"/>
+        <source>Could not read that file: %1</source>
+        <translation>そのファイルを読み込めませんでした: %1</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="733"/>
+        <source>Spell checker (no dictionaries installed)</source>
+        <translation>スペルチェッカー（辞書がインストールされていません）</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="824"/>
+        <source>System default</source>
+        <translation>システムの既定</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="857"/>
+        <source>The interface language will change when you restart %1.</source>
+        <translation>%1 を再起動するとインターフェースの言語が変わります。</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="981"/>
+        <location filename="../settingswidget.cpp" line="992"/>
         <source>Select download directory</source>
         <translation>ダウンロードフォルダーを選択</translation>
     </message>
@@ -950,79 +1302,79 @@ Please setup the password in the Settings first.</source>
 <context>
     <name>WebEnginePage</name>
     <message>
-        <location filename="../webenginepage.cpp" line="57"/>
+        <location filename="../webenginepage.cpp" line="90"/>
         <source>Allow %1 to access your location information?</source>
         <translation>%1 による位置情報へのアクセスを許可しますか？</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="59"/>
+        <location filename="../webenginepage.cpp" line="92"/>
         <source>Allow %1 to access your microphone?</source>
         <translation>%1 によるマイクへのアクセスを許可しますか？</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="61"/>
+        <location filename="../webenginepage.cpp" line="94"/>
         <source>Allow %1 to access your webcam?</source>
         <translation>%1 によるカメラへのアクセスを許可しますか？</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="63"/>
+        <location filename="../webenginepage.cpp" line="96"/>
         <source>Allow %1 to access your microphone and webcam?</source>
         <translation>%1 によるマイクとカメラへのアクセスを許可しますか？</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="65"/>
+        <location filename="../webenginepage.cpp" line="98"/>
         <source>Allow %1 to lock your mouse cursor?</source>
         <translation>%1 によるマウスカーソルのロックを許可しますか？</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="67"/>
+        <location filename="../webenginepage.cpp" line="100"/>
         <source>Allow %1 to capture video of your desktop?</source>
         <translation>%1 によるデスクトップの映像の記録を許可しますか？</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="69"/>
+        <location filename="../webenginepage.cpp" line="102"/>
         <source>Allow %1 to capture audio and video of your desktop?</source>
         <translation>%1 によるデスクトップの音声と映像の記録を許可しますか？</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="72"/>
+        <location filename="../webenginepage.cpp" line="105"/>
         <source>Allow %1 to show notification on your desktop?</source>
         <translation>%1 がデスクトップに通知を表示することを許可しますか？</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="74"/>
+        <location filename="../webenginepage.cpp" line="107"/>
         <source>Allow %1 to read your clipboard? This is needed to paste images into a chat.</source>
         <translation>%1 によるクリップボードの読み取りを許可しますか？チャットに画像を貼り付けるために必要です。</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="77"/>
+        <location filename="../webenginepage.cpp" line="110"/>
         <source>Allow %1 to see the fonts installed on your system?</source>
         <translation>%1 がシステムにインストールされたフォントを参照することを許可しますか？</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="97"/>
-        <location filename="../webenginepage.cpp" line="292"/>
+        <location filename="../webenginepage.cpp" line="130"/>
+        <location filename="../webenginepage.cpp" line="344"/>
         <source>Permission Request</source>
         <translation>権限の要求</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="215"/>
-        <location filename="../webenginepage.cpp" line="224"/>
+        <location filename="../webenginepage.cpp" line="267"/>
+        <location filename="../webenginepage.cpp" line="276"/>
         <source>Certificate Error</source>
         <translation>証明書エラー</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="244"/>
+        <location filename="../webenginepage.cpp" line="296"/>
         <source>Enter username and password for &quot;%1&quot; at %2</source>
         <translation>%2 の「%1」のユーザー名とパスワードを入力してください</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="274"/>
+        <location filename="../webenginepage.cpp" line="326"/>
         <source>Connect to proxy &quot;%1&quot; using:</source>
         <translation>次を使ってプロキシ「%1」に接続:</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="293"/>
+        <location filename="../webenginepage.cpp" line="345"/>
         <source>Allow %1 to open all %2 links?</source>
         <translation>%1 がすべての %2 リンクを開くことを許可しますか？</translation>
     </message>

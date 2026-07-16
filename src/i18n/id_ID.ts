@@ -49,9 +49,25 @@ p, li { white-space: pre-wrap; }
         <translation>Kode sumber</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="205"/>
+        <location filename="../about.ui" line="203"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copies the debug information below to the clipboard and opens the issue tracker, so it can be pasted straight into the report.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Menyalin informasi debug di bawah ke papan klip dan membuka pelacak masalah, sehingga dapat langsung ditempelkan ke laporan.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../about.ui" line="206"/>
+        <location filename="../about.cpp" line="114"/>
+        <source>Report a Bug</source>
+        <translation>Laporkan bug</translation>
+    </message>
+    <message>
+        <location filename="../about.ui" line="215"/>
         <source>Debug Info</source>
         <translation>Informasi debug</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="115"/>
+        <source>The debug information was too long for the browser to carry, so it has been copied to your clipboard instead. Paste it into the issue.</source>
+        <translation>Informasi debug terlalu panjang untuk peramban, jadi telah disalin ke papan klip. Tempelkan ke laporan.</translation>
     </message>
 </context>
 <context>
@@ -112,6 +128,79 @@ Do you wish to override the security check and continue ?   </source>
         <translation>Jika Anda mau, Anda dapat melanjutkan dengan sertifikat yang belum diverifikasi. Menerima sertifikat yang belum diverifikasi berarti Anda mungkin tidak terhubung dengan host yang Anda tuju.
 
 Apakah Anda ingin melewati pemeriksaan keamanan dan melanjutkan?   </translation>
+    </message>
+</context>
+<context>
+    <name>ChatTheme</name>
+    <message>
+        <location filename="../chattheme.cpp" line="156"/>
+        <source>WhatsApp (default)</source>
+        <translation>WhatsApp (bawaan)</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="158"/>
+        <source>Barbie pink</source>
+        <translation>Merah muda Barbie</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="160"/>
+        <source>Dusty rose</source>
+        <translation>Merah jambu pudar</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="162"/>
+        <source>Lavender</source>
+        <translation>Lavender</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="164"/>
+        <source>Violet</source>
+        <translation>Ungu</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="166"/>
+        <source>Sky blue</source>
+        <translation>Biru langit</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="168"/>
+        <source>Deep ocean</source>
+        <translation>Samudra dalam</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="170"/>
+        <source>Teal</source>
+        <translation>Hijau kebiruan</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="172"/>
+        <source>Mint</source>
+        <translation>Mint</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="174"/>
+        <source>Coral</source>
+        <translation>Koral</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="176"/>
+        <source>Peach</source>
+        <translation>Persik</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="178"/>
+        <source>Gold</source>
+        <translation>Emas</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="180"/>
+        <source>Crimson</source>
+        <translation>Merah tua</translation>
+    </message>
+    <message>
+        <location filename="../chattheme.cpp" line="182"/>
+        <source>Graphite</source>
+        <translation>Grafit</translation>
     </message>
 </context>
 <context>
@@ -278,32 +367,32 @@ Apakah Anda ingin melewati pemeriksaan keamanan dan melanjutkan?   </translation
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../mainwindow.cpp" line="446"/>
         <source>Unlock to access Settings.</source>
         <translation>Buka kunci untuk mengakses pengaturan.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="575"/>
+        <location filename="../mainwindow.cpp" line="679"/>
         <source>Open</source>
         <translation>Buka</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="585"/>
+        <location filename="../mainwindow.cpp" line="689"/>
         <source>New Chat</source>
         <translation>Obrolan baru</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="586"/>
+        <location filename="../mainwindow.cpp" line="690"/>
         <source>Enter a valid WhatsApp number with country code (ex- +91XXXXXXXXXX)</source>
         <translation>Masukkan nomor WhatsApp yang valid dengan kode negara (mis. +62XXXXXXXXXX)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="616"/>
+        <location filename="../mainwindow.cpp" line="720"/>
         <source>Rate Application</source>
         <translation>Beri nilai aplikasi</translation>
     </message>
     <message>
-        <location filename="../mainwindow_lock.cpp" line="112"/>
+        <location filename="../mainwindow_lock.cpp" line="135"/>
         <source>App lock is not configured, 
 Please setup the password in the Settings first.
 
@@ -314,67 +403,119 @@ Silakan atur kata sandi di pengaturan terlebih dahulu.
 Buka pengaturan sekarang?</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="17"/>
+        <location filename="../mainwindow_tray.cpp" line="18"/>
         <source>Fullscreen</source>
         <translation>Layar penuh</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="23"/>
+        <location filename="../mainwindow_tray.cpp" line="24"/>
         <source>Mi&amp;nimize to tray</source>
         <translation>Mi&amp;nimalkan ke baki sistem</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="31"/>
+        <location filename="../mainwindow_tray.cpp" line="32"/>
         <source>&amp;Restore</source>
         <translation>&amp;Pulihkan</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="35"/>
+        <location filename="../mainwindow_tray.cpp" line="36"/>
         <source>Re&amp;load</source>
         <translation>Muat &amp;ulang</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="41"/>
+        <location filename="../mainwindow_tray.cpp" line="42"/>
         <source>Loc&amp;k</source>
         <translation>&amp;Kunci</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="46"/>
+        <location filename="../mainwindow_tray.cpp" line="47"/>
+        <source>&amp;Mute audio</source>
+        <translation>&amp;Bisukan audio</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_tray.cpp" line="56"/>
         <source>&amp;Settings</source>
         <translation>&amp;Pengaturan</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="52"/>
+        <location filename="../mainwindow_tray.cpp" line="62"/>
         <source>&amp;Toggle theme</source>
         <translation>Ganti &amp;tema</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="59"/>
+        <location filename="../mainwindow_tray.cpp" line="69"/>
         <source>&amp;About</source>
         <translation>&amp;Tentang</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="62"/>
+        <location filename="../mainwindow_tray.cpp" line="78"/>
         <source>&amp;Quit</source>
         <translation>&amp;Keluar</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="156"/>
+        <location filename="../mainwindow_accounts.cpp" line="55"/>
+        <source>Rename…</source>
+        <translation>Ganti nama…</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="56"/>
+        <source>Remove account</source>
+        <translation>Hapus akun</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="133"/>
+        <source>Add another account</source>
+        <translation>Tambah akun lain</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="146"/>
+        <location filename="../mainwindow_accounts.cpp" line="151"/>
         <source>Restore</source>
         <translation>Pulihkan</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="157"/>
+        <location filename="../mainwindow_accounts.cpp" line="147"/>
         <source>messages</source>
         <translation>pesan</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="157"/>
+        <location filename="../mainwindow_accounts.cpp" line="147"/>
         <source>message</source>
         <translation>pesan</translation>
     </message>
     <message>
-        <location filename="../mainwindow_webengine.cpp" line="214"/>
+        <location filename="../mainwindow_accounts.cpp" line="167"/>
+        <source>Add account</source>
+        <translation>Tambah akun</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="168"/>
+        <source>Name for the new account:</source>
+        <translation>Nama untuk akun baru:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="169"/>
+        <location filename="../mainwindow_accounts.cpp" line="242"/>
+        <source>Account %1</source>
+        <translation>Akun %1</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="187"/>
+        <source>Rename account</source>
+        <translation>Ganti nama akun</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="187"/>
+        <source>Account name:</source>
+        <translation>Nama akun:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_accounts.cpp" line="238"/>
+        <source>Account 1</source>
+        <translation>Akun 1</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_webengine.cpp" line="260"/>
         <source>Unlock to Reload the App.</source>
         <translation>Buka kunci untuk memuat ulang aplikasi.</translation>
     </message>
@@ -447,135 +588,187 @@ Buka pengaturan sekarang?</translation>
     </message>
 </context>
 <context>
+    <name>PrivacyBlur</name>
+    <message>
+        <location filename="../privacyblur.cpp" line="85"/>
+        <source>Off</source>
+        <translation>Mati</translation>
+    </message>
+    <message>
+        <location filename="../privacyblur.cpp" line="87"/>
+        <source>Chat list</source>
+        <translation>Daftar obrolan</translation>
+    </message>
+    <message>
+        <location filename="../privacyblur.cpp" line="89"/>
+        <source>Open conversation</source>
+        <translation>Percakapan terbuka</translation>
+    </message>
+    <message>
+        <location filename="../privacyblur.cpp" line="91"/>
+        <source>Chat list and conversation</source>
+        <translation>Daftar obrolan dan percakapan</translation>
+    </message>
+    <message>
+        <location filename="../privacyblur.cpp" line="94"/>
+        <source>Everything, photos included</source>
+        <translation>Semuanya, termasuk foto</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="68"/>
-        <location filename="../about.cpp" line="108"/>
+        <location filename="../about.cpp" line="73"/>
+        <location filename="../about.cpp" line="142"/>
         <source>Show Debug Info</source>
         <translation>Tampilkan informasi debug</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="113"/>
+        <location filename="../about.cpp" line="99"/>
+        <source>&lt;!-- What did you do, what did you expect, and what happened instead? --&gt;
+
+
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="147"/>
         <source>Hide Debug Info</source>
         <translation>Sembunyikan informasi debug</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="221"/>
+        <location filename="../main.cpp" line="269"/>
         <source>Feature rich WhatsApp web client based on Qt WebEngine</source>
         <translation>Klien WhatsApp Web berfitur lengkap berbasis Qt WebEngine</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="228"/>
+        <location filename="../main.cpp" line="276"/>
         <source>Displays help on commandline options</source>
         <translation>Menampilkan bantuan untuk opsi baris perintah</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="233"/>
+        <location filename="../main.cpp" line="281"/>
         <source>Opens Settings dialog in a running instance of </source>
         <translation>Membuka pengaturan pada instansi yang sedang berjalan dari </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="238"/>
+        <location filename="../main.cpp" line="286"/>
         <source>Locks a running instance of </source>
         <translation>Mengunci instansi yang sedang berjalan dari </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="244"/>
+        <location filename="../main.cpp" line="292"/>
         <source>Opens About dialog in a running instance of </source>
         <translation>Membuka jendela «Tentang» pada instansi yang sedang berjalan dari </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="250"/>
+        <location filename="../main.cpp" line="298"/>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>Beralih antara tema terang dan gelap pada instansi yang sedang berjalan dari </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="257"/>
+        <location filename="../main.cpp" line="305"/>
         <source>Reload the app in a running instance of </source>
         <translation>Memuat ulang aplikasi pada instansi yang sedang berjalan dari </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="263"/>
+        <location filename="../main.cpp" line="311"/>
         <source>Open new chat prompt in a running instance of </source>
         <translation>Membuka jendela obrolan baru pada instansi yang sedang berjalan dari </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="273"/>
+        <location filename="../main.cpp" line="324"/>
+        <source>Run as a separate account with its own session and settings, in its own window</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Jalankan sebagai akun terpisah dengan sesi dan pengaturannya sendiri, di jendelanya sendiri&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="331"/>
         <source>Show main window of running instance of </source>
         <translation>Menampilkan jendela utama dari instansi yang sedang berjalan dari </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="355"/>
+        <location filename="../main.cpp" line="414"/>
         <source>App lock is not configured, 
 Please setup the password in the Settings first.</source>
         <translation>Kunci aplikasi belum dikonfigurasi.
 Silakan atur kata sandi di pengaturan terlebih dahulu.</translation>
     </message>
     <message>
-        <location filename="../mainwindow_webengine.cpp" line="212"/>
+        <location filename="../mainwindow_webengine.cpp" line="257"/>
         <source>Reloading...</source>
         <translation>Memuat ulang...</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="266"/>
-        <location filename="../utils.cpp" line="300"/>
+        <location filename="../utils.cpp" line="315"/>
+        <location filename="../utils.cpp" line="349"/>
         <source>Install mode</source>
         <translation>Mode pemasangan</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="284"/>
+        <location filename="../utils.cpp" line="333"/>
         <source>Version</source>
         <translation>Versi</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="286"/>
+        <location filename="../utils.cpp" line="335"/>
         <source>Source Branch</source>
         <translation>Cabang sumber</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="288"/>
+        <location filename="../utils.cpp" line="337"/>
         <source>Commit Hash</source>
         <translation>Hash commit</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="290"/>
+        <location filename="../utils.cpp" line="339"/>
         <source>Build Datetime</source>
         <translation>Waktu build</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="292"/>
+        <location filename="../utils.cpp" line="341"/>
         <source>Qt Runtime Version</source>
         <translation>Versi Qt saat berjalan</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="294"/>
+        <location filename="../utils.cpp" line="343"/>
         <source>Qt Compiled Version</source>
         <translation>Versi Qt saat kompilasi</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="296"/>
+        <location filename="../utils.cpp" line="345"/>
         <source>System</source>
         <translation>Sistem</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="298"/>
+        <location filename="../utils.cpp" line="347"/>
         <source>Architecture</source>
         <translation>Arsitektur</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="316"/>
+        <location filename="../utils.cpp" line="480"/>
         <source>Exception</source>
         <translation>Pengecualian</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="319"/>
+        <location filename="../utils.cpp" line="483"/>
         <source> has encountered a problem.</source>
         <translation> mengalami masalah.</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="322"/>
+        <location filename="../utils.cpp" line="486"/>
         <source> may need to Restart. Please report the error to developer.</source>
         <translation> mungkin perlu dimulai ulang. Silakan laporkan kesalahan ini kepada pengembang.</translation>
+    </message>
+    <message>
+        <location filename="../chatwallpaper.cpp" line="150"/>
+        <location filename="../customcss.cpp" line="84"/>
+        <source>Cannot create %1</source>
+        <translation>Tidak dapat membuat %1</translation>
+    </message>
+    <message>
+        <location filename="../chatwallpaper.cpp" line="156"/>
+        <source>Cannot write %1</source>
+        <translation>Tidak dapat menulis %1</translation>
     </message>
 </context>
 <context>
@@ -711,7 +904,7 @@ Silakan atur kata sandi di pengaturan terlebih dahulu.</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="287"/>
-        <location filename="../settingswidget.ui" line="808"/>
+        <location filename="../settingswidget.ui" line="953"/>
         <source> Secs</source>
         <translation> dtk</translation>
     </message>
@@ -752,197 +945,356 @@ Silakan atur kata sandi di pengaturan terlebih dahulu.</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="374"/>
+        <source>Interface language</source>
+        <translation>Bahasa antarmuka</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="381"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Language of WhatSie&apos;s own interface. Takes effect after restarting the app. The language of the chats themselves comes from WhatsApp Web and cannot be changed here.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bahasa antarmuka WhatSie sendiri. Berlaku setelah memulai ulang aplikasi. Bahasa obrolan berasal dari WhatsApp Web dan tidak dapat diubah di sini.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="388"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds a light/dark button to WhatsApp&apos;s own sidebar, just above your profile picture.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Menambahkan tombol terang/gelap ke bilah sisi WhatsApp, tepat di atas foto profil Anda.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="391"/>
+        <source>Theme button in WhatsApp&apos;s sidebar</source>
+        <translation>Tombol tema di bilah sisi WhatsApp</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="398"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds a button to WhatsApp&apos;s own sidebar that blurs and unblurs your chats in one click, without opening Settings.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Menambahkan tombol ke bilah sisi WhatsApp yang memburamkan dan menampilkan obrolan Anda dengan satu klik, tanpa membuka Pengaturan.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="401"/>
+        <source>Blur button in WhatsApp&apos;s sidebar</source>
+        <translation>Tombol buram di bilah sisi WhatsApp</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="408"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Animate scrolling instead of jumping line by line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Menganimasikan guliran alih-alih melompat baris demi baris.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="411"/>
+        <source>Smooth scrolling</source>
+        <translation>Guliran mulus</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="418"/>
+        <location filename="../settingswidget.cpp" line="677"/>
+        <source>Custom CSS</source>
+        <translation>CSS khusus</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="427"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Load a .css file to restyle WhatsApp Web — the community stylesheets (catppuccin and the like) work here. Applied on top of the chat theme.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Muat berkas .css untuk mengubah gaya WhatsApp Web — lembar gaya komunitas (catppuccin dan sejenisnya) berfungsi di sini. Diterapkan di atas tema obrolan.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="430"/>
+        <source>Choose file…</source>
+        <translation>Pilih berkas…</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="437"/>
+        <location filename="../settingswidget.ui" line="510"/>
+        <source>Clear</source>
+        <translation>Bersihkan</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="446"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Underlines misspelt words as you type, and offers corrections in the right-click menu.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Menggarisbawahi kata yang salah eja saat Anda mengetik, dan menawarkan koreksi di menu klik kanan.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="449"/>
+        <location filename="../settingswidget.cpp" line="734"/>
+        <source>Check spelling as I type</source>
+        <translation>Periksa ejaan saat mengetik</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="456"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The language to check against.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bahasa yang digunakan untuk pemeriksaan.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="463"/>
+        <source>Privacy blur</source>
+        <translation>Buram privasi</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="470"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Blurs your chats until you hover over them, so someone glancing at the screen cannot read them. Hovering a row reveals just that row.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Memburamkan obrolan Anda hingga Anda mengarahkan kursor ke atasnya, sehingga orang yang melirik layar tidak dapat membacanya. Mengarahkan kursor ke satu baris hanya menampilkan baris itu.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="477"/>
+        <source>Chat theme</source>
+        <translation>Tema obrolan</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="484"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Recolours WhatsApp Web itself. Photos, avatars and stickers keep their own colours. Works on top of the light or dark theme, whichever is active.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mewarnai ulang WhatsApp Web itu sendiri. Foto, avatar, dan stiker mempertahankan warnanya. Bekerja di atas tema terang atau gelap, mana pun yang aktif.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="491"/>
+        <location filename="../settingswidget.cpp" line="653"/>
+        <source>Chat wallpaper</source>
+        <translation>Wallpaper obrolan</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="500"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use one of your own images as the background of the chat pane, as WhatsApp does on Android. The image is stored inside WhatSie, not uploaded anywhere, and is only visible to you.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Gunakan salah satu gambar Anda sendiri sebagai latar panel obrolan, seperti yang dilakukan WhatsApp di Android. Gambar disimpan di dalam WhatSie, tidak diunggah ke mana pun, dan hanya terlihat oleh Anda.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="503"/>
+        <source>Choose image…</source>
+        <translation>Pilih gambar…</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.ui" line="519"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New logins appear as &amp;quot;WhatSie for Linux&amp;quot; (or the matching platform) in your phone&apos;s linked-devices list instead of &amp;quot;Google Chrome (Linux)&amp;quot;. The name is stored on the phone when a device is linked, so changing this only affects future links — log out and re-link to rename an existing session.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Login baru akan muncul sebagai «WhatSie for Linux» (atau platform yang sesuai) di daftar perangkat tertaut di ponsel Anda, bukan «Google Chrome (Linux)». Nama tersebut disimpan di ponsel saat perangkat ditautkan, jadi mengubah ini hanya memengaruhi penautan berikutnya — keluar dan tautkan ulang untuk mengganti nama sesi yang sudah ada.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="377"/>
+        <location filename="../settingswidget.ui" line="522"/>
         <source>Identify as WhatSie in linked devices</source>
         <translation>Identifikasi sebagai WhatSie di perangkat tertaut</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="388"/>
+        <location filename="../settingswidget.ui" line="533"/>
         <source>User Agent</source>
         <translation>User Agent</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="398"/>
+        <location filename="../settingswidget.ui" line="543"/>
         <source>  Set</source>
         <translation>  Terapkan</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="409"/>
+        <location filename="../settingswidget.ui" line="554"/>
         <source>Reset to default</source>
         <translation>Kembalikan ke bawaan</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="432"/>
+        <location filename="../settingswidget.ui" line="577"/>
         <source>Zoom factor when normal</source>
         <translation>Faktor zoom pada jendela normal</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="460"/>
-        <location filename="../settingswidget.ui" line="595"/>
+        <location filename="../settingswidget.ui" line="605"/>
+        <location filename="../settingswidget.ui" line="740"/>
         <source>Zoom Out</source>
         <translation>Perkecil</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="499"/>
-        <location filename="../settingswidget.ui" line="634"/>
+        <location filename="../settingswidget.ui" line="644"/>
+        <location filename="../settingswidget.ui" line="779"/>
         <source>Zoom In</source>
         <translation>Perbesar</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="544"/>
-        <location filename="../settingswidget.ui" line="679"/>
+        <location filename="../settingswidget.ui" line="689"/>
+        <location filename="../settingswidget.ui" line="824"/>
         <source>reset</source>
         <translation>atur ulang</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="567"/>
+        <location filename="../settingswidget.ui" line="712"/>
         <source>Zoom factor when maximized/fullscreen</source>
         <translation>Faktor zoom saat dimaksimalkan/layar penuh</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="702"/>
+        <location filename="../settingswidget.ui" line="847"/>
         <source>Minimize to tray</source>
         <translation>Minimalkan ke baki sistem</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="711"/>
+        <location filename="../settingswidget.ui" line="856"/>
         <source>Quit</source>
         <translation>Keluar</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="723"/>
+        <location filename="../settingswidget.ui" line="868"/>
         <source>Global shortcuts</source>
         <translation>Pintasan global</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="730"/>
+        <location filename="../settingswidget.ui" line="875"/>
         <source>Close button action</source>
         <translation>Aksi tombol tutup</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="737"/>
+        <location filename="../settingswidget.ui" line="882"/>
         <source>  Show shortcuts</source>
         <translation>  Tampilkan pintasan</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="748"/>
+        <location filename="../settingswidget.ui" line="893"/>
         <source>Permissions</source>
         <translation>Izin</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="755"/>
+        <location filename="../settingswidget.ui" line="900"/>
         <source>  Show permissions</source>
         <translation>  Tampilkan izin</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="770"/>
+        <location filename="../settingswidget.ui" line="915"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable lock screen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aktifkan layar kunci.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="773"/>
+        <location filename="../settingswidget.ui" line="918"/>
         <source>Enable App lock on start</source>
         <translation>Aktifkan kunci aplikasi saat mulai</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="780"/>
+        <location filename="../settingswidget.ui" line="925"/>
         <source>Current Password</source>
         <translation>Kata sandi saat ini</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="787"/>
-        <location filename="../settingswidget.ui" line="821"/>
+        <location filename="../settingswidget.ui" line="932"/>
+        <location filename="../settingswidget.ui" line="966"/>
         <source>Change password</source>
         <translation>Ubah kata sandi</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="790"/>
-        <location filename="../settingswidget.ui" line="899"/>
+        <location filename="../settingswidget.ui" line="935"/>
+        <location filename="../settingswidget.ui" line="1044"/>
         <source>Change</source>
         <translation>Ubah</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="801"/>
+        <location filename="../settingswidget.ui" line="946"/>
         <source>Enable auto locking after</source>
         <translation>Aktifkan kunci otomatis setelah</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="824"/>
+        <location filename="../settingswidget.ui" line="969"/>
         <source>Reset</source>
         <translation>Atur ulang</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="856"/>
+        <location filename="../settingswidget.ui" line="1001"/>
         <source>View password</source>
         <translation>Lihat kata sandi</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="883"/>
+        <location filename="../settingswidget.ui" line="1028"/>
         <source>Default Download location</source>
         <translation>Lokasi unduhan bawaan</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="896"/>
+        <location filename="../settingswidget.ui" line="1041"/>
         <source>Change Download Location</source>
         <translation>Ubah lokasi unduhan</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="915"/>
+        <location filename="../settingswidget.ui" line="1060"/>
         <source>Storage </source>
         <translation>Penyimpanan </translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="935"/>
+        <location filename="../settingswidget.ui" line="1080"/>
         <source>Property</source>
         <translation>Properti</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="942"/>
+        <location filename="../settingswidget.ui" line="1087"/>
         <source>  Clear (requires restart)</source>
         <translation>  Bersihkan (perlu mulai ulang)</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="953"/>
+        <location filename="../settingswidget.ui" line="1098"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Persistent data includes persistent cookies, HTML5 local storage, and visited links.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Data persisten mencakup kuki persisten, penyimpanan lokal HTML5, dan tautan yang telah dikunjungi.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="956"/>
+        <location filename="../settingswidget.ui" line="1101"/>
         <source>Persistent data</source>
         <translation>Data persisten</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="963"/>
+        <location filename="../settingswidget.ui" line="1108"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="985"/>
+        <location filename="../settingswidget.ui" line="1130"/>
         <source>Size</source>
         <translation>Ukuran</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1007"/>
+        <location filename="../settingswidget.ui" line="1152"/>
         <source>Action</source>
         <translation>Aksi</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="448"/>
+        <location filename="../settingswidget.cpp" line="493"/>
         <source>Automatic theme switching was disabled due to manual theme toggle.</source>
         <translation>Peralihan tema otomatis dinonaktifkan karena tema diubah secara manual.</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="533"/>
+        <location filename="../settingswidget.cpp" line="578"/>
         <source>Feature permissions</source>
         <translation>Izin fitur</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="717"/>
-        <location filename="../settingswidget.cpp" line="728"/>
+        <location filename="../settingswidget.cpp" line="644"/>
+        <source>Choose a chat wallpaper</source>
+        <translation>Pilih wallpaper obrolan</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="646"/>
+        <source>Images (%1)</source>
+        <translation>Gambar (%1)</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="654"/>
+        <source>Could not use that image: %1</source>
+        <translation>Tidak dapat menggunakan gambar itu: %1</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="669"/>
+        <source>Choose a CSS file</source>
+        <translation>Pilih berkas CSS</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="671"/>
+        <source>Stylesheets (*.css);;All files (*)</source>
+        <translation>Lembar gaya (*.css);;Semua berkas (*)</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="678"/>
+        <source>Could not read that file: %1</source>
+        <translation>Tidak dapat membaca berkas itu: %1</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="733"/>
+        <source>Spell checker (no dictionaries installed)</source>
+        <translation>Pemeriksa ejaan (tidak ada kamus terpasang)</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="824"/>
+        <source>System default</source>
+        <translation>Bawaan sistem</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="857"/>
+        <source>The interface language will change when you restart %1.</source>
+        <translation>Bahasa antarmuka akan berubah saat Anda memulai ulang %1.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="981"/>
+        <location filename="../settingswidget.cpp" line="992"/>
         <source>Select download directory</source>
         <translation>Pilih folder unduhan</translation>
     </message>
@@ -950,79 +1302,79 @@ Silakan atur kata sandi di pengaturan terlebih dahulu.</translation>
 <context>
     <name>WebEnginePage</name>
     <message>
-        <location filename="../webenginepage.cpp" line="57"/>
+        <location filename="../webenginepage.cpp" line="90"/>
         <source>Allow %1 to access your location information?</source>
         <translation>Izinkan %1 mengakses informasi lokasi Anda?</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="59"/>
+        <location filename="../webenginepage.cpp" line="92"/>
         <source>Allow %1 to access your microphone?</source>
         <translation>Izinkan %1 mengakses mikrofon Anda?</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="61"/>
+        <location filename="../webenginepage.cpp" line="94"/>
         <source>Allow %1 to access your webcam?</source>
         <translation>Izinkan %1 mengakses kamera Anda?</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="63"/>
+        <location filename="../webenginepage.cpp" line="96"/>
         <source>Allow %1 to access your microphone and webcam?</source>
         <translation>Izinkan %1 mengakses mikrofon dan kamera Anda?</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="65"/>
+        <location filename="../webenginepage.cpp" line="98"/>
         <source>Allow %1 to lock your mouse cursor?</source>
         <translation>Izinkan %1 mengunci kursor tetikus Anda?</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="67"/>
+        <location filename="../webenginepage.cpp" line="100"/>
         <source>Allow %1 to capture video of your desktop?</source>
         <translation>Izinkan %1 merekam video desktop Anda?</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="69"/>
+        <location filename="../webenginepage.cpp" line="102"/>
         <source>Allow %1 to capture audio and video of your desktop?</source>
         <translation>Izinkan %1 merekam audio dan video desktop Anda?</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="72"/>
+        <location filename="../webenginepage.cpp" line="105"/>
         <source>Allow %1 to show notification on your desktop?</source>
         <translation>Izinkan %1 menampilkan notifikasi di desktop Anda?</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="74"/>
+        <location filename="../webenginepage.cpp" line="107"/>
         <source>Allow %1 to read your clipboard? This is needed to paste images into a chat.</source>
         <translation>Izinkan %1 membaca papan klip Anda? Ini diperlukan untuk menempelkan gambar ke obrolan.</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="77"/>
+        <location filename="../webenginepage.cpp" line="110"/>
         <source>Allow %1 to see the fonts installed on your system?</source>
         <translation>Izinkan %1 melihat fon yang terpasang di sistem Anda?</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="97"/>
-        <location filename="../webenginepage.cpp" line="292"/>
+        <location filename="../webenginepage.cpp" line="130"/>
+        <location filename="../webenginepage.cpp" line="344"/>
         <source>Permission Request</source>
         <translation>Permintaan izin</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="215"/>
-        <location filename="../webenginepage.cpp" line="224"/>
+        <location filename="../webenginepage.cpp" line="267"/>
+        <location filename="../webenginepage.cpp" line="276"/>
         <source>Certificate Error</source>
         <translation>Kesalahan sertifikat</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="244"/>
+        <location filename="../webenginepage.cpp" line="296"/>
         <source>Enter username and password for &quot;%1&quot; at %2</source>
         <translation>Masukkan nama pengguna dan kata sandi untuk «%1» di %2</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="274"/>
+        <location filename="../webenginepage.cpp" line="326"/>
         <source>Connect to proxy &quot;%1&quot; using:</source>
         <translation>Sambungkan ke proxy «%1» menggunakan:</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="293"/>
+        <location filename="../webenginepage.cpp" line="345"/>
         <source>Allow %1 to open all %2 links?</source>
         <translation>Izinkan %1 membuka semua tautan %2?</translation>
     </message>
