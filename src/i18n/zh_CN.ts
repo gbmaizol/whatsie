@@ -65,9 +65,19 @@ p, li { white-space: pre-wrap; }
         <translation>调试信息</translation>
     </message>
     <message>
+        <location filename="../about.cpp" line="67"/>
+        <source>Version: </source>
+        <translation>版本：</translation>
+    </message>
+    <message>
         <location filename="../about.cpp" line="115"/>
         <source>The debug information was too long for the browser to carry, so it has been copied to your clipboard instead. Paste it into the issue.</source>
         <translation>调试信息太长，浏览器无法传递，已复制到剪贴板。请将其粘贴到问题中。</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="122"/>
+        <source> | About</source>
+        <translation> | 关于</translation>
     </message>
 </context>
 <context>
@@ -101,6 +111,36 @@ p, li { white-space: pre-wrap; }
         <location filename="../automatictheme.ui" line="94"/>
         <source>  Enable and Close</source>
         <translation>  启用并关闭</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="27"/>
+        <location filename="../automatictheme.cpp" line="62"/>
+        <location filename="../automatictheme.cpp" line="88"/>
+        <location filename="../automatictheme.cpp" line="97"/>
+        <source>Error</source>
+        <translation>错误</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="89"/>
+        <source>Invalid Geo-Coordinates.
+
+Please try again.</source>
+        <translation>地理坐标无效。
+
+请重试。</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="98"/>
+        <source>Invalid configuration.
+
+Sunrise and Sunset time cannot have similar values.
+
+Please try again.</source>
+        <translation>配置无效。
+
+日出和日落时间不能相同。
+
+请重试。</translation>
     </message>
 </context>
 <context>
@@ -235,6 +275,16 @@ Do you wish to override the security check and continue ?   </source>
         <source>Open Download directory</source>
         <translation>打开下载目录</translation>
     </message>
+    <message>
+        <location filename="../downloadmanagerwidget.cpp" line="36"/>
+        <source>File with same name already exist!</source>
+        <translation>已存在同名文件！</translation>
+    </message>
+    <message>
+        <location filename="../downloadmanagerwidget.cpp" line="37"/>
+        <source>Save file with a new name?</source>
+        <translation>用新名称保存文件？</translation>
+    </message>
 </context>
 <context>
     <name>DownloadWidget</name>
@@ -367,9 +417,34 @@ Do you wish to override the security check and continue ?   </source>
 <context>
     <name>MainWindow</name>
     <message>
+        <location filename="../mainwindow.cpp" line="445"/>
+        <location filename="../mainwindow.cpp" line="451"/>
+        <location filename="../mainwindow_webengine.cpp" line="262"/>
+        <location filename="../mainwindow_webengine.cpp" line="265"/>
+        <source>| Error</source>
+        <translation>| 错误</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="446"/>
         <source>Unlock to access Settings.</source>
         <translation>请解锁以访问设置。</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="452"/>
+        <source>Unable to initialize settings module.
+Webengine is not initialized.</source>
+        <translation>无法初始化设置模块。
+WebEngine 未初始化。</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="473"/>
+        <source> | Action required</source>
+        <translation> | 需要操作</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="474"/>
+        <source>Page needs to be reloaded to continue.</source>
+        <translation>需要重新加载页面才能继续。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="679"/>
@@ -378,6 +453,7 @@ Do you wish to override the security check and continue ?   </source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="689"/>
+        <location filename="../mainwindow_tray.cpp" line="13"/>
         <source>New Chat</source>
         <translation>新建聊天</translation>
     </message>
@@ -1238,9 +1314,39 @@ Please setup the password in the Settings first.</source>
         <translation>操作</translation>
     </message>
     <message>
+        <location filename="../settingswidget.cpp" line="334"/>
+        <source>This will delete Persistent Data ! Persistent data includes persistent cookies and Cache, and Quit the application.</source>
+        <translation>这将删除持久数据（包括持久 Cookie 和缓存）并退出应用程序。</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="339"/>
+        <source>Delete Cookies and Quit Application?</source>
+        <translation>删除 Cookie 并退出应用程序？</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="441"/>
+        <source>| Error</source>
+        <translation>| 错误</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="442"/>
+        <source>Cannot set an empty UserAgent String.</source>
+        <translation>无法设置空的 User-Agent 字符串。</translation>
+    </message>
+    <message>
         <location filename="../settingswidget.cpp" line="493"/>
         <source>Automatic theme switching was disabled due to manual theme toggle.</source>
         <translation>由于手动切换了主题，自动主题切换已被禁用。</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="532"/>
+        <source>App lock is not configured.</source>
+        <translation>未配置应用锁。</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="536"/>
+        <source>Do you want to setup App lock now?</source>
+        <translation>现在设置应用锁吗？</translation>
     </message>
     <message>
         <location filename="../settingswidget.cpp" line="578"/>
@@ -1293,10 +1399,36 @@ Please setup the password in the Settings first.</source>
         <translation>重启 %1 后界面语言将会更改。</translation>
     </message>
     <message>
+        <location filename="../settingswidget.cpp" line="871"/>
+        <source>App Lock Setup</source>
+        <translation>应用锁设置</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="872"/>
+        <source>Please setup the App lock password first.</source>
+        <translation>请先设置应用锁密码。</translation>
+    </message>
+    <message>
         <location filename="../settingswidget.cpp" line="981"/>
         <location filename="../settingswidget.cpp" line="992"/>
         <source>Select download directory</source>
         <translation>选择下载目录</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="1032"/>
+        <source>You are about to change your current app lock password!
+
+This will LogOut your current session.
+You may also require a complete restart of Application!</source>
+        <translation>您即将更改当前的应用锁密码！
+
+这将注销您的当前会话。
+您可能还需要完全重启应用程序！</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="1038"/>
+        <source>Do you want to proceed?</source>
+        <translation>要继续吗？</translation>
     </message>
 </context>
 <context>

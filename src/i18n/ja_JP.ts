@@ -65,9 +65,19 @@ p, li { white-space: pre-wrap; }
         <translation>デバッグ情報</translation>
     </message>
     <message>
+        <location filename="../about.cpp" line="67"/>
+        <source>Version: </source>
+        <translation>バージョン: </translation>
+    </message>
+    <message>
         <location filename="../about.cpp" line="115"/>
         <source>The debug information was too long for the browser to carry, so it has been copied to your clipboard instead. Paste it into the issue.</source>
         <translation>デバッグ情報がブラウザーで扱うには長すぎたため、クリップボードにコピーしました。issue に貼り付けてください。</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="122"/>
+        <source> | About</source>
+        <translation> | 情報</translation>
     </message>
 </context>
 <context>
@@ -101,6 +111,36 @@ p, li { white-space: pre-wrap; }
         <location filename="../automatictheme.ui" line="94"/>
         <source>  Enable and Close</source>
         <translation>  有効にして閉じる</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="27"/>
+        <location filename="../automatictheme.cpp" line="62"/>
+        <location filename="../automatictheme.cpp" line="88"/>
+        <location filename="../automatictheme.cpp" line="97"/>
+        <source>Error</source>
+        <translation>エラー</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="89"/>
+        <source>Invalid Geo-Coordinates.
+
+Please try again.</source>
+        <translation>地理座標が無効です。
+
+もう一度お試しください。</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="98"/>
+        <source>Invalid configuration.
+
+Sunrise and Sunset time cannot have similar values.
+
+Please try again.</source>
+        <translation>設定が無効です。
+
+日の出と日の入りの時刻を同じにはできません。
+
+もう一度お試しください。</translation>
     </message>
 </context>
 <context>
@@ -235,6 +275,16 @@ Do you wish to override the security check and continue ?   </source>
         <source>Open Download directory</source>
         <translation>ダウンロードフォルダーを開く</translation>
     </message>
+    <message>
+        <location filename="../downloadmanagerwidget.cpp" line="36"/>
+        <source>File with same name already exist!</source>
+        <translation>同じ名前のファイルが既に存在します！</translation>
+    </message>
+    <message>
+        <location filename="../downloadmanagerwidget.cpp" line="37"/>
+        <source>Save file with a new name?</source>
+        <translation>ファイルを新しい名前で保存しますか？</translation>
+    </message>
 </context>
 <context>
     <name>DownloadWidget</name>
@@ -367,9 +417,34 @@ Do you wish to override the security check and continue ?   </source>
 <context>
     <name>MainWindow</name>
     <message>
+        <location filename="../mainwindow.cpp" line="445"/>
+        <location filename="../mainwindow.cpp" line="451"/>
+        <location filename="../mainwindow_webengine.cpp" line="262"/>
+        <location filename="../mainwindow_webengine.cpp" line="265"/>
+        <source>| Error</source>
+        <translation>| エラー</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="446"/>
         <source>Unlock to access Settings.</source>
         <translation>設定にアクセスするにはロックを解除してください。</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="452"/>
+        <source>Unable to initialize settings module.
+Webengine is not initialized.</source>
+        <translation>設定モジュールを初期化できません。
+WebEngine が初期化されていません。</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="473"/>
+        <source> | Action required</source>
+        <translation> | 操作が必要です</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="474"/>
+        <source>Page needs to be reloaded to continue.</source>
+        <translation>続行するにはページを再読み込みする必要があります。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="679"/>
@@ -378,6 +453,7 @@ Do you wish to override the security check and continue ?   </source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="689"/>
+        <location filename="../mainwindow_tray.cpp" line="13"/>
         <source>New Chat</source>
         <translation>新規チャット</translation>
     </message>
@@ -1238,9 +1314,39 @@ Please setup the password in the Settings first.</source>
         <translation>操作</translation>
     </message>
     <message>
+        <location filename="../settingswidget.cpp" line="334"/>
+        <source>This will delete Persistent Data ! Persistent data includes persistent cookies and Cache, and Quit the application.</source>
+        <translation>永続データ（永続的な Cookie とキャッシュを含む）を削除し、アプリケーションを終了します。</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="339"/>
+        <source>Delete Cookies and Quit Application?</source>
+        <translation>Cookie を削除してアプリケーションを終了しますか？</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="441"/>
+        <source>| Error</source>
+        <translation>| エラー</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="442"/>
+        <source>Cannot set an empty UserAgent String.</source>
+        <translation>空の User-Agent 文字列は設定できません。</translation>
+    </message>
+    <message>
         <location filename="../settingswidget.cpp" line="493"/>
         <source>Automatic theme switching was disabled due to manual theme toggle.</source>
         <translation>テーマを手動で切り替えたため、自動テーマ切り替えは無効になりました。</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="532"/>
+        <source>App lock is not configured.</source>
+        <translation>アプリロックが設定されていません。</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="536"/>
+        <source>Do you want to setup App lock now?</source>
+        <translation>今すぐアプリロックを設定しますか？</translation>
     </message>
     <message>
         <location filename="../settingswidget.cpp" line="578"/>
@@ -1293,10 +1399,36 @@ Please setup the password in the Settings first.</source>
         <translation>%1 を再起動するとインターフェースの言語が変わります。</translation>
     </message>
     <message>
+        <location filename="../settingswidget.cpp" line="871"/>
+        <source>App Lock Setup</source>
+        <translation>アプリロックの設定</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="872"/>
+        <source>Please setup the App lock password first.</source>
+        <translation>先にアプリロックのパスワードを設定してください。</translation>
+    </message>
+    <message>
         <location filename="../settingswidget.cpp" line="981"/>
         <location filename="../settingswidget.cpp" line="992"/>
         <source>Select download directory</source>
         <translation>ダウンロードフォルダーを選択</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="1032"/>
+        <source>You are about to change your current app lock password!
+
+This will LogOut your current session.
+You may also require a complete restart of Application!</source>
+        <translation>現在のアプリロックのパスワードを変更しようとしています！
+
+現在のセッションからログアウトされます。
+アプリケーションの完全な再起動が必要になる場合もあります！</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="1038"/>
+        <source>Do you want to proceed?</source>
+        <translation>続行しますか？</translation>
     </message>
 </context>
 <context>

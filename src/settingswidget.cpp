@@ -331,12 +331,12 @@ QString SettingsWidget::persistentStoragePath() {
 
 void SettingsWidget::on_deletePersistentData_clicked() {
   QMessageBox msgBox;
-  msgBox.setText("This will delete Persistent Data ! Persistent data includes "
-                 "persistent cookies and Cache, and Quit the application.");
+  msgBox.setText(tr("This will delete Persistent Data ! Persistent data includes "
+                 "persistent cookies and Cache, and Quit the application."));
   msgBox.setIconPixmap(
       QPixmap(":/icons/information-line.png")
           .scaled(42, 42, Qt::KeepAspectRatio, Qt::SmoothTransformation));
-  msgBox.setInformativeText("Delete Cookies and Quit Application?");
+  msgBox.setInformativeText(tr("Delete Cookies and Quit Application?"));
   msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
   msgBox.setDefaultButton(QMessageBox::No);
   int ret = msgBox.exec();
@@ -438,8 +438,8 @@ void SettingsWidget::on_userAgentLineEdit_textChanged(const QString &arg1) {
 
 void SettingsWidget::on_setUserAgent_clicked() {
   if (ui->userAgentLineEdit->text().trimmed().isEmpty()) {
-    QMessageBox::information(this, QApplication::applicationName() + "| Error",
-                             "Cannot set an empty UserAgent String.");
+    QMessageBox::information(this, QApplication::applicationName() + tr("| Error"),
+                             tr("Cannot set an empty UserAgent String."));
     return;
   }
   emit userAgentChanged(ui->userAgentLineEdit->text());
@@ -529,11 +529,11 @@ void SettingsWidget::on_applock_checkbox_toggled(bool checked) {
 
 void SettingsWidget::showSetApplockPasswordDialog() {
   QMessageBox msgBox;
-  msgBox.setText("App lock is not configured.");
+  msgBox.setText(tr("App lock is not configured."));
   msgBox.setIconPixmap(
       QPixmap(":/icons/information-line.png")
           .scaled(42, 42, Qt::KeepAspectRatio, Qt::SmoothTransformation));
-  msgBox.setInformativeText("Do you want to setup App lock now?");
+  msgBox.setInformativeText(tr("Do you want to setup App lock now?"));
   msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::Cancel);
   int ret = msgBox.exec();
   if (ret == QMessageBox::Yes) {
@@ -868,8 +868,8 @@ void SettingsWidget::on_appAutoLockcheckBox_toggled(bool checked) {
   if (SettingsManager::instance().settings().value("asdfg").isValid()) {
     SettingsManager::instance().settings().setValue("appAutoLocking", checked);
   } else {
-    QMessageBox::information(this, "App Lock Setup",
-                             "Please setup the App lock password first.",
+    QMessageBox::information(this, tr("App Lock Setup"),
+                             tr("Please setup the App lock password first."),
                              QMessageBox::Ok);
     if (SettingsManager::instance().settings().value("asdfg").isValid() ==
         false) {
@@ -1029,13 +1029,13 @@ void SettingsWidget::on_viewPassword_clicked() {
 void SettingsWidget::on_chnageCurrentPasswordPushButton_clicked() {
   if (SettingsManager::instance().settings().value("asdfg").isValid()) {
     QMessageBox msgBox;
-    msgBox.setText("You are about to change your current app lock password!"
+    msgBox.setText(tr("You are about to change your current app lock password!"
                    "\n\nThis will LogOut your current session."
-                   "\nYou may also require a complete restart of Application!");
+                   "\nYou may also require a complete restart of Application!"));
     msgBox.setIconPixmap(
         QPixmap(":/icons/information-line.png")
             .scaled(42, 42, Qt::KeepAspectRatio, Qt::SmoothTransformation));
-    msgBox.setInformativeText("Do you want to proceed?");
+    msgBox.setInformativeText(tr("Do you want to proceed?"));
     msgBox.setStandardButtons(QMessageBox::Cancel);
     QPushButton *changePassword =
         new QPushButton(this->style()->standardIcon(QStyle::SP_DialogYesButton),

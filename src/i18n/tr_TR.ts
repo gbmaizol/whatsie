@@ -65,9 +65,19 @@ p, li { white-space: pre-wrap; }
         <translation>Hata ayıklama bilgileri</translation>
     </message>
     <message>
+        <location filename="../about.cpp" line="67"/>
+        <source>Version: </source>
+        <translation>Sürüm: </translation>
+    </message>
+    <message>
         <location filename="../about.cpp" line="115"/>
         <source>The debug information was too long for the browser to carry, so it has been copied to your clipboard instead. Paste it into the issue.</source>
         <translation>Hata ayıklama bilgisi tarayıcı için çok uzundu, bu yüzden panoya kopyalandı. Bunu bildirime yapıştırın.</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="122"/>
+        <source> | About</source>
+        <translation> | Hakkında</translation>
     </message>
 </context>
 <context>
@@ -101,6 +111,36 @@ p, li { white-space: pre-wrap; }
         <location filename="../automatictheme.ui" line="94"/>
         <source>  Enable and Close</source>
         <translation>  Etkinleştir ve kapat</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="27"/>
+        <location filename="../automatictheme.cpp" line="62"/>
+        <location filename="../automatictheme.cpp" line="88"/>
+        <location filename="../automatictheme.cpp" line="97"/>
+        <source>Error</source>
+        <translation>Hata</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="89"/>
+        <source>Invalid Geo-Coordinates.
+
+Please try again.</source>
+        <translation>Geçersiz coğrafi koordinatlar.
+
+Lütfen tekrar deneyin.</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="98"/>
+        <source>Invalid configuration.
+
+Sunrise and Sunset time cannot have similar values.
+
+Please try again.</source>
+        <translation>Geçersiz yapılandırma.
+
+Gün doğumu ve gün batımı saatleri aynı olamaz.
+
+Lütfen tekrar deneyin.</translation>
     </message>
 </context>
 <context>
@@ -235,6 +275,16 @@ Güvenlik denetimini atlayıp devam etmek istiyor musunuz?   </translation>
         <source>Open Download directory</source>
         <translation>İndirme klasörünü aç</translation>
     </message>
+    <message>
+        <location filename="../downloadmanagerwidget.cpp" line="36"/>
+        <source>File with same name already exist!</source>
+        <translation>Aynı ada sahip bir dosya zaten var!</translation>
+    </message>
+    <message>
+        <location filename="../downloadmanagerwidget.cpp" line="37"/>
+        <source>Save file with a new name?</source>
+        <translation>Dosya yeni bir adla kaydedilsin mi?</translation>
+    </message>
 </context>
 <context>
     <name>DownloadWidget</name>
@@ -367,9 +417,34 @@ Güvenlik denetimini atlayıp devam etmek istiyor musunuz?   </translation>
 <context>
     <name>MainWindow</name>
     <message>
+        <location filename="../mainwindow.cpp" line="445"/>
+        <location filename="../mainwindow.cpp" line="451"/>
+        <location filename="../mainwindow_webengine.cpp" line="262"/>
+        <location filename="../mainwindow_webengine.cpp" line="265"/>
+        <source>| Error</source>
+        <translation>| Hata</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="446"/>
         <source>Unlock to access Settings.</source>
         <translation>Ayarlara erişmek için kilidi açın.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="452"/>
+        <source>Unable to initialize settings module.
+Webengine is not initialized.</source>
+        <translation>Ayarlar modülü başlatılamıyor.
+WebEngine başlatılmadı.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="473"/>
+        <source> | Action required</source>
+        <translation> | İşlem gerekli</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="474"/>
+        <source>Page needs to be reloaded to continue.</source>
+        <translation>Devam etmek için sayfanın yeniden yüklenmesi gerekiyor.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="679"/>
@@ -378,6 +453,7 @@ Güvenlik denetimini atlayıp devam etmek istiyor musunuz?   </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="689"/>
+        <location filename="../mainwindow_tray.cpp" line="13"/>
         <source>New Chat</source>
         <translation>Yeni sohbet</translation>
     </message>
@@ -951,7 +1027,7 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     <message>
         <location filename="../settingswidget.ui" line="381"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Language of WhatSie&apos;s own interface. Takes effect after restarting the app. The language of the chats themselves comes from WhatsApp Web and cannot be changed here.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatSie arayüzünün dili. Uygulama yeniden başlatıldığında etkili olur. Sohbetlerin dili WhatsApp Web'den gelir ve buradan değiştirilemez.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatSie arayüzünün dili. Uygulama yeniden başlatıldığında etkili olur. Sohbetlerin dili WhatsApp Web&apos;den gelir ve buradan değiştirilemez.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="388"/>
@@ -992,7 +1068,7 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     <message>
         <location filename="../settingswidget.ui" line="427"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Load a .css file to restyle WhatsApp Web — the community stylesheets (catppuccin and the like) work here. Applied on top of the chat theme.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatsApp Web'in stilini değiştirmek için bir .css dosyası yükleyin — topluluk stil sayfaları (catppuccin ve benzerleri) burada çalışır. Sohbet temasının üzerine uygulanır.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatsApp Web&apos;in stilini değiştirmek için bir .css dosyası yükleyin — topluluk stil sayfaları (catppuccin ve benzerleri) burada çalışır. Sohbet temasının üzerine uygulanır.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="430"/>
@@ -1039,7 +1115,7 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     <message>
         <location filename="../settingswidget.ui" line="484"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Recolours WhatsApp Web itself. Photos, avatars and stickers keep their own colours. Works on top of the light or dark theme, whichever is active.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatsApp Web'in kendisini yeniden renklendirir. Fotoğraflar, avatarlar ve çıkartmalar kendi renklerini korur. Hangisi etkinse açık ya da koyu temanın üzerinde çalışır.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatsApp Web&apos;in kendisini yeniden renklendirir. Fotoğraflar, avatarlar ve çıkartmalar kendi renklerini korur. Hangisi etkinse açık ya da koyu temanın üzerinde çalışır.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="491"/>
@@ -1050,7 +1126,7 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     <message>
         <location filename="../settingswidget.ui" line="500"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use one of your own images as the background of the chat pane, as WhatsApp does on Android. The image is stored inside WhatSie, not uploaded anywhere, and is only visible to you.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatsApp'ın Android'de yaptığı gibi, sohbet bölmesinin arka planı olarak kendi görsellerinizden birini kullanın. Görsel WhatSie içinde saklanır, hiçbir yere yüklenmez ve yalnızca siz görürsünüz.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;WhatsApp&apos;ın Android&apos;de yaptığı gibi, sohbet bölmesinin arka planı olarak kendi görsellerinizden birini kullanın. Görsel WhatSie içinde saklanır, hiçbir yere yüklenmez ve yalnızca siz görürsünüz.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="503"/>
@@ -1238,9 +1314,39 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
         <translation>Eylem</translation>
     </message>
     <message>
+        <location filename="../settingswidget.cpp" line="334"/>
+        <source>This will delete Persistent Data ! Persistent data includes persistent cookies and Cache, and Quit the application.</source>
+        <translation>Bu, kalıcı verileri (kalıcı çerezler ve önbellek dahil) silecek ve uygulamayı kapatacaktır.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="339"/>
+        <source>Delete Cookies and Quit Application?</source>
+        <translation>Çerezler silinsin ve uygulama kapatılsın mı?</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="441"/>
+        <source>| Error</source>
+        <translation>| Hata</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="442"/>
+        <source>Cannot set an empty UserAgent String.</source>
+        <translation>Boş bir User-Agent dizesi ayarlanamaz.</translation>
+    </message>
+    <message>
         <location filename="../settingswidget.cpp" line="493"/>
         <source>Automatic theme switching was disabled due to manual theme toggle.</source>
         <translation>Tema elle değiştirildiği için otomatik tema değişimi devre dışı bırakıldı.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="532"/>
+        <source>App lock is not configured.</source>
+        <translation>Uygulama kilidi yapılandırılmadı.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="536"/>
+        <source>Do you want to setup App lock now?</source>
+        <translation>Uygulama kilidini şimdi ayarlamak ister misiniz?</translation>
     </message>
     <message>
         <location filename="../settingswidget.cpp" line="578"/>
@@ -1293,10 +1399,36 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
         <translation>Arayüz dili %1 yeniden başlatıldığında değişecek.</translation>
     </message>
     <message>
+        <location filename="../settingswidget.cpp" line="871"/>
+        <source>App Lock Setup</source>
+        <translation>Uygulama Kilidi Kurulumu</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="872"/>
+        <source>Please setup the App lock password first.</source>
+        <translation>Lütfen önce uygulama kilidi parolasını ayarlayın.</translation>
+    </message>
+    <message>
         <location filename="../settingswidget.cpp" line="981"/>
         <location filename="../settingswidget.cpp" line="992"/>
         <source>Select download directory</source>
         <translation>İndirme klasörünü seçin</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="1032"/>
+        <source>You are about to change your current app lock password!
+
+This will LogOut your current session.
+You may also require a complete restart of Application!</source>
+        <translation>Mevcut uygulama kilidi parolanızı değiştirmek üzeresiniz!
+
+Bu, mevcut oturumunuzu kapatacaktır.
+Uygulamanın tamamen yeniden başlatılması da gerekebilir!</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="1038"/>
+        <source>Do you want to proceed?</source>
+        <translation>Devam etmek istiyor musunuz?</translation>
     </message>
 </context>
 <context>

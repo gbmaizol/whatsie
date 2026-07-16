@@ -65,9 +65,19 @@ p, li { white-space: pre-wrap; }
         <translation>Información de depuración</translation>
     </message>
     <message>
+        <location filename="../about.cpp" line="67"/>
+        <source>Version: </source>
+        <translation>Versión: </translation>
+    </message>
+    <message>
         <location filename="../about.cpp" line="115"/>
         <source>The debug information was too long for the browser to carry, so it has been copied to your clipboard instead. Paste it into the issue.</source>
         <translation>La información de depuración era demasiado larga para el navegador, así que se ha copiado al portapapeles. Pégala en el informe.</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="122"/>
+        <source> | About</source>
+        <translation> | Acerca de</translation>
     </message>
 </context>
 <context>
@@ -101,6 +111,36 @@ p, li { white-space: pre-wrap; }
         <location filename="../automatictheme.ui" line="94"/>
         <source>  Enable and Close</source>
         <translation>  Activar y cerrar</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="27"/>
+        <location filename="../automatictheme.cpp" line="62"/>
+        <location filename="../automatictheme.cpp" line="88"/>
+        <location filename="../automatictheme.cpp" line="97"/>
+        <source>Error</source>
+        <translation>Error</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="89"/>
+        <source>Invalid Geo-Coordinates.
+
+Please try again.</source>
+        <translation>Coordenadas geográficas no válidas.
+
+Inténtalo de nuevo.</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="98"/>
+        <source>Invalid configuration.
+
+Sunrise and Sunset time cannot have similar values.
+
+Please try again.</source>
+        <translation>Configuración no válida.
+
+Las horas de amanecer y atardecer no pueden ser iguales.
+
+Inténtalo de nuevo.</translation>
     </message>
 </context>
 <context>
@@ -235,6 +275,16 @@ Do you wish to override the security check and continue ?   </source>
         <source>Open Download directory</source>
         <translation>Abrir la carpeta de descargas</translation>
     </message>
+    <message>
+        <location filename="../downloadmanagerwidget.cpp" line="36"/>
+        <source>File with same name already exist!</source>
+        <translation>¡Ya existe un archivo con el mismo nombre!</translation>
+    </message>
+    <message>
+        <location filename="../downloadmanagerwidget.cpp" line="37"/>
+        <source>Save file with a new name?</source>
+        <translation>¿Guardar el archivo con un nombre nuevo?</translation>
+    </message>
 </context>
 <context>
     <name>DownloadWidget</name>
@@ -367,9 +417,34 @@ Do you wish to override the security check and continue ?   </source>
 <context>
     <name>MainWindow</name>
     <message>
+        <location filename="../mainwindow.cpp" line="445"/>
+        <location filename="../mainwindow.cpp" line="451"/>
+        <location filename="../mainwindow_webengine.cpp" line="262"/>
+        <location filename="../mainwindow_webengine.cpp" line="265"/>
+        <source>| Error</source>
+        <translation>| Error</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="446"/>
         <source>Unlock to access Settings.</source>
         <translation>Desbloquee para acceder a los ajustes.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="452"/>
+        <source>Unable to initialize settings module.
+Webengine is not initialized.</source>
+        <translation>No se puede inicializar el módulo de ajustes.
+WebEngine no está inicializado.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="473"/>
+        <source> | Action required</source>
+        <translation> | Acción requerida</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="474"/>
+        <source>Page needs to be reloaded to continue.</source>
+        <translation>La página debe recargarse para continuar.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="679"/>
@@ -378,6 +453,7 @@ Do you wish to override the security check and continue ?   </source>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="689"/>
+        <location filename="../mainwindow_tray.cpp" line="13"/>
         <source>New Chat</source>
         <translation>Nuevo chat</translation>
     </message>
@@ -1238,9 +1314,39 @@ Configure primero la contraseña en los ajustes.</translation>
         <translation>Acción</translation>
     </message>
     <message>
+        <location filename="../settingswidget.cpp" line="334"/>
+        <source>This will delete Persistent Data ! Persistent data includes persistent cookies and Cache, and Quit the application.</source>
+        <translation>Esto eliminará los datos persistentes (incluidas las cookies persistentes y la caché) y cerrará la aplicación.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="339"/>
+        <source>Delete Cookies and Quit Application?</source>
+        <translation>¿Eliminar las cookies y cerrar la aplicación?</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="441"/>
+        <source>| Error</source>
+        <translation>| Error</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="442"/>
+        <source>Cannot set an empty UserAgent String.</source>
+        <translation>No se puede establecer una cadena de User-Agent vacía.</translation>
+    </message>
+    <message>
         <location filename="../settingswidget.cpp" line="493"/>
         <source>Automatic theme switching was disabled due to manual theme toggle.</source>
         <translation>El cambio automático de tema se desactivó al cambiar el tema manualmente.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="532"/>
+        <source>App lock is not configured.</source>
+        <translation>El bloqueo de la aplicación no está configurado.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="536"/>
+        <source>Do you want to setup App lock now?</source>
+        <translation>¿Quieres configurar el bloqueo de la aplicación ahora?</translation>
     </message>
     <message>
         <location filename="../settingswidget.cpp" line="578"/>
@@ -1293,10 +1399,36 @@ Configure primero la contraseña en los ajustes.</translation>
         <translation>El idioma de la interfaz cambiará cuando reinicies %1.</translation>
     </message>
     <message>
+        <location filename="../settingswidget.cpp" line="871"/>
+        <source>App Lock Setup</source>
+        <translation>Configuración del bloqueo</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="872"/>
+        <source>Please setup the App lock password first.</source>
+        <translation>Configura primero la contraseña del bloqueo.</translation>
+    </message>
+    <message>
         <location filename="../settingswidget.cpp" line="981"/>
         <location filename="../settingswidget.cpp" line="992"/>
         <source>Select download directory</source>
         <translation>Seleccionar la carpeta de descargas</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="1032"/>
+        <source>You are about to change your current app lock password!
+
+This will LogOut your current session.
+You may also require a complete restart of Application!</source>
+        <translation>¡Estás a punto de cambiar la contraseña actual del bloqueo!
+
+Esto cerrará tu sesión actual.
+¡También podría requerir reiniciar por completo la aplicación!</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="1038"/>
+        <source>Do you want to proceed?</source>
+        <translation>¿Quieres continuar?</translation>
     </message>
 </context>
 <context>

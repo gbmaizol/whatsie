@@ -64,7 +64,7 @@ About::About(QWidget *parent) : QWidget(parent), ui(new Ui::About) {
           .arg(appAuthorName, appAuthorLink, maintainerName, maintainerEmail,
                maintainerLink));
 
-  ui->version->setText("Version: " + QApplication::applicationVersion());
+  ui->version->setText(tr("Version: ") + QApplication::applicationVersion());
 
   ui->debugInfoText->setHtml(Utils::appDebugInfo());
 
@@ -119,7 +119,7 @@ About::About(QWidget *parent) : QWidget(parent), ui(new Ui::About) {
     QDesktopServices::openUrl(url);
   });
 
-  setWindowTitle(QApplication::applicationName() + " | About");
+  setWindowTitle(QApplication::applicationName() + tr(" | About"));
 
   ui->centerWidget->hide();
 

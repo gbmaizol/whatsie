@@ -65,9 +65,19 @@ p, li { white-space: pre-wrap; }
         <translation>Informations de débogage</translation>
     </message>
     <message>
+        <location filename="../about.cpp" line="67"/>
+        <source>Version: </source>
+        <translation>Version : </translation>
+    </message>
+    <message>
         <location filename="../about.cpp" line="115"/>
         <source>The debug information was too long for the browser to carry, so it has been copied to your clipboard instead. Paste it into the issue.</source>
         <translation>Les informations de débogage étaient trop longues pour le navigateur ; elles ont été copiées dans le presse-papiers. Collez-les dans le ticket.</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="122"/>
+        <source> | About</source>
+        <translation> | À propos</translation>
     </message>
 </context>
 <context>
@@ -101,6 +111,36 @@ p, li { white-space: pre-wrap; }
         <location filename="../automatictheme.ui" line="94"/>
         <source>  Enable and Close</source>
         <translation>  Activer et fermer</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="27"/>
+        <location filename="../automatictheme.cpp" line="62"/>
+        <location filename="../automatictheme.cpp" line="88"/>
+        <location filename="../automatictheme.cpp" line="97"/>
+        <source>Error</source>
+        <translation>Erreur</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="89"/>
+        <source>Invalid Geo-Coordinates.
+
+Please try again.</source>
+        <translation>Coordonnées géographiques non valides.
+
+Veuillez réessayer.</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="98"/>
+        <source>Invalid configuration.
+
+Sunrise and Sunset time cannot have similar values.
+
+Please try again.</source>
+        <translation>Configuration non valide.
+
+Les heures de lever et de coucher du soleil ne peuvent pas être identiques.
+
+Veuillez réessayer.</translation>
     </message>
 </context>
 <context>
@@ -235,6 +275,16 @@ Voulez-vous ignorer le contrôle de sécurité et continuer ?   </translation>
         <source>Open Download directory</source>
         <translation>Ouvrir le dossier des téléchargements</translation>
     </message>
+    <message>
+        <location filename="../downloadmanagerwidget.cpp" line="36"/>
+        <source>File with same name already exist!</source>
+        <translation>Un fichier du même nom existe déjà !</translation>
+    </message>
+    <message>
+        <location filename="../downloadmanagerwidget.cpp" line="37"/>
+        <source>Save file with a new name?</source>
+        <translation>Enregistrer le fichier sous un nouveau nom ?</translation>
+    </message>
 </context>
 <context>
     <name>DownloadWidget</name>
@@ -367,9 +417,34 @@ Voulez-vous ignorer le contrôle de sécurité et continuer ?   </translation>
 <context>
     <name>MainWindow</name>
     <message>
+        <location filename="../mainwindow.cpp" line="445"/>
+        <location filename="../mainwindow.cpp" line="451"/>
+        <location filename="../mainwindow_webengine.cpp" line="262"/>
+        <location filename="../mainwindow_webengine.cpp" line="265"/>
+        <source>| Error</source>
+        <translation>| Erreur</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="446"/>
         <source>Unlock to access Settings.</source>
         <translation>Déverrouillez pour accéder aux paramètres.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="452"/>
+        <source>Unable to initialize settings module.
+Webengine is not initialized.</source>
+        <translation>Impossible d'initialiser le module de paramètres.
+WebEngine n'est pas initialisé.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="473"/>
+        <source> | Action required</source>
+        <translation> | Action requise</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="474"/>
+        <source>Page needs to be reloaded to continue.</source>
+        <translation>La page doit être rechargée pour continuer.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="679"/>
@@ -378,6 +453,7 @@ Voulez-vous ignorer le contrôle de sécurité et continuer ?   </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="689"/>
+        <location filename="../mainwindow_tray.cpp" line="13"/>
         <source>New Chat</source>
         <translation>Nouvelle discussion</translation>
     </message>
@@ -768,7 +844,7 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     <message>
         <location filename="../chatwallpaper.cpp" line="156"/>
         <source>Cannot write %1</source>
-        <translation>Impossible d'écrire %1</translation>
+        <translation>Impossible d&apos;écrire %1</translation>
     </message>
 </context>
 <context>
@@ -946,12 +1022,12 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     <message>
         <location filename="../settingswidget.ui" line="374"/>
         <source>Interface language</source>
-        <translation>Langue de l'interface</translation>
+        <translation>Langue de l&apos;interface</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="381"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Language of WhatSie&apos;s own interface. Takes effect after restarting the app. The language of the chats themselves comes from WhatsApp Web and cannot be changed here.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Langue de l'interface de WhatSie. Prend effet après le redémarrage de l'application. La langue des discussions provient de WhatsApp Web et ne peut pas être modifiée ici.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Langue de l&apos;interface de WhatSie. Prend effet après le redémarrage de l&apos;application. La langue des discussions provient de WhatsApp Web et ne peut pas être modifiée ici.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="388"/>
@@ -1014,7 +1090,7 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
         <location filename="../settingswidget.ui" line="449"/>
         <location filename="../settingswidget.cpp" line="734"/>
         <source>Check spelling as I type</source>
-        <translation>Vérifier l'orthographe pendant la saisie</translation>
+        <translation>Vérifier l&apos;orthographe pendant la saisie</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="456"/>
@@ -1029,7 +1105,7 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     <message>
         <location filename="../settingswidget.ui" line="470"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Blurs your chats until you hover over them, so someone glancing at the screen cannot read them. Hovering a row reveals just that row.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Floute vos discussions jusqu'à ce que vous les surviez, pour qu'un regard sur l'écran ne puisse pas les lire. Survoler une ligne ne révèle que cette ligne.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Floute vos discussions jusqu&apos;à ce que vous les surviez, pour qu&apos;un regard sur l&apos;écran ne puisse pas les lire. Survoler une ligne ne révèle que cette ligne.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="477"/>
@@ -1045,12 +1121,12 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
         <location filename="../settingswidget.ui" line="491"/>
         <location filename="../settingswidget.cpp" line="653"/>
         <source>Chat wallpaper</source>
-        <translation>Fond d'écran de discussion</translation>
+        <translation>Fond d&apos;écran de discussion</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="500"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use one of your own images as the background of the chat pane, as WhatsApp does on Android. The image is stored inside WhatSie, not uploaded anywhere, and is only visible to you.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Utilisez l'une de vos propres images comme fond du volet de discussion, comme WhatsApp sur Android. L'image est stockée dans WhatSie, n'est envoyée nulle part et n'est visible que par vous.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Utilisez l&apos;une de vos propres images comme fond du volet de discussion, comme WhatsApp sur Android. L&apos;image est stockée dans WhatSie, n&apos;est envoyée nulle part et n&apos;est visible que par vous.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="503"/>
@@ -1238,9 +1314,39 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
         <translation>Action</translation>
     </message>
     <message>
+        <location filename="../settingswidget.cpp" line="334"/>
+        <source>This will delete Persistent Data ! Persistent data includes persistent cookies and Cache, and Quit the application.</source>
+        <translation>Ceci supprimera les données persistantes (y compris les cookies persistants et le cache) et fermera l'application.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="339"/>
+        <source>Delete Cookies and Quit Application?</source>
+        <translation>Supprimer les cookies et quitter l'application ?</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="441"/>
+        <source>| Error</source>
+        <translation>| Erreur</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="442"/>
+        <source>Cannot set an empty UserAgent String.</source>
+        <translation>Impossible de définir une chaîne User-Agent vide.</translation>
+    </message>
+    <message>
         <location filename="../settingswidget.cpp" line="493"/>
         <source>Automatic theme switching was disabled due to manual theme toggle.</source>
         <translation>Le changement automatique de thème a été désactivé suite à un changement manuel.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="532"/>
+        <source>App lock is not configured.</source>
+        <translation>Le verrouillage de l'application n'est pas configuré.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="536"/>
+        <source>Do you want to setup App lock now?</source>
+        <translation>Voulez-vous configurer le verrouillage de l'application maintenant ?</translation>
     </message>
     <message>
         <location filename="../settingswidget.cpp" line="578"/>
@@ -1250,7 +1356,7 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     <message>
         <location filename="../settingswidget.cpp" line="644"/>
         <source>Choose a chat wallpaper</source>
-        <translation>Choisir un fond d'écran de discussion</translation>
+        <translation>Choisir un fond d&apos;écran de discussion</translation>
     </message>
     <message>
         <location filename="../settingswidget.cpp" line="646"/>
@@ -1260,7 +1366,7 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     <message>
         <location filename="../settingswidget.cpp" line="654"/>
         <source>Could not use that image: %1</source>
-        <translation>Impossible d'utiliser cette image : %1</translation>
+        <translation>Impossible d&apos;utiliser cette image : %1</translation>
     </message>
     <message>
         <location filename="../settingswidget.cpp" line="669"/>
@@ -1290,13 +1396,39 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     <message>
         <location filename="../settingswidget.cpp" line="857"/>
         <source>The interface language will change when you restart %1.</source>
-        <translation>La langue de l'interface changera au redémarrage de %1.</translation>
+        <translation>La langue de l&apos;interface changera au redémarrage de %1.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="871"/>
+        <source>App Lock Setup</source>
+        <translation>Configuration du verrouillage</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="872"/>
+        <source>Please setup the App lock password first.</source>
+        <translation>Veuillez d'abord configurer le mot de passe de verrouillage.</translation>
     </message>
     <message>
         <location filename="../settingswidget.cpp" line="981"/>
         <location filename="../settingswidget.cpp" line="992"/>
         <source>Select download directory</source>
         <translation>Choisir le dossier de téléchargement</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="1032"/>
+        <source>You are about to change your current app lock password!
+
+This will LogOut your current session.
+You may also require a complete restart of Application!</source>
+        <translation>Vous êtes sur le point de changer votre mot de passe de verrouillage actuel !
+
+Cela déconnectera votre session actuelle.
+Un redémarrage complet de l'application peut aussi être nécessaire !</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="1038"/>
+        <source>Do you want to proceed?</source>
+        <translation>Voulez-vous continuer ?</translation>
     </message>
 </context>
 <context>

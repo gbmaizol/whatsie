@@ -24,7 +24,7 @@ AutomaticTheme::AutomaticTheme(QWidget *parent)
   } else {
     SettingsManager::instance().settings().setValue("automaticTheme", false);
     QMessageBox::critical(
-        this, "Error",
+        this, tr("Error"),
         "Unable to get system TimeZone information.\n\nAutomatic theme "
         "switcher will not work.");
     return;
@@ -59,7 +59,7 @@ AutomaticTheme::AutomaticTheme(QWidget *parent)
     ui->refresh->setEnabled(false);
     SettingsManager::instance().settings().setValue("automaticTheme", false);
     QMessageBox::critical(
-        this, "Error",
+        this, tr("Error"),
         "Unable to initialize QGeoPositionInfoSource.\n\nAutomatic theme "
         "switcher will not work."
         "\n\nPlease fill the sunset and sunrise time manually.");
@@ -85,8 +85,8 @@ void AutomaticTheme::on_refresh_clicked() {
     ui->sunset->setTime(m_sunset.time());
   } else {
     SettingsManager::instance().settings().setValue("automaticTheme", false);
-    QMessageBox::critical(this, "Error",
-                          "Invalid Geo-Coordinates.\n\nPlease try again.");
+    QMessageBox::critical(this, tr("Error"),
+                          tr("Invalid Geo-Coordinates.\n\nPlease try again."));
   }
 }
 
@@ -94,10 +94,9 @@ void AutomaticTheme::on_save_clicked() {
   if (m_sunrise.toSecsSinceEpoch() == m_sunset.toSecsSinceEpoch()) {
     SettingsManager::instance().settings().setValue("automaticTheme", false);
     QMessageBox::critical(
-        this, "Error",
-        "Invalid SettingsManager::instance().settings().\n\nSunrise and Sunset "
-        "time cannot "
-        "have similar values.\n\nPlease try again.");
+        this, tr("Error"),
+        tr("Invalid configuration.\n\nSunrise and Sunset time cannot "
+           "have similar values.\n\nPlease try again."));
   } else {
     SettingsManager::instance().settings().setValue(
         "sunrise", m_sunrise.toSecsSinceEpoch());

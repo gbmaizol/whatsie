@@ -70,9 +70,19 @@ p, li { white-space: pre-wrap; }
         <translation>Dettagli Debug</translation>
     </message>
     <message>
+        <location filename="../about.cpp" line="67"/>
+        <source>Version: </source>
+        <translation>Versione: </translation>
+    </message>
+    <message>
         <location filename="../about.cpp" line="115"/>
         <source>The debug information was too long for the browser to carry, so it has been copied to your clipboard instead. Paste it into the issue.</source>
         <translation>Le informazioni di debug erano troppo lunghe per il browser, quindi sono state copiate negli appunti. Incollale nella segnalazione.</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="122"/>
+        <source> | About</source>
+        <translation> | Informazioni</translation>
     </message>
 </context>
 <context>
@@ -108,6 +118,36 @@ p, li { white-space: pre-wrap; }
         <source>  Enable and Close</source>
         <translatorcomment>Abilita e Chiudi</translatorcomment>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="27"/>
+        <location filename="../automatictheme.cpp" line="62"/>
+        <location filename="../automatictheme.cpp" line="88"/>
+        <location filename="../automatictheme.cpp" line="97"/>
+        <source>Error</source>
+        <translation>Errore</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="89"/>
+        <source>Invalid Geo-Coordinates.
+
+Please try again.</source>
+        <translation>Coordinate geografiche non valide.
+
+Riprova.</translation>
+    </message>
+    <message>
+        <location filename="../automatictheme.cpp" line="98"/>
+        <source>Invalid configuration.
+
+Sunrise and Sunset time cannot have similar values.
+
+Please try again.</source>
+        <translation>Configurazione non valida.
+
+Gli orari di alba e tramonto non possono coincidere.
+
+Riprova.</translation>
     </message>
 </context>
 <context>
@@ -240,6 +280,16 @@ Desideri ignorare il controllo di sicurezza e continuare?</translation>
         <location filename="../downloadmanagerwidget.ui" line="142"/>
         <source>Open Download directory</source>
         <translation>Apri cartella Scaricati</translation>
+    </message>
+    <message>
+        <location filename="../downloadmanagerwidget.cpp" line="36"/>
+        <source>File with same name already exist!</source>
+        <translation>Esiste già un file con lo stesso nome!</translation>
+    </message>
+    <message>
+        <location filename="../downloadmanagerwidget.cpp" line="37"/>
+        <source>Save file with a new name?</source>
+        <translation>Salvare il file con un nuovo nome?</translation>
     </message>
 </context>
 <context>
@@ -506,12 +556,38 @@ Aprire le Impostazioni ora?</translation>
         <translation>Ripristina</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="445"/>
+        <location filename="../mainwindow.cpp" line="451"/>
+        <location filename="../mainwindow_webengine.cpp" line="262"/>
+        <location filename="../mainwindow_webengine.cpp" line="265"/>
+        <source>| Error</source>
+        <translation>| Errore</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="452"/>
+        <source>Unable to initialize settings module.
+Webengine is not initialized.</source>
+        <translation>Impossibile inizializzare il modulo impostazioni.
+WebEngine non è inizializzato.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="473"/>
+        <source> | Action required</source>
+        <translation> | Azione richiesta</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="474"/>
+        <source>Page needs to be reloaded to continue.</source>
+        <translation>La pagina deve essere ricaricata per continuare.</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="679"/>
         <source>Open</source>
         <translation>Apri</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="689"/>
+        <location filename="../mainwindow_tray.cpp" line="13"/>
         <source>New Chat</source>
         <translation>Nuova Chat</translation>
     </message>
@@ -943,12 +1019,12 @@ Imposta la password nelle Impostazioni.</translation>
     <message>
         <location filename="../settingswidget.ui" line="374"/>
         <source>Interface language</source>
-        <translation>Lingua dell'interfaccia</translation>
+        <translation>Lingua dell&apos;interfaccia</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="381"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Language of WhatSie&apos;s own interface. Takes effect after restarting the app. The language of the chats themselves comes from WhatsApp Web and cannot be changed here.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Lingua dell'interfaccia di WhatSie. Ha effetto dopo il riavvio dell'app. La lingua delle chat proviene da WhatsApp Web e non può essere cambiata qui.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Lingua dell&apos;interfaccia di WhatSie. Ha effetto dopo il riavvio dell&apos;app. La lingua delle chat proviene da WhatsApp Web e non può essere cambiata qui.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="388"/>
@@ -1011,7 +1087,7 @@ Imposta la password nelle Impostazioni.</translation>
         <location filename="../settingswidget.ui" line="449"/>
         <location filename="../settingswidget.cpp" line="734"/>
         <source>Check spelling as I type</source>
-        <translation>Controlla l'ortografia durante la digitazione</translation>
+        <translation>Controlla l&apos;ortografia durante la digitazione</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="456"/>
@@ -1047,7 +1123,7 @@ Imposta la password nelle Impostazioni.</translation>
     <message>
         <location filename="../settingswidget.ui" line="500"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use one of your own images as the background of the chat pane, as WhatsApp does on Android. The image is stored inside WhatSie, not uploaded anywhere, and is only visible to you.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Usa una tua immagine come sfondo del pannello della chat, come fa WhatsApp su Android. L'immagine è salvata dentro WhatSie, non è caricata da nessuna parte ed è visibile solo a te.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Usa una tua immagine come sfondo del pannello della chat, come fa WhatsApp su Android. L&apos;immagine è salvata dentro WhatSie, non è caricata da nessuna parte ed è visibile solo a te.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../settingswidget.ui" line="503"/>
@@ -1245,9 +1321,39 @@ Imposta la password nelle Impostazioni.</translation>
         <translation>Dati persistenti</translation>
     </message>
     <message>
+        <location filename="../settingswidget.cpp" line="334"/>
+        <source>This will delete Persistent Data ! Persistent data includes persistent cookies and Cache, and Quit the application.</source>
+        <translation>Questa operazione eliminerà i dati persistenti (inclusi cookie persistenti e cache) e chiuderà l'applicazione.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="339"/>
+        <source>Delete Cookies and Quit Application?</source>
+        <translation>Eliminare i cookie e chiudere l'applicazione?</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="441"/>
+        <source>| Error</source>
+        <translation>| Errore</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="442"/>
+        <source>Cannot set an empty UserAgent String.</source>
+        <translation>Impossibile impostare una stringa User-Agent vuota.</translation>
+    </message>
+    <message>
         <location filename="../settingswidget.cpp" line="493"/>
         <source>Automatic theme switching was disabled due to manual theme toggle.</source>
         <translation>Il cambio automatico del tema è stato disabilitato.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="532"/>
+        <source>App lock is not configured.</source>
+        <translation>Il blocco dell'app non è configurato.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="536"/>
+        <source>Do you want to setup App lock now?</source>
+        <translation>Vuoi configurare il blocco dell'app ora?</translation>
     </message>
     <message>
         <location filename="../settingswidget.cpp" line="578"/>
@@ -1267,7 +1373,7 @@ Imposta la password nelle Impostazioni.</translation>
     <message>
         <location filename="../settingswidget.cpp" line="654"/>
         <source>Could not use that image: %1</source>
-        <translation>Impossibile usare quell'immagine: %1</translation>
+        <translation>Impossibile usare quell&apos;immagine: %1</translation>
     </message>
     <message>
         <location filename="../settingswidget.cpp" line="669"/>
@@ -1297,13 +1403,39 @@ Imposta la password nelle Impostazioni.</translation>
     <message>
         <location filename="../settingswidget.cpp" line="857"/>
         <source>The interface language will change when you restart %1.</source>
-        <translation>La lingua dell'interfaccia cambierà al riavvio di %1.</translation>
+        <translation>La lingua dell&apos;interfaccia cambierà al riavvio di %1.</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="871"/>
+        <source>App Lock Setup</source>
+        <translation>Configurazione blocco app</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="872"/>
+        <source>Please setup the App lock password first.</source>
+        <translation>Configura prima la password del blocco app.</translation>
     </message>
     <message>
         <location filename="../settingswidget.cpp" line="981"/>
         <location filename="../settingswidget.cpp" line="992"/>
         <source>Select download directory</source>
         <translation>Seleziona cartella scaricati</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="1032"/>
+        <source>You are about to change your current app lock password!
+
+This will LogOut your current session.
+You may also require a complete restart of Application!</source>
+        <translation>Stai per cambiare la password attuale del blocco app!
+
+Questo disconnetterà la sessione corrente.
+Potrebbe essere necessario anche un riavvio completo dell'applicazione!</translation>
+    </message>
+    <message>
+        <location filename="../settingswidget.cpp" line="1038"/>
+        <source>Do you want to proceed?</source>
+        <translation>Vuoi procedere?</translation>
     </message>
 </context>
 <context>

@@ -442,14 +442,14 @@ void MainWindow::showSettings(bool isAskedByCLI) {
     // being told to unlock with no unlock window anywhere on screen.
     ensureLockVisible();
     if (isAskedByCLI)
-      showNotification(QApplication::applicationName() + "| Error",
+      showNotification(QApplication::applicationName() + tr("| Error"),
                        tr("Unlock to access Settings."));
     return;
   }
   if (m_webEngine == nullptr) {
     QMessageBox::critical(
-        this, QApplication::applicationName() + "| Error",
-        "Unable to initialize settings module.\nWebengine is not initialized.");
+        this, QApplication::applicationName() + tr("| Error"),
+        tr("Unable to initialize settings module.\nWebengine is not initialized."));
     return;
   }
   if (!m_settingsWidget->isVisible()) {
@@ -470,8 +470,8 @@ void MainWindow::updateSettingsUserAgentWidget() {
 
 void MainWindow::askToReloadPage() {
   QMessageBox msgBox;
-  msgBox.setWindowTitle(QApplication::applicationName() + " | Action required");
-  msgBox.setInformativeText("Page needs to be reloaded to continue.");
+  msgBox.setWindowTitle(QApplication::applicationName() + tr(" | Action required"));
+  msgBox.setInformativeText(tr("Page needs to be reloaded to continue."));
   msgBox.setStandardButtons(QMessageBox::Ok);
   msgBox.exec();
   doAppReload();

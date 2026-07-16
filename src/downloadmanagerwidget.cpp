@@ -33,8 +33,8 @@ void DownloadManagerWidget::downloadRequested(
   if (p_file_info.exists()) {
 
     QMessageBox msgBox;
-    msgBox.setText("File with same name already exist!");
-    msgBox.setInformativeText("Save file with a new name?");
+    msgBox.setText(tr("File with same name already exist!"));
+    msgBox.setInformativeText(tr("Save file with a new name?"));
     msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Cancel);
     msgBox.setDefaultButton(QMessageBox::Save);
     switch (msgBox.exec()) {

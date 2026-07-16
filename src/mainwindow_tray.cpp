@@ -10,7 +10,7 @@
 // ── Actions ──────────────────────────────────────────────────────────────────
 
 void MainWindow::createActions() {
-  m_openUrlAction = new QAction("New Chat", this);
+  m_openUrlAction = new QAction(tr("New Chat"), this);
   m_openUrlAction->setShortcut(QKeySequence(Qt::Modifier::CTRL | Qt::Key_N));
   connect(m_openUrlAction, &QAction::triggered, this, &MainWindow::newChat);
   addAction(m_openUrlAction);
