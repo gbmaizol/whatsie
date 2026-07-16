@@ -124,6 +124,8 @@ On top of upstream WhatSie, this fork adds:
 
 <img src="docs/img/card-chat.png" width="720" alt="Whatly — chat themes and a privacy blur"/>
 
+<img src="docs/img/card-themes.png" width="720" alt="Whatly — fourteen chat themes"/>
+
 <img src="docs/img/card-settings.png" width="720" alt="Whatly settings — every feature is a toggle"/>
 
 <img src="docs/img/card-about.png" width="720" alt="Whatly About — one-click bug reports"/>

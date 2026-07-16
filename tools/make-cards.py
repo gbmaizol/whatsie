@@ -48,6 +48,18 @@ def gradient(W, H):
     streak = streak.filter(ImageFilter.GaussianBlur(120)).point(lambda v: int(v*0.35))
     return Image.composite(Image.new("RGB",(W,H),(255,255,255)), g, streak)
 
+def trim_transparent(img):
+    """Drop a window screenshot's semi-transparent drop-shadow border, so the
+    rounded frame does not turn it into an opaque black edge. No-op for opaque
+    images (e.g. CDP web captures)."""
+    img = img.convert("RGBA")
+    a = img.split()[3]
+    # Keep only near-opaque pixels: a window screenshot's drop shadow fades from
+    # translucent to transparent, so a low threshold leaves its darkest band as a
+    # black-looking edge. 200 cuts the whole shadow and keeps just the window.
+    bbox = a.point(lambda v: 255 if v > 200 else 0).getbbox()
+    return img.crop(bbox) if bbox else img
+
 def rounded_shadow(img, radius=22, pad=60, blur=34, alpha=150):
     w, h = img.size
     card = img.convert("RGBA")
@@ -76,7 +88,7 @@ def wrap(draw, text, font, maxw):
 def card(out, shot_path, title, subtitle, W=1280, H=720):
     bg = gradient(W, H).convert("RGBA")
     d = ImageDraw.Draw(bg)
-    shot = Image.open(shot_path).convert("RGBA")
+    shot = trim_transparent(Image.open(shot_path))
     r = min(int(W*0.52)/shot.width, (H-150)/shot.height)
     shot = shot.resize((int(shot.width*r), int(shot.height*r)), Image.LANCZOS)
     framed = rounded_shadow(shot)
@@ -108,6 +120,32 @@ def banner(out, W=1280, H=380):
     d.text(((W-d.textlength(st, font=sf))//2, int(H*0.72)), st, font=sf, fill=(205, 242, 237))
     bg.convert("RGB").save(out); print("  wrote", os.path.relpath(out, REPO))
 
+import colorsys
+# Chat themes (name, hue) — mirrors src/chattheme.cpp. None = WhatsApp green.
+THEMES = [("WhatsApp", None), ("Barbie pink", 335), ("Dusty rose", 345), ("Lavender", 270),
+          ("Violet", 292), ("Sky blue", 205), ("Deep ocean", 222), ("Teal", 186), ("Mint", 152),
+          ("Coral", 8), ("Peach", 24), ("Gold", 44), ("Crimson", 352), ("Graphite", 220)]
+
+def _theme_color(h):
+    if h is None:
+        return (37, 211, 102)             # WhatsApp green
+    l, s = (0.32, 0.10) if h == 220 else (0.55, 0.62)   # graphite is a grey
+    return tuple(int(x*255) for x in colorsys.hls_to_rgb(h/360, l, s))
+
+def themes_panel(out, W=660, H=720, ss=2):
+    W, H = W*ss, H*ss
+    im = Image.new("RGB", (W, H), (24, 32, 34)); d = ImageDraw.Draw(im)
+    d.text((30*ss, 24*ss), "Chat themes", font=_font(True, 30*ss), fill=(235, 245, 243))
+    pad, top, cols, rows = 30*ss, 90*ss, 2, 7
+    cw = (W-pad*2-20*ss)//cols; ch = (H-top-pad)//rows
+    for i, (name, h) in enumerate(THEMES):
+        x = pad + (i % cols)*(cw+20*ss); y = top + (i//cols)*ch
+        d.rounded_rectangle([x, y, x+cw, y+ch-12*ss], radius=14*ss, fill=(15, 20, 22))
+        sw = 54*ss; sy = y+(ch-12*ss-sw)//2
+        d.rounded_rectangle([x+14*ss, sy, x+14*ss+sw, sy+sw], radius=12*ss, fill=_theme_color(h))
+        d.text((x+14*ss+sw+16*ss, y+(ch-12*ss)//2-16*ss), name, font=_font(True, 21*ss), fill=(225, 235, 233))
+    im.resize((W//ss, H//ss), Image.LANCZOS).save(out)
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--shots", default=os.path.join(REPO, "tools/shots"))
@@ -115,6 +153,11 @@ def main():
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     banner(os.path.join(a.out, "banner.png"))
+    # Chat-themes card is drawn from the theme list, not captured.
+    tp = os.path.join(a.shots, "themes.png"); os.makedirs(a.shots, exist_ok=True)
+    themes_panel(tp)
+    card(os.path.join(a.out, "card-themes.png"), tp, "Fourteen chat themes",
+         "Recolour WhatsApp Web itself — pick a hue, keep your photos and avatars untouched.")
     jobs = [
         ("chat.png",     "card-chat.png",     "Themes and a privacy blur",
          "Recolour WhatsApp Web with 14 chat themes, and blur the chats until you hover so nobody reads over your shoulder."),
