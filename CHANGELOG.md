@@ -47,6 +47,12 @@ over on first run, so nobody is logged out by upgrading.
 
 #### 🐞 Bug Fixes
 
+* **Logging out of KDE could stall on WhatSie.** With close-to-tray on, the
+  window vetoed *every* close — including the one the session manager sends at
+  logout — so the desktop saw an app refusing to quit and waited on it. A
+  session-end close is now honoured as a real quit. (Reported on KDE; the fix
+  hooks `QGuiApplication::commitDataRequest`, which fires only on a real session
+  logout, so it could not be exercised in a normal run.)
 * **Clearing the cache could delete your home directory.** If the profile ever
   handed back an empty storage path, the recursive delete ran on `.` — the
   working directory, which is your home when the app is launched from a desktop

@@ -8,6 +8,7 @@
 #include <QInputDialog>
 #include <QRegularExpression>
 #include <QScreen>
+#include <QSessionManager>
 #include <QStyleFactory>
 #include <QStyleHints>
 #include <QUrlQuery>
@@ -77,6 +78,14 @@ MainWindow::MainWindow(QWidget *parent)
   connect(qApp->styleHints(), &QStyleHints::colorSchemeChanged, this,
           [this](Qt::ColorScheme) { applySystemThemeIfEnabled(); });
   applySystemThemeIfEnabled();
+
+  // When the desktop session is ending (log out, reboot, shutdown) the window
+  // gets a close event just like the user pressing X — and minimize-to-tray
+  // used to veto it, which the session manager reads as "this app refused to
+  // close" and stalls the logout (reported on KDE). Treat a session-manager
+  // close as a real quit: mark it so closeEvent accepts instead of hiding.
+  connect(qApp, &QGuiApplication::commitDataRequest, this,
+          [this](QSessionManager &) { m_isQuitting = true; });
 }
 
 MainWindow::~MainWindow() { m_webEngine->deleteLater(); }
