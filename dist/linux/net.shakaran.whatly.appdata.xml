@@ -91,6 +91,19 @@
   <content_rating type="oars-1.0" />
 
   <releases>
+    <release version="6.0.0" date="2026-07-16">
+      <description>
+        <p>The app is rebranded WhatSie → Whatly, with a new teal identity. Highlights of this fork on top of upstream:</p>
+        <ul>
+          <li>Multiple WhatsApp accounts, as separate windows or as tabs in one window</li>
+          <li>Chat themes, chat wallpaper, custom CSS and a privacy blur</li>
+          <li>Working spell checker with several languages checked at once</li>
+          <li>Monochrome tray option, connection-status indicator and following the system light/dark theme</li>
+          <li>Native Windows 10+ support, a connection watchdog and many bug fixes</li>
+          <li>Automatic data migration from the previous WhatSie install (no re-login)</li>
+        </ul>
+      </description>
+    </release>
     <release version="5.1.0" date="2026-04-03">
       <description>
         <p>Minor release focused on build-system and runtime stability improvements:</p>
