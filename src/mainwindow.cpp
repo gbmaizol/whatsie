@@ -296,6 +296,35 @@ void MainWindow::handleZoom() {
   }
 }
 
+// Ctrl +/-/0 zoom. The page keeps two zoom levels (normal and maximized), so
+// nudge whichever one is in effect, persist it, and re-apply.
+void MainWindow::zoomBy(double delta) {
+  const bool maximized = windowState().testFlag(Qt::WindowMaximized) ||
+                         windowState().testFlag(Qt::WindowFullScreen);
+  const QString key = maximized ? QStringLiteral("zoomFactorMaximized")
+                                : QStringLiteral("zoomFactor");
+  const double def = maximized ? defaultZoomFactorMaximized : 1.0;
+  QSettings &s = SettingsManager::instance().settings();
+  const double next =
+      std::clamp(s.value(key, def).toDouble() + delta, 0.3, 3.0);
+  s.setValue(key, next);
+  m_webEngine->page()->setZoomFactor(next);
+  applyMinimumSize();
+}
+
+void MainWindow::zoomIn() { zoomBy(0.1); }
+void MainWindow::zoomOut() { zoomBy(-0.1); }
+
+void MainWindow::zoomReset() {
+  const bool maximized = windowState().testFlag(Qt::WindowMaximized) ||
+                         windowState().testFlag(Qt::WindowFullScreen);
+  const QString key = maximized ? QStringLiteral("zoomFactorMaximized")
+                                : QStringLiteral("zoomFactor");
+  SettingsManager::instance().settings().setValue(
+      key, maximized ? defaultZoomFactorMaximized : 1.0);
+  handleZoom();
+}
+
 // ── Theme ─────────────────────────────────────────────────────────────────────
 
 // Follow the desktop's own light/dark preference (GNOME's colour-scheme toggle,

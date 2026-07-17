@@ -417,53 +417,53 @@ Apakah Anda ingin melewati pemeriksaan keamanan dan melanjutkan?   </translation
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="608"/>
-        <location filename="../mainwindow.cpp" line="614"/>
+        <location filename="../mainwindow.cpp" line="637"/>
+        <location filename="../mainwindow.cpp" line="643"/>
         <location filename="../mainwindow_webengine.cpp" line="262"/>
         <location filename="../mainwindow_webengine.cpp" line="265"/>
         <source>| Error</source>
         <translation>| Kesalahan</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="638"/>
         <source>Unlock to access Settings.</source>
         <translation>Buka kunci untuk mengakses pengaturan.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="615"/>
+        <location filename="../mainwindow.cpp" line="644"/>
         <source>Unable to initialize settings module.
 Webengine is not initialized.</source>
         <translation>Tidak dapat menginisialisasi modul pengaturan.
 WebEngine belum diinisialisasi.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="636"/>
+        <location filename="../mainwindow.cpp" line="665"/>
         <source> | Action required</source>
         <translation> | Tindakan diperlukan</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="637"/>
+        <location filename="../mainwindow.cpp" line="666"/>
         <source>Page needs to be reloaded to continue.</source>
         <translation>Halaman perlu dimuat ulang untuk melanjutkan.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="846"/>
+        <location filename="../mainwindow.cpp" line="875"/>
         <source>Open</source>
         <translation>Buka</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="856"/>
+        <location filename="../mainwindow.cpp" line="885"/>
         <location filename="../mainwindow_tray.cpp" line="16"/>
         <source>New Chat</source>
         <translation>Obrolan baru</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="857"/>
+        <location filename="../mainwindow.cpp" line="886"/>
         <source>Enter a valid WhatsApp number with country code (ex- +91XXXXXXXXXX)</source>
         <translation>Masukkan nomor WhatsApp yang valid dengan kode negara (mis. +62XXXXXXXXXX)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="887"/>
+        <location filename="../mainwindow.cpp" line="916"/>
         <source>Rate Application</source>
         <translation>Beri nilai aplikasi</translation>
     </message>
@@ -510,21 +510,36 @@ Buka pengaturan sekarang?</translation>
     </message>
     <message>
         <location filename="../mainwindow_tray.cpp" line="59"/>
+        <source>Zoom in</source>
+        <translation>Perbesar</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_tray.cpp" line="65"/>
+        <source>Zoom out</source>
+        <translation>Perkecil</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_tray.cpp" line="70"/>
+        <source>Reset zoom</source>
+        <translation>Atur ulang zoom</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_tray.cpp" line="75"/>
         <source>&amp;Settings</source>
         <translation>&amp;Pengaturan</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="65"/>
+        <location filename="../mainwindow_tray.cpp" line="81"/>
         <source>&amp;Toggle theme</source>
         <translation>Ganti &amp;tema</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="72"/>
+        <location filename="../mainwindow_tray.cpp" line="88"/>
         <source>&amp;About</source>
         <translation>&amp;Tentang</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="81"/>
+        <location filename="../mainwindow_tray.cpp" line="97"/>
         <source>&amp;Quit</source>
         <translation>&amp;Keluar</translation>
     </message>

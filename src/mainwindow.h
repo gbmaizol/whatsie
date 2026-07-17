@@ -125,6 +125,10 @@ private:
   void initRateWidget();
   void handleZoomOnWindowStateChange(const QWindowStateChangeEvent *ev);
   void handleZoom();
+  void zoomBy(double delta);
+  void zoomIn();
+  void zoomOut();
+  void zoomReset();
   void applyMinimumSize();
   static constexpr int kBaseMinWidth = 525;
   static constexpr int kBaseMinHeight = 448;
@@ -176,6 +180,9 @@ private:
   QAction *m_muteAction = nullptr;
   QAction *m_fullscreenAction = nullptr;
   QAction *m_openUrlAction = nullptr;
+  QAction *m_zoomInAction = nullptr;
+  QAction *m_zoomOutAction = nullptr;
+  QAction *m_zoomResetAction = nullptr;
 
   QMenu *m_trayIconMenu = nullptr;
   QSystemTrayIcon *m_systemTrayIcon = nullptr;

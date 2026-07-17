@@ -56,6 +56,22 @@ void MainWindow::createActions() {
           [this](bool checked) { toggleMute(checked); });
   addAction(m_muteAction);
 
+  m_zoomInAction = new QAction(tr("Zoom in"), this);
+  m_zoomInAction->setShortcuts(
+      {QKeySequence::ZoomIn, QKeySequence(Qt::Modifier::CTRL | Qt::Key_Equal)});
+  connect(m_zoomInAction, &QAction::triggered, this, &MainWindow::zoomIn);
+  addAction(m_zoomInAction);
+
+  m_zoomOutAction = new QAction(tr("Zoom out"), this);
+  m_zoomOutAction->setShortcut(QKeySequence::ZoomOut);
+  connect(m_zoomOutAction, &QAction::triggered, this, &MainWindow::zoomOut);
+  addAction(m_zoomOutAction);
+
+  m_zoomResetAction = new QAction(tr("Reset zoom"), this);
+  m_zoomResetAction->setShortcut(QKeySequence(Qt::Modifier::CTRL | Qt::Key_0));
+  connect(m_zoomResetAction, &QAction::triggered, this, &MainWindow::zoomReset);
+  addAction(m_zoomResetAction);
+
   m_settingsAction = new QAction(tr("&Settings"), this);
   m_settingsAction->setShortcut(QKeySequence(Qt::Modifier::CTRL | Qt::Key_P));
   connect(m_settingsAction, &QAction::triggered, this,

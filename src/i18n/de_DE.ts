@@ -417,53 +417,53 @@ Möchten Sie die Sicherheitsprüfung übergehen und fortfahren?   </translation>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="608"/>
-        <location filename="../mainwindow.cpp" line="614"/>
+        <location filename="../mainwindow.cpp" line="637"/>
+        <location filename="../mainwindow.cpp" line="643"/>
         <location filename="../mainwindow_webengine.cpp" line="262"/>
         <location filename="../mainwindow_webengine.cpp" line="265"/>
         <source>| Error</source>
         <translation>| Fehler</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="638"/>
         <source>Unlock to access Settings.</source>
         <translation>Entsperren, um auf die Einstellungen zuzugreifen.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="615"/>
+        <location filename="../mainwindow.cpp" line="644"/>
         <source>Unable to initialize settings module.
 Webengine is not initialized.</source>
         <translation>Einstellungsmodul kann nicht initialisiert werden.
 WebEngine ist nicht initialisiert.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="636"/>
+        <location filename="../mainwindow.cpp" line="665"/>
         <source> | Action required</source>
         <translation> | Aktion erforderlich</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="637"/>
+        <location filename="../mainwindow.cpp" line="666"/>
         <source>Page needs to be reloaded to continue.</source>
         <translation>Die Seite muss neu geladen werden, um fortzufahren.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="846"/>
+        <location filename="../mainwindow.cpp" line="875"/>
         <source>Open</source>
         <translation>Öffnen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="856"/>
+        <location filename="../mainwindow.cpp" line="885"/>
         <location filename="../mainwindow_tray.cpp" line="16"/>
         <source>New Chat</source>
         <translation>Neuer Chat</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="857"/>
+        <location filename="../mainwindow.cpp" line="886"/>
         <source>Enter a valid WhatsApp number with country code (ex- +91XXXXXXXXXX)</source>
         <translation>Geben Sie eine gültige WhatsApp-Nummer mit Ländervorwahl ein (z. B. +49XXXXXXXXXX)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="887"/>
+        <location filename="../mainwindow.cpp" line="916"/>
         <source>Rate Application</source>
         <translation>Anwendung bewerten</translation>
     </message>
@@ -510,21 +510,36 @@ Einstellungen jetzt öffnen?</translation>
     </message>
     <message>
         <location filename="../mainwindow_tray.cpp" line="59"/>
+        <source>Zoom in</source>
+        <translation>Vergrößern</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_tray.cpp" line="65"/>
+        <source>Zoom out</source>
+        <translation>Verkleinern</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_tray.cpp" line="70"/>
+        <source>Reset zoom</source>
+        <translation>Zoom zurücksetzen</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow_tray.cpp" line="75"/>
         <source>&amp;Settings</source>
         <translation>&amp;Einstellungen</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="65"/>
+        <location filename="../mainwindow_tray.cpp" line="81"/>
         <source>&amp;Toggle theme</source>
         <translation>&amp;Design wechseln</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="72"/>
+        <location filename="../mainwindow_tray.cpp" line="88"/>
         <source>&amp;About</source>
         <translation>&amp;Über</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="81"/>
+        <location filename="../mainwindow_tray.cpp" line="97"/>
         <source>&amp;Quit</source>
         <translation>&amp;Beenden</translation>
     </message>

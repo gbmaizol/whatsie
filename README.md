@@ -312,6 +312,8 @@ Whatly's own shortcuts. The same list is available in the app under
 | <kbd>Ctrl</kbd>+<kbd>Q</kbd> | Quit |
 | <kbd>F5</kbd> | Reload |
 | <kbd>F11</kbd> | Toggle fullscreen |
+| <kbd>Ctrl</kbd>+<kbd>+</kbd> / <kbd>-</kbd> | Zoom in / out |
+| <kbd>Ctrl</kbd>+<kbd>0</kbd> | Reset zoom |
 
 > **WhatsApp Web has its own shortcuts too** — for searching, starting a chat,
 > marking as unread and so on. Those come from WhatsApp itself, not from
