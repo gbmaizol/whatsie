@@ -16,6 +16,15 @@ multiple accounts, spell-check and more — on **Linux** and **Windows**.
 ![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Windows-0d9488)
 ![Qt](https://img.shields.io/badge/Qt-6.10%2B-41cd52?logo=qt&logoColor=white)
 ![C++17](https://img.shields.io/badge/C%2B%2B-17-00599C?logo=cplusplus&logoColor=white)
+[![whatly](https://snapcraft.io/whatly/badge.svg)](https://snapcraft.io/whatly)
+[![whatly](https://snapcraft.io/whatly/trending.svg?name=0)](https://snapcraft.io/whatly)
+
+<a href="https://snapcraft.io/whatly">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://snapcraft.io/en/dark/install.svg">
+    <img alt="Get it from the Snap Store" src="https://snapcraft.io/en/light/install.svg" height="52">
+  </picture>
+</a>
 
 <br/>
 
@@ -186,6 +195,13 @@ On top of upstream WhatSie, this fork adds:
 ```bash
 snap install whatly
 ```
+
+<a href="https://snapcraft.io/whatly">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://snapcraft.io/en/dark/install.svg">
+    <img alt="Get it from the Snap Store" src="https://snapcraft.io/en/light/install.svg" height="52">
+  </picture>
+</a>
 
 A few interfaces do not connect automatically. **For voice and video calls**,
 connect the camera and microphone (and, to keep the screen awake during a call,
