@@ -639,6 +639,10 @@ Open Settings now?</source>
         <translation>在正在运行的实例中打开“关于”窗口：</translation>
     </message>
     <message>
+        <source>Opens the scheduled messages dialog in a running instance of </source>
+        <translation>在正在运行的实例中打开定时消息对话框 </translation>
+    </message>
+    <message>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>在正在运行的实例中切换深色与浅色主题：</translation>
     </message>
@@ -1062,7 +1066,7 @@ Please setup the password in the Settings first.</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hide the &quot;Muted updates&quot; section in the Status/Updates panel, so statuses from contacts you have muted do not show up at all.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;隐藏"状态/动态"面板中的"已静音的更新"部分，这样被你静音的联系人的状态将完全不显示。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;隐藏&quot;状态/动态&quot;面板中的&quot;已静音的更新&quot;部分，这样被你静音的联系人的状态将完全不显示。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Hide muted status updates</source>

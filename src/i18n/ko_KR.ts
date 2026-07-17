@@ -639,6 +639,10 @@ Open Settings now?</source>
         <translation>실행 중인 인스턴스에서 «정보» 창을 엽니다: </translation>
     </message>
     <message>
+        <source>Opens the scheduled messages dialog in a running instance of </source>
+        <translation>실행 중인 인스턴스에서 예약 메시지 대화상자를 엽니다 </translation>
+    </message>
+    <message>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>실행 중인 인스턴스에서 밝은 테마와 어두운 테마를 전환합니다: </translation>
     </message>
@@ -1062,7 +1066,7 @@ Please setup the password in the Settings first.</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hide the &quot;Muted updates&quot; section in the Status/Updates panel, so statuses from contacts you have muted do not show up at all.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;상태/업데이트 패널의 "음소거된 업데이트" 섹션을 숨겨, 음소거한 연락처의 상태가 전혀 표시되지 않도록 합니다.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;상태/업데이트 패널의 &quot;음소거된 업데이트&quot; 섹션을 숨겨, 음소거한 연락처의 상태가 전혀 표시되지 않도록 합니다.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Hide muted status updates</source>

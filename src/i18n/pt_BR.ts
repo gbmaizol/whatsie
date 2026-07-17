@@ -639,6 +639,10 @@ Abrir as configurações agora?</translation>
         <translation>Abre a janela «Sobre» em uma instância em execução do </translation>
     </message>
     <message>
+        <source>Opens the scheduled messages dialog in a running instance of </source>
+        <translation>Abre a caixa de diálogo de mensagens agendadas em uma instância em execução do </translation>
+    </message>
+    <message>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>Alterna entre tema claro e escuro em uma instância em execução do </translation>
     </message>
@@ -1062,7 +1066,7 @@ Defina primeiro a senha nas configurações.</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hide the &quot;Muted updates&quot; section in the Status/Updates panel, so statuses from contacts you have muted do not show up at all.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Oculta a seção "Atualizações silenciadas" no painel de Status/Novidades, para que os status de contatos silenciados não apareçam.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Oculta a seção &quot;Atualizações silenciadas&quot; no painel de Status/Novidades, para que os status de contatos silenciados não apareçam.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Hide muted status updates</source>

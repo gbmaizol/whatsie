@@ -78,6 +78,16 @@ That distinction decides where a problem belongs:
 
 On top of upstream WhatSie, this fork adds:
 
+- **Scheduled messages** — write a message to any number and have Whatly send it
+  later. The schedule is saved to disk, so a message still goes out even if the
+  app was closed when it came due: the next time you open Whatly, anything overdue
+  is sent as a catch-up, and while the app is open a timer sends due messages on
+  time. Manage the queue from **Scheduled messages…** in the tray menu.
+- **Pick the font family** — render WhatsApp Web's text in any font installed on
+  your system (Settings → Appearance). Emoji, icons and monospaced message
+  formatting are left untouched.
+- **Hide muted status updates** — an optional toggle removes the "Muted updates"
+  section of the Status panel, so statuses from muted contacts do not show up.
 - **Multiple WhatsApp accounts** — either as separate windows with
   `whatly --profile=<name>`, or as tabs inside one window. Each account is a
   fully separate session with its own storage; the tray badge sums the unread
@@ -134,6 +144,8 @@ On top of upstream WhatSie, this fork adds:
 <div align="center">
 
 <img src="docs/img/card-chat.png" width="720" alt="Whatly — chat themes and a privacy blur"/>
+<br/>
+<img src="docs/img/card-scheduled.png" width="720" alt="Whatly — schedule messages"/>
 
 <img src="docs/img/card-themes.png" width="720" alt="Whatly — fourteen chat themes"/>
 
@@ -160,6 +172,8 @@ On top of upstream WhatSie, this fork adds:
 <img src="docs/img/card-watchdog.png" width="720" alt="Whatly — connection watchdog"/>
 
 <img src="docs/img/card-windows.png" width="720" alt="Whatly — runs on Windows too"/>
+<br/>
+<img src="docs/img/card-installers.png" width="720" alt="Whatly — available as snap, Flatpak, AppImage, deb, RPM, AUR and Windows"/>
 
 <img src="docs/img/card-settings.png" width="720" alt="Whatly settings — every feature is a toggle"/>
 
@@ -218,6 +232,28 @@ sudo snap connect whatly:screen-inhibit-control
 # optional: access removable drives when attaching files
 sudo snap connect whatly:removable-media
 ```
+
+**Flatpak** — a `whatly.flatpak` bundle is attached to each
+[release](https://github.com/shakaran/whatly/releases):
+
+```bash
+flatpak install --user whatly.flatpak
+flatpak run net.shakaran.whatly
+```
+
+To build it yourself: `packaging/flatpak/build-flatpak.sh`.
+
+**AppImage** — download `Whatly-<version>-x86_64.AppImage` from the
+[release](https://github.com/shakaran/whatly/releases), make it executable and
+run it. The matching `.zsync` gives it delta auto-updates via AppImageUpdate:
+
+```bash
+chmod +x Whatly-*-x86_64.AppImage
+./Whatly-*-x86_64.AppImage
+```
+
+**Debian/Ubuntu and Fedora** — `debian/` and `packaging/rpm/whatly.spec` build a
+native `.deb` and RPM; see [packaging/README.md](packaging/README.md).
 
 **Arch (AUR)** — the community [`whatsie-git`](https://aur.archlinux.org/packages/whatsie-git)
 package (maintained by [M0Rf30](https://github.com/M0Rf30)) tracks the **upstream**

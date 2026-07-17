@@ -639,6 +639,10 @@ Einstellungen jetzt öffnen?</translation>
         <translation>Öffnet den Info-Dialog in einer laufenden Instanz von </translation>
     </message>
     <message>
+        <source>Opens the scheduled messages dialog in a running instance of </source>
+        <translation>Öffnet den Dialog für geplante Nachrichten in einer laufenden Instanz von </translation>
+    </message>
+    <message>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>Wechselt zwischen hellem und dunklem Design in einer laufenden Instanz von </translation>
     </message>

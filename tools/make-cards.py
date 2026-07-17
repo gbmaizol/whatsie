@@ -120,6 +120,39 @@ def banner(out, W=1280, H=380):
     d.text(((W-d.textlength(st, font=sf))//2, int(H*0.72)), st, font=sf, fill=(205, 242, 237))
     bg.convert("RGB").save(out); print("  wrote", os.path.relpath(out, REPO))
 
+def installers_panel(out, ss=2):
+    """A dark panel listing every packaging format Whatly ships in, each as a
+    coloured badge + name + the one-line way to install it."""
+    W, H = 660*ss, 720*ss
+    im = Image.new("RGB", (W, H), (24, 32, 34)); d = ImageDraw.Draw(im)
+    d.text((30*ss, 26*ss), "Available everywhere", font=_font(True, 30*ss), fill=(235, 245, 243))
+    d.text((30*ss, 72*ss), "one codebase, packaged for every desktop",
+           font=_font(False, 19*ss), fill=(150, 200, 190))
+    items = [
+        ("Snap",            (233, 84, 32),  "snap",     "snap install whatly"),
+        ("Flatpak",         (74, 144, 217), "flatpak",  "flatpak install whatly.flatpak"),
+        ("AppImage",        (46, 125, 154), "appimage", "./Whatly-x86_64.AppImage"),
+        ("Debian / Ubuntu", (215, 10, 83),  "debian",   "dpkg-buildpackage -b"),
+        ("Fedora / COPR",   (81, 162, 218), "fedora",   "rpmbuild -ba whatly.spec"),
+        ("Arch (AUR)",      (23, 147, 209), "arch",     "yay -S whatsie-git"),
+        ("Windows",         (0, 120, 214),  "windows",  "whatly.exe (from CI)"),
+    ]
+    logodir = os.path.join(REPO, "tools/logos")
+    top, pad = 122*ss, 30*ss
+    rowh = (H - top - pad) // len(items)
+    for i, (name, col, logo, hint) in enumerate(items):
+        y = top + i*rowh
+        d.rounded_rectangle([pad, y, W-pad, y+rowh-14*ss], radius=16*ss, fill=(15, 20, 22))
+        bsz = rowh - 14*ss - 26*ss; bx, by = pad+16*ss, y+13*ss
+        d.rounded_rectangle([bx, by, bx+bsz, by+bsz], radius=13*ss, fill=col)
+        lg = Image.open(os.path.join(logodir, logo + ".png")).convert("RGBA")
+        gs = int(bsz*0.62); lg = lg.resize((gs, gs), Image.LANCZOS)
+        im.paste(lg, (bx+(bsz-gs)//2, by+(bsz-gs)//2), lg)
+        tx = bx + bsz + 22*ss
+        d.text((tx, y+14*ss), name, font=_font(True, 24*ss), fill=(230, 240, 238))
+        d.text((tx, y+14*ss+34*ss), hint, font=_font(False, 17*ss), fill=(140, 178, 172))
+    im.resize((W//ss, H//ss), Image.LANCZOS).save(out)
+
 import colorsys
 # Chat themes (name, hue) — mirrors src/chattheme.cpp. None = WhatsApp green.
 THEMES = [("WhatsApp", None), ("Barbie pink", 335), ("Dusty rose", 345), ("Lavender", 270),
@@ -416,6 +449,8 @@ def main():
          "Put your own image behind the messages, as WhatsApp does on the phone. Stored locally, only visible to you."),
         (windows_panel,   "card-windows.png",   "Runs on Windows too",
          "The same codebase builds a native Windows 10+ app — checked on every push by CI."),
+        (installers_panel, "card-installers.png", "Install it anywhere",
+         "Snap, Flatpak, AppImage, Debian, Fedora/COPR, Arch and Windows — Flatpak and AppImage are built on every release."),
     ]:
         p = os.path.join(a.shots, name.replace("card-", "").replace(".png", "_panel.png")); fn(p)
         card(os.path.join(a.out, name), p, title, sub)
@@ -430,6 +465,8 @@ def main():
          "Themes, wallpaper, privacy blur, spell-check, tray and more — all toggles."),
         ("about.png",    "card-about.png",    "Report a bug in one click",
          "F1 opens About; the bug report is pre-filled with version, memory and logs."),
+        ("scheduled.png", "card-scheduled.png", "Schedule messages",
+         "Write a message now and have it sent later — it still goes out on the next launch if the app was closed when it came due."),
     ]
     for shot, name, title, sub in jobs:
         p = os.path.join(a.shots, shot)

@@ -639,6 +639,10 @@ Open Settings now?</source>
         <translation>Открывает окно «О программе» в запущенном экземпляре </translation>
     </message>
     <message>
+        <source>Opens the scheduled messages dialog in a running instance of </source>
+        <translation>Открывает диалог запланированных сообщений в запущенном экземпляре </translation>
+    </message>
+    <message>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>Переключает светлую и тёмную тему в запущенном экземпляре </translation>
     </message>

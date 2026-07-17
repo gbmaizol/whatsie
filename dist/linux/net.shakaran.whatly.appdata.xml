@@ -103,6 +103,18 @@
   <content_rating type="oars-1.0" />
 
   <releases>
+    <release version="6.1.0" date="2026-07-17">
+      <description>
+        <p>New features and more ways to install:</p>
+        <ul>
+          <li>Scheduled messages: write a message now and have it sent later; it still goes out on the next launch if the app was closed when it came due</li>
+          <li>Choose the font family WhatsApp Web renders text in, from the fonts installed on your system</li>
+          <li>Option to hide muted contacts' status updates</li>
+          <li>Wise added as a donation option</li>
+          <li>Flatpak and AppImage packaging, alongside the snap</li>
+        </ul>
+      </description>
+    </release>
     <release version="6.0.0" date="2026-07-16">
       <description>
         <p>The app is rebranded WhatSie → Whatly, with a new teal identity. Highlights of this fork on top of upstream:</p>

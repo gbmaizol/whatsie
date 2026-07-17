@@ -639,6 +639,10 @@ Otworzyć ustawienia teraz?</translation>
         <translation>Otwiera okno „O programie” w uruchomionej instancji </translation>
     </message>
     <message>
+        <source>Opens the scheduled messages dialog in a running instance of </source>
+        <translation>Otwiera okno zaplanowanych wiadomości w działającej instancji </translation>
+    </message>
+    <message>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>Przełącza między jasnym a ciemnym motywem w uruchomionej instancji </translation>
     </message>

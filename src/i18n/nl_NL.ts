@@ -639,6 +639,10 @@ Instellingen nu openen?</translation>
         <translation>Opent het venster «Over» in een actieve instantie van </translation>
     </message>
     <message>
+        <source>Opens the scheduled messages dialog in a running instance of </source>
+        <translation>Opent het dialoogvenster voor geplande berichten in een actieve instantie van </translation>
+    </message>
+    <message>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>Wisselt tussen licht en donker thema in een actieve instantie van </translation>
     </message>
@@ -1058,11 +1062,11 @@ Stel eerst het wachtwoord in bij de instellingen.</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Render WhatsApp Web&apos;s text in a font installed on your system. Emoji, icons and monospaced message formatting are left untouched.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Geeft de tekst van WhatsApp Web weer in een op je systeem geïnstalleerd lettertype. Emoji's, pictogrammen en opmaak met vaste tekenbreedte blijven ongewijzigd.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Geeft de tekst van WhatsApp Web weer in een op je systeem geïnstalleerd lettertype. Emoji&apos;s, pictogrammen en opmaak met vaste tekenbreedte blijven ongewijzigd.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hide the &quot;Muted updates&quot; section in the Status/Updates panel, so statuses from contacts you have muted do not show up at all.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Verbergt de sectie "Gedempte updates" in het Status-/Updates-paneel, zodat statussen van gedempte contacten helemaal niet verschijnen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Verbergt de sectie &quot;Gedempte updates&quot; in het Status-/Updates-paneel, zodat statussen van gedempte contacten helemaal niet verschijnen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Hide muted status updates</source>

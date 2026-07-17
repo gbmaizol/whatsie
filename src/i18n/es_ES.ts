@@ -639,6 +639,10 @@ Configure primero la contraseña en los ajustes.
         <translation>Abre el diálogo «Acerca de» en una instancia en ejecución de </translation>
     </message>
     <message>
+        <source>Opens the scheduled messages dialog in a running instance of </source>
+        <translation>Abre el diálogo de mensajes programados en una instancia en ejecución de </translation>
+    </message>
+    <message>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>Alterna entre tema claro y oscuro en una instancia en ejecución de </translation>
     </message>

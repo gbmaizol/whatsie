@@ -347,7 +347,7 @@ Voulez-vous ignorer le contrôle de sécurité et continuer ?   </translation>
     <name>MainWindow</name>
     <message>
         <source>No WhatsApp window is open</source>
-        <translation>Aucune fenêtre WhatsApp n'est ouverte</translation>
+        <translation>Aucune fenêtre WhatsApp n&apos;est ouverte</translation>
     </message>
     <message>
         <source>| Error</source>
@@ -639,6 +639,10 @@ Ouvrir les paramètres maintenant ?</translation>
         <translation>Ouvre la fenêtre « À propos » dans une instance en cours de </translation>
     </message>
     <message>
+        <source>Opens the scheduled messages dialog in a running instance of </source>
+        <translation>Ouvre la boîte de dialogue des messages programmés dans une instance en cours d'exécution de </translation>
+    </message>
+    <message>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>Bascule entre le thème clair et sombre dans une instance en cours de </translation>
     </message>
@@ -804,7 +808,7 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     <name>ScheduledMessages</name>
     <message>
         <source>Timed out waiting for the message to send</source>
-        <translation>Délai dépassé en attendant l'envoi du message</translation>
+        <translation>Délai dépassé en attendant l&apos;envoi du message</translation>
     </message>
     <message>
         <source>Sent</source>
@@ -859,7 +863,7 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     </message>
     <message>
         <source>The app must be running and WhatsApp logged in at the scheduled time. If it is closed, the message is sent the next time you open the app. Sending opens the recipient&apos;s chat.</source>
-        <translation>L'application doit être en cours d'exécution et WhatsApp connecté à l'heure programmée. Si elle est fermée, le message est envoyé à la prochaine ouverture de l'application. L'envoi ouvre la conversation du destinataire.</translation>
+        <translation>L&apos;application doit être en cours d&apos;exécution et WhatsApp connecté à l&apos;heure programmée. Si elle est fermée, le message est envoyé à la prochaine ouverture de l&apos;application. L&apos;envoi ouvre la conversation du destinataire.</translation>
     </message>
     <message>
         <source>Schedule</source>
@@ -883,7 +887,7 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     </message>
     <message>
         <source>The time is in the past — send this message now?</source>
-        <translation>L'heure est déjà passée — envoyer ce message maintenant ?</translation>
+        <translation>L&apos;heure est déjà passée — envoyer ce message maintenant ?</translation>
     </message>
 </context>
 <context>
@@ -1062,7 +1066,7 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hide the &quot;Muted updates&quot; section in the Status/Updates panel, so statuses from contacts you have muted do not show up at all.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Masque la section « Statuts en sourdine » du panneau Statuts/Actus, afin que les statuts des contacts que vous avez mis en sourdine n'apparaissent pas du tout.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Masque la section « Statuts en sourdine » du panneau Statuts/Actus, afin que les statuts des contacts que vous avez mis en sourdine n&apos;apparaissent pas du tout.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Hide muted status updates</source>

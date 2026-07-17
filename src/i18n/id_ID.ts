@@ -639,6 +639,10 @@ Buka pengaturan sekarang?</translation>
         <translation>Membuka jendela «Tentang» pada instansi yang sedang berjalan dari </translation>
     </message>
     <message>
+        <source>Opens the scheduled messages dialog in a running instance of </source>
+        <translation>Membuka dialog pesan terjadwal di instans yang sedang berjalan dari </translation>
+    </message>
+    <message>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>Beralih antara tema terang dan gelap pada instansi yang sedang berjalan dari </translation>
     </message>
@@ -1062,7 +1066,7 @@ Silakan atur kata sandi di pengaturan terlebih dahulu.</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hide the &quot;Muted updates&quot; section in the Status/Updates panel, so statuses from contacts you have muted do not show up at all.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sembunyikan bagian "Pembaruan dibisukan" di panel Status/Pembaruan, sehingga status dari kontak yang Anda bisukan tidak muncul sama sekali.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sembunyikan bagian &quot;Pembaruan dibisukan&quot; di panel Status/Pembaruan, sehingga status dari kontak yang Anda bisukan tidak muncul sama sekali.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Hide muted status updates</source>

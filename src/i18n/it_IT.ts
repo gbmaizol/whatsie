@@ -693,6 +693,10 @@ WebEngine non è inizializzato.</translation>
         <translation>Apre la finestra Info in un&apos;istanza in esecuzione di </translation>
     </message>
     <message>
+        <source>Opens the scheduled messages dialog in a running instance of </source>
+        <translation>Apre la finestra dei messaggi programmati in un'istanza in esecuzione di </translation>
+    </message>
+    <message>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>Passa dal tema scuro a quello chiaro in un&apos;istanza in esecuzione di </translation>
     </message>
@@ -810,7 +814,7 @@ Imposta la password nelle Impostazioni.</translation>
     <name>ScheduledMessages</name>
     <message>
         <source>Timed out waiting for the message to send</source>
-        <translation>Tempo scaduto in attesa dell'invio del messaggio</translation>
+        <translation>Tempo scaduto in attesa dell&apos;invio del messaggio</translation>
     </message>
     <message>
         <source>Sent</source>
@@ -865,7 +869,7 @@ Imposta la password nelle Impostazioni.</translation>
     </message>
     <message>
         <source>The app must be running and WhatsApp logged in at the scheduled time. If it is closed, the message is sent the next time you open the app. Sending opens the recipient&apos;s chat.</source>
-        <translation>L'app deve essere in esecuzione e WhatsApp connesso all'ora programmata. Se è chiusa, il messaggio viene inviato alla successiva apertura dell'app. L'invio apre la chat del destinatario.</translation>
+        <translation>L&apos;app deve essere in esecuzione e WhatsApp connesso all&apos;ora programmata. Se è chiusa, il messaggio viene inviato alla successiva apertura dell&apos;app. L&apos;invio apre la chat del destinatario.</translation>
     </message>
     <message>
         <source>Schedule</source>
@@ -889,7 +893,7 @@ Imposta la password nelle Impostazioni.</translation>
     </message>
     <message>
         <source>The time is in the past — send this message now?</source>
-        <translation>L'orario è nel passato: inviare questo messaggio ora?</translation>
+        <translation>L&apos;orario è nel passato: inviare questo messaggio ora?</translation>
     </message>
 </context>
 <context>
@@ -1061,7 +1065,7 @@ Imposta la password nelle Impostazioni.</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hide the &quot;Muted updates&quot; section in the Status/Updates panel, so statuses from contacts you have muted do not show up at all.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nasconde la sezione "Aggiornamenti silenziati" nel pannello Stato/Aggiornamenti, così gli stati dei contatti silenziati non compaiono affatto.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Nasconde la sezione &quot;Aggiornamenti silenziati&quot; nel pannello Stato/Aggiornamenti, così gli stati dei contatti silenziati non compaiono affatto.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Hide muted status updates</source>

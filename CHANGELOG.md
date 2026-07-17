@@ -1,3 +1,32 @@
+## 6.1.0 (2026-07-17)
+
+New features and more ways to install.
+
+**Scheduled messages.** Write a message to any number and have Whatly send it at
+a time you pick. The schedule is saved to disk, so a message still goes out even
+if Whatly was closed when it came due — the next time you open the app, anything
+overdue is sent as a catch-up. While the app is open a timer sends due messages
+on time. Manage the queue from **Scheduled messages…** in the tray menu. Sending
+opens the recipient's chat (issue #250).
+
+**Font family.** Settings → Appearance now has a *Font family* picker that
+renders WhatsApp Web's text in any font installed on your system. Emoji, icons
+and monospaced message formatting are left untouched (issue #219).
+
+**Hide muted status updates.** A new toggle hides the "Muted updates" section of
+the Status panel, so statuses from contacts you have muted do not show up at all
+(issue #242).
+
+**Donations.** Wise is now offered alongside Ko-fi and PayPal, in the About
+dialog and the README.
+
+**Packaging.** Whatly can now be built and installed as a **Flatpak** and an
+**AppImage** (with `.zsync` delta updates), in addition to the snap, deb and
+Fedora/COPR configurations. Flatpak and AppImage are built automatically on each
+release and attached to the GitHub release. See `packaging/README.md`.
+
+All new interface strings are translated into the 15 shipped languages.
+
 ## 6.0.0 (2026-07-16)
 
 First release of the fork maintained at https://github.com/shakaran/whatly.

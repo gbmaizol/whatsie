@@ -639,6 +639,10 @@ Open Settings now?</source>
         <translation>चल रहे इंस्टेंस में «परिचय» विंडो खोलता है: </translation>
     </message>
     <message>
+        <source>Opens the scheduled messages dialog in a running instance of </source>
+        <translation>चल रहे इंस्टेंस में शेड्यूल किए गए संदेश संवाद खोलता है </translation>
+    </message>
+    <message>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>चल रहे इंस्टेंस में हल्की और गहरी थीम के बीच बदलता है: </translation>
     </message>
@@ -1062,7 +1066,7 @@ Please setup the password in the Settings first.</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hide the &quot;Muted updates&quot; section in the Status/Updates panel, so statuses from contacts you have muted do not show up at all.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;स्टेटस/अपडेट पैनल में "म्यूट किए गए अपडेट" अनुभाग छिपाएँ, ताकि आपने जिन संपर्कों को म्यूट किया है उनके स्टेटस बिल्कुल न दिखें।&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;स्टेटस/अपडेट पैनल में &quot;म्यूट किए गए अपडेट&quot; अनुभाग छिपाएँ, ताकि आपने जिन संपर्कों को म्यूट किया है उनके स्टेटस बिल्कुल न दिखें।&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Hide muted status updates</source>

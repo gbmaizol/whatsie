@@ -455,6 +455,12 @@ int main(int argc, char *argv[]) {
       QObject::tr("Opens About dialog in a running instance of ") +
           QApplication::applicationDisplayName());
 
+  QCommandLineOption openScheduledOption(
+      QStringList() << "open-scheduled",
+      QObject::tr("Opens the scheduled messages dialog in a running instance "
+                  "of ") +
+          QApplication::applicationDisplayName());
+
   QCommandLineOption toggleThemeOption(
       QStringList() << "t"
                     << "toggle-theme",
@@ -514,6 +520,7 @@ int main(int argc, char *argv[]) {
   parser.addOption(openSettingsOption);
   parser.addOption(lockAppOption);
   parser.addOption(openAboutOption);
+  parser.addOption(openScheduledOption);
   parser.addOption(toggleThemeOption);
   parser.addOption(reloadAppOption);
   parser.addOption(newChatOption);
@@ -529,8 +536,8 @@ int main(int argc, char *argv[]) {
 
   secondaryInstanceCLIOptions << showAppWindowOption << openSettingsOption
                               << lockAppOption << openAboutOption
-                              << toggleThemeOption << reloadAppOption
-                              << newChatOption;
+                              << openScheduledOption << toggleThemeOption
+                              << reloadAppOption << newChatOption;
 
   parser.process(instance);
 
@@ -609,6 +616,14 @@ int main(int argc, char *argv[]) {
                   << "OpenAppAbout";
           whatly.alreadyRunning();
           whatly.showAbout();
+          return;
+        }
+
+        if (p.isSet("open-scheduled")) {
+          qInfo() << "cmd:"
+                  << "OpenScheduledMessages";
+          whatly.alreadyRunning();
+          whatly.showScheduledMessages();
           return;
         }
 
