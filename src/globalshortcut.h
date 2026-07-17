@@ -4,20 +4,28 @@
 #include <QAbstractNativeEventFilter>
 #include <QObject>
 
+#if defined(Q_OS_LINUX)
+#include <QDBusObjectPath>
+#include <QVariantMap>
+#endif
+
 // A system-wide hotkey to raise the window (Ctrl+Alt+W).
 //
-// X11 only. On Wayland the compositor deliberately forbids ordinary apps from
-// grabbing global keys, so tryRegister() returns false there — bind a desktop
-// shortcut to `whatly -w` instead (that path works on every session type).
-// activated() fires whenever the combo is pressed, regardless of focus.
+// It prefers the XDG GlobalShortcuts portal, which is the only thing that works
+// on Wayland and also works on X11 wherever a portal backend implements it
+// (KDE Plasma, GNOME). Where the portal is missing it falls back to a raw X11
+// key grab (X11 sessions only). If neither is available — e.g. Wayland without
+// the portal — tryRegister() returns false and a `whatly -w` desktop shortcut
+// is the alternative. activated() fires whenever the combo is pressed.
 class GlobalShortcut : public QObject, public QAbstractNativeEventFilter {
   Q_OBJECT
 public:
   explicit GlobalShortcut(QObject *parent = nullptr);
   ~GlobalShortcut() override;
 
-  // Grab Ctrl+Alt+W. Returns true on success — false on Wayland, without an X11
-  // display, or when the combination is already taken by something else.
+  // Returns true if a backend accepted the shortcut. The portal path is
+  // asynchronous, so a true there only means the request was sent — the bind
+  // (and, on KDE, a one-time confirmation dialog) completes shortly after.
   bool tryRegister();
 
   bool nativeEventFilter(const QByteArray &eventType, void *message,
@@ -26,11 +34,26 @@ public:
 signals:
   void activated();
 
+#if defined(Q_OS_LINUX)
+private slots:
+  void onCreateSessionResponse(uint response, const QVariantMap &results);
+  void onBindResponse(uint response, const QVariantMap &results);
+  void onPortalActivated(const QDBusObjectPath &sessionHandle,
+                         const QString &shortcutId, qulonglong timestamp,
+                         const QVariantMap &options);
+#endif
+
 private:
-  void ungrab();
-  quint32 m_keycode = 0;   // X keycode of 'W'
-  quint32 m_modifiers = 0; // X modifier mask (Control + Alt)
-  bool m_registered = false;
+  bool tryPortal();
+  bool tryX11();
+  void ungrabX11();
+
+#if defined(Q_OS_LINUX)
+  QString m_sessionHandle;  // portal session object path, once created
+#endif
+  quint32 m_keycode = 0;    // X11 fallback: keycode of 'W'
+  quint32 m_modifiers = 0;  // X11 fallback: Control + Alt
+  bool m_x11Registered = false;
 };
 
 #endif // GLOBALSHORTCUT_H

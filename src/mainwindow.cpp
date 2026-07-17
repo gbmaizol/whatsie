@@ -89,9 +89,10 @@ MainWindow::MainWindow(QWidget *parent)
           [this](QSessionManager &) { m_isQuitting = true; });
 
 #ifdef Q_OS_LINUX
-  // System-wide Ctrl+Alt+W to bring the window to the front from anywhere. This
-  // only works under X11; on Wayland the compositor refuses the grab, so point
-  // the user at the `whatly -w` desktop-shortcut alternative instead.
+  // System-wide Ctrl+Alt+W to bring the window to the front from anywhere. It
+  // goes through the desktop portal (which works on Wayland and X11), falling
+  // back to a raw X11 grab; if neither is available, a `whatly -w` desktop
+  // shortcut is the alternative.
   m_globalShortcut = new GlobalShortcut(this);
   if (m_globalShortcut->tryRegister()) {
     connect(m_globalShortcut, &GlobalShortcut::activated, this, [this]() {
@@ -101,8 +102,8 @@ MainWindow::MainWindow(QWidget *parent)
       activateWindow();
     });
   } else {
-    qInfo() << "Global raise-window shortcut needs an X11 session; on Wayland, "
-               "bind a desktop shortcut to `whatly -w` instead.";
+    qInfo() << "No global-shortcut backend available; bind a desktop shortcut "
+               "to `whatly -w` to raise the window.";
   }
 #endif
 }
