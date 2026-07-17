@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
-"""Upload screenshots (and optionally the icon) to the Whatly snap's store
-listing via the Snap Store dashboard binary-metadata API.
+"""Manage the Whatly snap's store screenshots via the dashboard binary-metadata
+API using your login macaroon.
+
+NOTE: the API only *references* screenshots by hash — it cannot upload a new
+image (a fresh hash returns "Screenshot does not exist"). New screenshots have
+to be added once through the web listing (https://snapcraft.io/whatly/listing,
+drag-and-drop). After they exist, this script can reorder/replace the set. The
+auth handling here (macaroon binding) is what makes any dashboard-API call work.
 
 The store keeps this media separately from the snap; snapcraft has no command
 for it, so this talks to the dashboard API directly with your login macaroon.
@@ -25,11 +31,23 @@ import sys, os, json, argparse
 SNAP_ID = "D5IMvJyeKAh8BunJsGQlV2Yle5acgW5q"  # whatly
 BASE = "https://dashboard.snapcraft.io/dev/api/snaps"
 
-def read_macaroon(path):
-    data = open(path).read().strip()
-    # snapcraft export-login writes a single-line serialized macaroon token that
-    # goes straight into the Authorization header.
-    return data
+def auth_value(path):
+    """Build the dashboard 'Authorization: Macaroon …' value from an
+    export-login file. The file is base64(JSON); for the classic u1-macaroon it
+    holds a root (r) and discharge (d) macaroon, and the discharge must be bound
+    to the root before use (needs pymacaroons)."""
+    import base64, json
+    raw = open(path).read().strip()
+    try:
+        obj = json.loads(base64.b64decode(raw))
+    except Exception:
+        return f"Macaroon {raw}"  # already a bare token (t2/candid)
+    if obj.get("t") == "u1-macaroon":
+        from pymacaroons import Macaroon
+        r, d = obj["v"]["r"], obj["v"]["d"]
+        bound = Macaroon.deserialize(r).prepare_for_request(Macaroon.deserialize(d))
+        return f'Macaroon root="{r}", discharge="{bound.serialize()}"'
+    return f"Macaroon {raw}"
 
 def main():
     ap = argparse.ArgumentParser()
@@ -40,8 +58,7 @@ def main():
     a = ap.parse_args()
 
     import requests
-    macaroon = read_macaroon(a.creds)
-    headers = {"Authorization": f"Macaroon {macaroon}"}
+    headers = {"Authorization": auth_value(a.creds)}
     url = f"{BASE}/{SNAP_ID}/binary-metadata"
 
     # Read current metadata to satisfy the If-Match/updated_metadata contract.
