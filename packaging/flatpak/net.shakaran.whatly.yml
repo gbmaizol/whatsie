@@ -1,0 +1,48 @@
+# Flatpak manifest for Whatly.
+#
+# Qt WebEngine on Flatpak needs the KDE runtime (it ships Qt6) plus the
+# QtWebEngine BaseApp, which carries the huge Chromium bits so the app itself
+# stays small. Build with:
+#
+#   flatpak install flathub org.kde.Platform//6.9 org.kde.Sdk//6.9 \
+#       io.qt.qtwebengine.BaseApp//6.9
+#   flatpak-builder --user --install --force-clean build-dir \
+#       packaging/flatpak/net.shakaran.whatly.yml
+#
+# NOTE: Whatly needs Qt >= 6.10. Use whichever KDE runtime branch ships that
+# (bump the three "6.9" values below to match); on an older runtime the build
+# will configure-fail with the Qt version check.
+app-id: net.shakaran.whatly
+runtime: org.kde.Platform
+runtime-version: '6.9'
+sdk: org.kde.Sdk
+base: io.qt.qtwebengine.BaseApp
+base-version: '6.9'
+command: whatly
+
+finish-args:
+  - --share=network
+  - --share=ipc
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --socket=pulseaudio
+  - --device=dri
+  - --device=all            # camera for video calls
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --talk-name=org.freedesktop.ScreenSaver
+  - --filesystem=xdg-download
+
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+
+modules:
+  - name: whatly
+    buildsystem: cmake-ninja
+    config-opts:
+      - -DCMAKE_BUILD_TYPE=Release
+      - -DCMAKE_INSTALL_PREFIX=/app
+    sources:
+      - type: git
+        url: https://github.com/shakaran/whatly.git
+        tag: v6.0.0

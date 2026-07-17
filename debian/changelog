@@ -1,0 +1,8 @@
+whatly (6.0.0) unstable; urgency=medium
+
+  * Rebrand WhatSie -> Whatly with a new teal identity.
+  * Multiple accounts, chat themes, privacy blur, multi-language spell check,
+    app lock, connection watchdog, native Windows support and more.
+  * See CHANGELOG.md for the full list.
+
+ -- Ángel Guzmán Maeso <angel@guzmanmaeso.com>  Thu, 16 Jul 2026 00:00:00 +0200

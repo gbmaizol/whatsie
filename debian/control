@@ -1,22 +1,28 @@
 Source: whatly
-Section: utils
+Section: net
 Priority: optional
 Maintainer: Ángel Guzmán Maeso <angel@guzmanmaeso.com>
-Uploaders:
-  Ángel Guzmán Maeso <angel@guzmanmaeso.com>
 Build-Depends:
-  debhelper-compat (= 13)
-Standards-Version: 4.16.3
+ debhelper-compat (= 13),
+ cmake (>= 3.24),
+ ninja-build,
+ qt6-base-dev,
+ qt6-webengine-dev,
+ qt6-webengine-dev-tools,
+ qt6-positioning-dev,
+ qt6-tools-dev,
+ libqt6svg6-dev,
+ libx11-dev,
+ libxcb1-dev,
+Standards-Version: 4.6.2
 Homepage: https://github.com/shakaran/whatly
+Rules-Requires-Root: no
 
 Package: whatly
 Architecture: any
 Depends:
-  libqt6webenginewidgets6,
-  libqt6webenginecore6,
-  libqt6positioning6,
-  ${misc:Depends},
-  ${shlibs:Depends},
+ ${shlibs:Depends},
+ ${misc:Depends},
 Description: Feature-rich WhatsApp Web client based on Qt WebEngine
  Whatly gives WhatsApp Web a native desktop window with system-tray
  integration, desktop notifications, chat themes, a chat wallpaper, a privacy
