@@ -6,6 +6,12 @@ confinement: strict
 base: core24
 compression: lzo
 
+contact: https://github.com/shakaran/whatly/issues
+website: https://github.com/shakaran/whatly
+source-code: https://github.com/shakaran/whatly
+issues: https://github.com/shakaran/whatly/issues
+license: MIT
+
 icon: snap/gui/icon.svg
 
 platforms:
