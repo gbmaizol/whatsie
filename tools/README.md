@@ -54,3 +54,16 @@ Notes:
 | `make-screenshots.sh` | Captures Settings/About (throwaway) and the chat (real session, blurred) |
 | `cdp-screenshot.py` | Screenshots the WhatsApp Web content over CDP, with optional blur regions |
 | `cdp-eval.py` | Evaluates a JS expression in the page (used to wait for the chat list) |
+
+## Releasing
+
+```bash
+# Build (and optionally publish) the snap
+tools/release-snap.sh                    # build only
+tools/release-snap.sh --release stable   # build + upload to the store (needs `snapcraft login`)
+```
+
+Windows builds are produced by CI: pushing a `v*` tag runs the **Release
+Artifacts** workflow, which builds `whatly.exe` with its Qt runtime, zips it and
+attaches `whatly-<version>-windows-x64.zip` to the matching GitHub release
+(create the release first with `gh release create`).
