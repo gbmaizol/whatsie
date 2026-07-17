@@ -120,6 +120,24 @@ def banner(out, W=1280, H=380):
     d.text(((W-d.textlength(st, font=sf))//2, int(H*0.72)), st, font=sf, fill=(205, 242, 237))
     bg.convert("RGB").save(out); print("  wrote", os.path.relpath(out, REPO))
 
+def banner_snapcraft(out, W=1920, H=640):
+    """Featured banner for the snapcraft.io store listing, which requires a
+    strict 3:1 aspect ratio. Same brand look as banner.png, laid out for the
+    wider frame (logo + wordmark centred, tagline below)."""
+    bg = gradient(W, H).convert("RGBA")
+    d = ImageDraw.Draw(bg)
+    lsz, gap, tf = 300, 44, _font(True, 176)
+    tw = d.textlength("Whatly", font=tf)
+    x0 = (W - (lsz + gap + tw)) // 2
+    cy = int(H * 0.42)
+    bg.alpha_composite(Image.open(LOGO).convert("RGBA").resize((lsz, lsz), Image.LANCZOS),
+                       (int(x0), int(cy - lsz / 2)))
+    tb = d.textbbox((0, 0), "Whatly", font=tf)
+    d.text((x0 + lsz + gap, cy - (tb[3] - tb[1]) / 2 - tb[1]), "Whatly", font=tf, fill=(255, 255, 255))
+    st, sf = "A feature-rich desktop client for WhatsApp Web", _font(False, 58)
+    d.text(((W - d.textlength(st, font=sf)) // 2, int(H * 0.74)), st, font=sf, fill=(205, 242, 237))
+    bg.convert("RGB").save(out); print("  wrote", os.path.relpath(out, REPO))
+
 def section_banner(out, title, subtitle="", W=1280, H=150):
     """A slim teal strip to head a text-heavy section: the small logo, a bold
     section title and an optional subtitle, on the brand gradient."""
@@ -436,6 +454,7 @@ def main():
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     banner(os.path.join(a.out, "banner.png"))
+    banner_snapcraft(os.path.join(a.out, "banner-snapcraft.png"))
     for slug, title, sub in [
         ("build-linux",   "Build from source", "Linux — Qt 6.10, CMake and Ninja"),
         ("build-windows", "Build on Windows",  "Qt 6.10 MSVC, from the same codebase"),
