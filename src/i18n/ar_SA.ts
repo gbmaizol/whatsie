@@ -4,12 +4,10 @@
 <context>
     <name>About</name>
     <message>
-        <location filename="../about.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="117"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -19,68 +17,58 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="135"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="142"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Designed &amp;amp; Developed by:&lt;/span&gt; Keshav Bhatt &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Email: &lt;/span&gt;keshavnrj@gmail.com&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Website:&lt;/span&gt; http://ktechpit.com&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.ui" line="171"/>
         <source>Donate PayPal</source>
         <translation>التبرع عبر PayPal</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="178"/>
         <source>Ko-fi</source>
         <translation>Ko-fi</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="185"/>
+        <source>Wise</source>
+        <translation>Wise</translation>
+    </message>
+    <message>
         <source>Rate in Store</source>
         <translation>التقييم في المتجر</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="196"/>
         <source>More Applications</source>
         <translation>تطبيقات أخرى</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="203"/>
         <source>Source Code</source>
         <translation>الشيفرة المصدرية</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="210"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Copies the debug information below to the clipboard and opens the issue tracker, so it can be pasted straight into the report.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ينسخ معلومات التصحيح أدناه إلى الحافظة ويفتح متتبّع المشكلات، حتى يمكن لصقها مباشرة في التقرير.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="213"/>
-        <location filename="../about.cpp" line="118"/>
         <source>Report a Bug</source>
         <translation>الإبلاغ عن خطأ</translation>
     </message>
     <message>
-        <location filename="../about.ui" line="222"/>
         <source>Debug Info</source>
         <translation>معلومات التنقيح</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="67"/>
         <source>Version: </source>
         <translation>الإصدار: </translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="119"/>
         <source>The debug information was too long for the browser to carry, so it has been copied to your clipboard instead. Paste it into the issue.</source>
         <translation>كانت معلومات التصحيح أطول من أن يحملها المتصفح، لذا نُسخت إلى الحافظة. الصقها في التقرير.</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="126"/>
         <source> | About</source>
         <translation> | حول</translation>
     </message>
@@ -88,45 +76,34 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>AutomaticTheme</name>
     <message>
-        <location filename="../automatictheme.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../automatictheme.ui" line="27"/>
         <source>Sunrise</source>
         <translation>الشروق</translation>
     </message>
     <message>
-        <location filename="../automatictheme.ui" line="34"/>
         <source>Sunset</source>
         <translation>الغروب</translation>
     </message>
     <message>
-        <location filename="../automatictheme.ui" line="55"/>
         <source>  Refresh </source>
         <translation>  تحديث </translation>
     </message>
     <message>
-        <location filename="../automatictheme.ui" line="70"/>
         <source>Disable and Close</source>
         <translation>التعطيل والإغلاق</translation>
     </message>
     <message>
-        <location filename="../automatictheme.ui" line="94"/>
         <source>  Enable and Close</source>
         <translation>  التفعيل والإغلاق</translation>
     </message>
     <message>
-        <location filename="../automatictheme.cpp" line="27"/>
-        <location filename="../automatictheme.cpp" line="62"/>
-        <location filename="../automatictheme.cpp" line="88"/>
-        <location filename="../automatictheme.cpp" line="97"/>
         <source>Error</source>
         <translation>خطأ</translation>
     </message>
     <message>
-        <location filename="../automatictheme.cpp" line="89"/>
         <source>Invalid Geo-Coordinates.
 
 Please try again.</source>
@@ -135,7 +112,6 @@ Please try again.</source>
 يرجى المحاولة مرة أخرى.</translation>
     </message>
     <message>
-        <location filename="../automatictheme.cpp" line="98"/>
         <source>Invalid configuration.
 
 Sunrise and Sunset time cannot have similar values.
@@ -151,22 +127,18 @@ Please try again.</source>
 <context>
     <name>CertificateErrorDialog</name>
     <message>
-        <location filename="../certificateerrordialog.ui" line="14"/>
         <source>Dialog</source>
         <translation>مربع حوار</translation>
     </message>
     <message>
-        <location filename="../certificateerrordialog.ui" line="26"/>
         <source>Icon</source>
         <translation>أيقونة</translation>
     </message>
     <message>
-        <location filename="../certificateerrordialog.ui" line="42"/>
         <source>Error</source>
         <translation>خطأ</translation>
     </message>
     <message>
-        <location filename="../certificateerrordialog.ui" line="61"/>
         <source>If you wish so, you may continue with an unverified certificate. Accepting an unverified certificate mean you may not be connected with the host you tried to connect to.
 
 Do you wish to override the security check and continue ?   </source>
@@ -178,72 +150,58 @@ Do you wish to override the security check and continue ?   </source>
 <context>
     <name>ChatTheme</name>
     <message>
-        <location filename="../chattheme.cpp" line="156"/>
         <source>WhatsApp (default)</source>
         <translation>WhatsApp (افتراضي)</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="158"/>
         <source>Barbie pink</source>
         <translation>وردي باربي</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="160"/>
         <source>Dusty rose</source>
         <translation>وردي باهت</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="162"/>
         <source>Lavender</source>
         <translation>خزامى</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="164"/>
         <source>Violet</source>
         <translation>بنفسجي</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="166"/>
         <source>Sky blue</source>
         <translation>أزرق سماوي</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="168"/>
         <source>Deep ocean</source>
         <translation>محيط عميق</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="170"/>
         <source>Teal</source>
         <translation>أزرق مخضر</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="172"/>
         <source>Mint</source>
         <translation>نعناعي</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="174"/>
         <source>Coral</source>
         <translation>مرجاني</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="176"/>
         <source>Peach</source>
         <translation>خوخي</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="178"/>
         <source>Gold</source>
         <translation>ذهبي</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="180"/>
         <source>Crimson</source>
         <translation>قرمزي</translation>
     </message>
     <message>
-        <location filename="../chattheme.cpp" line="182"/>
         <source>Graphite</source>
         <translation>غرافيت</translation>
     </message>
@@ -251,42 +209,34 @@ Do you wish to override the security check and continue ?   </source>
 <context>
     <name>DownloadManagerWidget</name>
     <message>
-        <location filename="../downloadmanagerwidget.ui" line="20"/>
         <source>Downloads</source>
         <translation>التنزيلات</translation>
     </message>
     <message>
-        <location filename="../downloadmanagerwidget.ui" line="80"/>
         <source>No downloads</source>
         <translation>لا توجد تنزيلات</translation>
     </message>
     <message>
-        <location filename="../downloadmanagerwidget.ui" line="125"/>
         <source>Clear download list</source>
         <translation>مسح قائمة التنزيلات</translation>
     </message>
     <message>
-        <location filename="../downloadmanagerwidget.ui" line="128"/>
         <source>Clear all</source>
         <translation>مسح الكل</translation>
     </message>
     <message>
-        <location filename="../downloadmanagerwidget.ui" line="139"/>
         <source>Open download directory in file manager</source>
         <translation>فتح مجلد التنزيلات في مدير الملفات</translation>
     </message>
     <message>
-        <location filename="../downloadmanagerwidget.ui" line="142"/>
         <source>Open Download directory</source>
         <translation>فتح مجلد التنزيلات</translation>
     </message>
     <message>
-        <location filename="../downloadmanagerwidget.cpp" line="36"/>
         <source>File with same name already exist!</source>
         <translation>يوجد ملف بالاسم نفسه بالفعل!</translation>
     </message>
     <message>
-        <location filename="../downloadmanagerwidget.cpp" line="37"/>
         <source>Save file with a new name?</source>
         <translation>حفظ الملف باسم جديد؟</translation>
     </message>
@@ -294,68 +244,54 @@ Do you wish to override the security check and continue ?   </source>
 <context>
     <name>DownloadWidget</name>
     <message>
-        <location filename="../downloadwidget.ui" line="26"/>
-        <location filename="../downloadwidget.ui" line="48"/>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <location filename="../downloadwidget.ui" line="63"/>
         <source>Open file using system application</source>
         <translation>فتح الملف بتطبيق النظام</translation>
     </message>
     <message>
-        <location filename="../downloadwidget.cpp" line="58"/>
         <source>%L1 B</source>
         <translation>%L1 بايت</translation>
     </message>
     <message>
-        <location filename="../downloadwidget.cpp" line="60"/>
         <source>%L1 KiB</source>
         <translation>%L1 ك.بايت</translation>
     </message>
     <message>
-        <location filename="../downloadwidget.cpp" line="62"/>
         <source>%L1 MiB</source>
         <translation>%L1 م.بايت</translation>
     </message>
     <message>
-        <location filename="../downloadwidget.cpp" line="64"/>
         <source>%L1 GiB</source>
         <translation>%L1 غ.بايت</translation>
     </message>
     <message>
-        <location filename="../downloadwidget.cpp" line="86"/>
         <source>%p% - %1 of %2 downloaded - %3/s</source>
         <translation>%p% - تم تنزيل %1 من %2 - %3/ث</translation>
     </message>
     <message>
-        <location filename="../downloadwidget.cpp" line="94"/>
         <source>unknown size - %1 downloaded - %2/s</source>
         <translation>حجم غير معروف - تم تنزيل %1 - %2/ث</translation>
     </message>
     <message>
-        <location filename="../downloadwidget.cpp" line="103"/>
         <source>completed - %1 downloaded - %2/s</source>
         <translation>اكتمل - تم تنزيل %1 - %2/ث</translation>
     </message>
     <message>
-        <location filename="../downloadwidget.cpp" line="111"/>
         <source>cancelled - %1 downloaded - %2/s</source>
         <translation>أُلغي - تم تنزيل %1 - %2/ث</translation>
     </message>
     <message>
-        <location filename="../downloadwidget.cpp" line="119"/>
         <source>interrupted: %1</source>
         <translation>توقّف: %1</translation>
     </message>
     <message>
-        <location filename="../downloadwidget.cpp" line="127"/>
         <source>Stop downloading</source>
         <translation>إيقاف التنزيل</translation>
     </message>
     <message>
-        <location filename="../downloadwidget.cpp" line="131"/>
         <source>Remove from list</source>
         <translation>إزالة من القائمة</translation>
     </message>
@@ -363,58 +299,46 @@ Do you wish to override the security check and continue ?   </source>
 <context>
     <name>Lock</name>
     <message>
-        <location filename="../lock.ui" line="20"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../lock.ui" line="199"/>
         <source>Set lock passcode</source>
         <translation>تعيين رمز القفل</translation>
     </message>
     <message>
-        <location filename="../lock.ui" line="224"/>
         <source>enter passcode</source>
         <translation>أدخل الرمز</translation>
     </message>
     <message>
-        <location filename="../lock.ui" line="243"/>
         <source>enter passcode again</source>
         <translation>أدخل الرمز مرة أخرى</translation>
     </message>
     <message>
-        <location filename="../lock.ui" line="256"/>
         <source>Set Pass Code</source>
         <translation>تعيين الرمز</translation>
     </message>
     <message>
-        <location filename="../lock.ui" line="269"/>
         <source>Cancel</source>
         <translation>إلغاء</translation>
     </message>
     <message>
-        <location filename="../lock.ui" line="276"/>
-        <location filename="../lock.ui" line="629"/>
         <source>Warning: Caps Lock is On</source>
         <translation>تنبيه: مفتاح Caps Lock مفعّل</translation>
     </message>
     <message>
-        <location filename="../lock.ui" line="346"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Note: Passcode must be more then 3 characters and must match in both fields.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ملاحظة: يجب أن يزيد الرمز عن 3 أحرف وأن يتطابق في الحقلين.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../lock.ui" line="597"/>
         <source>Enter your passcode to get access</source>
         <translation>أدخل رمزك للوصول</translation>
     </message>
     <message>
-        <location filename="../lock.ui" line="622"/>
         <source>enter your passcode</source>
         <translation>أدخل رمزك</translation>
     </message>
     <message>
-        <location filename="../lock.ui" line="639"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Wrong Passcode, Please try again.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;رمز غير صحيح. يُرجى المحاولة مرة أخرى.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -422,58 +346,48 @@ Do you wish to override the security check and continue ?   </source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../mainwindow.cpp" line="637"/>
-        <location filename="../mainwindow.cpp" line="643"/>
-        <location filename="../mainwindow_webengine.cpp" line="262"/>
-        <location filename="../mainwindow_webengine.cpp" line="265"/>
+        <source>No WhatsApp window is open</source>
+        <translation>لا توجد نافذة واتساب مفتوحة</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| خطأ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="638"/>
         <source>Unlock to access Settings.</source>
         <translation>افتح القفل للوصول إلى الإعدادات.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="644"/>
         <source>Unable to initialize settings module.
 Webengine is not initialized.</source>
         <translation>تعذّر تهيئة وحدة الإعدادات.
 لم تتم تهيئة WebEngine.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="665"/>
         <source> | Action required</source>
         <translation> | إجراء مطلوب</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="666"/>
         <source>Page needs to be reloaded to continue.</source>
         <translation>يجب إعادة تحميل الصفحة للمتابعة.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="875"/>
         <source>Open</source>
         <translation>فتح</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="885"/>
-        <location filename="../mainwindow_tray.cpp" line="16"/>
         <source>New Chat</source>
         <translation>محادثة جديدة</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="886"/>
         <source>Enter a valid WhatsApp number with country code (ex- +91XXXXXXXXXX)</source>
         <translation>أدخل رقم WhatsApp صالحًا مع رمز الدولة (مثال: ‎+966XXXXXXXXX)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="916"/>
         <source>Rate Application</source>
         <translation>تقييم التطبيق</translation>
     </message>
     <message>
-        <location filename="../mainwindow_lock.cpp" line="135"/>
         <source>App lock is not configured, 
 Please setup the password in the Settings first.
 
@@ -484,142 +398,128 @@ Open Settings now?</source>
 هل تريد فتح الإعدادات الآن؟</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="21"/>
         <source>Fullscreen</source>
         <translation>ملء الشاشة</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="27"/>
         <source>Mi&amp;nimize to tray</source>
         <translation>التصغير إلى شريط النظام (&amp;N)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="35"/>
         <source>&amp;Restore</source>
         <translation>استعادة (&amp;R)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="39"/>
         <source>Re&amp;load</source>
         <translation>إعادة التحميل (&amp;L)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="45"/>
         <source>Loc&amp;k</source>
         <translation>قفل (&amp;K)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="50"/>
         <source>&amp;Mute audio</source>
         <translation>كتم الصوت</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="59"/>
         <source>Zoom in</source>
         <translation>تكبير</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="65"/>
         <source>Zoom out</source>
         <translation>تصغير</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="70"/>
         <source>Reset zoom</source>
         <translation>إعادة تعيين التكبير</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="75"/>
         <source>&amp;Settings</source>
         <translation>الإعدادات (&amp;S)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="81"/>
+        <source>Scheduled &amp;messages…</source>
+        <translation>الرسائل المجدولة…</translation>
+    </message>
+    <message>
         <source>&amp;Toggle theme</source>
         <translation>تبديل السمة (&amp;T)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="88"/>
         <source>&amp;About</source>
         <translation>حول (&amp;A)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_tray.cpp" line="97"/>
         <source>&amp;Quit</source>
         <translation>خروج (&amp;Q)</translation>
     </message>
     <message>
-        <location filename="../mainwindow_accounts.cpp" line="69"/>
         <source>Rename…</source>
         <translation>إعادة تسمية…</translation>
     </message>
     <message>
-        <location filename="../mainwindow_accounts.cpp" line="70"/>
         <source>Remove account</source>
         <translation>إزالة الحساب</translation>
     </message>
     <message>
-        <location filename="../mainwindow_accounts.cpp" line="147"/>
         <source>Add another account</source>
         <translation>إضافة حساب آخر</translation>
     </message>
     <message>
-        <location filename="../mainwindow_accounts.cpp" line="166"/>
-        <location filename="../mainwindow_accounts.cpp" line="171"/>
         <source>Restore</source>
         <translation>استعادة</translation>
     </message>
     <message>
-        <location filename="../mainwindow_accounts.cpp" line="167"/>
         <source>messages</source>
         <translation>رسائل</translation>
     </message>
     <message>
-        <location filename="../mainwindow_accounts.cpp" line="167"/>
         <source>message</source>
         <translation>رسالة</translation>
     </message>
     <message>
-        <location filename="../mainwindow_accounts.cpp" line="187"/>
         <source>Add account</source>
         <translation>إضافة حساب</translation>
     </message>
     <message>
-        <location filename="../mainwindow_accounts.cpp" line="188"/>
         <source>Name for the new account:</source>
         <translation>اسم الحساب الجديد:</translation>
     </message>
     <message>
-        <location filename="../mainwindow_accounts.cpp" line="189"/>
-        <location filename="../mainwindow_accounts.cpp" line="262"/>
         <source>Account %1</source>
         <translation>الحساب %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow_accounts.cpp" line="207"/>
         <source>Rename account</source>
         <translation>إعادة تسمية الحساب</translation>
     </message>
     <message>
-        <location filename="../mainwindow_accounts.cpp" line="207"/>
         <source>Account name:</source>
         <translation>اسم الحساب:</translation>
     </message>
     <message>
-        <location filename="../mainwindow_accounts.cpp" line="258"/>
         <source>Account 1</source>
         <translation>الحساب 1</translation>
     </message>
     <message>
-        <location filename="../mainwindow_webengine.cpp" line="260"/>
         <source>Unlock to Reload the App.</source>
         <translation>افتح القفل لإعادة تحميل التطبيق.</translation>
     </message>
 </context>
 <context>
+    <name>MoreApps</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>... ... ... ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>NotificationPopup</name>
     <message>
-        <location filename="../notificationpopup.h" line="52"/>
         <source>Close</source>
         <translation>إغلاق</translation>
     </message>
@@ -627,27 +527,22 @@ Open Settings now?</source>
 <context>
     <name>PasswordDialog</name>
     <message>
-        <location filename="../passworddialog.ui" line="14"/>
         <source>Authentication Required</source>
         <translation>المصادقة مطلوبة</translation>
     </message>
     <message>
-        <location filename="../passworddialog.ui" line="20"/>
         <source>Icon</source>
         <translation>أيقونة</translation>
     </message>
     <message>
-        <location filename="../passworddialog.ui" line="36"/>
         <source>Info</source>
         <translation>معلومات</translation>
     </message>
     <message>
-        <location filename="../passworddialog.ui" line="46"/>
         <source>Username:</source>
         <translation>اسم المستخدم:</translation>
     </message>
     <message>
-        <location filename="../passworddialog.ui" line="56"/>
         <source>Password:</source>
         <translation>كلمة المرور:</translation>
     </message>
@@ -655,17 +550,14 @@ Open Settings now?</source>
 <context>
     <name>PermissionDialog</name>
     <message>
-        <location filename="../permissiondialog.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../permissiondialog.ui" line="24"/>
         <source>Feature</source>
         <translation>الميزة</translation>
     </message>
     <message>
-        <location filename="../permissiondialog.ui" line="29"/>
         <source>Status</source>
         <translation>الحالة</translation>
     </message>
@@ -673,27 +565,22 @@ Open Settings now?</source>
 <context>
     <name>PrivacyBlur</name>
     <message>
-        <location filename="../privacyblur.cpp" line="85"/>
         <source>Off</source>
         <translation>إيقاف</translation>
     </message>
     <message>
-        <location filename="../privacyblur.cpp" line="87"/>
         <source>Chat list</source>
         <translation>قائمة المحادثات</translation>
     </message>
     <message>
-        <location filename="../privacyblur.cpp" line="89"/>
         <source>Open conversation</source>
         <translation>المحادثة المفتوحة</translation>
     </message>
     <message>
-        <location filename="../privacyblur.cpp" line="91"/>
         <source>Chat list and conversation</source>
         <translation>قائمة المحادثات والمحادثة</translation>
     </message>
     <message>
-        <location filename="../privacyblur.cpp" line="94"/>
         <source>Everything, photos included</source>
         <translation>كل شيء، بما في ذلك الصور</translation>
     </message>
@@ -701,13 +588,10 @@ Open Settings now?</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="73"/>
-        <location filename="../about.cpp" line="146"/>
         <source>Show Debug Info</source>
         <translation>إظهار معلومات التنقيح</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="103"/>
         <source>&lt;!-- What did you do, what did you expect, and what happened instead? --&gt;
 
 
@@ -715,199 +599,159 @@ Open Settings now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="151"/>
         <source>Hide Debug Info</source>
         <translation>إخفاء معلومات التنقيح</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="172"/>
         <source>Nothing to migrate from &quot;%1&quot; — already migrated, or no data found there.</source>
         <translation>لا يوجد ما يُنقل من &quot;%1&quot; — تم النقل بالفعل، أو لم يُعثر على بيانات.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="177"/>
         <source>Would copy:</source>
         <translation>سيتم النسخ:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="177"/>
         <source>Copied:</source>
         <translation>تم النسخ:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="181"/>
         <source>Run again without --dry-run to perform the copy.</source>
         <translation>أعد التشغيل بدون --dry-run لتنفيذ النسخ.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="432"/>
         <source>Feature rich WhatsApp web client based on Qt WebEngine</source>
         <translation>عميل WhatsApp Web غني بالمزايا ومبني على Qt WebEngine</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="439"/>
         <source>Displays help on commandline options</source>
         <translation>يعرض المساعدة الخاصة بخيارات سطر الأوامر</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="444"/>
         <source>Opens Settings dialog in a running instance of </source>
         <translation>يفتح الإعدادات في نسخة قيد التشغيل من </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="449"/>
         <source>Locks a running instance of </source>
         <translation>يقفل نسخة قيد التشغيل من </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="455"/>
         <source>Opens About dialog in a running instance of </source>
         <translation>يفتح نافذة «حول» في نسخة قيد التشغيل من </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="461"/>
         <source>Toggle between dark &amp; light theme in a running instance of </source>
         <translation>يبدّل بين السمة الفاتحة والداكنة في نسخة قيد التشغيل من </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="468"/>
         <source>Reload the app in a running instance of </source>
         <translation>يعيد تحميل التطبيق في نسخة قيد التشغيل من </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="474"/>
         <source>Open new chat prompt in a running instance of </source>
         <translation>يفتح نافذة محادثة جديدة في نسخة قيد التشغيل من </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="487"/>
         <source>Run as a separate account with its own session and settings, in its own window</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;التشغيل كحساب منفصل بجلسته وإعداداته الخاصة، في نافذته الخاصة&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="494"/>
         <source>Show main window of running instance of </source>
         <translation>يعرض النافذة الرئيسية للنسخة قيد التشغيل من </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="501"/>
         <source>Copy settings and the logged-in session from a previous install (e.g. the older &quot;whatsie&quot; build) into this one, then exit</source>
         <translation>انسخ الإعدادات والجلسة المسجّلة من تثبيت سابق (مثل إصدار &quot;whatsie&quot; القديم) إلى هذا، ثم اخرج</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="508"/>
         <source>With --migrate-from, only report what would be copied</source>
         <translation>مع --migrate-from، أبلغ فقط عمّا سيتم نسخه</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="524"/>
         <source>Print the current unread message count and exit</source>
         <translation>طباعة عدد الرسائل غير المقروءة الحالي ثم الخروج</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="598"/>
         <source>App lock is not configured, 
 Please setup the password in the Settings first.</source>
         <translation>لم يُضبط قفل التطبيق.
 يُرجى ضبط كلمة المرور في الإعدادات أولاً.</translation>
     </message>
     <message>
-        <location filename="../mainwindow_webengine.cpp" line="257"/>
         <source>Reloading...</source>
         <translation>جارٍ إعادة التحميل...</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="315"/>
-        <location filename="../utils.cpp" line="349"/>
         <source>Install mode</source>
         <translation>وضع التثبيت</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="333"/>
         <source>Version</source>
         <translation>الإصدار</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="335"/>
         <source>Source Branch</source>
         <translation>فرع المصدر</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="337"/>
         <source>Commit Hash</source>
         <translation>بصمة الإيداع</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="339"/>
         <source>Build Datetime</source>
         <translation>تاريخ البناء</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="341"/>
         <source>Qt Runtime Version</source>
         <translation>إصدار Qt وقت التشغيل</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="343"/>
         <source>Qt Compiled Version</source>
         <translation>إصدار Qt وقت الترجمة</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="345"/>
         <source>System</source>
         <translation>النظام</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="347"/>
         <source>Architecture</source>
         <translation>البنية</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="486"/>
         <source>Exception</source>
         <translation>استثناء</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="489"/>
         <source> has encountered a problem.</source>
         <translation> واجه مشكلة.</translation>
     </message>
     <message>
-        <location filename="../utils.cpp" line="492"/>
         <source> may need to Restart. Please report the error to developer.</source>
         <translation> قد يحتاج إلى إعادة التشغيل. يُرجى إبلاغ المطوّر بالخطأ.</translation>
     </message>
     <message>
-        <location filename="../chatwallpaper.cpp" line="150"/>
-        <location filename="../customcss.cpp" line="84"/>
         <source>Cannot create %1</source>
         <translation>تعذّر إنشاء %1</translation>
     </message>
     <message>
-        <location filename="../chatwallpaper.cpp" line="156"/>
         <source>Cannot write %1</source>
         <translation>تعذّرت الكتابة إلى %1</translation>
     </message>
     <message>
-        <location filename="../webtweaks.cpp" line="284"/>
         <source>Switch to light theme</source>
         <comment>WebTweaks</comment>
         <translation>التبديل إلى السمة الفاتحة</translation>
     </message>
     <message>
-        <location filename="../webtweaks.cpp" line="285"/>
         <source>Switch to dark theme</source>
         <comment>WebTweaks</comment>
         <translation>التبديل إلى السمة الداكنة</translation>
     </message>
     <message>
-        <location filename="../webtweaks.cpp" line="286"/>
         <source>Show the chats</source>
         <comment>WebTweaks</comment>
         <translation>إظهار المحادثات</translation>
     </message>
     <message>
-        <location filename="../webtweaks.cpp" line="287"/>
         <source>Blur the chats</source>
         <comment>WebTweaks</comment>
         <translation>تمويه المحادثات</translation>
@@ -916,622 +760,595 @@ Please setup the password in the Settings first.</source>
 <context>
     <name>RateApp</name>
     <message>
-        <location filename="../rateapp.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../rateapp.ui" line="43"/>
         <source>Rate this app</source>
         <translation>قيّم هذا التطبيق</translation>
     </message>
     <message>
-        <location filename="../rateapp.ui" line="56"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you enjoy using this app, would you mind taking a moment to rate it?&lt;/p&gt;&lt;p&gt;It won&apos;t take more than a minute. Thanks you for your support!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;إذا أعجبك هذا التطبيق، فهل تمانع في تخصيص لحظة لتقييمه؟&lt;/p&gt;&lt;p&gt;لن يستغرق الأمر أكثر من دقيقة. شكرًا لدعمك!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../rateapp.ui" line="73"/>
         <source>  Rate in Store</source>
         <translation>  التقييم في المتجر</translation>
     </message>
     <message>
-        <location filename="../rateapp.ui" line="99"/>
-        <location filename="../rateapp.ui" line="156"/>
         <source>Or</source>
         <translation>أو</translation>
     </message>
     <message>
-        <location filename="../rateapp.ui" line="119"/>
         <source>Star rate Github repo</source>
         <translation>امنح مستودع GitHub نجمة</translation>
     </message>
     <message>
-        <location filename="../rateapp.ui" line="130"/>
         <source>Donate via PayPal </source>
         <translation>التبرع عبر PayPal </translation>
     </message>
     <message>
-        <location filename="../rateapp.ui" line="176"/>
         <source>Donate via OpenCollective</source>
         <translation>التبرع عبر OpenCollective</translation>
     </message>
     <message>
-        <location filename="../rateapp.ui" line="187"/>
         <source>Later</source>
         <translation>لاحقًا</translation>
     </message>
     <message>
-        <location filename="../rateapp.ui" line="210"/>
         <source>  Already Done  </source>
         <translation>  سبق أن فعلت ذلك  </translation>
     </message>
 </context>
 <context>
+    <name>ScheduledMessages</name>
+    <message>
+        <source>Timed out waiting for the message to send</source>
+        <translation>انتهت المهلة أثناء انتظار إرسال الرسالة</translation>
+    </message>
+    <message>
+        <source>Sent</source>
+        <translation>أُرسلت</translation>
+    </message>
+    <message>
+        <source>Failed</source>
+        <translation>فشل</translation>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation>قيد الانتظار</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledMessagesDialog</name>
+    <message>
+        <source>Scheduled messages</source>
+        <translation>الرسائل المجدولة</translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>إلى</translation>
+    </message>
+    <message>
+        <source>When</source>
+        <translation>متى</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>الرسالة</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>الحالة</translation>
+    </message>
+    <message>
+        <source>Phone number, international format e.g. 447700900000</source>
+        <translation>رقم الهاتف بالصيغة الدولية، مثال: 447700900000</translation>
+    </message>
+    <message>
+        <source>Optional label</source>
+        <translation>تسمية اختيارية</translation>
+    </message>
+    <message>
+        <source>Name</source>
+        <translation>الاسم</translation>
+    </message>
+    <message>
+        <source>Message to send</source>
+        <translation>الرسالة المراد إرسالها</translation>
+    </message>
+    <message>
+        <source>The app must be running and WhatsApp logged in at the scheduled time. If it is closed, the message is sent the next time you open the app. Sending opens the recipient&apos;s chat.</source>
+        <translation>يجب أن يكون التطبيق قيد التشغيل وواتساب مسجّلاً للدخول في الوقت المحدد. إذا كان مغلقًا، تُرسَل الرسالة في المرة التالية التي تفتح فيها التطبيق. الإرسال يفتح محادثة المستلم.</translation>
+    </message>
+    <message>
+        <source>Schedule</source>
+        <translation>جدولة</translation>
+    </message>
+    <message>
+        <source>Remove selected</source>
+        <translation>إزالة المحدد</translation>
+    </message>
+    <message>
+        <source>Clear sent/failed</source>
+        <translation>مسح المُرسَلة/الفاشلة</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>إغلاق</translation>
+    </message>
+    <message>
+        <source>Enter a phone number and a message.</source>
+        <translation>أدخل رقم هاتف ورسالة.</translation>
+    </message>
+    <message>
+        <source>The time is in the past — send this message now?</source>
+        <translation>الوقت في الماضي — هل تريد إرسال هذه الرسالة الآن؟</translation>
+    </message>
+</context>
+<context>
     <name>SettingsWidget</name>
     <message>
-        <location filename="../settingswidget.ui" line="14"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="78"/>
         <source>Settings</source>
         <translation>الإعدادات</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="106"/>
         <source>General settings</source>
         <translation>الإعدادات العامة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="114"/>
         <source>Widget Style</source>
         <translation>نمط الودجات</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="153"/>
         <source>Widget Theme</source>
         <translation>سمة الودجات</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="166"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Based on your system timezone and location.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;بناءً على المنطقة الزمنية والموقع في نظامك.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="169"/>
         <source>Automatic</source>
         <translation>تلقائي</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="177"/>
         <source>Dark</source>
         <translation>داكن</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="186"/>
         <source>Light</source>
         <translation>فاتح</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="198"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Match the desktop&apos;s own light/dark preference, and change with it. Overrides the manual theme and the automatic sunrise/sunset switch.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;يطابق تفضيل سطح المكتب الفاتح/الداكن ويتغيّر معه. يتجاوز السمة اليدوية والتبديل التلقائي عند الشروق/الغروب.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="201"/>
         <source>Follow system light/dark theme</source>
         <translation>اتّبع سمة النظام الفاتحة/الداكنة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="238"/>
         <source>Native notification</source>
         <translation>إشعار النظام</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="247"/>
         <source>Customized notification</source>
         <translation>إشعار مخصّص</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="265"/>
         <source>  Try</source>
         <translation>  تجربة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="276"/>
         <source>Notification type</source>
         <translation>نوع الإشعار</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="283"/>
         <source>Disable Notifications Popup</source>
         <translation>تعطيل الإشعارات المنبثقة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="290"/>
         <source>Popup timeout</source>
         <translation>مدة عرض الإشعار</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="297"/>
-        <location filename="../settingswidget.ui" line="993"/>
         <source> Secs</source>
         <translation> ث</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="339"/>
         <source>Use Native File Dialog</source>
         <translation>استخدام مربع حوار الملفات الخاص بالنظام</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="346"/>
         <source>Mute Audio from Page</source>
         <translation>كتم صوت الصفحة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="353"/>
         <source>Disable Auto Playback of Media</source>
         <translation>تعطيل التشغيل التلقائي للوسائط</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="360"/>
         <source>Minimize in tray on start</source>
         <translation>البدء مصغّرًا في شريط النظام</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="367"/>
         <source>Show/Hide on clicking tray Icon (if supported)</source>
         <translation>الإظهار/الإخفاء عند النقر على أيقونة شريط النظام (إن كان مدعومًا)</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="374"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Close the emoji, GIF &amp;amp; sticker panel when you click elsewhere. WhatsApp Web otherwise keeps it open until the button is pressed again.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;يغلق لوحة الرموز التعبيرية وصور GIF والملصقات عند النقر في مكان آخر. وإلا فإن WhatsApp Web يبقيها مفتوحة حتى يُضغط الزر مجددًا.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="377"/>
         <source>Close emoji/sticker panel when clicking outside</source>
         <translation>إغلاق لوحة الرموز/الملصقات عند النقر خارجها</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="384"/>
         <source>Interface language</source>
         <translation>لغة الواجهة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="391"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Language of Whatly&apos;s own interface. Takes effect after restarting the app. The language of the chats themselves comes from WhatsApp Web and cannot be changed here.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;لغة واجهة Whatly نفسها. تسري بعد إعادة تشغيل التطبيق. لغة المحادثات تأتي من WhatsApp Web ولا يمكن تغييرها هنا.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="398"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds a light/dark button to WhatsApp&apos;s own sidebar, just above your profile picture.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;يضيف زر فاتح/داكن إلى الشريط الجانبي لـ WhatsApp، فوق صورة ملفك الشخصي مباشرة.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="401"/>
         <source>Theme button in WhatsApp&apos;s sidebar</source>
         <translation>زر السمة في الشريط الجانبي لـ WhatsApp</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="408"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds a button to WhatsApp&apos;s own sidebar that blurs and unblurs your chats in one click, without opening Settings.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;يضيف زرًا إلى الشريط الجانبي لـ WhatsApp يموّه محادثاتك ويكشفها بنقرة واحدة، دون فتح الإعدادات.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="411"/>
         <source>Blur button in WhatsApp&apos;s sidebar</source>
         <translation>زر التمويه في الشريط الجانبي لـ WhatsApp</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="418"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use a single-colour tray icon that matches the rest of your panel, instead of the green WhatsApp one. The icon also dims when WhatsApp is not connected.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;يستخدم أيقونة أحادية اللون في شريط النظام تتناسب مع بقية اللوحة، بدلاً من أيقونة WhatsApp الخضراء. كما تخفت الأيقونة عندما لا يكون WhatsApp متصلاً.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="421"/>
         <source>Monochrome tray icon</source>
         <translation>أيقونة أحادية اللون في شريط النظام</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="428"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Animate scrolling instead of jumping line by line.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;يجعل التمرير متحركًا بدلًا من القفز سطرًا بسطر.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="431"/>
         <source>Smooth scrolling</source>
         <translation>تمرير سلس</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="438"/>
-        <location filename="../settingswidget.cpp" line="716"/>
         <source>Custom CSS</source>
         <translation>CSS مخصص</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="447"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Load a .css file to restyle WhatsApp Web — the community stylesheets (catppuccin and the like) work here. Applied on top of the chat theme.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;حمّل ملف .css لإعادة تصميم WhatsApp Web — أوراق أنماط المجتمع (مثل catppuccin) تعمل هنا. تُطبَّق فوق سمة المحادثة.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="450"/>
         <source>Choose file…</source>
         <translation>اختيار ملف…</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="457"/>
-        <location filename="../settingswidget.ui" line="540"/>
         <source>Clear</source>
         <translation>مسح</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="466"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Remove the system-tray icon entirely. With no tray to restore from, closing the window then quits the app instead of hiding it.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;يزيل أيقونة شريط النظام بالكامل. بدون شريط للاستعادة منه، يؤدي إغلاق النافذة إلى إنهاء التطبيق بدلاً من إخفائه.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="469"/>
         <source>Hide tray icon</source>
         <translation>إخفاء أيقونة شريط النظام</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="476"/>
+        <source>Font family</source>
+        <translation>عائلة الخط</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Render WhatsApp Web&apos;s text in a font installed on your system. Emoji, icons and monospaced message formatting are left untouched.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;اعرض نص واتساب ويب بخط مثبَّت على نظامك. تُترك الرموز التعبيرية والأيقونات وتنسيق الرسائل أحادي المسافة دون تغيير.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hide the &quot;Muted updates&quot; section in the Status/Updates panel, so statuses from contacts you have muted do not show up at all.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;إخفاء قسم "التحديثات المكتومة" في لوحة الحالة/التحديثات، بحيث لا تظهر حالات جهات الاتصال التي كتمتها إطلاقًا.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Hide muted status updates</source>
+        <translation>إخفاء تحديثات الحالة المكتومة</translation>
+    </message>
+    <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Underlines misspelt words as you type, and offers corrections in the right-click menu.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;يضع خطًا تحت الكلمات الخاطئة أثناء الكتابة ويقترح تصحيحات في قائمة النقر بالزر الأيمن.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="479"/>
-        <location filename="../settingswidget.cpp" line="796"/>
         <source>Check spelling as I type</source>
         <translation>تدقيق الإملاء أثناء الكتابة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="486"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The language to check against.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;اللغة التي يجري التدقيق وفقها.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="493"/>
         <source>Privacy blur</source>
         <translation>تمويه الخصوصية</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="500"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Blurs your chats until you hover over them, so someone glancing at the screen cannot read them. Hovering a row reveals just that row.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;يموّه محادثاتك حتى تمرّر المؤشر فوقها، حتى لا يستطيع من يلمح الشاشة قراءتها. تمرير المؤشر فوق صف يكشف ذلك الصف فقط.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="507"/>
         <source>Chat theme</source>
         <translation>سمة المحادثة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="514"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Recolours WhatsApp Web itself. Photos, avatars and stickers keep their own colours. Works on top of the light or dark theme, whichever is active.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;يعيد تلوين WhatsApp Web نفسه. تحتفظ الصور والصور الرمزية والملصقات بألوانها. يعمل فوق السمة الفاتحة أو الداكنة، أيها كانت نشطة.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="521"/>
-        <location filename="../settingswidget.cpp" line="692"/>
         <source>Chat wallpaper</source>
         <translation>خلفية المحادثة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="530"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use one of your own images as the background of the chat pane, as WhatsApp does on Android. The image is stored inside Whatly, not uploaded anywhere, and is only visible to you.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;استخدم إحدى صورك كخلفية لجزء المحادثة، كما يفعل WhatsApp على Android. تُخزَّن الصورة داخل Whatly، ولا تُرفَع إلى أي مكان، ولا يراها سواك.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="533"/>
         <source>Choose image…</source>
         <translation>اختيار صورة…</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="549"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New logins appear as &amp;quot;Whatly for Linux&amp;quot; (or the matching platform) in your phone&apos;s linked-devices list instead of &amp;quot;Google Chrome (Linux)&amp;quot;. The name is stored on the phone when a device is linked, so changing this only affects future links — log out and re-link to rename an existing session.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ستظهر عمليات تسجيل الدخول الجديدة في قائمة الأجهزة المرتبطة بهاتفك باسم «Whatly for Linux» (أو المنصة المقابلة) بدلاً من «Google Chrome (Linux)». يُحفظ الاسم في الهاتف عند ربط جهاز، لذا فإن تغيير هذا الخيار يؤثر في عمليات الربط اللاحقة فقط — سجّل الخروج ثم أعد الربط لإعادة تسمية جلسة قائمة.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="552"/>
         <source>Identify as Whatly in linked devices</source>
         <translation>التعريف باسم Whatly في الأجهزة المرتبطة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="563"/>
         <source>User Agent</source>
         <translation>وكيل المستخدم</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="573"/>
         <source>  Set</source>
         <translation>  تطبيق</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="584"/>
         <source>Reset to default</source>
         <translation>إعادة التعيين إلى الافتراضي</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="607"/>
         <source>Zoom factor when normal</source>
         <translation>معامل التكبير في النافذة العادية</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="635"/>
-        <location filename="../settingswidget.ui" line="770"/>
         <source>Zoom Out</source>
         <translation>تصغير</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="674"/>
-        <location filename="../settingswidget.ui" line="809"/>
         <source>Zoom In</source>
         <translation>تكبير</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="719"/>
-        <location filename="../settingswidget.ui" line="854"/>
         <source>reset</source>
         <translation>إعادة تعيين</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="742"/>
         <source>Zoom factor when maximized/fullscreen</source>
         <translation>معامل التكبير عند التكبير/ملء الشاشة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="877"/>
         <source>Minimize to tray</source>
         <translation>التصغير إلى شريط النظام</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="886"/>
         <source>Quit</source>
         <translation>خروج</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="898"/>
         <source>Global shortcuts</source>
         <translation>الاختصارات العامة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="905"/>
         <source>Close button action</source>
         <translation>إجراء زر الإغلاق</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="912"/>
         <source>  Show shortcuts</source>
         <translation>  إظهار الاختصارات</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="923"/>
         <source>Permissions</source>
         <translation>الأذونات</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="930"/>
         <source>  Show permissions</source>
         <translation>  إظهار الأذونات</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="945"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable lock screen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;تفعيل شاشة القفل.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="948"/>
         <source>Enable App lock on start</source>
         <translation>تفعيل قفل التطبيق عند البدء</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="955"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When the window hides to the system tray, lock it behind the passcode. Requires a password to be set.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;عند إخفاء النافذة إلى شريط النظام، اقفلها خلف رمز المرور. يتطلب تعيين كلمة مرور.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="958"/>
         <source>Lock when hidden to tray</source>
         <translation>القفل عند الإخفاء إلى شريط النظام</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="965"/>
         <source>Current Password</source>
         <translation>كلمة المرور الحالية</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="972"/>
-        <location filename="../settingswidget.ui" line="1006"/>
         <source>Change password</source>
         <translation>تغيير كلمة المرور</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="975"/>
-        <location filename="../settingswidget.ui" line="1084"/>
         <source>Change</source>
         <translation>تغيير</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="986"/>
         <source>Enable auto locking after</source>
         <translation>تفعيل القفل التلقائي بعد</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1009"/>
         <source>Reset</source>
         <translation>إعادة تعيين</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1041"/>
         <source>View password</source>
         <translation>إظهار كلمة المرور</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1068"/>
         <source>Default Download location</source>
         <translation>مجلد التنزيل الافتراضي</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1081"/>
         <source>Change Download Location</source>
         <translation>تغيير مجلد التنزيل</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1100"/>
         <source>Storage </source>
         <translation>التخزين </translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1120"/>
         <source>Property</source>
         <translation>الخاصية</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1127"/>
         <source>  Clear (requires restart)</source>
         <translation>  مسح (يتطلب إعادة التشغيل)</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1138"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Persistent data includes persistent cookies, HTML5 local storage, and visited links.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;تشمل البيانات الدائمة ملفات تعريف الارتباط الدائمة وتخزين HTML5 المحلي والروابط المُزارة.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1141"/>
         <source>Persistent data</source>
         <translation>البيانات الدائمة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1148"/>
         <source>-</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1170"/>
         <source>Size</source>
         <translation>الحجم</translation>
     </message>
     <message>
-        <location filename="../settingswidget.ui" line="1192"/>
         <source>Action</source>
         <translation>الإجراء</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="373"/>
         <source>This will delete Persistent Data ! Persistent data includes persistent cookies and Cache, and Quit the application.</source>
         <translation>سيؤدي هذا إلى حذف البيانات الدائمة (بما في ذلك ملفات تعريف الارتباط الدائمة وذاكرة التخزين المؤقت) وإغلاق التطبيق.</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="378"/>
         <source>Delete Cookies and Quit Application?</source>
         <translation>حذف ملفات تعريف الارتباط وإغلاق التطبيق؟</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="480"/>
         <source>| Error</source>
         <translation>| خطأ</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="481"/>
         <source>Cannot set an empty UserAgent String.</source>
         <translation>لا يمكن تعيين سلسلة User-Agent فارغة.</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="532"/>
         <source>Automatic theme switching was disabled due to manual theme toggle.</source>
         <translation>عُطّل التبديل التلقائي للسمة بسبب تغيير السمة يدويًا.</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="571"/>
         <source>App lock is not configured.</source>
         <translation>لم يتم تكوين قفل التطبيق.</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="575"/>
         <source>Do you want to setup App lock now?</source>
         <translation>هل تريد إعداد قفل التطبيق الآن؟</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="617"/>
         <source>Feature permissions</source>
         <translation>أذونات الميزات</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="683"/>
         <source>Choose a chat wallpaper</source>
         <translation>اختر خلفية للمحادثة</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="685"/>
         <source>Images (%1)</source>
         <translation>صور (%1)</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="693"/>
         <source>Could not use that image: %1</source>
         <translation>تعذّر استخدام تلك الصورة: %1</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="708"/>
         <source>Choose a CSS file</source>
         <translation>اختر ملف CSS</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="710"/>
         <source>Stylesheets (*.css);;All files (*)</source>
         <translation>أوراق الأنماط (*.css);;كل الملفات (*)</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="717"/>
         <source>Could not read that file: %1</source>
         <translation>تعذّرت قراءة ذلك الملف: %1</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="795"/>
         <source>Spell checker (no dictionaries installed)</source>
         <translation>المدقق الإملائي (لا توجد قواميس مثبتة)</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="846"/>
         <source>None</source>
         <translation>لا شيء</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="850"/>
         <source>%1 languages</source>
         <translation>%1 لغات</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="932"/>
+        <source>WhatsApp default</source>
+        <translation>افتراضي واتساب</translation>
+    </message>
+    <message>
         <source>System default</source>
         <translation>إعداد النظام الافتراضي</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="965"/>
         <source>The interface language will change when you restart %1.</source>
         <translation>ستتغيّر لغة الواجهة عند إعادة تشغيل %1.</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="979"/>
         <source>App Lock Setup</source>
         <translation>إعداد قفل التطبيق</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="980"/>
         <source>Please setup the App lock password first.</source>
         <translation>يرجى إعداد كلمة مرور قفل التطبيق أولاً.</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="1089"/>
-        <location filename="../settingswidget.cpp" line="1100"/>
         <source>Select download directory</source>
         <translation>اختر مجلد التنزيل</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="1140"/>
         <source>You are about to change your current app lock password!
 
 This will LogOut your current session.
@@ -1542,7 +1359,6 @@ You may also require a complete restart of Application!</source>
 قد تحتاج أيضًا إلى إعادة تشغيل التطبيق بالكامل!</translation>
     </message>
     <message>
-        <location filename="../settingswidget.cpp" line="1146"/>
         <source>Do you want to proceed?</source>
         <translation>هل تريد المتابعة؟</translation>
     </message>
@@ -1550,79 +1366,62 @@ You may also require a complete restart of Application!</source>
 <context>
     <name>WebEnginePage</name>
     <message>
-        <location filename="../webenginepage.cpp" line="90"/>
         <source>Allow %1 to access your location information?</source>
         <translation>هل تسمح لـ %1 بالوصول إلى معلومات موقعك؟</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="92"/>
         <source>Allow %1 to access your microphone?</source>
         <translation>هل تسمح لـ %1 بالوصول إلى الميكروفون؟</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="94"/>
         <source>Allow %1 to access your webcam?</source>
         <translation>هل تسمح لـ %1 بالوصول إلى الكاميرا؟</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="96"/>
         <source>Allow %1 to access your microphone and webcam?</source>
         <translation>هل تسمح لـ %1 بالوصول إلى الميكروفون والكاميرا؟</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="98"/>
         <source>Allow %1 to lock your mouse cursor?</source>
         <translation>هل تسمح لـ %1 بحصر مؤشر الفأرة؟</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="100"/>
         <source>Allow %1 to capture video of your desktop?</source>
         <translation>هل تسمح لـ %1 بتسجيل فيديو سطح مكتبك؟</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="102"/>
         <source>Allow %1 to capture audio and video of your desktop?</source>
         <translation>هل تسمح لـ %1 بتسجيل صوت وفيديو سطح مكتبك؟</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="105"/>
         <source>Allow %1 to show notification on your desktop?</source>
         <translation>هل تسمح لـ %1 بعرض الإشعارات على سطح مكتبك؟</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="107"/>
         <source>Allow %1 to read your clipboard? This is needed to paste images into a chat.</source>
         <translation>هل تسمح لـ %1 بقراءة الحافظة؟ هذا ضروري للصق الصور في المحادثة.</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="110"/>
         <source>Allow %1 to see the fonts installed on your system?</source>
         <translation>هل تسمح لـ %1 بالاطلاع على الخطوط المثبّتة في نظامك؟</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="130"/>
-        <location filename="../webenginepage.cpp" line="344"/>
         <source>Permission Request</source>
         <translation>طلب إذن</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="267"/>
-        <location filename="../webenginepage.cpp" line="276"/>
         <source>Certificate Error</source>
         <translation>خطأ في الشهادة</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="296"/>
         <source>Enter username and password for &quot;%1&quot; at %2</source>
         <translation>أدخل اسم المستخدم وكلمة المرور لـ «%1» على %2</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="326"/>
         <source>Connect to proxy &quot;%1&quot; using:</source>
         <translation>الاتصال بالوكيل «%1» باستخدام:</translation>
     </message>
     <message>
-        <location filename="../webenginepage.cpp" line="345"/>
         <source>Allow %1 to open all %2 links?</source>
         <translation>هل تسمح لـ %1 بفتح جميع روابط %2؟</translation>
     </message>
@@ -1630,27 +1429,22 @@ You may also require a complete restart of Application!</source>
 <context>
     <name>WebView</name>
     <message>
-        <location filename="../webview.cpp" line="35"/>
         <source>Render process normal exit</source>
         <translation>انتهت عملية العرض بشكل طبيعي</translation>
     </message>
     <message>
-        <location filename="../webview.cpp" line="38"/>
         <source>Render process abnormal exit</source>
         <translation>انتهت عملية العرض بشكل غير طبيعي</translation>
     </message>
     <message>
-        <location filename="../webview.cpp" line="41"/>
         <source>Render process crashed</source>
         <translation>تعطّلت عملية العرض</translation>
     </message>
     <message>
-        <location filename="../webview.cpp" line="44"/>
         <source>Render process killed</source>
         <translation>أُنهيت عملية العرض</translation>
     </message>
     <message>
-        <location filename="../webview.cpp" line="49"/>
         <source>Render process exited with code: %1
 Do you want to reload the page ?</source>
         <translation>انتهت عملية العرض بالرمز: %1
