@@ -68,3 +68,6 @@ AppDir/
 build-appimage-tools/
 build-flatpak-repo/
 whatly.flatpak
+
+# Generated promo video (regenerate with tools/make-video.py; upload to YouTube)
+*.mp4
