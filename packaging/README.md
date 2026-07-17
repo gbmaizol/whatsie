@@ -5,6 +5,14 @@ these additional formats. All build the same CMake project; only the wrapper
 differs. Flatpak and AppImage are also built automatically on every `v*` tag by
 the **Release Artifacts** workflow and attached to the GitHub release.
 
+> **Why `snap/` and `debian/` live at the repo root instead of here.** It is not
+> a choice — their tools only look in fixed locations. `snapcraft` reads
+> `snap/snapcraft.yaml` (or root `snapcraft.yaml`, or `build-aux/snap/`), never
+> `packaging/snap/`; and `dpkg-buildpackage`/`debhelper` require `debian/` at the
+> source-package root. The formats whose tooling takes an explicit manifest path
+> (Flatpak, AppImage, RPM) are the ones that can — and do — live under
+> `packaging/`.
+
 | Format | Where | CI | Local build |
 |--------|-------|----|-------------|
 | Snap | `snap/snapcraft.yaml` | — | `tools/release-snap.sh` |
