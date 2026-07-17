@@ -59,3 +59,4 @@ build
 build/
 tools/shots/
 tools/__pycache__/
+*.snap
