@@ -40,14 +40,10 @@ modules:
       - -DCMAKE_BUILD_TYPE=Release
       - -DQT_VERSION_MINOR=9
     sources:
-      # The app, pinned to the 6.1.0 release commit.
+      # The app, pinned to the 6.1.0 release commit. flatpak-builder fetches the
+      # git source's submodules (libnotify-qt at src/libnotify-qt) automatically,
+      # each at the commit the tag pins — no separate source needed.
       - type: git
         url: https://github.com/shakaran/whatly.git
         tag: v6.1.0
         commit: b201cd95dc65d854c9270237aa519c54b15549bb
-      # The libnotify-qt submodule, reconstructed at its pinned commit (a git
-      # source's submodules are not fetched automatically on Flathub).
-      - type: git
-        url: https://github.com/ahm-forks/libnotify-qt.git
-        commit: 3f54515cce45fa1eef54d23bc586462011f1bba6
-        dest: src/libnotify-qt
