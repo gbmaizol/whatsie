@@ -303,52 +303,45 @@ static void installTranslations() {
 
 // Must run before QApplication is created so Qt WebEngine picks these up.
 static void setChromiumFlags() {
+  // A user who sets the variable themselves takes full control; don't touch it.
   if (!qEnvironmentVariableIsEmpty("QTWEBENGINE_CHROMIUM_FLAGS"))
     return;
+
+  // On Windows the GPU stays enabled (software rendering is visibly slow), but
+  // compositing is kept in software: GPU compositing exhibits stale-frame
+  // flicker with Qt WebEngine on Windows (same workaround as e.g.
+  // ankitects/anki#4470). Chromium's sandbox works fine on Windows, so it is
+  // not disabled there. On the rest, the GPU and the sandbox are both off.
 #ifdef Q_OS_WIN
-  // On Windows the GPU stays enabled (software rendering is visibly slow),
-  // but compositing is kept in software: GPU compositing exhibits
-  // stale-frame flicker with Qt WebEngine on Windows (same workaround as
-  // e.g. ankitects/anki#4470). Chromium's sandbox works fine on Windows,
-  // so it is not disabled here.
+  QString flags = QStringLiteral(
+      "--disable-gpu-compositing --disable-translate --disable-extensions "
+      "--disable-component-update --disable-default-apps");
+#else
+  QString flags = QStringLiteral(
+      "--disable-gpu --disable-gpu-compositing --disable-translate "
+      "--disable-extensions --disable-component-update --disable-default-apps "
+      "--no-sandbox");
+#endif
 #ifdef QT_DEBUG
-  qputenv("QTWEBENGINE_CHROMIUM_FLAGS",
-    "--remote-debugging-port=9421 "
-          "--disable-gpu-compositing "
-          "--disable-translate "
-          "--disable-extensions "
-          "--disable-component-update "
-          "--disable-default-apps");
-#else
-  qputenv("QTWEBENGINE_CHROMIUM_FLAGS",
-          "--disable-gpu-compositing "
-          "--disable-translate "
-          "--disable-extensions "
-          "--disable-component-update "
-          "--disable-default-apps");
+  flags.prepend(QStringLiteral("--remote-debugging-port=9421 "));
 #endif
-#else
-#ifdef QT_DEBUG
-  qputenv("QTWEBENGINE_CHROMIUM_FLAGS",
-    "--remote-debugging-port=9421 "
-          "--disable-gpu "
-          "--disable-gpu-compositing "
-          "--disable-translate "
-          "--disable-extensions "
-          "--disable-component-update "
-          "--disable-default-apps "
-          "--no-sandbox");
-#else
-  qputenv("QTWEBENGINE_CHROMIUM_FLAGS",
-          "--disable-gpu "
-          "--disable-gpu-compositing "
-          "--disable-translate "
-          "--disable-extensions "
-          "--disable-component-update "
-          "--disable-default-apps "
-          "--no-sandbox");
-#endif
-#endif
+
+  // #203: scale the web content to match the widget scale, so a single
+  // QT_SCALE_FACTOR gives a HiDPI/4K display a bigger UI *and* bigger page
+  // chrome instead of leaving WhatsApp Web tiny next to a scaled-up window.
+  const QString scale = qEnvironmentVariable("QT_SCALE_FACTOR");
+  if (!scale.isEmpty()) {
+    bool ok = false;
+    scale.toDouble(&ok);
+    if (ok)
+      flags += QStringLiteral(" --force-device-scale-factor=") + scale;
+  }
+  // #221: let WhatsApp Web run at the display's full refresh rate instead of
+  // Chromium's default cap, for the users who explicitly ask for it.
+  if (qEnvironmentVariableIntValue("WHATLY_MAX_FPS") > 0)
+    flags += QStringLiteral(" --disable-frame-rate-limit");
+
+  qputenv("QTWEBENGINE_CHROMIUM_FLAGS", flags.toUtf8());
 }
 
 int main(int argc, char *argv[]) {

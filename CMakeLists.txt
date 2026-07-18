@@ -438,6 +438,13 @@ endif()
 # pointed at the result at startup (see main.cpp).
 option(WHATLY_SPELLCHECK "Build the spell-check dictionaries" ON)
 
+# By default every hunspell dictionary in src/dictionaries is converted. Source
+# distributions that only want a few can pass a ';'-separated list of language
+# codes to build just those, e.g. -DWHATLY_DICTIONARIES="en-US;es-ES;fr" — the
+# names match the .dic basenames. Empty means "all" (issue #61).
+set(WHATLY_DICTIONARIES "" CACHE STRING
+    "Semicolon-separated list of dictionary basenames to build (empty = all)")
+
 if(WHATLY_SPELLCHECK)
 
 find_program(QWEBENGINE_CONVERT_DICT
@@ -447,6 +454,24 @@ find_program(QWEBENGINE_CONVERT_DICT
 )
 
 file(GLOB WHATLY_HUNSPELL_DICTS "${CMAKE_CURRENT_SOURCE_DIR}/src/dictionaries/*.dic")
+
+# Optionally narrow the set to the languages requested via WHATLY_DICTIONARIES.
+if(WHATLY_DICTIONARIES)
+    set(_selected_dicts "")
+    foreach(dict ${WHATLY_HUNSPELL_DICTS})
+        get_filename_component(_dn "${dict}" NAME_WE)
+        if("${_dn}" IN_LIST WHATLY_DICTIONARIES)
+            list(APPEND _selected_dicts "${dict}")
+        endif()
+    endforeach()
+    if(NOT _selected_dicts)
+        message(FATAL_ERROR
+            "WHATLY_DICTIONARIES=\"${WHATLY_DICTIONARIES}\" matched none of the "
+            "dictionaries in src/dictionaries. Use the .dic basenames, e.g. en-US.")
+    endif()
+    set(WHATLY_HUNSPELL_DICTS ${_selected_dicts})
+    message(STATUS "Building a subset of spell-check dictionaries: ${WHATLY_DICTIONARIES}")
+endif()
 
 if(NOT QWEBENGINE_CONVERT_DICT)
     # Not a warning to be ignored: without this tool there are no dictionaries,

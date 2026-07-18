@@ -12,6 +12,12 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
+#ifdef Q_OS_LINUX
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QVariantMap>
+#endif
+
 #include "appprofile.h"
 #include "common.h"
 #include "utils.h"
@@ -172,6 +178,30 @@ void MainWindow::updateTrayUnread() {
     m_systemTrayIcon->setIcon(m_trayIconNormal);
     setWindowIcon(themeIcon("whatly", ":/icons/app/icon-64.png"));
   }
+
+  updateLauncherBadge(total);
+}
+
+// Broadcast the unread total as a taskbar badge using the com.canonical.Unity
+// LauncherEntry protocol. It is a plain session-bus signal — no libunity, no
+// dependency — that KDE Plasma's task manager and GNOME's Dash-to-Dock (among
+// others) listen for and paint as a count on the app's launcher/task button
+// (issue #122). Desktops that don't implement it simply ignore the signal.
+void MainWindow::updateLauncherBadge(int count) {
+#ifdef Q_OS_LINUX
+  QDBusMessage signal = QDBusMessage::createSignal(
+      QStringLiteral("/net/shakaran/whatly/LauncherEntry"),
+      QStringLiteral("com.canonical.Unity.LauncherEntry"),
+      QStringLiteral("Update"));
+  QVariantMap props;
+  props.insert(QStringLiteral("count"), static_cast<qlonglong>(count));
+  props.insert(QStringLiteral("count-visible"), count > 0);
+  signal << QStringLiteral("application://net.shakaran.whatly.desktop")
+         << props;
+  QDBusConnection::sessionBus().send(signal);
+#else
+  Q_UNUSED(count);
+#endif
 }
 
 void MainWindow::promptAddAccount() {

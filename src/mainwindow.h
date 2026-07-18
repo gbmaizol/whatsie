@@ -108,6 +108,9 @@ private:
   int accountIndexForView(const QObject *view) const;
   void refreshAccountTabs();
   void updateTrayUnread();
+  // Emit the unread total as a taskbar badge via the com.canonical.Unity
+  // LauncherEntry D-Bus protocol (read by KDE Plasma, Dash-to-Dock and others).
+  void updateLauncherBadge(int count);
 
   QList<Account> m_accounts;
   int m_activeAccount = 0;
