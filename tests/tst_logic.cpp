@@ -5,7 +5,9 @@
 #include <QtTest>
 #include <QApplication>
 #include <QDir>
+#include <QFileInfo>
 #include <QImage>
+#include <QLocale>
 #include <QProcess>
 #include <QPixmap>
 #include <QSignalSpy>
@@ -199,6 +201,21 @@ private slots:
 
     SettingsManager::instance().settings().remove(
         QStringLiteral("spellCheckLanguages"));
+    qunsetenv("QTWEBENGINE_DICTIONARIES_PATH");
+  }
+  // A dictionary named exactly after the system locale is the preferred one
+  // (covers the exact-locale-match branch of preferredDictionary).
+  void localeExactMatch() {
+    QTemporaryDir dir;
+    const QString loc = QLocale::system().name(); // "en_US", or "C" on CI
+    for (const QString &n : {loc, QStringLiteral("en_US")}) {
+      QFile f(dir.filePath(n + QStringLiteral(".bdic")));
+      QVERIFY(f.open(QIODevice::WriteOnly));
+      f.write("x");
+      f.close();
+    }
+    qputenv("QTWEBENGINE_DICTIONARIES_PATH", dir.path().toLocal8Bit());
+    QCOMPARE(Dictionaries::preferredDictionary(), loc);
     qunsetenv("QTWEBENGINE_DICTIONARIES_PATH");
   }
 };
@@ -468,14 +485,19 @@ private slots:
     QVERIFY(info.contains(QLatin1String("test"))); // VERSIONSTR="test"
     const QString md = Utils::appDebugInfoMarkdown();
     QVERIFY(md.contains(QLatin1String("Commit")));
+    // With an install type set, the markdown includes that row too.
+    qputenv("INSTALL_TYPE", "snap");
+    QVERIFY(Utils::appDebugInfoMarkdown().contains(QLatin1String("snap")));
+    qunsetenv("INSTALL_TYPE");
   }
   // With a live child process, processMemoryInfo() walks the /proc tree and sums
   // the descendant's RSS — covering the tree-walk that has no children otherwise.
   void processMemoryWalksChildren() {
     QProcess child;
-    child.start(QStringLiteral("sleep"), {QStringLiteral("3")});
+    child.start(QStringLiteral("sleep"), {QStringLiteral("5")});
     if (!child.waitForStarted(1500))
       QSKIP("sleep not available on this platform");
+    QTest::qWait(150); // let the child's /proc entry become readable
     const QString info = Utils::processMemoryInfo();
     QVERIFY(!info.isEmpty());
     child.terminate();
@@ -564,6 +586,42 @@ private slots:
     QString err;
     QVERIFY(!CustomCss::setFromFile(QStringLiteral("/no/such.css"), &err));
     QVERIFY(!err.isEmpty());
+  }
+  // Make the app data directory unwritable so the write paths of both CustomCss
+  // and ChatWallpaper report an error instead of silently failing.
+  void reportsWriteFailures() {
+    const QString appData =
+        QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    QVERIFY(!appData.isEmpty());
+    QVERIFY(QDir().mkpath(appData));
+    const QFileDevice::Permissions orig = QFileInfo(appData).permissions();
+    QFile::setPermissions(appData, QFileDevice::ReadOwner | QFileDevice::ExeOwner |
+                                       QFileDevice::ReadUser | QFileDevice::ExeUser);
+
+    const bool stillWritable = QFileInfo(appData).isWritable();
+
+    QTemporaryFile css;
+    css.setFileTemplate(QDir::tempPath() + QStringLiteral("/whatly_XXXXXX.css"));
+    QVERIFY(css.open());
+    css.write("body{}");
+    css.close();
+    QString cssErr;
+    const bool cssOk = CustomCss::setFromFile(css.fileName(), &cssErr);
+
+    QTemporaryDir imgDir;
+    const QString img = imgDir.filePath(QStringLiteral("i.png"));
+    QImage(16, 16, QImage::Format_ARGB32).save(img);
+    QString wpErr;
+    const bool wpOk = ChatWallpaper::setImage(img, &wpErr);
+
+    QFile::setPermissions(appData, orig); // restore before asserting
+
+    if (stillWritable)
+      QSKIP("app data dir stayed writable (running as root?) — cannot fault-inject");
+    QVERIFY(!cssOk);
+    QVERIFY(!cssErr.isEmpty());
+    QVERIFY(!wpOk);
+    QVERIFY(!wpErr.isEmpty());
   }
 };
 
