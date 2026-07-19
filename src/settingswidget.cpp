@@ -909,6 +909,40 @@ void SettingsWidget::loadNetworkSettings() {
   const QString m = NetworkProxy::mode();
   ui->proxyDetailsWidget->setEnabled(m == QLatin1String("socks5") ||
                                      m == QLatin1String("http"));
+
+  // Notification-delivery backend (Linux only; hide the control elsewhere).
+#ifdef Q_OS_LINUX
+  if (ui->notificationBackendComboBox->count() == 0) {
+    ui->notificationBackendComboBox->blockSignals(true);
+    ui->notificationBackendComboBox->addItem(tr("Automatic"),
+                                             QStringLiteral("auto"));
+    ui->notificationBackendComboBox->addItem(tr("Desktop portal (Flatpak)"),
+                                             QStringLiteral("portal"));
+    ui->notificationBackendComboBox->addItem(tr("System service (libnotify)"),
+                                             QStringLiteral("libnotify"));
+    ui->notificationBackendComboBox->blockSignals(false);
+  }
+  {
+    const QString backend = SettingsManager::instance()
+                                .settings()
+                                .value("notificationBackend", "auto")
+                                .toString();
+    ui->notificationBackendComboBox->blockSignals(true);
+    const int bidx = ui->notificationBackendComboBox->findData(backend);
+    ui->notificationBackendComboBox->setCurrentIndex(bidx < 0 ? 0 : bidx);
+    ui->notificationBackendComboBox->blockSignals(false);
+  }
+#else
+  ui->notificationBackendLabel->setVisible(false);
+  ui->notificationBackendComboBox->setVisible(false);
+#endif
+}
+
+void SettingsWidget::on_notificationBackendComboBox_currentIndexChanged(
+    int index) {
+  SettingsManager::instance().settings().setValue(
+      "notificationBackend",
+      ui->notificationBackendComboBox->itemData(index).toString());
 }
 
 void SettingsWidget::on_autostartCheckBox_toggled(bool checked) {

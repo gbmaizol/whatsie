@@ -996,6 +996,14 @@ Imposta la password nelle Impostazioni.</translation>
         <translation>Sec</translation>
     </message>
     <message>
+        <source>Notification delivery</source>
+        <translation>Recapito delle notifiche</translation>
+    </message>
+    <message>
+        <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
+        <translation>Come vengono inviate le notifiche native su Linux. La modalità automatica usa il portale desktop all'interno di una sandbox Flatpak e il servizio di sistema negli altri casi.</translation>
+    </message>
+    <message>
         <source>Use Native File Dialog</source>
         <translation>Usa Finestra File Nativa</translation>
     </message>
@@ -1293,19 +1301,19 @@ Imposta la password nelle Impostazioni.</translation>
     </message>
     <message>
         <source>Launch Whatly automatically when you log in to your desktop session.</source>
-        <translation>Avvia Whatly automaticamente all'accesso alla sessione desktop.</translation>
+        <translation>Avvia Whatly automaticamente all&apos;accesso alla sessione desktop.</translation>
     </message>
     <message>
         <source>Start Whatly when I log in</source>
-        <translation>Avvia Whatly all'accesso</translation>
+        <translation>Avvia Whatly all&apos;accesso</translation>
     </message>
     <message>
         <source>Interface scale</source>
-        <translation>Scala dell'interfaccia</translation>
+        <translation>Scala dell&apos;interfaccia</translation>
     </message>
     <message>
         <source>Scale the whole window and the page (QT_SCALE_FACTOR). Automatic follows the desktop. A QT_SCALE_FACTOR environment variable, if set, overrides this. Applies after a restart.</source>
-        <translation>Ridimensiona l'intera finestra e la pagina (QT_SCALE_FACTOR). Automatico segue il desktop. Una variabile d'ambiente QT_SCALE_FACTOR, se impostata, ha la precedenza. Applicato dopo il riavvio.</translation>
+        <translation>Ridimensiona l&apos;intera finestra e la pagina (QT_SCALE_FACTOR). Automatico segue il desktop. Una variabile d&apos;ambiente QT_SCALE_FACTOR, se impostata, ha la precedenza. Applicato dopo il riavvio.</translation>
     </message>
     <message>
         <source>Proxy</source>
@@ -1522,6 +1530,14 @@ Imposta la password nelle Impostazioni.</translation>
     <message>
         <source>HTTP</source>
         <translation>HTTP</translation>
+    </message>
+    <message>
+        <source>Desktop portal (Flatpak)</source>
+        <translation>Portale desktop (Flatpak)</translation>
+    </message>
+    <message>
+        <source>System service (libnotify)</source>
+        <translation>Servizio di sistema (libnotify)</translation>
     </message>
     <message>
         <source>Spell checker (no dictionaries installed)</source>

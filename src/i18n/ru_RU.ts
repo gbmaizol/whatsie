@@ -989,6 +989,14 @@ Please setup the password in the Settings first.</source>
         <translation> с</translation>
     </message>
     <message>
+        <source>Notification delivery</source>
+        <translation>Доставка уведомлений</translation>
+    </message>
+    <message>
+        <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
+        <translation>Способ отправки нативных уведомлений в Linux. «Автоматически» использует портал рабочего стола в песочнице Flatpak, а в остальных случаях — системную службу.</translation>
+    </message>
+    <message>
         <source>Use Native File Dialog</source>
         <translation>Использовать системный диалог файлов</translation>
     </message>
@@ -1515,6 +1523,14 @@ Please setup the password in the Settings first.</source>
     <message>
         <source>HTTP</source>
         <translation>HTTP</translation>
+    </message>
+    <message>
+        <source>Desktop portal (Flatpak)</source>
+        <translation>Портал рабочего стола (Flatpak)</translation>
+    </message>
+    <message>
+        <source>System service (libnotify)</source>
+        <translation>Системная служба (libnotify)</translation>
     </message>
     <message>
         <source>Spell checker (no dictionaries installed)</source>

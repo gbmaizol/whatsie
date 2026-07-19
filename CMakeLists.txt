@@ -199,6 +199,7 @@ set(SOURCES
     src/performance.cpp
     src/networkproxy.cpp
     src/autostart.cpp
+    src/portalnotification.cpp
     src/webfont.cpp
     src/mutedstatus.cpp
     src/scheduledmessages.cpp
@@ -243,6 +244,7 @@ set(HEADERS
     src/performance.h
     src/networkproxy.h
     src/autostart.h
+    src/portalnotification.h
     src/webfont.h
     src/mutedstatus.h
     src/scheduledmessages.h

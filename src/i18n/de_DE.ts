@@ -989,6 +989,14 @@ Bitte legen Sie zuerst das Passwort in den Einstellungen fest.</translation>
         <translation> Sek.</translation>
     </message>
     <message>
+        <source>Notification delivery</source>
+        <translation>Benachrichtigungszustellung</translation>
+    </message>
+    <message>
+        <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
+        <translation>Wie native Benachrichtigungen unter Linux gesendet werden. "Automatisch" verwendet das Desktop-Portal innerhalb einer Flatpak-Sandbox, ansonsten den Systemdienst.</translation>
+    </message>
+    <message>
         <source>Use Native File Dialog</source>
         <translation>Nativen Dateidialog verwenden</translation>
     </message>
@@ -1402,7 +1410,7 @@ Bitte legen Sie zuerst das Passwort in den Einstellungen fest.</translation>
     </message>
     <message>
         <source>Scale the whole window and the page (QT_SCALE_FACTOR). Automatic follows the desktop. A QT_SCALE_FACTOR environment variable, if set, overrides this. Applies after a restart.</source>
-        <translation>Das gesamte Fenster und die Seite skalieren (QT_SCALE_FACTOR). "Automatisch" folgt dem Desktop. Eine gesetzte Umgebungsvariable QT_SCALE_FACTOR hat Vorrang. Wird nach einem Neustart wirksam.</translation>
+        <translation>Das gesamte Fenster und die Seite skalieren (QT_SCALE_FACTOR). &quot;Automatisch&quot; folgt dem Desktop. Eine gesetzte Umgebungsvariable QT_SCALE_FACTOR hat Vorrang. Wird nach einem Neustart wirksam.</translation>
     </message>
     <message>
         <source>Proxy</source>
@@ -1410,7 +1418,7 @@ Bitte legen Sie zuerst das Passwort in den Einstellungen fest.</translation>
     </message>
     <message>
         <source>How Whatly connects to the network. System follows the operating system; None connects directly.</source>
-        <translation>Wie Whatly sich mit dem Netzwerk verbindet. "System" folgt dem Betriebssystem; "Kein" verbindet direkt.</translation>
+        <translation>Wie Whatly sich mit dem Netzwerk verbindet. &quot;System&quot; folgt dem Betriebssystem; &quot;Kein&quot; verbindet direkt.</translation>
     </message>
     <message>
         <source>Host</source>
@@ -1515,6 +1523,14 @@ Bitte legen Sie zuerst das Passwort in den Einstellungen fest.</translation>
     <message>
         <source>HTTP</source>
         <translation>HTTP</translation>
+    </message>
+    <message>
+        <source>Desktop portal (Flatpak)</source>
+        <translation>Desktop-Portal (Flatpak)</translation>
+    </message>
+    <message>
+        <source>System service (libnotify)</source>
+        <translation>Systemdienst (libnotify)</translation>
     </message>
     <message>
         <source>Spell checker (no dictionaries installed)</source>

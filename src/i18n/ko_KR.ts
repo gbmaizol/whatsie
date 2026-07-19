@@ -989,6 +989,14 @@ Please setup the password in the Settings first.</source>
         <translation> 초</translation>
     </message>
     <message>
+        <source>Notification delivery</source>
+        <translation>알림 전달</translation>
+    </message>
+    <message>
+        <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
+        <translation>Linux에서 네이티브 알림을 보내는 방식입니다. 자동은 Flatpak 샌드박스 내에서는 데스크톱 포털을, 그 외에는 시스템 서비스를 사용합니다.</translation>
+    </message>
+    <message>
         <source>Use Native File Dialog</source>
         <translation>시스템 파일 대화 상자 사용</translation>
     </message>
@@ -1515,6 +1523,14 @@ Please setup the password in the Settings first.</source>
     <message>
         <source>HTTP</source>
         <translation>HTTP</translation>
+    </message>
+    <message>
+        <source>Desktop portal (Flatpak)</source>
+        <translation>데스크톱 포털 (Flatpak)</translation>
+    </message>
+    <message>
+        <source>System service (libnotify)</source>
+        <translation>시스템 서비스 (libnotify)</translation>
     </message>
     <message>
         <source>Spell checker (no dictionaries installed)</source>

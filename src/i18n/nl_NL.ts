@@ -989,6 +989,14 @@ Stel eerst het wachtwoord in bij de instellingen.</translation>
         <translation> sec.</translation>
     </message>
     <message>
+        <source>Notification delivery</source>
+        <translation>Meldingsbezorging</translation>
+    </message>
+    <message>
+        <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
+        <translation>Hoe systeemeigen meldingen op Linux worden verzonden. Automatisch gebruikt het bureaubladportaal binnen een Flatpak-sandbox en anders de systeemservice.</translation>
+    </message>
+    <message>
         <source>Use Native File Dialog</source>
         <translation>Systeemeigen bestandsvenster gebruiken</translation>
     </message>
@@ -1515,6 +1523,14 @@ Stel eerst het wachtwoord in bij de instellingen.</translation>
     <message>
         <source>HTTP</source>
         <translation>HTTP</translation>
+    </message>
+    <message>
+        <source>Desktop portal (Flatpak)</source>
+        <translation>Bureaubladportaal (Flatpak)</translation>
+    </message>
+    <message>
+        <source>System service (libnotify)</source>
+        <translation>Systeemservice (libnotify)</translation>
     </message>
     <message>
         <source>Spell checker (no dictionaries installed)</source>

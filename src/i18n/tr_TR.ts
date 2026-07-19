@@ -989,6 +989,14 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
         <translation> sn</translation>
     </message>
     <message>
+        <source>Notification delivery</source>
+        <translation>Bildirim gönderimi</translation>
+    </message>
+    <message>
+        <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
+        <translation>Linux'ta yerel bildirimlerin nasıl gönderileceği. Otomatik seçeneği, Flatpak korumalı alanı içinde masaüstü portalını, aksi durumda sistem hizmetini kullanır.</translation>
+    </message>
+    <message>
         <source>Use Native File Dialog</source>
         <translation>Yerel dosya iletişim kutusunu kullan</translation>
     </message>
@@ -1390,11 +1398,11 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     </message>
     <message>
         <source>Launch Whatly automatically when you log in to your desktop session.</source>
-        <translation>Masaüstü oturumunuza giriş yaptığınızda Whatly'yi otomatik olarak başlatın.</translation>
+        <translation>Masaüstü oturumunuza giriş yaptığınızda Whatly&apos;yi otomatik olarak başlatın.</translation>
     </message>
     <message>
         <source>Start Whatly when I log in</source>
-        <translation>Giriş yaptığımda Whatly'yi başlat</translation>
+        <translation>Giriş yaptığımda Whatly&apos;yi başlat</translation>
     </message>
     <message>
         <source>Interface scale</source>
@@ -1410,7 +1418,7 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     </message>
     <message>
         <source>How Whatly connects to the network. System follows the operating system; None connects directly.</source>
-        <translation>Whatly'nin ağa nasıl bağlanacağı. Sistem, işletim sistemini izler; Yok doğrudan bağlanır.</translation>
+        <translation>Whatly&apos;nin ağa nasıl bağlanacağı. Sistem, işletim sistemini izler; Yok doğrudan bağlanır.</translation>
     </message>
     <message>
         <source>Host</source>
@@ -1515,6 +1523,14 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     <message>
         <source>HTTP</source>
         <translation>HTTP</translation>
+    </message>
+    <message>
+        <source>Desktop portal (Flatpak)</source>
+        <translation>Masaüstü portalı (Flatpak)</translation>
+    </message>
+    <message>
+        <source>System service (libnotify)</source>
+        <translation>Sistem hizmeti (libnotify)</translation>
     </message>
     <message>
         <source>Spell checker (no dictionaries installed)</source>

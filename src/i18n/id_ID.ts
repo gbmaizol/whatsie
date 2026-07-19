@@ -989,6 +989,14 @@ Silakan atur kata sandi di pengaturan terlebih dahulu.</translation>
         <translation> dtk</translation>
     </message>
     <message>
+        <source>Notification delivery</source>
+        <translation>Pengiriman notifikasi</translation>
+    </message>
+    <message>
+        <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
+        <translation>Cara notifikasi native dikirim di Linux. Otomatis menggunakan portal desktop di dalam sandbox Flatpak dan layanan sistem jika tidak.</translation>
+    </message>
+    <message>
         <source>Use Native File Dialog</source>
         <translation>Gunakan dialog berkas bawaan sistem</translation>
     </message>
@@ -1515,6 +1523,14 @@ Silakan atur kata sandi di pengaturan terlebih dahulu.</translation>
     <message>
         <source>HTTP</source>
         <translation>HTTP</translation>
+    </message>
+    <message>
+        <source>Desktop portal (Flatpak)</source>
+        <translation>Portal desktop (Flatpak)</translation>
+    </message>
+    <message>
+        <source>System service (libnotify)</source>
+        <translation>Layanan sistem (libnotify)</translation>
     </message>
     <message>
         <source>Spell checker (no dictionaries installed)</source>

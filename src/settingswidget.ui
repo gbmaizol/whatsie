@@ -304,6 +304,20 @@ background:transparent;
               </property>
              </widget>
             </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="notificationBackendLabel">
+              <property name="text">
+               <string>Notification delivery</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QComboBox" name="notificationBackendComboBox">
+              <property name="toolTip">
+               <string>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</string>
+              </property>
+             </widget>
+            </item>
            </layout>
           </item>
           <item row="7" column="0">

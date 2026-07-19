@@ -38,6 +38,7 @@
 #include "performance.h"
 #include "networkproxy.h"
 #include "autostart.h"
+#include "portalnotification.h"
 
 #include <QNetworkProxy>
 
@@ -916,6 +917,38 @@ private slots:
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
+// PortalNotification: the sandbox-detection and graceful-degradation logic is
+// testable headlessly. The D-Bus round-trip itself needs a live portal, so it is
+// only asserted to fail safely when none is present.
+class TstPortalNotification : public QObject {
+  Q_OBJECT
+private slots:
+  void inFlatpakFollowsEnvironment() {
+    const bool had = qEnvironmentVariableIsSet("FLATPAK_ID");
+    const QByteArray old = qgetenv("FLATPAK_ID");
+    qputenv("FLATPAK_ID", "org.example.Test");
+    QVERIFY(PortalNotification::inFlatpak());
+    qunsetenv("FLATPAK_ID");
+    // /.flatpak-info may still exist on a real Flatpak host; only assert the
+    // negative when we know we are not in one.
+    if (!QFile::exists(QStringLiteral("/.flatpak-info")))
+      QVERIFY(!PortalNotification::inFlatpak());
+    if (had)
+      qputenv("FLATPAK_ID", old);
+  }
+
+  void sendFailsGracefullyWhenUnavailable() {
+    if (PortalNotification::isAvailable())
+      QSKIP("a real portal is present; cannot assert the unavailable path");
+    PortalNotification n;
+    // Must not crash and must report failure when there is no portal.
+    QVERIFY(!n.send(QStringLiteral("id-1"), QStringLiteral("t"),
+                    QStringLiteral("b")));
+    n.remove(QStringLiteral("id-1")); // no-op, must not crash
+  }
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 // install() paths: give each injected-script module a real (headless) profile.
 class TstScriptInstall : public QObject {
   Q_OBJECT
@@ -1004,6 +1037,7 @@ int main(int argc, char *argv[]) {
   { TstPerformance t;         run(&t); }
   { TstNetworkProxy t;        run(&t); }
   { TstAutostart t;           run(&t); }
+  { TstPortalNotification t;  run(&t); }
   { TstScriptInstall t;       run(&t); }
   // Profile-mutating test runs last so it doesn't disturb the others.
   { TstAppProfile t;          run(&t); }

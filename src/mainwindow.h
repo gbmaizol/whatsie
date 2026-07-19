@@ -18,6 +18,11 @@ class ScheduledMessages;
 #include "downloadmanagerwidget.h"
 #include "lock.h"
 #include "notificationpopup.h"
+#include "webenginenotifproxy.h"
+
+#include <QHash>
+
+class PortalNotification;
 #include "settingswidget.h"
 #include "pagebridge.h"
 #include "webenginepage.h"
@@ -205,6 +210,16 @@ private:
 
   void notificationClicked();
   NotificationPopup *m_webengine_notifier_popup = nullptr;
+
+  // XDG-portal notification backend (Flatpak-friendly). Created lazily; the
+  // active WhatsApp notifications are tracked by portal id so an activation can
+  // be routed back to the right QWebEngineNotification.
+  PortalNotification *m_portalNotifier = nullptr;
+  QHash<QString, WebEngineNotifProxyPtr> m_portalProxies;
+  quint64 m_portalNotifSeq = 0;
+  // Whether the portal backend should be used for this run (from settings +
+  // availability). Resolved once, lazily.
+  bool usePortalNotifications();
 private slots:
   void iconActivated(QSystemTrayIcon::ActivationReason reason);
   void toggleMute(const bool &checked);

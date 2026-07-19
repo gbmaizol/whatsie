@@ -989,6 +989,14 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
         <translation> s</translation>
     </message>
     <message>
+        <source>Notification delivery</source>
+        <translation>Envoi des notifications</translation>
+    </message>
+    <message>
+        <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
+        <translation>Mode d'envoi des notifications natives sous Linux. Le mode automatique utilise le portail de bureau dans un bac à sable Flatpak, et le service système dans les autres cas.</translation>
+    </message>
+    <message>
         <source>Use Native File Dialog</source>
         <translation>Utiliser la fenêtre de fichiers native</translation>
     </message>
@@ -1390,19 +1398,19 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     </message>
     <message>
         <source>Launch Whatly automatically when you log in to your desktop session.</source>
-        <translation>Lancer Whatly automatiquement à l'ouverture de votre session de bureau.</translation>
+        <translation>Lancer Whatly automatiquement à l&apos;ouverture de votre session de bureau.</translation>
     </message>
     <message>
         <source>Start Whatly when I log in</source>
-        <translation>Démarrer Whatly à l'ouverture de ma session</translation>
+        <translation>Démarrer Whatly à l&apos;ouverture de ma session</translation>
     </message>
     <message>
         <source>Interface scale</source>
-        <translation>Échelle de l'interface</translation>
+        <translation>Échelle de l&apos;interface</translation>
     </message>
     <message>
         <source>Scale the whole window and the page (QT_SCALE_FACTOR). Automatic follows the desktop. A QT_SCALE_FACTOR environment variable, if set, overrides this. Applies after a restart.</source>
-        <translation>Mettre à l'échelle toute la fenêtre et la page (QT_SCALE_FACTOR). Automatique suit le bureau. Une variable d'environnement QT_SCALE_FACTOR, si elle est définie, a priorité sur ce réglage. Prend effet après un redémarrage.</translation>
+        <translation>Mettre à l&apos;échelle toute la fenêtre et la page (QT_SCALE_FACTOR). Automatique suit le bureau. Une variable d&apos;environnement QT_SCALE_FACTOR, si elle est définie, a priorité sur ce réglage. Prend effet après un redémarrage.</translation>
     </message>
     <message>
         <source>Proxy</source>
@@ -1410,7 +1418,7 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     </message>
     <message>
         <source>How Whatly connects to the network. System follows the operating system; None connects directly.</source>
-        <translation>Mode de connexion de Whatly au réseau. Système suit le système d'exploitation ; Aucun se connecte directement.</translation>
+        <translation>Mode de connexion de Whatly au réseau. Système suit le système d&apos;exploitation ; Aucun se connecte directement.</translation>
     </message>
     <message>
         <source>Host</source>
@@ -1426,7 +1434,7 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     </message>
     <message>
         <source>Username</source>
-        <translation>Nom d'utilisateur</translation>
+        <translation>Nom d&apos;utilisateur</translation>
     </message>
     <message>
         <source>Optional</source>
@@ -1515,6 +1523,14 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     <message>
         <source>HTTP</source>
         <translation>HTTP</translation>
+    </message>
+    <message>
+        <source>Desktop portal (Flatpak)</source>
+        <translation>Portail de bureau (Flatpak)</translation>
+    </message>
+    <message>
+        <source>System service (libnotify)</source>
+        <translation>Service système (libnotify)</translation>
     </message>
     <message>
         <source>Spell checker (no dictionaries installed)</source>

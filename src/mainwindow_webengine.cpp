@@ -13,6 +13,40 @@
 #include "webengineprofilemanager.h"
 #include "webview.h"
 #include "identicons.h"
+#include "portalnotification.h"
+
+// Decide, once, whether desktop notifications go through the XDG portal instead
+// of libnotify. The "notificationBackend" setting is "auto" (default), "portal"
+// or "libnotify": auto uses the portal only inside a Flatpak sandbox where it is
+// available, so a normal desktop install keeps its existing libnotify path.
+bool MainWindow::usePortalNotifications() {
+#if defined(Q_OS_LINUX)
+  const QString backend = SettingsManager::instance()
+                              .settings()
+                              .value("notificationBackend", "auto")
+                              .toString();
+  if (backend == QLatin1String("libnotify"))
+    return false;
+  const bool want = (backend == QLatin1String("portal")) ||
+                    (backend == QLatin1String("auto") &&
+                     PortalNotification::inFlatpak());
+  if (!want)
+    return false;
+  if (!m_portalNotifier) {
+    m_portalNotifier = new PortalNotification(this);
+    connect(m_portalNotifier, &PortalNotification::activated, this,
+            [this](const QString &id) {
+              if (auto proxy = m_portalProxies.take(id)) {
+                proxy->invoke(&QWebEngineNotification::click);
+                this->notificationClicked();
+              }
+            });
+  }
+  return PortalNotification::isAvailable();
+#else
+  return false;
+#endif
+}
 
 // ── WebEngine view & page ─────────────────────────────────────────────────────
 void MainWindow::createWebEngine() {
@@ -170,8 +204,23 @@ void MainWindow::setNotificationPresenter(QWebEngineProfile *profile) {
 
         if (notificationCombo == 0) {
 #ifdef Q_OS_LINUX
-          // Use Proxy to manage lifecycle of QWebEngineNotification safely
+          // Wrap the notification in the lifetime-managing proxy up front so both
+          // the portal and libnotify paths can use it safely.
           auto proxy = WebEngineNotifProxy::create(std::move(notification));
+
+          // Flatpak-friendly path: dispatch through the XDG portal when it is the
+          // chosen/available backend, routing the activation back to this
+          // notification. Falls through to libnotify when the send fails.
+          if (usePortalNotifications() && m_portalNotifier) {
+            const QString id =
+                QStringLiteral("whatly-%1").arg(++m_portalNotifSeq);
+            if (m_portalNotifier->send(id, proxy->notif->title(),
+                                       proxy->notif->message())) {
+              m_portalProxies.insert(id, proxy);
+              proxy->invoke(&QWebEngineNotification::show);
+              return;
+            }
+          }
           auto ntf = notify(proxy->notif->title(), proxy->notif->message(), timeout);
           // Use locally generated identicon when
           // QWebEngine (or whatsapp) passes blank

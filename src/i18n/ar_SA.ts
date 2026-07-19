@@ -989,6 +989,14 @@ Please setup the password in the Settings first.</source>
         <translation> ث</translation>
     </message>
     <message>
+        <source>Notification delivery</source>
+        <translation>تسليم الإشعارات</translation>
+    </message>
+    <message>
+        <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
+        <translation>كيفية إرسال الإشعارات الأصلية على Linux. يستخدم الوضع التلقائي بوابة سطح المكتب داخل بيئة Flatpak المعزولة وخدمة النظام في الحالات الأخرى.</translation>
+    </message>
+    <message>
         <source>Use Native File Dialog</source>
         <translation>استخدام مربع حوار الملفات الخاص بالنظام</translation>
     </message>
@@ -1402,7 +1410,7 @@ Please setup the password in the Settings first.</source>
     </message>
     <message>
         <source>Scale the whole window and the page (QT_SCALE_FACTOR). Automatic follows the desktop. A QT_SCALE_FACTOR environment variable, if set, overrides this. Applies after a restart.</source>
-        <translation>تغيير مقياس النافذة والصفحة بالكامل (QT_SCALE_FACTOR). "تلقائي" يتبع سطح المكتب. يتجاوز هذا متغيّر البيئة QT_SCALE_FACTOR إذا كان مضبوطًا. يُطبَّق بعد إعادة التشغيل.</translation>
+        <translation>تغيير مقياس النافذة والصفحة بالكامل (QT_SCALE_FACTOR). &quot;تلقائي&quot; يتبع سطح المكتب. يتجاوز هذا متغيّر البيئة QT_SCALE_FACTOR إذا كان مضبوطًا. يُطبَّق بعد إعادة التشغيل.</translation>
     </message>
     <message>
         <source>Proxy</source>
@@ -1410,7 +1418,7 @@ Please setup the password in the Settings first.</source>
     </message>
     <message>
         <source>How Whatly connects to the network. System follows the operating system; None connects directly.</source>
-        <translation>كيفية اتصال Whatly بالشبكة. "النظام" يتبع نظام التشغيل؛ "بلا" يتصل مباشرةً.</translation>
+        <translation>كيفية اتصال Whatly بالشبكة. &quot;النظام&quot; يتبع نظام التشغيل؛ &quot;بلا&quot; يتصل مباشرةً.</translation>
     </message>
     <message>
         <source>Host</source>
@@ -1515,6 +1523,14 @@ Please setup the password in the Settings first.</source>
     <message>
         <source>HTTP</source>
         <translation>HTTP</translation>
+    </message>
+    <message>
+        <source>Desktop portal (Flatpak)</source>
+        <translation>بوابة سطح المكتب (Flatpak)</translation>
+    </message>
+    <message>
+        <source>System service (libnotify)</source>
+        <translation>خدمة النظام (libnotify)</translation>
     </message>
     <message>
         <source>Spell checker (no dictionaries installed)</source>

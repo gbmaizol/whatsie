@@ -125,6 +125,7 @@ private slots:
   void on_proxyPortSpinBox_valueChanged(int arg1);
   void on_proxyUserLineEdit_editingFinished();
   void on_proxyPasswordLineEdit_editingFinished();
+  void on_notificationBackendComboBox_currentIndexChanged(int index);
   void on_spellCheckCheckBox_toggled(bool checked);
   void on_themeToggleButtonCheckBox_toggled(bool checked);
   void on_privacyBlurButtonCheckBox_toggled(bool checked);

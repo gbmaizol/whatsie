@@ -989,6 +989,14 @@ Najpierw ustaw hasło w ustawieniach.</translation>
         <translation> s</translation>
     </message>
     <message>
+        <source>Notification delivery</source>
+        <translation>Dostarczanie powiadomień</translation>
+    </message>
+    <message>
+        <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
+        <translation>Sposób wysyłania natywnych powiadomień w systemie Linux. Tryb automatyczny używa portalu pulpitu w piaskownicy Flatpak, a w innych przypadkach usługi systemowej.</translation>
+    </message>
+    <message>
         <source>Use Native File Dialog</source>
         <translation>Użyj systemowego okna wyboru plików</translation>
     </message>
@@ -1515,6 +1523,14 @@ Najpierw ustaw hasło w ustawieniach.</translation>
     <message>
         <source>HTTP</source>
         <translation>HTTP</translation>
+    </message>
+    <message>
+        <source>Desktop portal (Flatpak)</source>
+        <translation>Portal pulpitu (Flatpak)</translation>
+    </message>
+    <message>
+        <source>System service (libnotify)</source>
+        <translation>Usługa systemowa (libnotify)</translation>
     </message>
     <message>
         <source>Spell checker (no dictionaries installed)</source>

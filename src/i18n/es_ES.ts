@@ -989,6 +989,14 @@ Configure primero la contraseña en los ajustes.</translation>
         <translation> s</translation>
     </message>
     <message>
+        <source>Notification delivery</source>
+        <translation>Envío de notificaciones</translation>
+    </message>
+    <message>
+        <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
+        <translation>Cómo se envían las notificaciones nativas en Linux. El modo automático usa el portal de escritorio dentro de un espacio aislado de Flatpak y el servicio del sistema en los demás casos.</translation>
+    </message>
+    <message>
         <source>Use Native File Dialog</source>
         <translation>Usar el diálogo de archivos nativo</translation>
     </message>
@@ -1515,6 +1523,14 @@ Configure primero la contraseña en los ajustes.</translation>
     <message>
         <source>HTTP</source>
         <translation>HTTP</translation>
+    </message>
+    <message>
+        <source>Desktop portal (Flatpak)</source>
+        <translation>Portal de escritorio (Flatpak)</translation>
+    </message>
+    <message>
+        <source>System service (libnotify)</source>
+        <translation>Servicio del sistema (libnotify)</translation>
     </message>
     <message>
         <source>Spell checker (no dictionaries installed)</source>

@@ -33,6 +33,15 @@ from Settings instead of only via the `QT_SCALE_FACTOR` environment variable
 (which still wins if set). It scales the whole window and the page together
 (matching #203) and applies after a restart.
 
+**Portal notifications (Flatpak).** Native notifications can now be delivered
+through the XDG desktop portal (`org.freedesktop.portal.Notification`) instead of
+libnotify. A Flatpak build cannot always reach the system notification service
+directly, but it can always reach the portal. Settings → notifications has a new
+*Notification delivery* choice on Linux: *Automatic* (use the portal inside a
+Flatpak sandbox, the system service otherwise), *Desktop portal (Flatpak)*, or
+*System service (libnotify)*. Clicking a portal notification still raises the
+window and marks the chat. Covered by new unit tests (`TstPortalNotification`).
+
 ## 6.2.1 (2026-07-19)
 
 Bug-fix and hardening release.

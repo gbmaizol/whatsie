@@ -989,6 +989,14 @@ Please setup the password in the Settings first.</source>
         <translation> 秒</translation>
     </message>
     <message>
+        <source>Notification delivery</source>
+        <translation>通知の配信方法</translation>
+    </message>
+    <message>
+        <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
+        <translation>Linux でネイティブ通知を送信する方法。自動では Flatpak サンドボックス内ではデスクトップポータルを使用し、それ以外ではシステムサービスを使用します。</translation>
+    </message>
+    <message>
         <source>Use Native File Dialog</source>
         <translation>ネイティブのファイルダイアログを使う</translation>
     </message>
@@ -1515,6 +1523,14 @@ Please setup the password in the Settings first.</source>
     <message>
         <source>HTTP</source>
         <translation>HTTP</translation>
+    </message>
+    <message>
+        <source>Desktop portal (Flatpak)</source>
+        <translation>デスクトップポータル (Flatpak)</translation>
+    </message>
+    <message>
+        <source>System service (libnotify)</source>
+        <translation>システムサービス (libnotify)</translation>
     </message>
     <message>
         <source>Spell checker (no dictionaries installed)</source>
