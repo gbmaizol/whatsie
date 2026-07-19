@@ -510,17 +510,26 @@ and [`docs/CMAKE_MIGRATION.md`](docs/CMAKE_MIGRATION.md).
 
 ### Running the tests
 
-There is a small [QtTest](tests/) suite that guards the UI assets (icons and
-logos load; the About and Rate screens actually have their icons set). It is off
-by default and builds without WebEngine, so it is quick and headless:
+There is a [QtTest](tests/) suite covering the headless parts of the app — the
+helpers, the injected-script generators, the scheduled-message queue, the sun
+calculations, identicons, palettes, dictionary resolution and the About/Rate
+screens' assets. It is off by default and builds without the main window, so it
+is quick and runs headless:
 
 ```bash
 cmake -B build -DWHATLY_TESTS=ON
-cmake --build build --target tst_ui_assets
+cmake --build build --target tst_ui_assets tst_logic
 QT_QPA_PLATFORM=offscreen ctest --test-dir build --output-on-failure
 ```
 
-It also runs in CI on every push (`.github/workflows/tests.yml`).
+It runs in CI on every push (`.github/workflows/tests.yml`).
+
+**Coverage.** With `gcovr` installed, `tools/coverage.sh` builds the suite
+instrumented, runs it and writes an HTML report. The tested modules (the
+logic + light-widget layer, ~1.7k lines) sit at ~80% line / ~87% function
+coverage. The remaining source — the main window, the Qt WebEngine integration
+and the settings UI — is GUI/engine glue that needs the full running app rather
+than unit tests, so it is not covered here.
 
 ## Build from Source (Windows)
 

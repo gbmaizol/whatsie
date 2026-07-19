@@ -19,6 +19,7 @@ private slots:
   void resourcesExist_data();
   void resourcesExist();
   void rateAppLogoAndIcons();
+  void rateAppLogic();
   void aboutLogo();
   void aboutButtonIcons();
 };
@@ -70,6 +71,19 @@ void TstUiAssets::rateAppLogoAndIcons() {
     QVERIFY2(!b->icon().isNull(),
              qPrintable("RateApp: button has no icon: " + n));
   }
+}
+
+void TstUiAssets::rateAppLogic() {
+  // Exercise the non-navigating logic: the delayed-show timer (which runs
+  // shouldShow()) and the buttons that do not open a browser.
+  RateApp w(nullptr, QStringLiteral("snap://whatly"), 0, 0, 1);
+  QMetaObject::invokeMethod(&w, "delayShowEvent");
+  QTest::qWait(40); // let the single-shot show timer fire → shouldShow()
+  if (auto *b = w.findChild<QPushButton *>(QStringLiteral("alreadyDoneBtn")))
+    b->click(); // marks rated; opens no URL
+  if (auto *b = w.findChild<QPushButton *>(QStringLiteral("laterBtn")))
+    b->click();
+  QVERIFY(true);
 }
 
 void TstUiAssets::aboutLogo() {

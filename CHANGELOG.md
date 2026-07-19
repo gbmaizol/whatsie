@@ -12,10 +12,14 @@ their icons. They are set from the bundled resources again, and two new icons �
 buttons. The Rate-the-app screen's logo and button icons were verified to be
 correct and unchanged.
 
-**Unit tests.** A QtTest suite now guards the UI assets: it checks every icon and
-logo resource loads, and that the About and Rate screens actually have their
-logo and button icons set — so a blank-icon regression fails the build. Build
-with `-DWHATLY_TESTS=ON` and run with `ctest`; it also runs in CI on every push.
+**Unit tests.** A QtTest suite now covers the headless parts of the app — the
+`Utils` helpers (including the cache-delete guard from issue #230), the
+injected-script generators (fonts, chat themes, muted status, privacy blur,
+wallpaper, custom CSS, tweaks, linked-device name), the scheduled-message queue
+and its persistence, the sun calculations, identicons, palettes, dictionary
+resolution and the About/Rate screens' assets. Roughly 80% line / 87% function
+coverage of that layer (measure it with `tools/coverage.sh`). Build with
+`-DWHATLY_TESTS=ON`, run with `ctest`; it also runs in CI on every push.
 
 ## 6.2.0 (2026-07-18)
 
