@@ -19,6 +19,10 @@ About::About(QWidget *parent) : QWidget(parent), ui(new Ui::About) {
   appDescription = "WhatsApp Web client for Windows Desktop"
                    "<br><span style=' font-size:8pt;'>Windows port — follows "
                    "the updates of the upstream project</span>";
+#elif defined(Q_OS_MACOS)
+  appDescription = "WhatsApp Web client for macOS Desktop"
+                   "<br><span style=' font-size:8pt;'>macOS port — follows "
+                   "the updates of the upstream project</span>";
 #else
   appDescription = "WhatsApp Web client for Linux Desktop";
 #endif

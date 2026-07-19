@@ -5,7 +5,7 @@
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
 #include <windows.h>
-#else
+#elif defined(Q_OS_LINUX)
 #include "X11/XKBlib.h" // keep this header at bottom
 #endif
 
@@ -241,7 +241,7 @@ void Lock::on_passcodeLogin_returnPressed() { passcodeLoginAction->trigger(); }
 bool Lock::getCapsLockOn() {
 #ifdef Q_OS_WIN
   return (GetKeyState(VK_CAPITAL) & 0x0001) != 0;
-#else
+#elif defined(Q_OS_LINUX)
   Display *d = XOpenDisplay(nullptr);
   bool caps_state = false;
   if (d) {
@@ -251,6 +251,9 @@ bool Lock::getCapsLockOn() {
     XCloseDisplay(d);
   }
   return caps_state;
+#else
+  // No Caps Lock query on this platform (macOS); the warning just isn't shown.
+  return false;
 #endif
 }
 

@@ -1,0 +1,93 @@
+name: macOS Build
+
+# Builds a macOS .app bundle and a .dmg. On a version tag it attaches the .dmg to
+# the GitHub release; otherwise (manual run) it uploads it as a workflow artifact.
+#
+# This is an unsigned build (issue #119): opening it the first time needs a
+# right-click -> Open, or notarization with an Apple Developer account. Runtime
+# behaviour (notifications, tray, calls) still needs validation on a real Mac.
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to attach the build to (e.g. v6.2.0); leave blank for an artifact-only run'
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  macos:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          submodules: recursive
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.10.*'
+          host: mac
+          target: desktop
+          arch: clang_64
+          modules: 'qtwebengine qtwebchannel qtpositioning'
+          cache: true
+
+      - name: Generate app icon (.icns)
+        run: |
+          ICON=src/icons/app/icon-512.png
+          mkdir -p whatly.iconset
+          sips -z 16 16     "$ICON" --out whatly.iconset/icon_16x16.png
+          sips -z 32 32     "$ICON" --out whatly.iconset/icon_16x16@2x.png
+          sips -z 32 32     "$ICON" --out whatly.iconset/icon_32x32.png
+          sips -z 64 64     "$ICON" --out whatly.iconset/icon_32x32@2x.png
+          sips -z 128 128   "$ICON" --out whatly.iconset/icon_128x128.png
+          sips -z 256 256   "$ICON" --out whatly.iconset/icon_128x128@2x.png
+          sips -z 256 256   "$ICON" --out whatly.iconset/icon_256x256.png
+          sips -z 512 512   "$ICON" --out whatly.iconset/icon_256x256@2x.png
+          sips -z 512 512   "$ICON" --out whatly.iconset/icon_512x512.png
+          cp "$ICON" whatly.iconset/icon_512x512@2x.png
+          iconutil -c icns whatly.iconset -o whatly.icns
+
+      - name: Configure
+        run: >
+          cmake -B build -G Ninja
+          -DCMAKE_BUILD_TYPE=Release
+          -DCMAKE_PREFIX_PATH="$QT_ROOT_DIR"
+          -DWHATLY_MACOS_ICNS="$PWD/whatly.icns"
+
+      - name: Build
+        run: cmake --build build -j3
+
+      - name: Deploy Qt into the bundle and make a .dmg
+        run: |
+          APP=$(find build -maxdepth 2 -name 'whatly.app' -type d | head -1)
+          echo "Bundle: $APP"
+          "$QT_ROOT_DIR/bin/macdeployqt" "$APP" -dmg
+          DMG=$(dirname "$APP")/whatly.dmg
+          tag="${{ github.event.inputs.tag || github.ref_name }}"
+          ver="${tag#v}"
+          [ -z "$ver" ] && ver="dev"
+          out="Whatly-${ver}-macos.dmg"
+          mv "$DMG" "$out"
+          echo "ASSET=$out" >> "$GITHUB_ENV"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: whatly-macos-dmg
+          path: ${{ env.ASSET }}
+
+      - name: Attach to release
+        if: startsWith(github.ref, 'refs/tags/') || github.event.inputs.tag != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="${{ github.event.inputs.tag || github.ref_name }}"
+          gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
+            || gh release create "$tag" --repo "$GITHUB_REPOSITORY" --title "$tag" --generate-notes || true
+          gh release upload "$tag" "$ASSET" --clobber --repo "$GITHUB_REPOSITORY"

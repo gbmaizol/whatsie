@@ -366,6 +366,29 @@ if(WIN32)
     set_target_properties(whatly PROPERTIES WIN32_EXECUTABLE TRUE)
 endif()
 
+# macOS: build a proper .app bundle. The icon (.icns) is optional — pass its path
+# with -DWHATLY_MACOS_ICNS=/path/to/whatly.icns (the CI generates one from the
+# app PNG). Everything else (notifications via the tray, no X11/D-Bus) already
+# falls through the non-Linux code paths (issue #119).
+if(APPLE)
+    set_target_properties(whatly PROPERTIES
+        MACOSX_BUNDLE TRUE
+        MACOSX_BUNDLE_BUNDLE_NAME "Whatly"
+        MACOSX_BUNDLE_GUI_IDENTIFIER "net.shakaran.whatly"
+        MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}"
+        MACOSX_BUNDLE_SHORT_VERSION_STRING "${PROJECT_VERSION}"
+        MACOSX_BUNDLE_COPYRIGHT "MIT — Ángel Guzmán Maeso"
+    )
+    if(WHATLY_MACOS_ICNS AND EXISTS "${WHATLY_MACOS_ICNS}")
+        get_filename_component(_whatly_icns_name "${WHATLY_MACOS_ICNS}" NAME)
+        set_source_files_properties("${WHATLY_MACOS_ICNS}" PROPERTIES
+            MACOSX_PACKAGE_LOCATION "Resources")
+        target_sources(whatly PRIVATE "${WHATLY_MACOS_ICNS}")
+        set_target_properties(whatly PROPERTIES
+            MACOSX_BUNDLE_ICON_FILE "${_whatly_icns_name}")
+    endif()
+endif()
+
 # Define compiler definitions
 target_compile_definitions(whatly PRIVATE
     QAPPLICATION_CLASS=QApplication
