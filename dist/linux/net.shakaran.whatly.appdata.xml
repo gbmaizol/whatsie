@@ -108,6 +108,18 @@
   <content_rating type="oars-1.0" />
 
   <releases>
+    <release version="6.2.1" date="2026-07-19">
+      <description>
+        <p>Bug-fix and hardening release:</p>
+        <ul>
+          <li>Fix a crash when opening the automatic-theme setup on a system with no geolocation backend</li>
+          <li>Quit gracefully on SIGTERM (session managers, systemd)</li>
+          <li>Stop echoing Qt WebEngine's benign thread-teardown noise to the terminal</li>
+          <li>Restore the missing icons on the About dialog's buttons</li>
+          <li>Add a unit-test suite (~92% of the logic layer) plus integration coverage of the app</li>
+        </ul>
+      </description>
+    </release>
     <release version="6.2.0" date="2026-07-18">
       <description>
         <p>Desktop-integration features and finer control:</p>

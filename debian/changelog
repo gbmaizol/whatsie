@@ -1,3 +1,12 @@
+whatly (6.2.1) unstable; urgency=medium
+
+  * Fix a crash opening the automatic-theme setup with no geolocation backend.
+  * Quit gracefully on SIGTERM; stop echoing Qt WebEngine teardown noise.
+  * Restore the About dialog's button icons.
+  * Add a unit-test suite and integration coverage. See CHANGELOG.md.
+
+ -- Ángel Guzmán Maeso <angel@guzmanmaeso.com>  Sat, 19 Jul 2026 12:00:00 +0200
+
 whatly (6.2.0) unstable; urgency=medium
 
   * Taskbar unread badge (Unity LauncherEntry), adjustable interface font size,

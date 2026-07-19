@@ -1,4 +1,6 @@
-## Unreleased
+## 6.2.1 (2026-07-19)
+
+Bug-fix and hardening release.
 
 **Fix a crash in the automatic-theme setup.** Opening Settings → automatic theme
 on a system with no geolocation backend (a headless run, or any box without a Qt

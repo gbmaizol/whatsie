@@ -1,3 +1,37 @@
+## 6.2.1 (2026-07-19)
+
+Bug-fix and hardening release.
+
+**Fix a crash in the automatic-theme setup.** Opening Settings → automatic theme
+on a system with no geolocation backend (a headless run, or any box without a Qt
+geo plugin) crashed on close: the dialog's destructor dereferenced a null
+position source. Found by a new in-process SettingsWidget test.
+
+**Clean shutdown on SIGTERM.** Whatly now quits gracefully when it receives
+`SIGTERM` (from a session manager, `kill`, or systemd) instead of being torn
+down abruptly, using the Qt-safe socketpair + `QSocketNotifier` pattern.
+
+**Quieter terminal.** The benign "QThreadStorage: entry … destroyed before end
+of thread" lines that Qt WebEngine prints while tearing down at exit are no
+longer echoed to the terminal (they are still kept in the in-app debug log for
+bug reports).
+
+**About screen icons.** The buttons on the About dialog (Donate, Ko-fi, Wise,
+Rate, More apps, Source code, Report a bug, Debug info) were rendering without
+their icons. They are set from the bundled resources again, and two new icons —
+`heart-line` and `github-line` — were added for the Ko-fi and Source-code
+buttons. The Rate-the-app screen's logo and button icons were verified to be
+correct and unchanged.
+
+**Unit tests.** A QtTest suite now covers the headless parts of the app — the
+`Utils` helpers (including the cache-delete guard from issue #230), the
+injected-script generators (fonts, chat themes, muted status, privacy blur,
+wallpaper, custom CSS, tweaks, linked-device name), the scheduled-message queue
+and its persistence, the sun calculations, identicons, palettes, dictionary
+resolution and the About/Rate screens' assets. Roughly 92% line / 95% function
+coverage of that layer (measure it with `tools/coverage.sh`). Build with
+`-DWHATLY_TESTS=ON`, run with `ctest`; it also runs in CI on every push.
+
 ## 6.2.0 (2026-07-18)
 
 Desktop-integration features and finer control, from a sweep of the upstream
