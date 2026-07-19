@@ -535,7 +535,7 @@ that blocks on user interaction and so can't run headless (marked with a
 coverage-instrumented binary headless — the CLI, app bootstrap, the main window,
 the Qt WebEngine setup (it loads the QR/link page) and the dialogs reachable over
 the single-instance IPC — under a throwaway `HOME`, without logging in. Combined
-with the unit tests this brings whole-app line coverage to ~57% (`src/main.cpp`
+with the unit tests this brings whole-app line coverage to ~59% (`src/main.cpp`
 alone goes from 0% to ~76%). It cannot go much higher: the rest is Qt WebEngine
 internals and the chat/messaging features, which are gated behind a real
 WhatsApp session that a headless CI cannot provide.
