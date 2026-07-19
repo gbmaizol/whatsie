@@ -14,6 +14,20 @@ QMutex g_mutex;
 QStringList g_lines;
 QtMessageHandler g_previousHandler = nullptr;
 
+// Benign noise emitted by Qt/Chromium (Qt WebEngine) as its worker threads and
+// thread-local storage are torn down at exit. It says nothing actionable but
+// clutters the terminal, so it is kept in the captured log yet never printed.
+bool isBenignTeardownNoise(const QString &message) {
+  static const char *const patterns[] = {
+      "QThreadStorage: entry ",         // "... destroyed before end of thread"
+      "QThreadStorage: Thread ",         // TLS destruction ordering at exit
+  };
+  for (const char *p : patterns)
+    if (message.contains(QLatin1String(p)))
+      return true;
+  return false;
+}
+
 void messageHandler(QtMsgType type, const QMessageLogContext &context,
                     const QString &message) {
   const char *level = "";
@@ -25,6 +39,11 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context,
   case QtFatalMsg:    level = "fatal";    break;
   }
   DebugLog::append(QStringLiteral("[%1] %2").arg(QLatin1String(level), message));
+
+  // Swallow the benign teardown noise: still recorded above (so a bug report
+  // keeps it) but not echoed to the terminal.
+  if (isBenignTeardownNoise(message))
+    return;
 
   // Keep printing to stderr exactly as before: capturing the log must not
   // silence it for anyone running from a terminal.

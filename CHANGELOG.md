@@ -1,5 +1,10 @@
 ## Unreleased
 
+**Quieter terminal.** The benign "QThreadStorage: entry … destroyed before end
+of thread" lines that Qt WebEngine prints while tearing down at exit are no
+longer echoed to the terminal (they are still kept in the in-app debug log for
+bug reports).
+
 **About screen icons.** The buttons on the About dialog (Donate, Ko-fi, Wise,
 Rate, More apps, Source code, Report a bug, Debug info) were rendering without
 their icons. They are set from the bundled resources again, and two new icons —
