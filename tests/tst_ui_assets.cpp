@@ -22,6 +22,7 @@ private slots:
   void rateAppLogic();
   void aboutLogo();
   void aboutButtonIcons();
+  void aboutDebugInfoToggle();
 };
 
 void TstUiAssets::initTestCase() {
@@ -91,6 +92,22 @@ void TstUiAssets::aboutLogo() {
   auto *logo = w.findChild<QLabel *>(QStringLiteral("label"));
   QVERIFY2(logo, "About: logo label not found");
   QVERIFY2(!logo->pixmap().isNull(), "About: logo pixmap is null");
+}
+
+void TstUiAssets::aboutDebugInfoToggle() {
+  // The Debug-Info button just shows/hides a text area — no URL — so it is safe
+  // to click and covers both branches of the slot.
+  About w;
+  w.show(); // offscreen; needed so the slot's isVisible() check is meaningful
+  QTest::qWait(20);
+  auto *btn = w.findChild<QPushButton *>(QStringLiteral("debugInfoButton"));
+  QVERIFY(btn);
+  auto *text = w.findChild<QWidget *>(QStringLiteral("debugInfoText"));
+  QVERIFY(text);
+  btn->click(); // show branch
+  QVERIFY(!text->isHidden());
+  btn->click(); // hide branch
+  QVERIFY(text->isHidden());
 }
 
 void TstUiAssets::aboutButtonIcons() {

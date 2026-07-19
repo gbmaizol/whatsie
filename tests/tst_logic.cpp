@@ -234,6 +234,26 @@ private slots:
         QStringLiteral("hello"));
     QVERIFY(job.contains(QLatin1String("34600123456")));
   }
+  // A message already past its due time must fire sendRequested once start()
+  // gates sending on — this exercises start()/checkDue() and the due scan.
+  void firesOverdueMessage() {
+    ScheduledMessages sm;
+    QSignalSpy spy(&sm, &ScheduledMessages::sendRequested);
+    const QString id = sm.add(QStringLiteral("34600555555"),
+                              QStringLiteral("Past"), QStringLiteral("overdue"),
+                              QDateTime::currentDateTime().addSecs(-60));
+    sm.start(); // gates sending on, then checkDue() runs immediately
+    QVERIFY(spy.count() >= 1);
+    QCOMPARE(spy.first().at(0).toString(), id);
+    QCOMPARE(spy.first().at(1).toString(), QStringLiteral("34600555555"));
+
+    // Reporting success clears the in-flight marker; a second scan finds nothing.
+    sm.reportResult(id, true, QString());
+    const int fired = spy.count();
+    sm.start(); // calls checkDue() again
+    QCOMPARE(spy.count(), fired); // no new send
+    sm.removeCompleted();
+  }
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -322,6 +342,36 @@ private slots:
     qputenv("INSTALL_TYPE", "snap");
     QCOMPARE(Utils::getInstallType(), QStringLiteral("snap"));
     qunsetenv("INSTALL_TYPE");
+    // Flatpak is inferred from FLATPAK_ID when INSTALL_TYPE is unset.
+    qputenv("FLATPAK_ID", "net.shakaran.whatly");
+    QCOMPARE(Utils::getInstallType(), QStringLiteral("flatpak"));
+    qunsetenv("FLATPAK_ID");
+  }
+  void desktopEnvBranches() {
+    const QByteArray savedXdg = qgetenv("XDG_CURRENT_DESKTOP");
+    const QByteArray savedWm = qgetenv("WINDOWMANAGER");
+    const QByteArray savedSession = qgetenv("DESKTOP_SESSION");
+
+    qputenv("XDG_CURRENT_DESKTOP", "KDE");
+    QCOMPARE(Utils::detectDesktopEnvironment(), QStringLiteral("KDE"));
+
+    qunsetenv("XDG_CURRENT_DESKTOP");
+    qputenv("WINDOWMANAGER", "i3");
+    qunsetenv("DESKTOP_SESSION");
+    QCOMPARE(Utils::detectDesktopEnvironment(), QStringLiteral("i3"));
+
+    qunsetenv("WINDOWMANAGER");
+    qputenv("DESKTOP_SESSION", "plasma");
+    QCOMPARE(Utils::detectDesktopEnvironment(), QStringLiteral("plasma"));
+
+    qunsetenv("DESKTOP_SESSION");
+    QCOMPARE(Utils::detectDesktopEnvironment(),
+             QStringLiteral("Unknown Desktop Environment"));
+
+    // Restore, so later tests see the real environment.
+    if (!savedXdg.isEmpty()) qputenv("XDG_CURRENT_DESKTOP", savedXdg);
+    if (!savedWm.isEmpty()) qputenv("WINDOWMANAGER", savedWm);
+    if (!savedSession.isEmpty()) qputenv("DESKTOP_SESSION", savedSession);
   }
   void secToDayComponents() {
     const QString s = Utils::convertSectoDay(90061); // 1d 1h 1m 1s
@@ -339,6 +389,17 @@ private slots:
     for (const QChar &c : up) QVERIFY(c.isUpper() || !c.isLetter());
     const QString lo = Utils::genRand(30, false, true, false);
     for (const QChar &c : lo) QVERIFY(c.isLower() || !c.isLetter());
+  }
+  void desktopOpenUrlDoesNotThrow() {
+    // Exercises the xdg-open/desktop-services path; harmless for a bogus file.
+    Utils::desktopOpenUrl(QStringLiteral("/tmp/whatly-nonexistent-test.txt"));
+    QVERIFY(true);
+  }
+  void appDebugInfoContents() {
+    const QString info = Utils::appDebugInfo();
+    QVERIFY(info.contains(QLatin1String("test"))); // VERSIONSTR="test"
+    const QString md = Utils::appDebugInfoMarkdown();
+    QVERIFY(md.contains(QLatin1String("Commit")));
   }
 };
 
@@ -435,6 +496,17 @@ private slots:
     ChatWallpaper::clear();
     QVERIFY(ChatWallpaper::storedImagePath().isEmpty());
   }
+  void rejectsBadImage() {
+    QTemporaryFile txt;
+    txt.setFileTemplate(QDir::tempPath() + QStringLiteral("/whatly_XXXXXX.txt"));
+    QVERIFY(txt.open());
+    txt.write("not an image");
+    txt.close();
+    QString err;
+    QVERIFY(!ChatWallpaper::setImage(txt.fileName(), &err));
+    QVERIFY(!err.isEmpty());
+    QVERIFY(!ChatWallpaper::setImage(QStringLiteral("/no/such.png"), &err));
+  }
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -469,6 +541,30 @@ class TstScriptInstall : public QObject {
   Q_OBJECT
 private slots:
   void installOnProfile() {
+    // Turn every feature on first, so install() takes the script-inserting path
+    // rather than its early "nothing to do" return.
+    WebFont::setCurrentFamily(QStringLiteral("DejaVu Sans"));
+    MutedStatus::setEnabled(true);
+    if (!ChatTheme::themes().isEmpty())
+      ChatTheme::setCurrentThemeId(ChatTheme::themes().last().id);
+    if (!PrivacyBlur::levels().isEmpty())
+      PrivacyBlur::setCurrentLevelId(PrivacyBlur::levels().last().id);
+
+    QTemporaryFile css;
+    css.setFileTemplate(QDir::tempPath() + QStringLiteral("/whatly_XXXXXX.css"));
+    QVERIFY(css.open());
+    css.write("body{background:#000}");
+    css.close();
+    QString err;
+    CustomCss::setFromFile(css.fileName(), &err);
+
+    QTemporaryDir wpDir;
+    const QString wp = wpDir.filePath(QStringLiteral("wp.png"));
+    QImage img(16, 16, QImage::Format_ARGB32);
+    img.fill(Qt::black);
+    QVERIFY(img.save(wp));
+    ChatWallpaper::setImage(wp, &err);
+
     QWebEngineProfile profile(QStringLiteral("whatly-test-profile"));
     const int before = profile.scripts()->count();
     WebFont::install(&profile);
@@ -479,8 +575,13 @@ private slots:
     CustomCss::install(&profile);
     WebTweaks::install(&profile);
     LinkedDeviceName::install(&profile, QStringLiteral("Work"));
-    // Each module injects at least one script, so the collection grew.
     QVERIFY(profile.scripts()->count() > before);
+
+    // Reset the toggles so we don't leak state into other tests.
+    MutedStatus::setEnabled(false);
+    WebFont::setCurrentFamily(QString());
+    CustomCss::clear();
+    ChatWallpaper::clear();
   }
 };
 
