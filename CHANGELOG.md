@@ -1,5 +1,9 @@
 ## Unreleased
 
+**Clean shutdown on SIGTERM.** Whatly now quits gracefully when it receives
+`SIGTERM` (from a session manager, `kill`, or systemd) instead of being torn
+down abruptly, using the Qt-safe socketpair + `QSocketNotifier` pattern.
+
 **Quieter terminal.** The benign "QThreadStorage: entry … destroyed before end
 of thread" lines that Qt WebEngine prints while tearing down at exit are no
 longer echoed to the terminal (they are still kept in the in-app debug log for

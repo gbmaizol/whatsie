@@ -1,5 +1,11 @@
 #include <QApplication>
 #include <QFont>
+#include <QSocketNotifier>
+#ifdef Q_OS_UNIX
+#include <csignal>
+#include <sys/socket.h>
+#include <unistd.h>
+#endif
 #include <QDebug>
 #include <QDir>
 #include <QFile>
@@ -694,6 +700,30 @@ int main(int argc, char *argv[]) {
   } else {
     whatly.show();
   }
+
+#ifdef Q_OS_UNIX
+  // Quit gracefully on SIGTERM (a session manager, `kill`, or systemd) instead
+  // of being torn down abruptly — a clean shutdown, and in a coverage build it
+  // lets gcov flush on exit. The signal handler only pokes a socketpair; the
+  // actual quit happens back in the event loop, which is the Qt-safe pattern.
+  {
+    static int sigFd[2];
+    if (::socketpair(AF_UNIX, SOCK_STREAM, 0, sigFd) == 0) {
+      auto *sn = new QSocketNotifier(sigFd[1], QSocketNotifier::Read, &instance);
+      QObject::connect(sn, &QSocketNotifier::activated, qApp,
+                       [] { qApp->quit(); });
+      struct sigaction sa;
+      sa.sa_handler = [](int) {
+        const char c = 1;
+        const ssize_t r = ::write(sigFd[0], &c, 1);
+        (void)r;
+      };
+      sigemptyset(&sa.sa_mask);
+      sa.sa_flags = 0;
+      ::sigaction(SIGTERM, &sa, nullptr);
+    }
+  }
+#endif
 
   return instance.exec();
 }

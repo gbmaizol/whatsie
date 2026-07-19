@@ -525,13 +525,20 @@ QT_QPA_PLATFORM=offscreen ctest --test-dir build --output-on-failure
 It runs in CI on every push (`.github/workflows/tests.yml`).
 
 **Coverage.** With `gcovr` installed, `tools/coverage.sh` builds the suite
-instrumented, runs it and writes an HTML report. The tested modules (the
+instrumented, runs it and writes an HTML report. The unit-tested modules (the
 logic + light-widget layer, ~1.7k lines) sit at ~92% line / ~95% function
 coverage. The only thing deliberately excluded there is one modal error dialog
 that blocks on user interaction and so can't run headless (marked with a
-`GCOVR_EXCL` comment). The remaining source — the main window, the Qt WebEngine
-integration and the settings UI — is GUI/engine glue that needs the full running
-app rather than unit tests, so it is not covered here.
+`GCOVR_EXCL` comment).
+
+**Integration coverage.** `tools/integration.sh` drives the real,
+coverage-instrumented binary headless — the CLI, app bootstrap, the main window,
+the Qt WebEngine setup (it loads the QR/link page) and the dialogs reachable over
+the single-instance IPC — under a throwaway `HOME`, without logging in. Combined
+with the unit tests this brings whole-app line coverage to ~57% (`src/main.cpp`
+alone goes from 0% to ~76%). It cannot go much higher: the rest is Qt WebEngine
+internals and the chat/messaging features, which are gated behind a real
+WhatsApp session that a headless CI cannot provide.
 
 ## Build from Source (Windows)
 

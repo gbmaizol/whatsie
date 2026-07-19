@@ -559,6 +559,16 @@ message(STATUS "================================================")
 message(STATUS "")
 
 
+# ── Coverage ─────────────────────────────────────────────────────────────────
+# Instrument the whole app for gcov when -DWHATLY_COVERAGE=ON, so an integration
+# run of the real binary (tools/integration.sh) is measurable alongside the unit
+# tests. The tests/ subdir applies the same flags to the test targets.
+option(WHATLY_COVERAGE "Instrument for gcov/gcovr coverage" OFF)
+if(WHATLY_COVERAGE)
+    target_compile_options(whatly PRIVATE --coverage -O0 -g)
+    target_link_options(whatly PRIVATE --coverage)
+endif()
+
 # ── Unit tests ────────────────────────────────────────────────────────────────
 # Off by default; enable with -DWHATLY_TESTS=ON. See tests/.
 option(WHATLY_TESTS "Build the unit tests (QtTest)" OFF)
