@@ -5,6 +5,7 @@
 #include <QDateTime>
 #include <QFileDialog>
 #include <QImageReader>
+#include <QScreen>
 #include <QStandardPaths>
 #include <QDir>
 #include <QLocale>
@@ -633,7 +634,14 @@ void SettingsWidget::on_showPermissionsButton_clicked() {
   permissionDialog->setAttribute(Qt::WA_DeleteOnClose, true);
   permissionDialog->move(this->geometry().center() -
                          permissionDialog->geometry().center());
-  permissionDialog->setMinimumSize(485, 310);
+  // Clamp the minimum to the screen so the dialog still fits on a small display
+  // such as a Linux phone (issue #239).
+  int pdW = 485, pdH = 310;
+  if (QScreen *scr = permissionDialog->screen()) {
+    pdW = qMin(pdW, scr->availableSize().width());
+    pdH = qMin(pdH, scr->availableSize().height());
+  }
+  permissionDialog->setMinimumSize(pdW, pdH);
   permissionDialog->adjustSize();
   permissionDialog->show();
 }

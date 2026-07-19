@@ -292,8 +292,19 @@ void MainWindow::applyMinimumSize() {
                           .value("zoomFactor", 1.0)
                           .toDouble();
   const double factor = std::clamp(zoom, 0.5, 1.0);
-  setMinimumWidth(static_cast<int>(kBaseMinWidth * factor));
-  setMinimumHeight(static_cast<int>(kBaseMinHeight * factor));
+  int minW = static_cast<int>(kBaseMinWidth * factor);
+  int minH = static_cast<int>(kBaseMinHeight * factor);
+  // On a small display — a Linux phone such as the PinePhone in portrait, or any
+  // cramped screen — the base minimum can be wider or taller than the screen
+  // itself, which pins the window larger than it can fit and clips the UI. Never
+  // demand more than the available screen area (issue #239).
+  if (QScreen *scr = screen()) {
+    const QSize avail = scr->availableSize();
+    minW = std::min(minW, avail.width());
+    minH = std::min(minH, avail.height());
+  }
+  setMinimumWidth(minW);
+  setMinimumHeight(minH);
 }
 
 void MainWindow::handleZoom() {
