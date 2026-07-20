@@ -388,6 +388,14 @@ Do you wish to override the security check and continue ?   </source>
         <translation>अनुस्मारक: %1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>अपडेट उपलब्ध है</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>Whatly %1 उपलब्ध है। डाउनलोड पेज खोलने के लिए क्लिक करें।</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| त्रुटि</translation>
     </message>
@@ -1539,6 +1547,14 @@ Please setup the password in the Settings first.</source>
         <translation>कस्टम विंडो फ्रेम का उपयोग करें (पुनरारंभ आवश्यक)</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>नए रिलीज़ के लिए दिन में एक बार GitHub जाँचें और आपको सूचित करें। Whatly अपने आप कभी कुछ भी डाउनलोड या इंस्टॉल नहीं करता।</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>अपडेट अपने आप जाँचें</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>इंटरफ़ेस स्केल</translation>
     </message>
@@ -1810,6 +1826,13 @@ You may also require a complete restart of Application!</source>
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>अगर आपका मन बदले, तो यहाँ की हर चीज़ सेटिंग्स में मौजूद है।</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>नवीनतम रिलीज़ नहीं पढ़ी जा सकी</translation>
     </message>
 </context>
 <context>

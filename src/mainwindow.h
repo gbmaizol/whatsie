@@ -138,6 +138,8 @@ private:
   QAction *m_viewGridAction = nullptr;
   QAction *m_commandPaletteAction = nullptr;
   void showCommandPalette();
+  class UpdateChecker *m_updateChecker = nullptr;
+  QString m_pendingUpdateUrl;
   void initSettingWidget();
   void tryLock();
   void ensureLockVisible();

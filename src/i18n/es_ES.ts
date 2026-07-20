@@ -388,6 +388,14 @@ Do you wish to override the security check and continue ?   </source>
         <translation>Recordatorio: %1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>Actualización disponible</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>Whatly %1 ya está disponible. Haz clic para abrir la página de descarga.</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| Error</translation>
     </message>
@@ -1539,6 +1547,14 @@ Configure primero la contraseña en los ajustes.</translation>
         <translation>Usar un marco de ventana personalizado (requiere reiniciar)</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>Comprueba GitHub una vez al día para ver si hay una versión más reciente y te avisa. Whatly nunca descarga ni instala nada por su cuenta.</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>Buscar actualizaciones automáticamente</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>Escala de la interfaz</translation>
     </message>
@@ -1810,6 +1826,13 @@ Esto cerrará tu sesión actual.
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>Si cambias de opinión, todo esto está en los Ajustes.</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>No se pudo leer la última versión</translation>
     </message>
 </context>
 <context>

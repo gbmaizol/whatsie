@@ -388,6 +388,14 @@ Do you wish to override the security check and continue ?   </source>
         <translation>알림: %1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>업데이트 사용 가능</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>Whatly %1을(를) 사용할 수 있습니다. 클릭하여 다운로드 페이지를 여세요.</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| 오류</translation>
     </message>
@@ -1539,6 +1547,14 @@ Please setup the password in the Settings first.</source>
         <translation>사용자 지정 창 프레임 사용 (다시 시작 필요)</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>하루에 한 번 GitHub에서 새 릴리스를 확인하고 알려 드립니다. Whatly는 스스로 아무것도 다운로드하거나 설치하지 않습니다.</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>자동으로 업데이트 확인</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>인터페이스 배율</translation>
     </message>
@@ -1810,6 +1826,13 @@ You may also require a complete restart of Application!</source>
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>마음이 바뀌면 여기 있는 모든 항목을 설정에서 다시 바꿀 수 있습니다.</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>최신 릴리스를 읽을 수 없습니다</translation>
     </message>
 </context>
 <context>

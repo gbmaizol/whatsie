@@ -388,6 +388,14 @@ Do you wish to override the security check and continue ?   </source>
         <translation>提醒：%1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>有可用更新</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>Whatly %1 已发布。点击打开下载页面。</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| 错误</translation>
     </message>
@@ -1539,6 +1547,14 @@ Please setup the password in the Settings first.</source>
         <translation>使用自定义窗口边框（需要重启）</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>每天检查一次 GitHub 是否有新版本并通知你。Whatly 绝不会自行下载或安装任何内容。</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>自动检查更新</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>界面缩放</translation>
     </message>
@@ -1810,6 +1826,13 @@ You may also require a complete restart of Application!</source>
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>如果你改变主意，这里的所有设置都可以在设置中找到。</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>无法读取最新版本</translation>
     </message>
 </context>
 <context>

@@ -388,6 +388,14 @@ Güvenlik denetimini atlayıp devam etmek istiyor musunuz?   </translation>
         <translation>Hatırlatıcı: %1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>Güncelleme mevcut</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>Whatly %1 kullanılabilir. İndirme sayfasını açmak için tıklayın.</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| Hata</translation>
     </message>
@@ -1539,6 +1547,14 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
         <translation>Özel bir pencere çerçevesi kullan (yeniden başlatma gerektirir)</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>Yeni bir sürüm için GitHub'ı günde bir kez denetler ve sizi bilgilendirir. Whatly kendi başına hiçbir şey indirmez veya kurmaz.</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>Güncellemeleri otomatik olarak denetle</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>Arayüz ölçeği</translation>
     </message>
@@ -1810,6 +1826,13 @@ Uygulamanın tamamen yeniden başlatılması da gerekebilir!</translation>
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>Fikrinizi değiştirirseniz buradaki her şey Ayarlar&apos;da bulunuyor.</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>En son sürüm okunamadı</translation>
     </message>
 </context>
 <context>

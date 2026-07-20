@@ -388,6 +388,14 @@ Czy chcesz pominąć kontrolę bezpieczeństwa i kontynuować?   </translation>
         <translation>Przypomnienie: %1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>Dostępna aktualizacja</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>Whatly %1 jest dostępny. Kliknij, aby otworzyć stronę pobierania.</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| Błąd</translation>
     </message>
@@ -1539,6 +1547,14 @@ Najpierw ustaw hasło w ustawieniach.</translation>
         <translation>Użyj niestandardowej ramki okna (wymaga ponownego uruchomienia)</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>Sprawdzanie GitHub raz dziennie w poszukiwaniu nowszej wersji i powiadamianie Cię o niej. Whatly nigdy niczego samodzielnie nie pobiera ani nie instaluje.</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>Automatycznie sprawdzaj aktualizacje</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>Skala interfejsu</translation>
     </message>
@@ -1810,6 +1826,13 @@ Może być również konieczne pełne ponowne uruchomienie aplikacji!</translati
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>Wszystko to znajdziesz w Ustawieniach, jeśli zmienisz zdanie.</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>Nie można odczytać najnowszej wersji</translation>
     </message>
 </context>
 <context>

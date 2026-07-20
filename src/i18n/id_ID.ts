@@ -388,6 +388,14 @@ Apakah Anda ingin melewati pemeriksaan keamanan dan melanjutkan?   </translation
         <translation>Pengingat: %1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>Pembaruan tersedia</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>Whatly %1 telah tersedia. Klik untuk membuka halaman unduhan.</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| Kesalahan</translation>
     </message>
@@ -1539,6 +1547,14 @@ Silakan atur kata sandi di pengaturan terlebih dahulu.</translation>
         <translation>Gunakan bingkai jendela kustom (perlu memulai ulang)</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>Memeriksa GitHub sekali sehari untuk rilis terbaru dan memberi tahu Anda. Whatly tidak pernah mengunduh atau memasang apa pun sendiri.</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>Periksa pembaruan secara otomatis</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>Skala antarmuka</translation>
     </message>
@@ -1810,6 +1826,13 @@ Anda mungkin juga perlu memulai ulang aplikasi sepenuhnya!</translation>
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>Semua yang ada di sini tersedia di Pengaturan jika Anda berubah pikiran.</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>Tidak dapat membaca rilis terbaru</translation>
     </message>
 </context>
 <context>

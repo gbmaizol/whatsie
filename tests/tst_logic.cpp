@@ -35,6 +35,7 @@
 #include "customcss.h"
 #include "customjs.h"
 #include "commandpalette.h"
+#include "updatechecker.h"
 #include "webtweaks.h"
 #include "linkeddevicename.h"
 #include "performance.h"
@@ -967,6 +968,35 @@ private slots:
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
+// UpdateCheck: version comparison and release-JSON parsing (no network).
+class TstUpdateCheck : public QObject {
+  Q_OBJECT
+private slots:
+  void compareOrders() {
+    QVERIFY(UpdateCheck::compareVersions("6.3.0", "6.3.1") < 0);
+    QVERIFY(UpdateCheck::compareVersions("6.3.1", "6.3.0") > 0);
+    QCOMPARE(UpdateCheck::compareVersions("6.3.0", "6.3.0"), 0);
+    QVERIFY(UpdateCheck::compareVersions("6.10.0", "6.9.0") > 0); // numeric, not lexical
+  }
+  void ignoresLeadingVAndMissingParts() {
+    QCOMPARE(UpdateCheck::compareVersions("v6.3.0", "6.3.0"), 0);
+    QCOMPARE(UpdateCheck::compareVersions("6.3", "6.3.0"), 0);
+    QVERIFY(UpdateCheck::compareVersions("6.4", "6.3.9") > 0);
+  }
+  void toleratesSuffixes() {
+    QCOMPARE(UpdateCheck::compareVersions("6.3.0-rc1", "6.3.0"), 0);
+  }
+  void parsesReleaseJson() {
+    const QByteArray json =
+        R"({"tag_name":"v6.4.0","html_url":"https://example/rel/v6.4.0"})";
+    QString url;
+    QCOMPARE(UpdateCheck::latestFromJson(json, &url), QStringLiteral("v6.4.0"));
+    QCOMPARE(url, QStringLiteral("https://example/rel/v6.4.0"));
+    QVERIFY(UpdateCheck::latestFromJson("{}", &url).isEmpty());
+  }
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 // Fuzzy: the command-palette matcher. Subsequence matching, ranking, and the
 // non-match / empty-query cases.
 class TstFuzzy : public QObject {
@@ -1292,6 +1322,7 @@ int main(int argc, char *argv[]) {
   { TstCustomJs t;            run(&t); }
   { TstChatWallpaper t;       run(&t); }
   { TstPerformance t;         run(&t); }
+  { TstUpdateCheck t;         run(&t); }
   { TstFuzzy t;               run(&t); }
   { TstNotificationRules t;   run(&t); }
   { TstNetworkProxy t;        run(&t); }

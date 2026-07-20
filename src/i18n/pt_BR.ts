@@ -388,6 +388,14 @@ Deseja ignorar a verificação de segurança e continuar?   </translation>
         <translation>Lembrete: %1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>Atualização disponível</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>O Whatly %1 está disponível. Clique para abrir a página de download.</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| Erro</translation>
     </message>
@@ -1539,6 +1547,14 @@ Defina primeiro a senha nas configurações.</translation>
         <translation>Usar uma moldura de janela personalizada (requer reinício)</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>Verifica o GitHub uma vez por dia em busca de uma versão mais recente e avisa você. O Whatly nunca baixa nem instala nada por conta própria.</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>Verificar atualizações automaticamente</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>Escala da interface</translation>
     </message>
@@ -1810,6 +1826,13 @@ Também pode ser necessário reiniciar completamente o aplicativo!</translation>
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>Tudo aqui fica nas Configurações, caso você mude de ideia.</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>Não foi possível ler a versão mais recente</translation>
     </message>
 </context>
 <context>

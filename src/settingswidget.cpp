@@ -34,6 +34,7 @@
 #include "customjs.h"
 #include "customtitlebar.h"
 #include "notificationrules.h"
+#include "updatechecker.h"
 
 #include <QListWidget>
 #include <QTimeEdit>
@@ -894,6 +895,10 @@ void SettingsWidget::loadNetworkSettings() {
   ui->customWindowFrameCheckBox->setChecked(CustomTitleBar::isEnabled());
   ui->customWindowFrameCheckBox->blockSignals(false);
 
+  ui->checkUpdatesCheckBox->blockSignals(true);
+  ui->checkUpdatesCheckBox->setChecked(UpdateChecker::isEnabled());
+  ui->checkUpdatesCheckBox->blockSignals(false);
+
   ui->interfaceScaleSpinBox->blockSignals(true);
   ui->interfaceScaleSpinBox->setValue(Performance::interfaceScaleFactor());
   ui->interfaceScaleSpinBox->blockSignals(false);
@@ -1071,6 +1076,10 @@ void SettingsWidget::on_interfaceScaleSpinBox_valueChanged(double arg1) {
 
 void SettingsWidget::on_customWindowFrameCheckBox_toggled(bool checked) {
   CustomTitleBar::setEnabled(checked);
+}
+
+void SettingsWidget::on_checkUpdatesCheckBox_toggled(bool checked) {
+  UpdateChecker::setEnabled(checked);
 }
 
 void SettingsWidget::on_proxyModeComboBox_currentIndexChanged(int index) {

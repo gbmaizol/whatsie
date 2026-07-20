@@ -388,6 +388,14 @@ Do you wish to override the security check and continue ?   </source>
         <translation>リマインダー: %1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>更新があります</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>Whatly %1 が利用可能です。クリックしてダウンロードページを開きます。</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| エラー</translation>
     </message>
@@ -1539,6 +1547,14 @@ Please setup the password in the Settings first.</source>
         <translation>カスタムウィンドウ枠を使用する（再起動が必要）</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>1日に1回 GitHub をチェックして新しいリリースがあればお知らせします。Whatly が自動で何かをダウンロードまたはインストールすることは一切ありません。</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>自動的に更新を確認する</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>インターフェースの拡大率</translation>
     </message>
@@ -1810,6 +1826,13 @@ You may also require a complete restart of Application!</source>
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>ここにある項目はすべて設定にあるので、後で気が変わっても大丈夫です。</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>最新リリースを読み取れませんでした</translation>
     </message>
 </context>
 <context>

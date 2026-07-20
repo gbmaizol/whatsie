@@ -388,6 +388,14 @@ Do you wish to override the security check and continue ?   </source>
         <translation>Напоминание: %1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>Доступно обновление</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>Доступна версия Whatly %1. Нажмите, чтобы открыть страницу загрузки.</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| Ошибка</translation>
     </message>
@@ -1539,6 +1547,14 @@ Please setup the password in the Settings first.</source>
         <translation>Использовать собственную рамку окна (требуется перезапуск)</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>Проверять GitHub раз в день на наличие новой версии и уведомлять вас. Whatly никогда ничего не загружает и не устанавливает самостоятельно.</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>Проверять обновления автоматически</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>Масштаб интерфейса</translation>
     </message>
@@ -1810,6 +1826,13 @@ You may also require a complete restart of Application!</source>
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>Всё это находится в настройках, если вы передумаете.</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>Не удалось прочитать последнюю версию</translation>
     </message>
 </context>
 <context>

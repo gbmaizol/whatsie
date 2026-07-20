@@ -32,8 +32,10 @@
 #include "customjs.h"
 #include "setupwizard.h"
 #include "customtitlebar.h"
+#include "updatechecker.h"
 
 #include <QTimer>
+#include <QDesktopServices>
 #include "privacyblur.h"
 #include "webfont.h"
 #include "mutedstatus.h"
@@ -142,6 +144,26 @@ MainWindow::MainWindow(QWidget *parent)
                "to `whatly -w` to raise the window.";
   }
 #endif
+
+  // Once-a-day update check (opt-out), deferred so it never delays startup.
+  m_updateChecker = new UpdateChecker(this);
+  connect(m_updateChecker, &UpdateChecker::updateAvailable, this,
+          [this](const QString &version, const QString &url) {
+            if (m_systemTrayIcon && QSystemTrayIcon::supportsMessages())
+              m_systemTrayIcon->showMessage(
+                  tr("Update available"),
+                  tr("Whatly %1 is available. Click to open the download page.")
+                      .arg(version),
+                  windowIcon(), 15000);
+            m_pendingUpdateUrl = url;
+          });
+  connect(m_systemTrayIcon, &QSystemTrayIcon::messageClicked, this, [this]() {
+    if (!m_pendingUpdateUrl.isEmpty()) {
+      QDesktopServices::openUrl(QUrl(m_pendingUpdateUrl));
+      m_pendingUpdateUrl.clear();
+    }
+  });
+  QTimer::singleShot(4000, this, [this]() { m_updateChecker->check(false); });
 
   // First-run wizard: shown once, after the window is up, and only when it has
   // not been completed for this account. Deferred to the event loop so the main

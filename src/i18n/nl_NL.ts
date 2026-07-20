@@ -388,6 +388,14 @@ Wilt u de beveiligingscontrole negeren en doorgaan?   </translation>
         <translation>Herinnering: %1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>Update beschikbaar</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>Whatly %1 is beschikbaar. Klik om de downloadpagina te openen.</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| Fout</translation>
     </message>
@@ -1539,6 +1547,14 @@ Stel eerst het wachtwoord in bij de instellingen.</translation>
         <translation>Gebruik een aangepast vensterkader (herstart vereist)</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>Eenmaal per dag GitHub controleren op een nieuwere release en je op de hoogte stellen. Whatly downloadt of installeert nooit iets uit zichzelf.</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>Automatisch op updates controleren</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>Interfaceschaal</translation>
     </message>
@@ -1810,6 +1826,13 @@ Mogelijk is ook een volledige herstart van de toepassing vereist!</translation>
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>Alles hier vind je terug in Instellingen als je van gedachten verandert.</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>Kon de nieuwste release niet lezen</translation>
     </message>
 </context>
 <context>

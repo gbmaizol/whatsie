@@ -1,5 +1,11 @@
 ## Unreleased
 
+**Update checker.** Whatly can now check GitHub once a day for a newer
+release and let you know with a click-through notification — it never
+downloads or installs anything itself. Opt out in Settings → *Network &
+Startup*. The version comparison and release parsing are covered by unit
+tests (`TstUpdateCheck`).
+
 **Recurring scheduled messages & reminders.** A scheduled message can now
 repeat — daily, on weekdays, or weekly — rescheduling itself to the next
 occurrence after each successful send. There is also a *remind me* mode

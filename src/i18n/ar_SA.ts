@@ -388,6 +388,14 @@ Do you wish to override the security check and continue ?   </source>
         <translation>تذكير: %1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>يتوفر تحديث</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>الإصدار %1 من Whatly متوفر. انقر لفتح صفحة التنزيل.</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| خطأ</translation>
     </message>
@@ -1539,6 +1547,14 @@ Please setup the password in the Settings first.</source>
         <translation>استخدام إطار نافذة مخصص (يتطلب إعادة التشغيل)</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>التحقق من GitHub مرة واحدة يوميًا بحثًا عن إصدار أحدث وإعلامك بذلك. لا يقوم Whatly مطلقًا بتنزيل أو تثبيت أي شيء من تلقاء نفسه.</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>التحقق من التحديثات تلقائيًا</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>مقياس الواجهة</translation>
     </message>
@@ -1810,6 +1826,13 @@ You may also require a complete restart of Application!</source>
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>كل ما هنا موجود في الإعدادات إن غيّرت رأيك.</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>تعذّرت قراءة أحدث إصدار</translation>
     </message>
 </context>
 <context>

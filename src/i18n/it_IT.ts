@@ -536,6 +536,14 @@ Aprire le Impostazioni ora?</translation>
         <translation>Promemoria: %1</translation>
     </message>
     <message>
+        <source>Update available</source>
+        <translation>Aggiornamento disponibile</translation>
+    </message>
+    <message>
+        <source>Whatly %1 is available. Click to open the download page.</source>
+        <translation>Whatly %1 è disponibile. Fai clic per aprire la pagina di download.</translation>
+    </message>
+    <message>
         <source>| Error</source>
         <translation>| Errore</translation>
     </message>
@@ -1442,6 +1450,14 @@ Imposta la password nelle Impostazioni.</translation>
         <translation>Usa una cornice della finestra personalizzata (richiede il riavvio)</translation>
     </message>
     <message>
+        <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
+        <translation>Controlla GitHub una volta al giorno per una versione più recente e ti avvisa. Whatly non scarica né installa mai nulla da solo.</translation>
+    </message>
+    <message>
+        <source>Check for updates automatically</source>
+        <translation>Controlla automaticamente gli aggiornamenti</translation>
+    </message>
+    <message>
         <source>Interface scale</source>
         <translation>Scala dell&apos;interfaccia</translation>
     </message>
@@ -1817,6 +1833,13 @@ Potrebbe essere necessario anche un riavvio completo dell&apos;applicazione!</tr
     <message>
         <source>Everything here lives in Settings if you change your mind.</source>
         <translation>Tutto questo si trova nelle Impostazioni, se cambi idea.</translation>
+    </message>
+</context>
+<context>
+    <name>UpdateChecker</name>
+    <message>
+        <source>Could not read the latest release</source>
+        <translation>Impossibile leggere l'ultima versione</translation>
     </message>
 </context>
 <context>
