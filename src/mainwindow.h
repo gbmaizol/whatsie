@@ -21,8 +21,10 @@ class ScheduledMessages;
 #include "webenginenotifproxy.h"
 
 #include <QHash>
+#include <QPointer>
 
 class PortalNotification;
+class QLabel;
 #include "settingswidget.h"
 #include "pagebridge.h"
 #include "webenginepage.h"
@@ -111,6 +113,8 @@ private:
   void setViewMode(ViewMode mode);
   ViewMode viewMode() const { return m_viewMode; }
   void relayoutGrid();
+  void clearGridCells();
+  void updateGridCaptions();
   WebView *addAccount(const QString &id, const QString &name, bool load);
   void setActiveAccount(int index);
   void promptAddAccount();
@@ -133,6 +137,7 @@ private:
   // mode is active. m_displayStack flips between the tabbed stack and the grid.
   QStackedWidget *m_displayStack = nullptr;
   QWidget *m_gridContainer = nullptr;
+  QList<QPointer<QLabel>> m_gridLabels;
   ViewMode m_viewMode = ViewMode::Tabs;
   QAction *m_viewTabsAction = nullptr;
   QAction *m_viewGridAction = nullptr;

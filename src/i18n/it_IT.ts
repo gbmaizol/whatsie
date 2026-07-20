@@ -516,6 +516,10 @@ Aprire le Impostazioni ora?</translation>
         <translation>Aggiungi account…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — %2 non letti</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>Aggiungi un altro account</translation>
     </message>

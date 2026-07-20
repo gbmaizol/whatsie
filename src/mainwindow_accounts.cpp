@@ -13,6 +13,7 @@
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QSizeGrip>
+#include <QLabel>
 #include <QWidget>
 #include <QtMath>
 
@@ -153,18 +154,34 @@ void MainWindow::showCommandPalette() {
   palette->exec();
 }
 
+// Tear the grid down, first rescuing the account views (which are owned by the
+// app, not by the cell wrappers) so deleting a wrapper never deletes a view.
+void MainWindow::clearGridCells() {
+  auto *grid = m_gridContainer
+                   ? qobject_cast<QGridLayout *>(m_gridContainer->layout())
+                   : nullptr;
+  for (const Account &account : m_accounts)
+    if (account.view && account.view->parentWidget() &&
+        account.view->parentWidget() != m_accountStack)
+      account.view->setParent(nullptr);
+  if (grid) {
+    while (QLayoutItem *item = grid->takeAt(0)) {
+      if (item->widget())
+        item->widget()->deleteLater();
+      delete item;
+    }
+  }
+  m_gridLabels.clear();
+}
+
 void MainWindow::relayoutGrid() {
   if (!m_gridContainer)
     return;
   auto *grid = qobject_cast<QGridLayout *>(m_gridContainer->layout());
   if (!grid)
     return;
-  // Detach whatever is currently in the grid (without deleting the views).
-  while (QLayoutItem *item = grid->takeAt(0)) {
-    if (item->widget())
-      item->widget()->setParent(nullptr);
-    delete item;
-  }
+  clearGridCells();
+
   const int n = m_accounts.size();
   if (n == 0)
     return;
@@ -173,8 +190,35 @@ void MainWindow::relayoutGrid() {
     WebView *view = m_accounts[i].view;
     if (!view)
       continue;
-    grid->addWidget(view, i / cols, i % cols);
+    // Each cell is a caption (account name + unread) above its account view, so
+    // it is obvious which tile is which.
+    auto *cell = new QWidget(m_gridContainer);
+    auto *box = new QVBoxLayout(cell);
+    box->setContentsMargins(0, 0, 0, 0);
+    box->setSpacing(0);
+    auto *caption = new QLabel(cell);
+    caption->setObjectName(QStringLiteral("gridCellCaption"));
+    caption->setAlignment(Qt::AlignCenter);
+    caption->setContentsMargins(4, 2, 4, 2);
+    box->addWidget(caption);
+    box->addWidget(view, 1);
+    m_gridLabels.append(caption);
+    grid->addWidget(cell, i / cols, i % cols);
     view->show();
+  }
+  updateGridCaptions();
+}
+
+// Keep each tile's caption in step with the account name and unread count.
+void MainWindow::updateGridCaptions() {
+  for (int i = 0; i < m_gridLabels.size() && i < m_accounts.size(); ++i) {
+    QLabel *label = m_gridLabels.at(i);
+    if (!label)
+      continue;
+    const Account &account = m_accounts[i];
+    label->setText(account.unread > 0
+                       ? tr("%1 — %2 unread").arg(account.name).arg(account.unread)
+                       : account.name);
   }
 }
 
@@ -187,10 +231,12 @@ void MainWindow::setViewMode(ViewMode mode) {
     relayoutGrid();
     m_displayStack->setCurrentWidget(m_gridContainer);
   } else {
-    // Move every view back into the tabbed stack, preserving order.
+    // Move every view back into the tabbed stack, preserving order; the empty
+    // grid cells are then safe to drop.
     for (const Account &account : m_accounts)
       if (account.view)
         m_accountStack->addWidget(account.view); // re-parents into the stack
+    clearGridCells();
     if (m_activeAccount >= 0 && m_activeAccount < m_accounts.size() &&
         m_accounts[m_activeAccount].view)
       m_accountStack->setCurrentWidget(m_accounts[m_activeAccount].view);
@@ -257,6 +303,7 @@ int MainWindow::accountIndexForView(const QObject *view) const {
 // Rebuild the tab labels: the account name, plus its own unread count, plus a
 // trailing "+" tab. Cheap, and called only when something actually changed.
 void MainWindow::refreshAccountTabs() {
+  updateGridCaptions();
   if (!m_accountBar)
     return;
   QSignalBlocker block(m_accountBar);

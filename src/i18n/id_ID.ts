@@ -560,6 +560,10 @@ Buka pengaturan sekarang?</translation>
         <translation>Tambah akun…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — %2 belum dibaca</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>Tambah akun lain</translation>
     </message>

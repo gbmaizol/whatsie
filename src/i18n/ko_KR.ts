@@ -560,6 +560,10 @@ Open Settings now?</source>
         <translation>계정 추가…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — 읽지 않음 %2개</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>다른 계정 추가</translation>
     </message>

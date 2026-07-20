@@ -560,6 +560,10 @@ Configure primero la contraseña en los ajustes.
         <translation>Añadir cuenta…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — %2 sin leer</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>Añadir otra cuenta</translation>
     </message>

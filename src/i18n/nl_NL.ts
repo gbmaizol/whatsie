@@ -560,6 +560,10 @@ Instellingen nu openen?</translation>
         <translation>Account toevoegen…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — %2 ongelezen</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>Nog een account toevoegen</translation>
     </message>

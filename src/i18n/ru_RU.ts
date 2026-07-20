@@ -560,6 +560,10 @@ Open Settings now?</source>
         <translation>Добавить аккаунт…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — %2 непрочитанных</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>Добавить ещё аккаунт</translation>
     </message>

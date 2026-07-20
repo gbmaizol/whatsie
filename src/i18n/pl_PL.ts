@@ -560,6 +560,10 @@ Otworzyć ustawienia teraz?</translation>
         <translation>Dodaj konto…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — %2 nieprzeczytane</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>Dodaj kolejne konto</translation>
     </message>

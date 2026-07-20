@@ -560,6 +560,10 @@ Einstellungen jetzt öffnen?</translation>
         <translation>Konto hinzufügen…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — %2 ungelesen</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>Weiteres Konto hinzufügen</translation>
     </message>

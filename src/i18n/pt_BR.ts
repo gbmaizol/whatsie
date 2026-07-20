@@ -560,6 +560,10 @@ Abrir as configurações agora?</translation>
         <translation>Adicionar conta…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — %2 não lidas</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>Adicionar outra conta</translation>
     </message>

@@ -560,6 +560,10 @@ Open Settings now?</source>
         <translation>アカウントを追加…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — 未読 %2 件</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>別のアカウントを追加</translation>
     </message>

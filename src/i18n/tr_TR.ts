@@ -560,6 +560,10 @@ Ayarlar şimdi açılsın mı?</translation>
         <translation>Hesap ekle…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — %2 okunmamış</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>Başka hesap ekle</translation>
     </message>

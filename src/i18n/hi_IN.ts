@@ -560,6 +560,10 @@ Open Settings now?</source>
         <translation>खाता जोड़ें…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — %2 अपठित</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>एक और खाता जोड़ें</translation>
     </message>

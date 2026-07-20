@@ -560,6 +560,10 @@ Open Settings now?</source>
         <translation>添加账户…</translation>
     </message>
     <message>
+        <source>%1 — %2 unread</source>
+        <translation>%1 — %2 条未读</translation>
+    </message>
+    <message>
         <source>Add another account</source>
         <translation>添加另一个账号</translation>
     </message>

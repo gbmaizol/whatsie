@@ -1,5 +1,9 @@
 ## Unreleased
 
+**Grid view captions.** Each tile in the multi-account grid now carries a
+caption with the account's name and its unread count, so it is obvious
+which tile is which; the caption tracks renames and unread changes.
+
 **Focus mode.** A new privacy toggle masks the contact names and message
 previews in the chat list (hover to reveal one), leaving the conversation
 you are actually reading untouched — for screen sharing, screenshots and
