@@ -1419,6 +1419,18 @@ Please setup the password in the Settings first.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>HTTP/미디어 캐시입니다. 지워도 안전합니다 — 필요할 때 다시 다운로드됩니다.</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>캐시</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  캐시 지우기</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>크기</translation>
     </message>
@@ -1725,6 +1737,14 @@ Please setup the password in the Settings first.</source>
     <message>
         <source>None</source>
         <translation>없음</translation>
+    </message>
+    <message>
+        <source>Clear cache</source>
+        <translation>캐시 지우기</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>지금 캐시를 지우시겠습니까? 필요할 때 다시 다운로드됩니다.</translation>
     </message>
     <message>
         <source>%1 languages</source>

@@ -1419,6 +1419,18 @@ Please setup the password in the Settings first.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>HTTP/मीडिया कैश। इसे साफ़ करना सुरक्षित है — आवश्यकता होने पर इसे फिर से डाउनलोड कर लिया जाता है।</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>कैश</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  कैश साफ़ करें</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>आकार</translation>
     </message>
@@ -1725,6 +1737,14 @@ Please setup the password in the Settings first.</source>
     <message>
         <source>None</source>
         <translation>कोई नहीं</translation>
+    </message>
+    <message>
+        <source>Clear cache</source>
+        <translation>कैश साफ़ करें</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>अभी कैश साफ़ करें? आवश्यकता होने पर इसे फिर से डाउनलोड कर लिया जाएगा।</translation>
     </message>
     <message>
         <source>%1 languages</source>

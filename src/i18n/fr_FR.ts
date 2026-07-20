@@ -1419,6 +1419,18 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>Le cache HTTP et multimédia. Le vider est sans risque — il est de nouveau téléchargé au besoin.</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>Cache</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  Vider le cache</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>Taille</translation>
     </message>
@@ -1548,7 +1560,7 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     </message>
     <message>
         <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
-        <translation>Vérifier GitHub une fois par jour pour détecter une nouvelle version et vous prévenir. Whatly ne télécharge ni n'installe jamais rien de lui-même.</translation>
+        <translation>Vérifier GitHub une fois par jour pour détecter une nouvelle version et vous prévenir. Whatly ne télécharge ni n&apos;installe jamais rien de lui-même.</translation>
     </message>
     <message>
         <source>Check for updates automatically</source>
@@ -1725,6 +1737,14 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
     <message>
         <source>None</source>
         <translation>Aucune</translation>
+    </message>
+    <message>
+        <source>Clear cache</source>
+        <translation>Vider le cache</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>Vider le cache maintenant ? Il sera de nouveau téléchargé au besoin.</translation>
     </message>
     <message>
         <source>%1 languages</source>

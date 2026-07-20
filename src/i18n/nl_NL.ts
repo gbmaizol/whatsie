@@ -1419,6 +1419,18 @@ Stel eerst het wachtwoord in bij de instellingen.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>De HTTP-/mediacache. Het wissen is veilig — deze wordt opnieuw gedownload wanneer dat nodig is.</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>Cache</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  Cache wissen</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>Grootte</translation>
     </message>
@@ -1725,6 +1737,14 @@ Stel eerst het wachtwoord in bij de instellingen.</translation>
     <message>
         <source>None</source>
         <translation>Geen</translation>
+    </message>
+    <message>
+        <source>Clear cache</source>
+        <translation>Cache wissen</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>Cache nu wissen? Deze wordt opnieuw gedownload wanneer dat nodig is.</translation>
     </message>
     <message>
         <source>%1 languages</source>

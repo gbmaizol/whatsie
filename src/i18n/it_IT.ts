@@ -1330,6 +1330,18 @@ Imposta la password nelle Impostazioni.</translation>
         <translation>Abilita blocco automatico dopo</translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>La cache HTTP/multimediale. Svuotarla è sicuro — viene scaricata di nuovo quando necessario.</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>Cache</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  Svuota cache</translation>
+    </message>
+    <message>
         <source>Performance &amp; Privacy</source>
         <translation>Prestazioni e privacy</translation>
     </message>
@@ -1734,6 +1746,14 @@ Imposta la password nelle Impostazioni.</translation>
         <translation>Nessuna</translation>
     </message>
     <message>
+        <source>Clear cache</source>
+        <translation>Svuota cache</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>Svuotare la cache adesso? Verrà scaricata di nuovo quando necessario.</translation>
+    </message>
+    <message>
         <source>%1 languages</source>
         <translation>%1 lingue</translation>
     </message>
@@ -1839,7 +1859,7 @@ Potrebbe essere necessario anche un riavvio completo dell&apos;applicazione!</tr
     <name>UpdateChecker</name>
     <message>
         <source>Could not read the latest release</source>
-        <translation>Impossibile leggere l'ultima versione</translation>
+        <translation>Impossibile leggere l&apos;ultima versione</translation>
     </message>
 </context>
 <context>

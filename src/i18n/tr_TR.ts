@@ -1419,6 +1419,18 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>HTTP/medya önbelleği. Temizlenmesi güvenlidir — gerektiğinde yeniden indirilir.</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>Önbellek</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  Önbelleği temizle</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>Boyut</translation>
     </message>
@@ -1548,7 +1560,7 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     </message>
     <message>
         <source>Check GitHub once a day for a newer release and let you know. Whatly never downloads or installs anything on its own.</source>
-        <translation>Yeni bir sürüm için GitHub'ı günde bir kez denetler ve sizi bilgilendirir. Whatly kendi başına hiçbir şey indirmez veya kurmaz.</translation>
+        <translation>Yeni bir sürüm için GitHub&apos;ı günde bir kez denetler ve sizi bilgilendirir. Whatly kendi başına hiçbir şey indirmez veya kurmaz.</translation>
     </message>
     <message>
         <source>Check for updates automatically</source>
@@ -1725,6 +1737,14 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     <message>
         <source>None</source>
         <translation>Yok</translation>
+    </message>
+    <message>
+        <source>Clear cache</source>
+        <translation>Önbelleği temizle</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>Önbellek şimdi temizlensin mi? Gerektiğinde yeniden indirilecektir.</translation>
     </message>
     <message>
         <source>%1 languages</source>

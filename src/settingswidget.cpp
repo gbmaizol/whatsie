@@ -35,6 +35,7 @@
 #include "customtitlebar.h"
 #include "notificationrules.h"
 #include "updatechecker.h"
+#include "storageinfo.h"
 
 #include <QListWidget>
 #include <QTimeEdit>
@@ -381,6 +382,19 @@ void SettingsWidget::refresh() {
   populateFontFamilies();
 
   ui->cookieSize->setText(Utils::refreshCacheSize(persistentStoragePath()));
+  ui->cacheSize->setText(
+      StorageInfo::humanReadable(StorageInfo::directorySize(cachePath())));
+}
+
+void SettingsWidget::on_clearCacheButton_clicked() {
+  if (QMessageBox::question(
+          this, tr("Clear cache"),
+          tr("Clear the cache now? It will be re-downloaded as needed.")) !=
+      QMessageBox::Yes)
+    return;
+  if (Utils::delete_cache(cachePath()))
+    ui->cacheSize->setText(
+        StorageInfo::humanReadable(StorageInfo::directorySize(cachePath())));
 }
 
 void SettingsWidget::updateDefaultUAButton(const QString engineUA) {

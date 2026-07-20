@@ -1419,6 +1419,18 @@ Configure primero la contraseña en los ajustes.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>La caché HTTP y de contenido multimedia. Borrarla es seguro — se vuelve a descargar cuando sea necesario.</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>Caché</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  Borrar caché</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>Tamaño</translation>
     </message>
@@ -1725,6 +1737,14 @@ Configure primero la contraseña en los ajustes.</translation>
     <message>
         <source>None</source>
         <translation>Ninguno</translation>
+    </message>
+    <message>
+        <source>Clear cache</source>
+        <translation>Borrar caché</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>¿Borrar la caché ahora? Se volverá a descargar cuando sea necesario.</translation>
     </message>
     <message>
         <source>%1 languages</source>

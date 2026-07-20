@@ -1419,6 +1419,18 @@ Silakan atur kata sandi di pengaturan terlebih dahulu.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>Cache HTTP/media. Menghapusnya aman — akan diunduh ulang saat diperlukan.</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>Cache</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  Hapus cache</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>Ukuran</translation>
     </message>
@@ -1725,6 +1737,14 @@ Silakan atur kata sandi di pengaturan terlebih dahulu.</translation>
     <message>
         <source>None</source>
         <translation>Tidak ada</translation>
+    </message>
+    <message>
+        <source>Clear cache</source>
+        <translation>Hapus cache</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>Hapus cache sekarang? Cache akan diunduh ulang saat diperlukan.</translation>
     </message>
     <message>
         <source>%1 languages</source>

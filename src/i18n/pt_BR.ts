@@ -1419,6 +1419,18 @@ Defina primeiro a senha nas configurações.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>O cache HTTP/de mídia. Limpá-lo é seguro — ele é baixado novamente quando necessário.</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>Cache</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  Limpar cache</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>Tamanho</translation>
     </message>
@@ -1725,6 +1737,14 @@ Defina primeiro a senha nas configurações.</translation>
     <message>
         <source>None</source>
         <translation>Nenhum</translation>
+    </message>
+    <message>
+        <source>Clear cache</source>
+        <translation>Limpar cache</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>Limpar o cache agora? Ele será baixado novamente quando necessário.</translation>
     </message>
     <message>
         <source>%1 languages</source>

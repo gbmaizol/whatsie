@@ -1419,6 +1419,18 @@ Najpierw ustaw hasło w ustawieniach.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>Pamięć podręczna HTTP/multimediów. Jej wyczyszczenie jest bezpieczne — zostanie pobrana ponownie w razie potrzeby.</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>Pamięć podręczna</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  Wyczyść pamięć podręczną</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>Rozmiar</translation>
     </message>
@@ -1725,6 +1737,14 @@ Najpierw ustaw hasło w ustawieniach.</translation>
     <message>
         <source>None</source>
         <translation>Brak</translation>
+    </message>
+    <message>
+        <source>Clear cache</source>
+        <translation>Wyczyść pamięć podręczną</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>Wyczyścić pamięć podręczną teraz? Zostanie pobrana ponownie w razie potrzeby.</translation>
     </message>
     <message>
         <source>%1 languages</source>

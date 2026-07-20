@@ -197,6 +197,7 @@ set(SOURCES
     src/customjs.cpp
     src/commandpalette.cpp
     src/updatechecker.cpp
+    src/storageinfo.cpp
     src/globalshortcut.cpp
     src/privacyblur.cpp
     src/performance.cpp
@@ -249,6 +250,7 @@ set(HEADERS
     src/customjs.h
     src/commandpalette.h
     src/updatechecker.h
+    src/storageinfo.h
     src/privacyblur.h
     src/performance.h
     src/notificationrules.h

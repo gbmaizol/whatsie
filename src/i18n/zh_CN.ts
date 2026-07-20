@@ -1419,6 +1419,18 @@ Please setup the password in the Settings first.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>HTTP/媒体缓存。清除它是安全的 — 需要时会重新下载。</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>缓存</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  清除缓存</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>大小</translation>
     </message>
@@ -1725,6 +1737,14 @@ Please setup the password in the Settings first.</source>
     <message>
         <source>None</source>
         <translation>无</translation>
+    </message>
+    <message>
+        <source>Clear cache</source>
+        <translation>清除缓存</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>现在清除缓存吗？需要时会重新下载。</translation>
     </message>
     <message>
         <source>%1 languages</source>

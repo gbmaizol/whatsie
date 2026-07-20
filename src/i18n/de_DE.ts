@@ -1419,6 +1419,18 @@ Bitte legen Sie zuerst das Passwort in den Einstellungen fest.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>Der HTTP-/Medien-Cache. Das Leeren ist unbedenklich — er wird bei Bedarf erneut heruntergeladen.</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>Cache</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  Cache leeren</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>Größe</translation>
     </message>
@@ -1725,6 +1737,14 @@ Bitte legen Sie zuerst das Passwort in den Einstellungen fest.</translation>
     <message>
         <source>None</source>
         <translation>Keine</translation>
+    </message>
+    <message>
+        <source>Clear cache</source>
+        <translation>Cache leeren</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>Cache jetzt leeren? Er wird bei Bedarf erneut heruntergeladen.</translation>
     </message>
     <message>
         <source>%1 languages</source>

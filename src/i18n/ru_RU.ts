@@ -1419,6 +1419,18 @@ Please setup the password in the Settings first.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>The HTTP/media cache. Clearing it is safe — it is re-downloaded as needed.</source>
+        <translation>Кэш HTTP и медиафайлов. Его очистка безопасна — он загружается заново по мере необходимости.</translation>
+    </message>
+    <message>
+        <source>Cache</source>
+        <translation>Кэш</translation>
+    </message>
+    <message>
+        <source>  Clear cache</source>
+        <translation>  Очистить кэш</translation>
+    </message>
+    <message>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
@@ -1725,6 +1737,14 @@ Please setup the password in the Settings first.</source>
     <message>
         <source>None</source>
         <translation>Нет</translation>
+    </message>
+    <message>
+        <source>Clear cache</source>
+        <translation>Очистить кэш</translation>
+    </message>
+    <message>
+        <source>Clear the cache now? It will be re-downloaded as needed.</source>
+        <translation>Очистить кэш сейчас? Он будет загружен заново по мере необходимости.</translation>
     </message>
     <message>
         <source>%1 languages</source>

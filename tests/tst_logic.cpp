@@ -36,6 +36,7 @@
 #include "customjs.h"
 #include "commandpalette.h"
 #include "updatechecker.h"
+#include "storageinfo.h"
 #include "webtweaks.h"
 #include "linkeddevicename.h"
 #include "performance.h"
@@ -968,6 +969,36 @@ private slots:
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
+// StorageInfo: recursive directory size and the human-readable formatter.
+class TstStorageInfo : public QObject {
+  Q_OBJECT
+private slots:
+  void humanReadableUnits() {
+    QCOMPARE(StorageInfo::humanReadable(0), QStringLiteral("0 B"));
+    QCOMPARE(StorageInfo::humanReadable(512), QStringLiteral("512 B"));
+    QCOMPARE(StorageInfo::humanReadable(1024), QStringLiteral("1.0 KB"));
+    QCOMPARE(StorageInfo::humanReadable(1536), QStringLiteral("1.5 KB"));
+    QCOMPARE(StorageInfo::humanReadable(1024 * 1024), QStringLiteral("1.0 MB"));
+    QCOMPARE(StorageInfo::humanReadable(-5), QStringLiteral("0 B"));
+  }
+  void directorySizeSumsFiles() {
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    QVERIFY(QDir(dir.path()).mkpath(QStringLiteral("sub")));
+    auto write = [](const QString &p, int n) {
+      QFile f(p);
+      QVERIFY(f.open(QIODevice::WriteOnly));
+      f.write(QByteArray(n, 'x'));
+    };
+    write(dir.filePath(QStringLiteral("a.bin")), 100);
+    write(dir.filePath(QStringLiteral("sub/b.bin")), 250);
+    QCOMPARE(StorageInfo::directorySize(dir.path()), qint64(350));
+    QCOMPARE(StorageInfo::directorySize(QStringLiteral("/no/such/dir")),
+             qint64(0));
+  }
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 // UpdateCheck: version comparison and release-JSON parsing (no network).
 class TstUpdateCheck : public QObject {
   Q_OBJECT
@@ -1322,6 +1353,7 @@ int main(int argc, char *argv[]) {
   { TstCustomJs t;            run(&t); }
   { TstChatWallpaper t;       run(&t); }
   { TstPerformance t;         run(&t); }
+  { TstStorageInfo t;         run(&t); }
   { TstUpdateCheck t;         run(&t); }
   { TstFuzzy t;               run(&t); }
   { TstNotificationRules t;   run(&t); }

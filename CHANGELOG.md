@@ -1,5 +1,10 @@
 ## Unreleased
 
+**Storage manager.** Settings → Storage now also shows the cache size and
+has its own *Clear cache* button (separate from clearing all persistent
+data), so you can reclaim space without signing out. The size helpers are
+covered by unit tests (`TstStorageInfo`).
+
 **Update checker.** Whatly can now check GitHub once a day for a newer
 release and let you know with a click-through notification — it never
 downloads or installs anything itself. Opt out in Settings → *Network &
