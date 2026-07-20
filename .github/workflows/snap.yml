@@ -1,0 +1,56 @@
+name: Snap
+
+# Build the snap on every push to main and publish it to the store's edge
+# channel, so edge always tracks the latest commit. Tagged releases are promoted
+# to stable separately (by hand, after they have been tried on edge).
+on:
+  push:
+    branches: [main]
+    # Skip a ~40-minute snap build for changes that cannot affect it.
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'LICENSE'
+  workflow_dispatch:
+
+concurrency:
+  # Only the newest commit's snap matters; cancel any in-flight older build.
+  group: snap-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    # Never run for forks: they have no store credentials, and edge is ours.
+    if: github.repository == 'shakaran/whatly'
+    env:
+      # Referenced in the publish step's `if:` so the build still runs (and is
+      # cached) before the secret has been added, without the job going red.
+      SNAP_STORE_CREDS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          submodules: recursive
+
+      - name: Build the snap
+        uses: snapcore/action-build@v1
+        id: build
+
+      - name: Publish to edge
+        if: env.SNAP_STORE_CREDS != ''
+        uses: snapcore/action-publish@v1
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+        with:
+          snap: ${{ steps.build.outputs.snap }}
+          release: edge
+
+      - name: Credentials not set (skipped publish)
+        if: env.SNAP_STORE_CREDS == ''
+        run: |
+          echo "::warning::Built the snap but did not publish: the "
+          echo "SNAPCRAFT_STORE_CREDENTIALS secret is not set. Add it with:"
+          echo "  snapcraft export-login --snaps=whatly \\"
+          echo "    --acls package_push,package_release,package_update \\"
+          echo "    --channels=edge snapcraft-creds.txt"
+          echo "then paste the file's contents into the repo secret."
