@@ -1,5 +1,11 @@
 ## Unreleased
 
+**Quick reply from a notification.** Clicking a notification now opens the
+chat *and* puts the caret in the message box, so you can reply by just
+typing — no extra click. (A text field inside the notification itself is
+deliberately not used: the XDG portal spec has no standard entry field and
+the freedesktop inline-reply capability is not available on every backend.)
+
 **Lock when the screen locks.** With a passcode configured, Whatly can now
 lock itself the moment the desktop session locks (it listens for the
 freedesktop/GNOME screensaver signal over D-Bus), not just on a timer or

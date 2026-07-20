@@ -33,6 +33,7 @@
 #include "setupwizard.h"
 #include "customtitlebar.h"
 #include "updatechecker.h"
+#include "quickreply.h"
 
 #include <QTimer>
 #include <QDesktopServices>
@@ -861,6 +862,9 @@ void MainWindow::notificationClicked() {
     setWindowState(windowState() & ~Qt::WindowMinimized);
   raise();
   activateWindow();
+  // Quick reply: put the caret in the message box so the user can just type.
+  if (m_webEngine && m_webEngine->page())
+    m_webEngine->page()->runJavaScript(QuickReply::focusComposerScript());
 }
 
 // ── Lifecycle events ──────────────────────────────────────────────────────────

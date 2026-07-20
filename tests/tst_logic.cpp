@@ -40,6 +40,7 @@
 #include "shortcuts.h"
 #include "backup.h"
 #include "screenlock.h"
+#include "quickreply.h"
 #include "webtweaks.h"
 #include "linkeddevicename.h"
 #include "performance.h"
@@ -972,6 +973,26 @@ private slots:
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
+// QuickReply: the composer-focus snippet injected when a notification is opened.
+class TstQuickReply : public QObject {
+  Q_OBJECT
+private slots:
+  void scriptIsGuardedAndTargetsComposer() {
+    const QString js = QuickReply::focusComposerScript();
+    QVERIFY(!js.isEmpty());
+    // Wrapped in an IIFE with a try/catch so it can never break the page.
+    QVERIFY(js.contains(QLatin1String("try")));
+    QVERIFY(js.contains(QLatin1String("catch")));
+    // Targets the footer composer and focuses it.
+    QVERIFY(js.contains(QLatin1String("footer")));
+    QVERIFY(js.contains(QLatin1String("contenteditable")));
+    QVERIFY(js.contains(QLatin1String(".focus()")));
+    // Gives up rather than polling forever.
+    QVERIFY(js.contains(QLatin1String("clearInterval")));
+  }
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 // ScreenLock: the lock-on-session-lock decision.
 class TstScreenLock : public QObject {
   Q_OBJECT
@@ -1468,6 +1489,7 @@ int main(int argc, char *argv[]) {
   { TstShortcuts t;           run(&t); }
   { TstBackup t;              run(&t); }
   { TstScreenLock t;          run(&t); }
+  { TstQuickReply t;          run(&t); }
   { TstStorageInfo t;         run(&t); }
   { TstUpdateCheck t;         run(&t); }
   { TstFuzzy t;               run(&t); }

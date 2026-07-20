@@ -201,6 +201,7 @@ set(SOURCES
     src/shortcuts.cpp
     src/backup.cpp
     src/screenlock.cpp
+    src/quickreply.cpp
     src/globalshortcut.cpp
     src/privacyblur.cpp
     src/performance.cpp
@@ -257,6 +258,7 @@ set(HEADERS
     src/shortcuts.h
     src/backup.h
     src/screenlock.h
+    src/quickreply.h
     src/privacyblur.h
     src/performance.h
     src/notificationrules.h
