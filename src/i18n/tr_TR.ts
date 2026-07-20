@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -18,7 +18,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>-</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Designed &amp;amp; Developed by:&lt;/span&gt; Keshav Bhatt &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Email: &lt;/span&gt;keshavnrj@gmail.com&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Website:&lt;/span&gt; http://ktechpit.com&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -77,7 +77,7 @@ p, li { white-space: pre-wrap; }
     <name>AutomaticTheme</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sunrise</source>
@@ -315,7 +315,7 @@ Güvenlik denetimini atlayıp devam etmek istiyor musunuz?   </translation>
     <name>Lock</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set lock passcode</source>
@@ -537,7 +537,7 @@ Ayarlar şimdi açılsın mı?</translation>
     <name>MoreApps</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>... ... ... ...</source>
@@ -578,7 +578,7 @@ Ayarlar şimdi açılsın mı?</translation>
     <name>PermissionDialog</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Feature</source>
@@ -623,7 +623,7 @@ Ayarlar şimdi açılsın mı?</translation>
 
 
 </source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide Debug Info</source>
@@ -792,7 +792,7 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     <name>RateApp</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rate this app</source>
@@ -941,7 +941,7 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     </message>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1018,6 +1018,38 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     <message>
         <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
         <translation>Linux&apos;ta yerel bildirimlerin nasıl gönderileceği. Otomatik seçeneği, Flatpak korumalı alanı içinde masaüstü portalını, aksi durumda sistem hizmetini kullanır.</translation>
+    </message>
+    <message>
+        <source>Suppress notification popups during a daily quiet period. Unread badges still update; only the popup is held back.</source>
+        <translation>Günlük sessiz dönemde bildirim açılır pencerelerini gizler. Okunmadı rozetleri yine de güncellenir; yalnızca açılır pencere tutulur.</translation>
+    </message>
+    <message>
+        <source>Do Not Disturb</source>
+        <translation>Rahatsız Etme</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Başlangıç</translation>
+    </message>
+    <message>
+        <source>HH:mm</source>
+        <translation>HH:mm</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>Bitiş</translation>
+    </message>
+    <message>
+        <source>Highlight keywords</source>
+        <translation>Anahtar sözcükleri vurgula</translation>
+    </message>
+    <message>
+        <source>Comma-separated words that always notify, even during Do Not Disturb (case-insensitive).</source>
+        <translation>Rahatsız Etme sırasında bile her zaman bildirim gönderen, virgülle ayrılmış sözcükler (büyük/küçük harfe duyarsız).</translation>
+    </message>
+    <message>
+        <source>e.g. urgent, boss, invoice</source>
+        <translation>örn. acil, patron, fatura</translation>
     </message>
     <message>
         <source>Use Native File Dialog</source>
@@ -1305,7 +1337,7 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
     </message>
     <message>
         <source>-</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Size</source>

@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -18,7 +18,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>-</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Designed &amp;amp; Developed by:&lt;/span&gt; Keshav Bhatt &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Email: &lt;/span&gt;keshavnrj@gmail.com&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Website:&lt;/span&gt; http://ktechpit.com&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -77,7 +77,7 @@ p, li { white-space: pre-wrap; }
     <name>AutomaticTheme</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sunrise</source>
@@ -315,7 +315,7 @@ Deseja ignorar a verificação de segurança e continuar?   </translation>
     <name>Lock</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set lock passcode</source>
@@ -537,7 +537,7 @@ Abrir as configurações agora?</translation>
     <name>MoreApps</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>... ... ... ...</source>
@@ -578,7 +578,7 @@ Abrir as configurações agora?</translation>
     <name>PermissionDialog</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Feature</source>
@@ -623,7 +623,7 @@ Abrir as configurações agora?</translation>
 
 
 </source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide Debug Info</source>
@@ -792,7 +792,7 @@ Defina primeiro a senha nas configurações.</translation>
     <name>RateApp</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rate this app</source>
@@ -941,7 +941,7 @@ Defina primeiro a senha nas configurações.</translation>
     </message>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1018,6 +1018,38 @@ Defina primeiro a senha nas configurações.</translation>
     <message>
         <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
         <translation>Como as notificações nativas são enviadas no Linux. O modo automático usa o portal do desktop dentro de um sandbox Flatpak e o serviço do sistema nos demais casos.</translation>
+    </message>
+    <message>
+        <source>Suppress notification popups during a daily quiet period. Unread badges still update; only the popup is held back.</source>
+        <translation>Suprime os pop-ups de notificação durante um período de silêncio diário. Os selos de não lidas continuam sendo atualizados; apenas o pop-up é retido.</translation>
+    </message>
+    <message>
+        <source>Do Not Disturb</source>
+        <translation>Não perturbe</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>De</translation>
+    </message>
+    <message>
+        <source>HH:mm</source>
+        <translation>HH:mm</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>até</translation>
+    </message>
+    <message>
+        <source>Highlight keywords</source>
+        <translation>Destacar palavras-chave</translation>
+    </message>
+    <message>
+        <source>Comma-separated words that always notify, even during Do Not Disturb (case-insensitive).</source>
+        <translation>Palavras separadas por vírgulas que sempre notificam, mesmo durante o Não perturbe (não diferencia maiúsculas de minúsculas).</translation>
+    </message>
+    <message>
+        <source>e.g. urgent, boss, invoice</source>
+        <translation>ex.: urgente, chefe, fatura</translation>
     </message>
     <message>
         <source>Use Native File Dialog</source>
@@ -1305,7 +1337,7 @@ Defina primeiro a senha nas configurações.</translation>
     </message>
     <message>
         <source>-</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Size</source>

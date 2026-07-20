@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -18,7 +18,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>-</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Designed &amp;amp; Developed by:&lt;/span&gt; Keshav Bhatt &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Email: &lt;/span&gt;keshavnrj@gmail.com&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Website:&lt;/span&gt; http://ktechpit.com&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -77,7 +77,7 @@ p, li { white-space: pre-wrap; }
     <name>AutomaticTheme</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sunrise</source>
@@ -315,7 +315,7 @@ Do you wish to override the security check and continue ?   </source>
     <name>Lock</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set lock passcode</source>
@@ -537,7 +537,7 @@ Open Settings now?</source>
     <name>MoreApps</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>... ... ... ...</source>
@@ -578,7 +578,7 @@ Open Settings now?</source>
     <name>PermissionDialog</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Feature</source>
@@ -623,7 +623,7 @@ Open Settings now?</source>
 
 
 </source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide Debug Info</source>
@@ -792,7 +792,7 @@ Please setup the password in the Settings first.</source>
     <name>RateApp</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rate this app</source>
@@ -941,7 +941,7 @@ Please setup the password in the Settings first.</source>
     </message>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1018,6 +1018,38 @@ Please setup the password in the Settings first.</source>
     <message>
         <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
         <translation>Linux पर नेटिव सूचनाएँ कैसे भेजी जाती हैं। स्वचालित मोड Flatpak सैंडबॉक्स के भीतर डेस्कटॉप पोर्टल का और अन्यथा सिस्टम सेवा का उपयोग करता है।</translation>
+    </message>
+    <message>
+        <source>Suppress notification popups during a daily quiet period. Unread badges still update; only the popup is held back.</source>
+        <translation>दैनिक शांत अवधि के दौरान सूचना पॉपअप को रोकें। अपठित बैज फिर भी अपडेट होते रहेंगे; केवल पॉपअप रोका जाता है।</translation>
+    </message>
+    <message>
+        <source>Do Not Disturb</source>
+        <translation>परेशान न करें</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>से</translation>
+    </message>
+    <message>
+        <source>HH:mm</source>
+        <translation>HH:mm</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>तक</translation>
+    </message>
+    <message>
+        <source>Highlight keywords</source>
+        <translation>मुख्य शब्द हाइलाइट करें</translation>
+    </message>
+    <message>
+        <source>Comma-separated words that always notify, even during Do Not Disturb (case-insensitive).</source>
+        <translation>अल्पविराम से अलग किए गए शब्द जो हमेशा सूचित करते हैं, यहाँ तक कि परेशान न करें के दौरान भी (अक्षर-आकार असंवेदनशील)।</translation>
+    </message>
+    <message>
+        <source>e.g. urgent, boss, invoice</source>
+        <translation>जैसे अत्यावश्यक, बॉस, बिल</translation>
     </message>
     <message>
         <source>Use Native File Dialog</source>
@@ -1305,7 +1337,7 @@ Please setup the password in the Settings first.</source>
     </message>
     <message>
         <source>-</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Size</source>

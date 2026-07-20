@@ -198,6 +198,7 @@ set(SOURCES
     src/globalshortcut.cpp
     src/privacyblur.cpp
     src/performance.cpp
+    src/notificationrules.cpp
     src/networkproxy.cpp
     src/autostart.cpp
     src/portalnotification.cpp
@@ -246,6 +247,7 @@ set(HEADERS
     src/customjs.h
     src/privacyblur.h
     src/performance.h
+    src/notificationrules.h
     src/networkproxy.h
     src/autostart.h
     src/portalnotification.h

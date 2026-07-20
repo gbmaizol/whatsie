@@ -33,8 +33,11 @@
 #include "autostart.h"
 #include "customjs.h"
 #include "customtitlebar.h"
+#include "notificationrules.h"
 
 #include <QListWidget>
+#include <QTimeEdit>
+#include <QTime>
 
 // The theme combo's two entries, in .ui order. The stored value is derived
 // from these, never from the item text — which is translated.
@@ -169,6 +172,7 @@ SettingsWidget::SettingsWidget(QWidget *parent, int screenNumber,
   ui->interfaceFontSizeSpinBox->blockSignals(false);
   loadPerformanceSettings();
   loadNetworkSettings();
+  loadNotificationRules();
   refreshJsAddonsList();
   ui->lockOnMinimizeCheckBox->setChecked(
       SettingsManager::instance().settings().value("lockOnHideToTray", false).toBool());
@@ -952,6 +956,52 @@ void SettingsWidget::on_notificationBackendComboBox_currentIndexChanged(
   SettingsManager::instance().settings().setValue(
       "notificationBackend",
       ui->notificationBackendComboBox->itemData(index).toString());
+}
+
+void SettingsWidget::loadNotificationRules() {
+  ui->dndCheckBox->blockSignals(true);
+  ui->dndCheckBox->setChecked(NotificationRules::dndEnabled());
+  ui->dndCheckBox->blockSignals(false);
+
+  const QString fmt = QStringLiteral("HH:mm");
+  ui->dndStartTimeEdit->blockSignals(true);
+  ui->dndStartTimeEdit->setTime(QTime::fromString(NotificationRules::dndStart(), fmt));
+  ui->dndStartTimeEdit->blockSignals(false);
+  ui->dndEndTimeEdit->blockSignals(true);
+  ui->dndEndTimeEdit->setTime(QTime::fromString(NotificationRules::dndEnd(), fmt));
+  ui->dndEndTimeEdit->blockSignals(false);
+
+  ui->keywordsLineEdit->setText(NotificationRules::keywords().join(QStringLiteral(", ")));
+
+  const bool on = NotificationRules::dndEnabled();
+  ui->dndStartTimeEdit->setEnabled(on);
+  ui->dndEndTimeEdit->setEnabled(on);
+}
+
+void SettingsWidget::on_dndCheckBox_toggled(bool checked) {
+  NotificationRules::setDndEnabled(checked);
+  ui->dndStartTimeEdit->setEnabled(checked);
+  ui->dndEndTimeEdit->setEnabled(checked);
+}
+
+void SettingsWidget::on_dndStartTimeEdit_timeChanged(const QTime &t) {
+  NotificationRules::setDndStart(t.toString(QStringLiteral("HH:mm")));
+}
+
+void SettingsWidget::on_dndEndTimeEdit_timeChanged(const QTime &t) {
+  NotificationRules::setDndEnd(t.toString(QStringLiteral("HH:mm")));
+}
+
+void SettingsWidget::on_keywordsLineEdit_editingFinished() {
+  const QStringList words =
+      ui->keywordsLineEdit->text().split(QLatin1Char(','), Qt::SkipEmptyParts);
+  QStringList cleaned;
+  for (const QString &w : words) {
+    const QString t = w.trimmed();
+    if (!t.isEmpty())
+      cleaned << t;
+  }
+  NotificationRules::setKeywords(cleaned);
 }
 
 void SettingsWidget::refreshJsAddonsList() {

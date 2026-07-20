@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -18,7 +18,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>-</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Designed &amp;amp; Developed by:&lt;/span&gt; Keshav Bhatt &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Email: &lt;/span&gt;keshavnrj@gmail.com&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Website:&lt;/span&gt; http://ktechpit.com&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -77,7 +77,7 @@ p, li { white-space: pre-wrap; }
     <name>AutomaticTheme</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sunrise</source>
@@ -315,7 +315,7 @@ Do you wish to override the security check and continue ?   </source>
     <name>Lock</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set lock passcode</source>
@@ -537,7 +537,7 @@ Open Settings now?</source>
     <name>MoreApps</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>... ... ... ...</source>
@@ -578,7 +578,7 @@ Open Settings now?</source>
     <name>PermissionDialog</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Feature</source>
@@ -623,7 +623,7 @@ Open Settings now?</source>
 
 
 </source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide Debug Info</source>
@@ -792,7 +792,7 @@ Please setup the password in the Settings first.</source>
     <name>RateApp</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rate this app</source>
@@ -941,7 +941,7 @@ Please setup the password in the Settings first.</source>
     </message>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1018,6 +1018,38 @@ Please setup the password in the Settings first.</source>
     <message>
         <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
         <translation>Linux에서 네이티브 알림을 보내는 방식입니다. 자동은 Flatpak 샌드박스 내에서는 데스크톱 포털을, 그 외에는 시스템 서비스를 사용합니다.</translation>
+    </message>
+    <message>
+        <source>Suppress notification popups during a daily quiet period. Unread badges still update; only the popup is held back.</source>
+        <translation>매일 지정한 조용한 시간대에 알림 팝업을 표시하지 않습니다. 읽지 않음 배지는 계속 업데이트되며 팝업만 보류됩니다.</translation>
+    </message>
+    <message>
+        <source>Do Not Disturb</source>
+        <translation>방해 금지</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>시작</translation>
+    </message>
+    <message>
+        <source>HH:mm</source>
+        <translation>HH:mm</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>종료</translation>
+    </message>
+    <message>
+        <source>Highlight keywords</source>
+        <translation>키워드 강조</translation>
+    </message>
+    <message>
+        <source>Comma-separated words that always notify, even during Do Not Disturb (case-insensitive).</source>
+        <translation>쉼표로 구분된 단어로, 방해 금지 중에도 항상 알림을 보냅니다(대소문자 구분 안 함).</translation>
+    </message>
+    <message>
+        <source>e.g. urgent, boss, invoice</source>
+        <translation>예: 긴급, 상사, 청구서</translation>
     </message>
     <message>
         <source>Use Native File Dialog</source>
@@ -1305,7 +1337,7 @@ Please setup the password in the Settings first.</source>
     </message>
     <message>
         <source>-</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Size</source>

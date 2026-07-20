@@ -99,12 +99,12 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Disable and Close</source>
         <translatorcomment>Disabilita e Chiudi</translatorcomment>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>  Enable and Close</source>
         <translatorcomment>Abilita e Chiudi</translatorcomment>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Error</source>
@@ -143,7 +143,7 @@ Riprova.</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>If you wish so, you may continue with an unverified certificate. Accepting an unverified certificate mean you may not be connected with the host you tried to connect to.
@@ -547,7 +547,7 @@ WebEngine non è inizializzato.</translation>
     </message>
     <message>
         <source>... ... ... ...</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -569,7 +569,7 @@ WebEngine non è inizializzato.</translation>
     </message>
     <message>
         <source>Info</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Username:</source>
@@ -629,7 +629,7 @@ WebEngine non è inizializzato.</translation>
 
 
 </source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Hide Debug Info</source>
@@ -798,7 +798,7 @@ Imposta la password nelle Impostazioni.</translation>
     <name>RateApp</name>
     <message>
         <source>Form</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rate this app</source>
@@ -806,7 +806,7 @@ Imposta la password nelle Impostazioni.</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;If you enjoy using this app, would you mind taking a moment to rate it?&lt;/p&gt;&lt;p&gt;It won&apos;t take more than a minute. Thanks you for your support!&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>  Rate in Store</source>
@@ -964,7 +964,7 @@ Imposta la password nelle Impostazioni.</translation>
     </message>
     <message>
         <source>Widget Theme</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Based on your system timezone and location.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -1025,6 +1025,38 @@ Imposta la password nelle Impostazioni.</translation>
     <message>
         <source>How native notifications are sent on Linux. Automatic uses the desktop portal inside a Flatpak sandbox and the system service otherwise.</source>
         <translation>Come vengono inviate le notifiche native su Linux. La modalità automatica usa il portale desktop all&apos;interno di una sandbox Flatpak e il servizio di sistema negli altri casi.</translation>
+    </message>
+    <message>
+        <source>Suppress notification popups during a daily quiet period. Unread badges still update; only the popup is held back.</source>
+        <translation>Nasconde i popup di notifica durante un periodo di silenzio giornaliero. Gli indicatori di messaggi non letti continuano ad aggiornarsi; viene trattenuto solo il popup.</translation>
+    </message>
+    <message>
+        <source>Do Not Disturb</source>
+        <translation>Non disturbare</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Dalle</translation>
+    </message>
+    <message>
+        <source>HH:mm</source>
+        <translation>HH:mm</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>alle</translation>
+    </message>
+    <message>
+        <source>Highlight keywords</source>
+        <translation>Evidenzia parole chiave</translation>
+    </message>
+    <message>
+        <source>Comma-separated words that always notify, even during Do Not Disturb (case-insensitive).</source>
+        <translation>Parole separate da virgole che notificano sempre, anche durante Non disturbare (senza distinzione tra maiuscole e minuscole).</translation>
+    </message>
+    <message>
+        <source>e.g. urgent, boss, invoice</source>
+        <translation>es. urgente, capo, fattura</translation>
     </message>
     <message>
         <source>Use Native File Dialog</source>
@@ -1416,7 +1448,7 @@ Imposta la password nelle Impostazioni.</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enable lock screen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable App lock on start</source>
@@ -1452,7 +1484,7 @@ Imposta la password nelle Impostazioni.</translation>
     </message>
     <message>
         <source>-</source>
-        <translation></translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Property</source>

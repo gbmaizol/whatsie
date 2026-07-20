@@ -38,6 +38,7 @@
 #include "linkeddevicename.h"
 #include "performance.h"
 #include "networkproxy.h"
+#include "notificationrules.h"
 #include "autostart.h"
 #include "portalnotification.h"
 #include "setupwizard.h"
@@ -930,6 +931,60 @@ private slots:
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
+// NotificationRules: shouldNotify() is a pure function of the stored rules, so
+// the DND window (including wrap-around) and keyword override are testable.
+class TstNotificationRules : public QObject {
+  Q_OBJECT
+private slots:
+  void init() {
+    NotificationRules::setDndEnabled(false);
+    NotificationRules::setDndStart(QStringLiteral("22:00"));
+    NotificationRules::setDndEnd(QStringLiteral("08:00"));
+    NotificationRules::setKeywords({});
+  }
+
+  QDateTime at(int h, int m) {
+    return QDateTime(QDate(2026, 1, 1), QTime(h, m));
+  }
+
+  void notifiesWhenDndOff() {
+    QVERIFY(NotificationRules::shouldNotify(at(3, 0), "A", "hello"));
+  }
+
+  void wrapAroundWindowSuppresses() {
+    NotificationRules::setDndEnabled(true); // 22:00 → 08:00
+    QVERIFY(NotificationRules::inDndWindow(at(23, 0)));
+    QVERIFY(NotificationRules::inDndWindow(at(2, 0)));
+    QVERIFY(!NotificationRules::inDndWindow(at(12, 0)));
+    QVERIFY(!NotificationRules::shouldNotify(at(2, 0), "A", "hi"));
+    QVERIFY(NotificationRules::shouldNotify(at(12, 0), "A", "hi"));
+  }
+
+  void sameDayWindow() {
+    NotificationRules::setDndEnabled(true);
+    NotificationRules::setDndStart(QStringLiteral("09:00"));
+    NotificationRules::setDndEnd(QStringLiteral("17:00"));
+    QVERIFY(NotificationRules::inDndWindow(at(12, 0)));
+    QVERIFY(!NotificationRules::inDndWindow(at(20, 0)));
+  }
+
+  void keywordBreaksThroughDnd() {
+    NotificationRules::setDndEnabled(true); // 22:00 → 08:00
+    NotificationRules::setKeywords({QStringLiteral("urgent"), QStringLiteral("boss")});
+    QVERIFY(NotificationRules::matchesKeyword("Msg", "this is URGENT"));
+    QVERIFY(NotificationRules::shouldNotify(at(2, 0), "Msg", "this is urgent"));
+    QVERIFY(!NotificationRules::shouldNotify(at(2, 0), "Msg", "nothing here"));
+  }
+
+  void zeroLengthWindowNeverSuppresses() {
+    NotificationRules::setDndEnabled(true);
+    NotificationRules::setDndStart(QStringLiteral("10:00"));
+    NotificationRules::setDndEnd(QStringLiteral("10:00"));
+    QVERIFY(!NotificationRules::inDndWindow(at(10, 0)));
+  }
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 // NetworkProxy: the stored mode/host/port round-trip and applyToApplication()
 // installs the right QNetworkProxy. Runs in QStandardPaths test mode.
 class TstNetworkProxy : public QObject {
@@ -1168,6 +1223,7 @@ int main(int argc, char *argv[]) {
   { TstCustomJs t;            run(&t); }
   { TstChatWallpaper t;       run(&t); }
   { TstPerformance t;         run(&t); }
+  { TstNotificationRules t;   run(&t); }
   { TstNetworkProxy t;        run(&t); }
   { TstAutostart t;           run(&t); }
   { TstPortalNotification t;  run(&t); }

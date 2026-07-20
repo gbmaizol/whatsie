@@ -4,6 +4,7 @@
 #include <QWidget>
 
 class QListWidgetItem;
+class QTime;
 
 #include "permissiondialog.h"
 #include "settingsmanager.h"
@@ -130,6 +131,10 @@ private slots:
   void on_proxyUserLineEdit_editingFinished();
   void on_proxyPasswordLineEdit_editingFinished();
   void on_notificationBackendComboBox_currentIndexChanged(int index);
+  void on_dndCheckBox_toggled(bool checked);
+  void on_dndStartTimeEdit_timeChanged(const QTime &t);
+  void on_dndEndTimeEdit_timeChanged(const QTime &t);
+  void on_keywordsLineEdit_editingFinished();
   void on_addJsAddonButton_clicked();
   void on_removeJsAddonButton_clicked();
   void on_jsAddonsList_itemChanged(QListWidgetItem *item);
@@ -153,6 +158,7 @@ private slots:
 private:
   void loadPerformanceSettings();
   void loadNetworkSettings();
+  void loadNotificationRules();
   void refreshJsAddonsList();
   void updateChatWallpaperButtons();
   void updateCustomCssButtons();

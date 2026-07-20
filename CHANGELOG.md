@@ -1,3 +1,11 @@
+## Unreleased
+
+**Do Not Disturb & keyword highlights.** Settings → notifications now has a daily
+quiet period that suppresses notification popups (unread badges still update),
+plus a list of highlight keywords that always break through — even during Do Not
+Disturb — when they appear in a message. The DND window may wrap past midnight.
+Covered by new unit tests (`TstNotificationRules`).
+
 ## 6.3.0 (2026-07-20)
 
 A sweep of engine-tuning, connectivity and customisation features, with every

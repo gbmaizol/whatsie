@@ -48,7 +48,7 @@ add_executable(tst_logic
     ${S}/scheduledmessages.cpp
     ${S}/webfont.cpp ${S}/chattheme.cpp ${S}/mutedstatus.cpp ${S}/privacyblur.cpp
     ${S}/chatwallpaper.cpp ${S}/customcss.cpp ${S}/customjs.cpp ${S}/webtweaks.cpp
-    ${S}/linkeddevicename.cpp ${S}/performance.cpp
+    ${S}/linkeddevicename.cpp ${S}/performance.cpp ${S}/notificationrules.cpp
     ${S}/networkproxy.cpp ${S}/autostart.cpp ${S}/portalnotification.cpp
     ${S}/setupwizard.cpp
     ${S}/icons.qrc

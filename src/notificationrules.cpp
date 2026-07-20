@@ -1,0 +1,81 @@
+#include "notificationrules.h"
+#include "settingsmanager.h"
+
+#include <QDateTime>
+#include <QTime>
+
+namespace {
+QTime parse(const QString &hhmm, const QTime &fallback) {
+  const QTime t = QTime::fromString(hhmm, QStringLiteral("HH:mm"));
+  return t.isValid() ? t : fallback;
+}
+} // namespace
+
+namespace NotificationRules {
+
+QSettings &settings() { return SettingsManager::instance().settings(); }
+
+bool dndEnabled() {
+  return settings().value(QStringLiteral("notif/dndEnabled"), false).toBool();
+}
+QString dndStart() {
+  return settings().value(QStringLiteral("notif/dndStart"),
+                          QStringLiteral("22:00")).toString();
+}
+QString dndEnd() {
+  return settings().value(QStringLiteral("notif/dndEnd"),
+                          QStringLiteral("08:00")).toString();
+}
+QStringList keywords() {
+  const QStringList raw =
+      settings().value(QStringLiteral("notif/keywords")).toStringList();
+  QStringList out;
+  for (const QString &w : raw) {
+    const QString t = w.trimmed();
+    if (!t.isEmpty())
+      out << t;
+  }
+  return out;
+}
+
+void setDndEnabled(bool e) { settings().setValue(QStringLiteral("notif/dndEnabled"), e); }
+void setDndStart(const QString &s) { settings().setValue(QStringLiteral("notif/dndStart"), s); }
+void setDndEnd(const QString &s) { settings().setValue(QStringLiteral("notif/dndEnd"), s); }
+void setKeywords(const QStringList &w) {
+  settings().setValue(QStringLiteral("notif/keywords"), w);
+}
+
+bool matchesKeyword(const QString &title, const QString &body) {
+  const QStringList words = keywords();
+  if (words.isEmpty())
+    return false;
+  const QString hay = (title + QLatin1Char(' ') + body);
+  for (const QString &w : words)
+    if (hay.contains(w, Qt::CaseInsensitive))
+      return true;
+  return false;
+}
+
+bool inDndWindow(const QDateTime &now) {
+  const QTime t = now.time();
+  const QTime start = parse(dndStart(), QTime(22, 0));
+  const QTime end = parse(dndEnd(), QTime(8, 0));
+  if (start == end)
+    return false;                 // zero-length window: never
+  if (start < end)
+    return t >= start && t < end; // same-day window
+  // Wrap-around window (e.g. 22:00 → 08:00): inside if after start OR before end.
+  return t >= start || t < end;
+}
+
+bool shouldNotify(const QDateTime &now, const QString &title,
+                  const QString &body) {
+  // A keyword hit always breaks through, even during Do Not Disturb.
+  if (matchesKeyword(title, body))
+    return true;
+  if (dndEnabled() && inDndWindow(now))
+    return false;
+  return true;
+}
+
+} // namespace NotificationRules

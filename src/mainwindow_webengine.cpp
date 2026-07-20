@@ -14,6 +14,9 @@
 #include "webview.h"
 #include "identicons.h"
 #include "portalnotification.h"
+#include "notificationrules.h"
+
+#include <QDateTime>
 
 // Decide, once, whether desktop notifications go through the XDG portal instead
 // of libnotify. The "notificationBackend" setting is "auto" (default), "portal"
@@ -204,6 +207,15 @@ void MainWindow::setNotificationPresenter(QWebEngineProfile *profile) {
       [&](std::unique_ptr<QWebEngineNotification> notification) {
         QSettings &settings = SettingsManager::instance().settings();
         if (settings.value("disableNotificationPopups", false).toBool())
+          return;
+
+        // Do Not Disturb / keyword rules: suppress popups inside the DND window
+        // unless a highlight keyword matches. Unread badges still update because
+        // that happens elsewhere, on the page title.
+        if (notification &&
+            !NotificationRules::shouldNotify(QDateTime::currentDateTime(),
+                                             notification->title(),
+                                             notification->message()))
           return;
 
         int notificationCombo = settings.value("notificationCombo", 0).toInt();
