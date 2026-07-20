@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -18,7 +18,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>-</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Designed &amp;amp; Developed by:&lt;/span&gt; Keshav Bhatt &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Email: &lt;/span&gt;keshavnrj@gmail.com&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Website:&lt;/span&gt; http://ktechpit.com&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -77,7 +77,7 @@ p, li { white-space: pre-wrap; }
     <name>AutomaticTheme</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Sunrise</source>
@@ -218,7 +218,7 @@ Deseja ignorar a verificação de segurança e continuar?   </translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Fechar</translation>
+        <translation>Fechar</translation>
     </message>
 </context>
 <context>
@@ -315,7 +315,7 @@ Deseja ignorar a verificação de segurança e continuar?   </translation>
     <name>Lock</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Set lock passcode</source>
@@ -537,7 +537,7 @@ Abrir as configurações agora?</translation>
     <name>MoreApps</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>... ... ... ...</source>
@@ -578,7 +578,7 @@ Abrir as configurações agora?</translation>
     <name>PermissionDialog</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Feature</source>
@@ -623,7 +623,7 @@ Abrir as configurações agora?</translation>
 
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Hide Debug Info</source>
@@ -792,7 +792,7 @@ Defina primeiro a senha nas configurações.</translation>
     <name>RateApp</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Rate this app</source>
@@ -941,7 +941,7 @@ Defina primeiro a senha nas configurações.</translation>
     </message>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1305,7 +1305,7 @@ Defina primeiro a senha nas configurações.</translation>
     </message>
     <message>
         <source>-</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Size</source>
@@ -1557,7 +1557,7 @@ Defina primeiro a senha nas configurações.</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">Sistema</translation>
+        <translation>Sistema</translation>
     </message>
     <message>
         <source>None (direct)</source>
@@ -1678,7 +1678,7 @@ Também pode ser necessário reiniciar completamente o aplicativo!</translation>
     </message>
     <message>
         <source>Start Whatly when I log in</source>
-        <translation type="unfinished">Iniciar o Whatly ao entrar</translation>
+        <translation>Iniciar o Whatly ao entrar</translation>
     </message>
     <message>
         <source>Notification delivery:</source>
@@ -1686,15 +1686,15 @@ Também pode ser necessário reiniciar completamente o aplicativo!</translation>
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">Automático</translation>
+        <translation>Automático</translation>
     </message>
     <message>
         <source>Desktop portal (Flatpak)</source>
-        <translation type="unfinished">Portal do desktop (Flatpak)</translation>
+        <translation>Portal do desktop (Flatpak)</translation>
     </message>
     <message>
         <source>System service (libnotify)</source>
-        <translation type="unfinished">Serviço do sistema (libnotify)</translation>
+        <translation>Serviço do sistema (libnotify)</translation>
     </message>
     <message>
         <source>All set</source>

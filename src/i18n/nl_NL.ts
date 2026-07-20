@@ -5,7 +5,7 @@
     <name>About</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -18,7 +18,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <source>-</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Designed &amp;amp; Developed by:&lt;/span&gt; Keshav Bhatt &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Email: &lt;/span&gt;keshavnrj@gmail.com&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Website:&lt;/span&gt; http://ktechpit.com&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -77,7 +77,7 @@ p, li { white-space: pre-wrap; }
     <name>AutomaticTheme</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Sunrise</source>
@@ -218,7 +218,7 @@ Wilt u de beveiligingscontrole negeren en doorgaan?   </translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Sluiten</translation>
+        <translation>Sluiten</translation>
     </message>
 </context>
 <context>
@@ -315,7 +315,7 @@ Wilt u de beveiligingscontrole negeren en doorgaan?   </translation>
     <name>Lock</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Set lock passcode</source>
@@ -537,7 +537,7 @@ Instellingen nu openen?</translation>
     <name>MoreApps</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>... ... ... ...</source>
@@ -578,7 +578,7 @@ Instellingen nu openen?</translation>
     <name>PermissionDialog</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Feature</source>
@@ -623,7 +623,7 @@ Instellingen nu openen?</translation>
 
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Hide Debug Info</source>
@@ -792,7 +792,7 @@ Stel eerst het wachtwoord in bij de instellingen.</translation>
     <name>RateApp</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Rate this app</source>
@@ -941,7 +941,7 @@ Stel eerst het wachtwoord in bij de instellingen.</translation>
     </message>
     <message>
         <source>Form</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Settings</source>
@@ -1305,7 +1305,7 @@ Stel eerst het wachtwoord in bij de instellingen.</translation>
     </message>
     <message>
         <source>-</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Size</source>
@@ -1557,7 +1557,7 @@ Stel eerst het wachtwoord in bij de instellingen.</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">Systeem</translation>
+        <translation>Systeem</translation>
     </message>
     <message>
         <source>None (direct)</source>
@@ -1678,7 +1678,7 @@ Mogelijk is ook een volledige herstart van de toepassing vereist!</translation>
     </message>
     <message>
         <source>Start Whatly when I log in</source>
-        <translation type="unfinished">Whatly starten wanneer ik me aanmeld</translation>
+        <translation>Whatly starten wanneer ik me aanmeld</translation>
     </message>
     <message>
         <source>Notification delivery:</source>
@@ -1686,15 +1686,15 @@ Mogelijk is ook een volledige herstart van de toepassing vereist!</translation>
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">Automatisch</translation>
+        <translation>Automatisch</translation>
     </message>
     <message>
         <source>Desktop portal (Flatpak)</source>
-        <translation type="unfinished">Bureaubladportaal (Flatpak)</translation>
+        <translation>Bureaubladportaal (Flatpak)</translation>
     </message>
     <message>
         <source>System service (libnotify)</source>
-        <translation type="unfinished">Systeemservice (libnotify)</translation>
+        <translation>Systeemservice (libnotify)</translation>
     </message>
     <message>
         <source>All set</source>

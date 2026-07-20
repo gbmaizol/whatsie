@@ -224,7 +224,7 @@ Desideri ignorare il controllo di sicurezza e continuare?</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation type="unfinished">Chiudi</translation>
+        <translation>Chiudi</translation>
     </message>
 </context>
 <context>
@@ -543,11 +543,11 @@ WebEngine non è inizializzato.</translation>
     <name>MoreApps</name>
     <message>
         <source>Form</source>
-        <translation type="unfinished">Form</translation>
+        <translation>Form</translation>
     </message>
     <message>
         <source>... ... ... ...</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -629,7 +629,7 @@ WebEngine non è inizializzato.</translation>
 
 
 </source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <source>Hide Debug Info</source>
@@ -1564,7 +1564,7 @@ Imposta la password nelle Impostazioni.</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">Sistema</translation>
+        <translation>Sistema</translation>
     </message>
     <message>
         <source>None (direct)</source>
@@ -1685,7 +1685,7 @@ Potrebbe essere necessario anche un riavvio completo dell&apos;applicazione!</tr
     </message>
     <message>
         <source>Start Whatly when I log in</source>
-        <translation type="unfinished">Avvia Whatly all&apos;accesso</translation>
+        <translation>Avvia Whatly all&apos;accesso</translation>
     </message>
     <message>
         <source>Notification delivery:</source>
@@ -1693,15 +1693,15 @@ Potrebbe essere necessario anche un riavvio completo dell&apos;applicazione!</tr
     </message>
     <message>
         <source>Automatic</source>
-        <translation type="unfinished">Automatico</translation>
+        <translation>Automatico</translation>
     </message>
     <message>
         <source>Desktop portal (Flatpak)</source>
-        <translation type="unfinished">Portale desktop (Flatpak)</translation>
+        <translation>Portale desktop (Flatpak)</translation>
     </message>
     <message>
         <source>System service (libnotify)</source>
-        <translation type="unfinished">Servizio di sistema (libnotify)</translation>
+        <translation>Servizio di sistema (libnotify)</translation>
     </message>
     <message>
         <source>All set</source>
