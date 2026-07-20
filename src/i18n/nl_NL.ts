@@ -1982,6 +1982,26 @@ Mogelijk is ook een volledige herstart van de toepassing vereist!</translation>
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>Uw scherm delen</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>Kies wat u wilt delen:</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>Naamloos</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>Scherm: </translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>Venster: </translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>%1 toegang geven tot uw locatiegegevens?</translation>
     </message>

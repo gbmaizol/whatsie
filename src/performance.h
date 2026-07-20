@@ -33,6 +33,10 @@ bool processPerSite();             // --process-per-site
 // Privacy: stop WebRTC from leaking the local IP over non-proxied UDP.
 bool webrtcShield();               // --force-webrtc-ip-handling-policy=...
 
+// Route WebRTC screen capture through PipeWire + the desktop portal, which is
+// the only way screen sharing works on Wayland. Default on for Linux.
+bool webrtcPipeWire();             // --enable-features=WebRTCPipeWireCapturer
+
 // V8 heap cap in MB (0 = Chromium default) — helps the "eats RAM" reports.
 int jsMemoryLimitMb();
 
@@ -53,6 +57,7 @@ void setIgnoreGpuBlocklist(bool v);
 void setSingleProcess(bool v);
 void setProcessPerSite(bool v);
 void setWebrtcShield(bool v);
+void setWebrtcPipeWire(bool v);
 void setJsMemoryLimitMb(int mb);
 void setCacheType(const QString &type);
 void setCacheMaxMb(int mb);

@@ -1982,6 +1982,26 @@ You may also require a complete restart of Application!</source>
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>画面を共有</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>共有する対象を選択してください:</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>無題</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>画面: </translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>ウィンドウ: </translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>%1 による位置情報へのアクセスを許可しますか？</translation>
     </message>

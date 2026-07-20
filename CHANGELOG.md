@@ -1,5 +1,12 @@
 ## Unreleased
 
+**Screen sharing in calls.** Screen-share requests from WhatsApp Web were
+being dropped silently (a black screen for the other side). Whatly now
+shows a picker listing your screens and windows, and routes WebRTC capture
+through PipeWire and the desktop portal so it works on Wayland as well as
+X11 (a new *Performance & Privacy* toggle, on by default on Linux). The
+camera/microphone/screen permission prompts were already handled.
+
 **Quick reply from a notification.** Clicking a notification now opens the
 chat *and* puts the caret in the message box, so you can reply by just
 typing — no extra click. (A text field inside the notification itself is

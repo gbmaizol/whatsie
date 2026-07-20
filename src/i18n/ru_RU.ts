@@ -1982,6 +1982,26 @@ You may also require a complete restart of Application!</source>
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>Демонстрация экрана</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>Выберите, чем поделиться:</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>Без названия</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>Экран: </translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>Окно: </translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>Разрешить %1 доступ к данным о вашем местоположении?</translation>
     </message>

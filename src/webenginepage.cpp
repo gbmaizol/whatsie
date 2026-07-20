@@ -1,4 +1,10 @@
 #include "webenginepage.h"
+#include <QDialog>
+#include <QDialogButtonBox>
+#include <QListWidget>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QAbstractItemModel>
 #include "common.h"
 #include "debuglog.h"
 #include "webengineprofilemanager.h"
@@ -31,6 +37,59 @@ WebEnginePage::WebEnginePage(QWebEngineProfile *profile, QObject *parent)
           &WebEnginePage::handleSelectClientCertificate);
   connect(this, &QWebEnginePage::certificateError, this,
           &WebEnginePage::handleCertificateError);
+  // Screen sharing (getDisplayMedia): without handling this the request is
+  // silently dropped and the call shows a black screen.
+  connect(this, &QWebEnginePage::desktopMediaRequested, this,
+          &WebEnginePage::handleDesktopMediaRequested);
+}
+
+// Let the user pick a screen or window to share. Qt hands us two list models;
+// the portal/PipeWire path on Wayland then does the actual capture.
+void WebEnginePage::handleDesktopMediaRequested(
+    const QWebEngineDesktopMediaRequest &request) {
+  QDialog dialog(view());
+  dialog.setWindowTitle(tr("Share your screen"));
+  auto *layout = new QVBoxLayout(&dialog);
+  layout->addWidget(new QLabel(tr("Choose what to share:"), &dialog));
+
+  auto *list = new QListWidget(&dialog);
+  // Entries are (isScreen, row) pairs into the two models.
+  struct Entry { bool screen; int row; };
+  QList<Entry> entries;
+  auto addAll = [&](QAbstractItemModel *model, bool isScreen,
+                    const QString &prefix) {
+    if (!model)
+      return;
+    for (int i = 0; i < model->rowCount(); ++i) {
+      const QString name = model->index(i, 0).data().toString();
+      list->addItem(prefix + (name.isEmpty() ? tr("Untitled") : name));
+      entries.append({isScreen, i});
+    }
+  };
+  addAll(request.screensModel(), true, tr("Screen: "));
+  addAll(request.windowsModel(), false, tr("Window: "));
+  layout->addWidget(list);
+
+  auto *buttons = new QDialogButtonBox(QDialogButtonBox::Ok |
+                                           QDialogButtonBox::Cancel,
+                                       &dialog);
+  layout->addWidget(buttons);
+  connect(buttons, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
+  connect(buttons, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+
+  if (list->count() > 0)
+    list->setCurrentRow(0);
+
+  if (list->count() == 0 || dialog.exec() != QDialog::Accepted ||
+      list->currentRow() < 0) {
+    request.cancel();
+    return;
+  }
+  const Entry chosen = entries.at(list->currentRow());
+  if (chosen.screen)
+    request.selectScreen(request.screensModel()->index(chosen.row, 0));
+  else
+    request.selectWindow(request.windowsModel()->index(chosen.row, 0));
 }
 
 bool WebEnginePage::acceptNavigationRequest(const QUrl &url,

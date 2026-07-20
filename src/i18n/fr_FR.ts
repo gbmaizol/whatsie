@@ -1982,6 +1982,26 @@ Un redémarrage complet de l&apos;application peut aussi être nécessaire !</tr
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>Partager votre écran</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>Choisissez ce que vous partagez :</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>Sans titre</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>Écran : </translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>Fenêtre : </translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>Autoriser %1 à accéder à vos informations de localisation ?</translation>
     </message>

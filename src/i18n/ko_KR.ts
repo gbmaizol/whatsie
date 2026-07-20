@@ -1982,6 +1982,26 @@ You may also require a complete restart of Application!</source>
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>화면 공유</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>공유할 항목을 선택하세요:</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>제목 없음</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>화면: </translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>창: </translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>%1 이(가) 위치 정보에 접근하도록 허용하시겠습니까?</translation>
     </message>

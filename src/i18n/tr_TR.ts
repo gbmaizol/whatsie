@@ -1982,6 +1982,26 @@ Uygulamanın tamamen yeniden başlatılması da gerekebilir!</translation>
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>Ekranınızı paylaşın</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>Neyi paylaşacağınızı seçin:</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>Adsız</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>Ekran: </translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>Pencere: </translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>%1 konum bilgilerinize erişsin mi?</translation>
     </message>

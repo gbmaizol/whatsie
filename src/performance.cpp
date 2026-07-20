@@ -42,6 +42,13 @@ bool ignoreGpuBlocklist() { return b(QStringLiteral("perf/ignoreGpuBlocklist"), 
 bool singleProcess() { return b(QStringLiteral("perf/singleProcess"), false); }
 bool processPerSite() { return b(QStringLiteral("perf/processPerSite"), false); }
 bool webrtcShield() { return b(QStringLiteral("perf/webrtcShield"), false); }
+bool webrtcPipeWire() {
+#ifdef Q_OS_LINUX
+  return b(QStringLiteral("perf/webrtcPipeWire"), true);
+#else
+  return b(QStringLiteral("perf/webrtcPipeWire"), false);
+#endif
+}
 
 int jsMemoryLimitMb() {
   return settings().value(QStringLiteral("perf/jsMemoryLimitMb"), 0).toInt();
@@ -62,6 +69,7 @@ void setIgnoreGpuBlocklist(bool v) { setB(QStringLiteral("perf/ignoreGpuBlocklis
 void setSingleProcess(bool v) { setB(QStringLiteral("perf/singleProcess"), v); }
 void setProcessPerSite(bool v) { setB(QStringLiteral("perf/processPerSite"), v); }
 void setWebrtcShield(bool v) { setB(QStringLiteral("perf/webrtcShield"), v); }
+void setWebrtcPipeWire(bool v) { setB(QStringLiteral("perf/webrtcPipeWire"), v); }
 void setJsMemoryLimitMb(int mb) {
   settings().setValue(QStringLiteral("perf/jsMemoryLimitMb"), qMax(0, mb));
 }
@@ -95,6 +103,8 @@ QString chromiumFlagFragment() {
   if (webrtcShield())
     f << QStringLiteral(
         "--force-webrtc-ip-handling-policy=disable_non_proxied_udp");
+  if (webrtcPipeWire())
+    f << QStringLiteral("--enable-features=WebRTCPipeWireCapturer");
   if (const int mb = jsMemoryLimitMb(); mb > 0)
     f << QStringLiteral("--js-flags=--max-old-space-size=%1").arg(mb);
   return f.join(QLatin1Char(' '));

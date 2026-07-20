@@ -801,6 +801,7 @@ private slots:
     Performance::setSingleProcess(false);
     Performance::setProcessPerSite(false);
     Performance::setWebrtcShield(false);
+    Performance::setWebrtcPipeWire(false);
     Performance::setJsMemoryLimitMb(0);
     Performance::setCacheType(QStringLiteral("disk"));
     Performance::setCacheMaxMb(0);
@@ -832,6 +833,16 @@ private slots:
     Performance::setProcessPerSite(true);
     QVERIFY(Performance::chromiumFlagFragment().contains(
         QLatin1String("--process-per-site")));
+  }
+
+  // Screen sharing on Wayland needs the PipeWire capturer; it is on by default
+  // on Linux (the init() above turns it off so the other cases stay isolated).
+  void webrtcPipeWireFlag() {
+    QVERIFY(!Performance::chromiumFlagFragment().contains(
+        QLatin1String("WebRTCPipeWireCapturer")));
+    Performance::setWebrtcPipeWire(true);
+    QVERIFY(Performance::chromiumFlagFragment().contains(
+        QLatin1String("--enable-features=WebRTCPipeWireCapturer")));
   }
 
   void webrtcShieldFlag() {

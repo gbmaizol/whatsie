@@ -1982,6 +1982,26 @@ You may also require a complete restart of Application!</source>
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>अपनी स्क्रीन साझा करें</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>चुनें कि क्या साझा करना है:</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>बिना शीर्षक</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>स्क्रीन: </translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>विंडो: </translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>क्या %1 को आपकी स्थान जानकारी तक पहुँच की अनुमति दें?</translation>
     </message>

@@ -1982,6 +1982,26 @@ Esto cerrará tu sesión actual.
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>Compartir pantalla</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>Elige qué compartir:</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>Sin título</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>Pantalla: </translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>Ventana: </translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>¿Permitir que %1 acceda a su información de ubicación?</translation>
     </message>

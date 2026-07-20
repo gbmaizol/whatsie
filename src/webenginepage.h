@@ -12,6 +12,7 @@
 #include <QWebEngineFullScreenRequest>
 #include <QWebEngineNotification>
 #include <QWebEnginePage>
+#include <QWebEngineDesktopMediaRequest>
 #include <QWebEngineProfile>
 #include <QWebEngineRegisterProtocolHandlerRequest>
 #include <QWebEngineSettings>
@@ -50,6 +51,8 @@ protected:
 
 public slots:
   void handlePermissionRequested(QWebEnginePermission permission);
+  void handleDesktopMediaRequested(
+      const QWebEngineDesktopMediaRequest &request);
   void handleLoadFinished(bool ok);
 
 protected slots:

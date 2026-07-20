@@ -1982,6 +1982,26 @@ Anda mungkin juga perlu memulai ulang aplikasi sepenuhnya!</translation>
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>Bagikan layar Anda</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>Pilih yang akan dibagikan:</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>Tanpa judul</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>Layar: </translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>Jendela: </translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>Izinkan %1 mengakses informasi lokasi Anda?</translation>
     </message>

@@ -1982,6 +1982,26 @@ Também pode ser necessário reiniciar completamente o aplicativo!</translation>
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>Compartilhar sua tela</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>Escolha o que compartilhar:</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>Sem título</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>Tela: </translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>Janela: </translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>Permitir que %1 acesse suas informações de localização?</translation>
     </message>

@@ -1982,6 +1982,26 @@ You may also require a complete restart of Application!</source>
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>شارك شاشتك</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>اختر ما تريد مشاركته:</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>بلا عنوان</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>الشاشة: </translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>النافذة: </translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>هل تسمح لـ %1 بالوصول إلى معلومات موقعك؟</translation>
     </message>

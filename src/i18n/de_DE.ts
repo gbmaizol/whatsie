@@ -1982,6 +1982,26 @@ Möglicherweise ist auch ein vollständiger Neustart der Anwendung erforderlich!
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>Bildschirm teilen</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>Was möchten Sie teilen?</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>Ohne Titel</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>Bildschirm: </translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>Fenster: </translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>%1 den Zugriff auf Ihre Standortdaten erlauben?</translation>
     </message>

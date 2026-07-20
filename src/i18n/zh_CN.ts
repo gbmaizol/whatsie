@@ -1982,6 +1982,26 @@ You may also require a complete restart of Application!</source>
 <context>
     <name>WebEnginePage</name>
     <message>
+        <source>Share your screen</source>
+        <translation>共享您的屏幕</translation>
+    </message>
+    <message>
+        <source>Choose what to share:</source>
+        <translation>选择要共享的内容：</translation>
+    </message>
+    <message>
+        <source>Untitled</source>
+        <translation>无标题</translation>
+    </message>
+    <message>
+        <source>Screen: </source>
+        <translation>屏幕：</translation>
+    </message>
+    <message>
+        <source>Window: </source>
+        <translation>窗口：</translation>
+    </message>
+    <message>
         <source>Allow %1 to access your location information?</source>
         <translation>允许 %1 访问您的位置信息吗？</translation>
     </message>
