@@ -23,9 +23,11 @@ on:
 
 jobs:
   build:
-    # windows-2025 ships the Windows 11 SDK (>= 10.0.26100) that Qt 6.10's
-    # WebEngine requires; windows-2022 does not.
-    runs-on: windows-2025
+    # Qt 6.10's WebEngine needs BOTH Visual Studio 2022 (windows-2025 ships the
+    # too-new VS 18, which Qt rejects) AND the Windows 11 SDK >= 10.0.26100
+    # (windows-2022 ships an older one). So: windows-2022 for VS 2022, plus the
+    # 26100 SDK installed below.
+    runs-on: windows-2022
     timeout-minutes: 350
     steps:
       - name: Report free disk (viability baseline)
@@ -66,12 +68,29 @@ jobs:
             Copy-Item "$dir\win_bison.exe" "$dir\bison.exe" -Force
           }
 
-      # Put MSVC (cl) and the Windows 11 SDK on PATH so CMake does not fall back
-      # to a stray gcc ("GNU compiler is not supported" in the first attempts).
+      - name: Install the Windows 11 SDK (10.0.26100)
+        shell: pwsh
+        run: |
+          $installer = "C:\Program Files (x86)\Microsoft Visual Studio\Installer\setup.exe"
+          $vs = "C:\Program Files\Microsoft Visual Studio\2022\Enterprise"
+          & $installer modify --installPath $vs `
+            --add Microsoft.VisualStudio.Component.Windows11SDK.26100 `
+            --quiet --norestart --nocache --force
+          # setup.exe returns immediately; wait for the child process to finish.
+          Get-Process -Name setup, vs_installer -ErrorAction SilentlyContinue |
+            Wait-Process -Timeout 1200 -ErrorAction SilentlyContinue
+          $sdk = "C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0"
+          if (Test-Path $sdk) { "Windows 11 SDK 26100 present" | Write-Host }
+          else { throw "SDK 10.0.26100 not installed" }
+
+      # Put MSVC 2022 (cl) and the 26100 SDK on PATH so CMake uses them, not a
+      # stray gcc ("GNU compiler is not supported" in earlier attempts).
       - name: Set up MSVC environment
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: x64
+          sdk: '10.0.26100.0'
+          vsversion: '2022'
 
       - name: Fetch the QtWebEngine source (matching tag) + Chromium
         shell: pwsh
