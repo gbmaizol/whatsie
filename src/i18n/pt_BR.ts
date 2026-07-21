@@ -1607,6 +1607,14 @@ Defina primeiro a senha nas configurações.</translation>
         <translation>Modo foco (ocultar prévias da lista)</translation>
     </message>
     <message>
+        <source>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web&apos;s layout; if a WhatsApp update breaks it, turn it off.</source>
+        <translation>Definir fotos e vídeos com qualidade HD por padrão no editor de mídia. Depende do layout do WhatsApp Web; se uma atualização do WhatsApp quebrar isso, desative.</translation>
+    </message>
+    <message>
+        <source>Send photos and videos in HD by default</source>
+        <translation>Enviar fotos e vídeos em HD por padrão</translation>
+    </message>
+    <message>
         <source>Stop WebRTC from revealing your local IP address over non-proxied connections.</source>
         <translation>Impede que o WebRTC revele seu endereço IP local em conexões sem proxy.</translation>
     </message>

@@ -1607,6 +1607,14 @@ Définissez d&apos;abord le mot de passe dans les paramètres.</translation>
         <translation>Mode concentration (masquer les aperçus)</translation>
     </message>
     <message>
+        <source>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web&apos;s layout; if a WhatsApp update breaks it, turn it off.</source>
+        <translation>Utiliser par défaut la qualité HD pour les photos et vidéos dans l&apos;éditeur multimédia. Dépend de la mise en page de WhatsApp Web ; si une mise à jour de WhatsApp le casse, désactivez-le.</translation>
+    </message>
+    <message>
+        <source>Send photos and videos in HD by default</source>
+        <translation>Envoyer les photos et vidéos en HD par défaut</translation>
+    </message>
+    <message>
         <source>Stop WebRTC from revealing your local IP address over non-proxied connections.</source>
         <translation>Empêche WebRTC de révéler votre adresse IP locale sur les connexions non relayées par un proxy.</translation>
     </message>

@@ -1607,6 +1607,14 @@ Please setup the password in the Settings first.</source>
         <translation>专注模式（隐藏聊天列表预览）</translation>
     </message>
     <message>
+        <source>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web&apos;s layout; if a WhatsApp update breaks it, turn it off.</source>
+        <translation>在媒体编辑器中默认将照片和视频设为 HD 画质。此功能依赖于 WhatsApp Web 的布局；如果某次 WhatsApp 更新导致其失效，请将其关闭。</translation>
+    </message>
+    <message>
+        <source>Send photos and videos in HD by default</source>
+        <translation>默认以 HD 发送照片和视频</translation>
+    </message>
+    <message>
         <source>Stop WebRTC from revealing your local IP address over non-proxied connections.</source>
         <translation>阻止 WebRTC 通过非代理连接暴露您的本地 IP 地址。</translation>
     </message>

@@ -1526,6 +1526,16 @@ background:transparent;
            </widget>
           </item>
           <item>
+           <widget class="QCheckBox" name="hdMediaCheckBox">
+            <property name="toolTip">
+             <string>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web's layout; if a WhatsApp update breaks it, turn it off.</string>
+            </property>
+            <property name="text">
+             <string>Send photos and videos in HD by default</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QCheckBox" name="webrtcShieldCheckBox">
             <property name="toolTip">
              <string>Stop WebRTC from revealing your local IP address over non-proxied connections.</string>

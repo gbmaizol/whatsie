@@ -32,6 +32,7 @@ signals:
   void customCssChanged();
   void customJsChanged();
   void focusModeChanged();
+  void hdMediaChanged();
   void trayIconChanged();
   void followSystemThemeChanged();
   void chatThemeChanged();
@@ -122,6 +123,7 @@ private slots:
   void on_processPerSiteCheckBox_toggled(bool checked);
   void on_webrtcShieldCheckBox_toggled(bool checked);
   void on_focusModeCheckBox_toggled(bool checked);
+  void on_hdMediaCheckBox_toggled(bool checked);
   void on_jsMemoryLimitSpinBox_valueChanged(int arg1);
   void on_cacheTypeComboBox_currentIndexChanged(int index);
   void on_cacheMaxSpinBox_valueChanged(int arg1);

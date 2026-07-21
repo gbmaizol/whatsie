@@ -1607,6 +1607,14 @@ Configure primero la contraseña en los ajustes.</translation>
         <translation>Modo concentración (ocultar vistas previas)</translation>
     </message>
     <message>
+        <source>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web&apos;s layout; if a WhatsApp update breaks it, turn it off.</source>
+        <translation>Usar la calidad HD de forma predeterminada para fotos y vídeos en el editor multimedia. Depende del diseño de WhatsApp Web; si una actualización de WhatsApp lo estropea, desactívalo.</translation>
+    </message>
+    <message>
+        <source>Send photos and videos in HD by default</source>
+        <translation>Enviar fotos y vídeos en HD de forma predeterminada</translation>
+    </message>
+    <message>
         <source>Stop WebRTC from revealing your local IP address over non-proxied connections.</source>
         <translation>Impide que WebRTC revele tu dirección IP local en conexiones sin proxy.</translation>
     </message>

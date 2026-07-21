@@ -35,6 +35,7 @@
 #include "updatechecker.h"
 #include "quickreply.h"
 #include "focusmode.h"
+#include "hdmedia.h"
 
 #include <QTimer>
 #include <QDesktopServices>
@@ -669,6 +670,14 @@ void MainWindow::initSettingWidget() {
             for (const Account &account : m_accounts)
               if (account.view && account.view->page())
                 account.view->page()->runJavaScript(FocusMode::scriptSource());
+          });
+
+  connect(m_settingsWidget, &SettingsWidget::hdMediaChanged, m_settingsWidget,
+          [=]() {
+            HdMedia::install(WebEngineProfileManager::instance().profile());
+            for (const Account &account : m_accounts)
+              if (account.view && account.view->page())
+                account.view->page()->runJavaScript(HdMedia::scriptSource());
           });
 
   connect(m_settingsWidget, &SettingsWidget::customJsChanged, m_settingsWidget,

@@ -9,6 +9,7 @@
 #include "customcss.h"
 #include "customjs.h"
 #include "focusmode.h"
+#include "hdmedia.h"
 #include "privacyblur.h"
 #include "webfont.h"
 #include "mutedstatus.h"
@@ -251,6 +252,7 @@ void WebEngineProfileManager::applyUserSettingsTo(QWebEngineProfile *profile,
     CustomCss::install(profile);
     CustomJs::install(profile);
     FocusMode::install(profile);
+    HdMedia::install(profile);
     ChatTheme::install(profile);
     PrivacyBlur::install(profile);
     WebFont::install(profile);

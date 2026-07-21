@@ -1607,6 +1607,14 @@ Lütfen önce ayarlardan parolayı belirleyin.</translation>
         <translation>Odak modu (sohbet önizlemelerini gizle)</translation>
     </message>
     <message>
+        <source>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web&apos;s layout; if a WhatsApp update breaks it, turn it off.</source>
+        <translation>Medya düzenleyicide fotoğraf ve videoları varsayılan olarak HD kalitede kullan. WhatsApp Web&apos;in düzenine bağlıdır; bir WhatsApp güncellemesi bunu bozarsa kapatın.</translation>
+    </message>
+    <message>
+        <source>Send photos and videos in HD by default</source>
+        <translation>Fotoğraf ve videoları varsayılan olarak HD gönder</translation>
+    </message>
+    <message>
         <source>Stop WebRTC from revealing your local IP address over non-proxied connections.</source>
         <translation>WebRTC&apos;nin yerel IP adresinizi proxy kullanılmayan bağlantılar üzerinden ifşa etmesini engelleyin.</translation>
     </message>

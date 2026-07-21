@@ -203,6 +203,7 @@ set(SOURCES
     src/screenlock.cpp
     src/quickreply.cpp
     src/focusmode.cpp
+    src/hdmedia.cpp
     src/cannedresponses.cpp
     src/globalshortcut.cpp
     src/privacyblur.cpp
@@ -262,6 +263,7 @@ set(HEADERS
     src/screenlock.h
     src/quickreply.h
     src/focusmode.h
+    src/hdmedia.h
     src/cannedresponses.h
     src/privacyblur.h
     src/performance.h

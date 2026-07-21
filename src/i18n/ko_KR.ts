@@ -1607,6 +1607,14 @@ Please setup the password in the Settings first.</source>
         <translation>집중 모드 (대화 목록 미리보기 숨기기)</translation>
     </message>
     <message>
+        <source>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web&apos;s layout; if a WhatsApp update breaks it, turn it off.</source>
+        <translation>미디어 편집기에서 사진과 동영상을 기본적으로 HD 화질로 설정합니다. WhatsApp Web의 레이아웃에 따라 달라지며, WhatsApp 업데이트로 인해 작동하지 않으면 끄세요.</translation>
+    </message>
+    <message>
+        <source>Send photos and videos in HD by default</source>
+        <translation>기본적으로 사진과 동영상을 HD로 보내기</translation>
+    </message>
+    <message>
         <source>Stop WebRTC from revealing your local IP address over non-proxied connections.</source>
         <translation>프록시를 거치지 않는 연결에서 WebRTC가 로컬 IP 주소를 노출하지 못하도록 합니다.</translation>
     </message>

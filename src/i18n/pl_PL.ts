@@ -1607,6 +1607,14 @@ Najpierw ustaw hasło w ustawieniach.</translation>
         <translation>Tryb skupienia (ukryj podglądy czatów)</translation>
     </message>
     <message>
+        <source>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web&apos;s layout; if a WhatsApp update breaks it, turn it off.</source>
+        <translation>Domyślnie ustaw jakość HD dla zdjęć i filmów w edytorze multimediów. Zależy od układu WhatsApp Web; jeśli aktualizacja WhatsApp to zepsuje, wyłącz tę opcję.</translation>
+    </message>
+    <message>
+        <source>Send photos and videos in HD by default</source>
+        <translation>Domyślnie wysyłaj zdjęcia i filmy w HD</translation>
+    </message>
+    <message>
         <source>Stop WebRTC from revealing your local IP address over non-proxied connections.</source>
         <translation>Uniemożliw WebRTC ujawnianie Twojego lokalnego adresu IP przez połączenia bez serwera proxy.</translation>
     </message>

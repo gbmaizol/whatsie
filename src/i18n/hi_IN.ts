@@ -1607,6 +1607,14 @@ Please setup the password in the Settings first.</source>
         <translation>फ़ोकस मोड (चैट सूची पूर्वावलोकन छिपाएँ)</translation>
     </message>
     <message>
+        <source>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web&apos;s layout; if a WhatsApp update breaks it, turn it off.</source>
+        <translation>मीडिया एडिटर में फ़ोटो और वीडियो को डिफ़ॉल्ट रूप से HD गुणवत्ता में रखें। यह WhatsApp Web के लेआउट पर निर्भर करता है; यदि किसी WhatsApp अपडेट से यह काम करना बंद कर दे, तो इसे बंद कर दें।</translation>
+    </message>
+    <message>
+        <source>Send photos and videos in HD by default</source>
+        <translation>फ़ोटो और वीडियो डिफ़ॉल्ट रूप से HD में भेजें</translation>
+    </message>
+    <message>
         <source>Stop WebRTC from revealing your local IP address over non-proxied connections.</source>
         <translation>WebRTC को गैर-प्रॉक्सी कनेक्शनों पर आपका स्थानीय IP पता उजागर करने से रोकें।</translation>
     </message>

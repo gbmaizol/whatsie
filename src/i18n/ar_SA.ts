@@ -1607,6 +1607,14 @@ Please setup the password in the Settings first.</source>
         <translation>وضع التركيز (إخفاء معاينات المحادثات)</translation>
     </message>
     <message>
+        <source>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web&apos;s layout; if a WhatsApp update breaks it, turn it off.</source>
+        <translation>اجعل جودة الصور ومقاطع الفيديو HD افتراضيًا في محرر الوسائط. يعتمد ذلك على تخطيط WhatsApp Web؛ إذا تعطّل بسبب تحديث في واتساب، فأوقف تشغيله.</translation>
+    </message>
+    <message>
+        <source>Send photos and videos in HD by default</source>
+        <translation>إرسال الصور ومقاطع الفيديو بجودة HD افتراضيًا</translation>
+    </message>
+    <message>
         <source>Stop WebRTC from revealing your local IP address over non-proxied connections.</source>
         <translation>منع WebRTC من كشف عنوان IP المحلي الخاص بك عبر الاتصالات غير الوسيطة.</translation>
     </message>

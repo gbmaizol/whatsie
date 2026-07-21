@@ -1607,6 +1607,14 @@ Silakan atur kata sandi di pengaturan terlebih dahulu.</translation>
         <translation>Mode fokus (sembunyikan pratinjau obrolan)</translation>
     </message>
     <message>
+        <source>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web&apos;s layout; if a WhatsApp update breaks it, turn it off.</source>
+        <translation>Jadikan foto dan video berkualitas HD secara default di editor media. Bergantung pada tata letak WhatsApp Web; jika pembaruan WhatsApp membuatnya rusak, matikan.</translation>
+    </message>
+    <message>
+        <source>Send photos and videos in HD by default</source>
+        <translation>Kirim foto dan video dalam HD secara default</translation>
+    </message>
+    <message>
         <source>Stop WebRTC from revealing your local IP address over non-proxied connections.</source>
         <translation>Cegah WebRTC mengungkapkan alamat IP lokal Anda melalui koneksi tanpa proksi.</translation>
     </message>

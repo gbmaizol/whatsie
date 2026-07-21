@@ -1607,6 +1607,14 @@ Bitte legen Sie zuerst das Passwort in den Einstellungen fest.</translation>
         <translation>Fokusmodus (Chat-Vorschauen ausblenden)</translation>
     </message>
     <message>
+        <source>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web&apos;s layout; if a WhatsApp update breaks it, turn it off.</source>
+        <translation>Fotos und Videos im Medien-Editor standardmäßig in HD-Qualität. Hängt vom Layout von WhatsApp Web ab; falls ein WhatsApp-Update es beeinträchtigt, deaktivieren.</translation>
+    </message>
+    <message>
+        <source>Send photos and videos in HD by default</source>
+        <translation>Fotos und Videos standardmäßig in HD senden</translation>
+    </message>
+    <message>
         <source>Stop WebRTC from revealing your local IP address over non-proxied connections.</source>
         <translation>Verhindert, dass WebRTC deine lokale IP-Adresse über nicht per Proxy geleitete Verbindungen preisgibt.</translation>
     </message>

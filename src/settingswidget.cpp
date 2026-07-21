@@ -40,6 +40,7 @@
 #include "backup.h"
 #include "screenlock.h"
 #include "focusmode.h"
+#include "hdmedia.h"
 #include "cannedresponses.h"
 
 #include <QListWidget>
@@ -935,6 +936,7 @@ void SettingsWidget::loadPerformanceSettings() {
   set(ui->processPerSiteCheckBox, Performance::processPerSite());
   set(ui->webrtcShieldCheckBox, Performance::webrtcShield());
   set(ui->focusModeCheckBox, FocusMode::isEnabled());
+  set(ui->hdMediaCheckBox, HdMedia::isEnabled());
 
   ui->jsMemoryLimitSpinBox->blockSignals(true);
   ui->jsMemoryLimitSpinBox->setValue(Performance::jsMemoryLimitMb());
@@ -978,6 +980,11 @@ void SettingsWidget::on_webrtcShieldCheckBox_toggled(bool checked) {
 void SettingsWidget::on_focusModeCheckBox_toggled(bool checked) {
   FocusMode::setEnabled(checked);
   emit focusModeChanged();
+}
+
+void SettingsWidget::on_hdMediaCheckBox_toggled(bool checked) {
+  HdMedia::setEnabled(checked);
+  emit hdMediaChanged();
 }
 void SettingsWidget::on_jsMemoryLimitSpinBox_valueChanged(int arg1) {
   Performance::setJsMemoryLimitMb(arg1);

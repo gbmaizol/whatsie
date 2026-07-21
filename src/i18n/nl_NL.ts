@@ -1607,6 +1607,14 @@ Stel eerst het wachtwoord in bij de instellingen.</translation>
         <translation>Focusmodus (voorbeelden verbergen)</translation>
     </message>
     <message>
+        <source>Default photos and videos to HD quality in the media editor. Depends on WhatsApp Web&apos;s layout; if a WhatsApp update breaks it, turn it off.</source>
+        <translation>Foto's en video's standaard in HD-kwaliteit in de media-editor. Afhankelijk van de lay-out van WhatsApp Web; als een WhatsApp-update het onbruikbaar maakt, schakel het dan uit.</translation>
+    </message>
+    <message>
+        <source>Send photos and videos in HD by default</source>
+        <translation>Foto's en video's standaard in HD verzenden</translation>
+    </message>
+    <message>
         <source>Stop WebRTC from revealing your local IP address over non-proxied connections.</source>
         <translation>Voorkom dat WebRTC uw lokale IP-adres onthult via niet-geproxyde verbindingen.</translation>
     </message>

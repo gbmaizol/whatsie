@@ -246,18 +246,32 @@ void MainWindow::checkWindowState() {
 }
 
 void MainWindow::iconActivated(QSystemTrayIcon::ActivationReason reason) {
-  if (SettingsManager::instance()
-              .settings()
-              .value("minimizeOnTrayIconClick", false)
-              .toBool() == false ||
-      reason == QSystemTrayIcon::Context)
+  // Only a left click or double click on the icon acts; the context menu and
+  // hover do not.
+  if (reason != QSystemTrayIcon::Trigger &&
+      reason != QSystemTrayIcon::DoubleClick)
     return;
-  if (isVisible()) {
-    lockOnHideIfEnabled();
-    hide();
-  } else {
-    show();
+
+  // "Frontmost" means shown, not minimised, and focused. A click brings the
+  // window to the front reliably (raise + activate + clear minimised) — the
+  // part that used to fail on Windows and when minimised. Only when it is
+  // already frontmost, and the user opted into it, does a click hide it again.
+  const bool frontmost = isVisible() && !isMinimized() && isActiveWindow();
+  const bool minimizeOnClick = SettingsManager::instance()
+                                   .settings()
+                                   .value("minimizeOnTrayIconClick", false)
+                                   .toBool();
+  if (frontmost) {
+    if (minimizeOnClick) {
+      lockOnHideIfEnabled();
+      hide();
+    }
+    return;
   }
+  setWindowState((windowState() & ~Qt::WindowMinimized) | Qt::WindowActive);
+  show();
+  raise();
+  activateWindow();
 }
 
 // The tray icon in three independent dimensions: monochrome vs the colourful

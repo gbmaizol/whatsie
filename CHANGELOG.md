@@ -1,5 +1,17 @@
 ## Unreleased
 
+**Raise the window from the tray.** A left click (or double click) on the
+tray icon now reliably brings the window to the front — shown, un-minimised
+and focused — which used to fail on Windows and when minimised. Only a
+click while the window is already frontmost hides it, and only if you
+enabled *minimize on tray-icon click*.
+
+**Send media in HD by default.** An optional tweak (Settings → Performance
+& Privacy) selects HD in WhatsApp Web's media editor automatically, so
+photos and videos default to HD. It depends on WhatsApp Web's layout and
+can be turned off if an update breaks it. Covered by unit tests
+(`TstHdMedia`).
+
 **Acknowledgements.** The linked-device identification, the dark-theme
 persistence fix, and Windows support build on pull requests by Gert Bolten
 Maizonave (gbmaizol) to upstream WhatSie (#324, #326, #321).

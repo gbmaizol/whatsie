@@ -42,6 +42,7 @@
 #include "screenlock.h"
 #include "quickreply.h"
 #include "focusmode.h"
+#include "hdmedia.h"
 #include "cannedresponses.h"
 #include "webtweaks.h"
 #include "linkeddevicename.h"
@@ -986,6 +987,34 @@ private slots:
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
+// HdMedia: the injected HD-default observer toggles with the setting.
+class TstHdMedia : public QObject {
+  Q_OBJECT
+private slots:
+  void offAndOn() {
+    HdMedia::setEnabled(false);
+    QVERIFY(HdMedia::scriptSource().contains(QLatin1String("if (!false) return")) ||
+            HdMedia::scriptSource().contains(QLatin1String("!false")));
+    HdMedia::setEnabled(true);
+    const QString js = HdMedia::scriptSource();
+    QVERIFY(js.contains(QLatin1String("MutationObserver")));
+    QVERIFY(js.contains(QLatin1String("HD")));
+    QVERIFY(js.contains(QLatin1String("catch")));       // never breaks the page
+    QVERIFY(js.contains(QLatin1String("disconnect")));   // re-runnable
+    HdMedia::setEnabled(false);
+  }
+  void installOnProfile() {
+    HdMedia::setEnabled(true);
+    QWebEngineProfile profile(QStringLiteral("tst_hd"));
+    HdMedia::install(&profile);
+    QCOMPARE(profile.scripts()->find(QStringLiteral("whatly-hd-media")).size(), 1);
+    HdMedia::setEnabled(false);
+    HdMedia::install(&profile);
+    QCOMPARE(profile.scripts()->find(QStringLiteral("whatly-hd-media")).size(), 0);
+  }
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
 // CannedResponses: CRUD round-trip and the escaped insert snippet.
 class TstCannedResponses : public QObject {
   Q_OBJECT
@@ -1573,6 +1602,7 @@ int main(int argc, char *argv[]) {
   { TstQuickReply t;          run(&t); }
   { TstFocusMode t;           run(&t); }
   { TstCannedResponses t;     run(&t); }
+  { TstHdMedia t;             run(&t); }
   { TstStorageInfo t;         run(&t); }
   { TstUpdateCheck t;         run(&t); }
   { TstFuzzy t;               run(&t); }
