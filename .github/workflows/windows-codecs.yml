@@ -47,8 +47,14 @@ jobs:
       - name: Install QtWebEngine build tooling
         shell: pwsh
         run: |
-          choco install -y ninja gperf nodejs-lts python3 --no-progress
+          # nasm is required specifically because proprietary codecs pull in
+          # ffmpeg's hand-written assembly; without a system nasm the Chromium
+          # GN build fails in third_party/nasm.
+          choco install -y ninja gperf nodejs-lts python3 nasm --no-progress
           pip install html5lib
+          # Put nasm on PATH for later steps (choco installs it to Program Files).
+          "$env:ProgramFiles\NASM" | Out-File -FilePath $env:GITHUB_PATH -Append
+          "${env:ProgramFiles(x86)}\NASM" | Out-File -FilePath $env:GITHUB_PATH -Append
 
       - name: Fetch the QtWebEngine source (matching tag) + Chromium
         shell: pwsh
@@ -74,9 +80,12 @@ jobs:
         shell: pwsh
         run: |
           cd qtwebengine
-          # Configure the module against the installed Qt, codecs ON.
+          # Configure the module against the installed Qt, Release, codecs ON,
+          # and skip QtPdf (unused by Whatly and it doubles the Chromium build).
           & "$env:QT_ROOT_DIR\bin\qt-configure-module.bat" . `
-            -- -DQT_FEATURE_webengine_proprietary_codecs=ON
+            -- -DCMAKE_BUILD_TYPE=Release `
+               -DQT_FEATURE_webengine_proprietary_codecs=ON `
+               -DQT_FEATURE_qtpdf_build=OFF
           cmake --build . --parallel
           cmake --install .
 
