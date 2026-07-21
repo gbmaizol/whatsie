@@ -23,7 +23,9 @@ on:
 
 jobs:
   build:
-    runs-on: windows-2022
+    # windows-2025 ships the Windows 11 SDK (>= 10.0.26100) that Qt 6.10's
+    # WebEngine requires; windows-2022 does not.
+    runs-on: windows-2025
     timeout-minutes: 350
     steps:
       - name: Report free disk (viability baseline)
@@ -47,14 +49,29 @@ jobs:
       - name: Install QtWebEngine build tooling
         shell: pwsh
         run: |
-          # nasm is required specifically because proprietary codecs pull in
-          # ffmpeg's hand-written assembly; without a system nasm the Chromium
-          # GN build fails in third_party/nasm.
-          choco install -y ninja gperf nodejs-lts python3 nasm --no-progress
+          # nasm: proprietary codecs pull in ffmpeg's assembly (fails in
+          # third_party/nasm without it). flex + bison: required by the
+          # Chromium build and reported missing by configure. gperf/ninja/node:
+          # standard QtWebEngine build deps.
+          choco install -y ninja gperf nodejs-lts python3 nasm winflexbison3 --no-progress
           pip install html5lib
-          # Put nasm on PATH for later steps (choco installs it to Program Files).
           "$env:ProgramFiles\NASM" | Out-File -FilePath $env:GITHUB_PATH -Append
           "${env:ProgramFiles(x86)}\NASM" | Out-File -FilePath $env:GITHUB_PATH -Append
+          # winflexbison ships win_flex/win_bison; QtWebEngine looks for
+          # flex/bison, so expose those names too.
+          $wfb = (Get-Command win_flex.exe -ErrorAction SilentlyContinue).Source
+          if ($wfb) {
+            $dir = Split-Path $wfb
+            Copy-Item "$dir\win_flex.exe"  "$dir\flex.exe"  -Force
+            Copy-Item "$dir\win_bison.exe" "$dir\bison.exe" -Force
+          }
+
+      # Put MSVC (cl) and the Windows 11 SDK on PATH so CMake does not fall back
+      # to a stray gcc ("GNU compiler is not supported" in the first attempts).
+      - name: Set up MSVC environment
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
 
       - name: Fetch the QtWebEngine source (matching tag) + Chromium
         shell: pwsh
