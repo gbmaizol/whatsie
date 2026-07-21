@@ -1,3 +1,9 @@
+## Unreleased
+
+**Acknowledgements.** The linked-device identification, the dark-theme
+persistence fix, and Windows support build on pull requests by Gert Bolten
+Maizonave (gbmaizol) to upstream WhatSie (#324, #326, #321).
+
 ## 6.4.0 (2026-07-20)
 
 A large feature release: a command palette, notification rules, recurring

@@ -627,6 +627,15 @@ by **Keshav Bhatt** ([ktechpit.com](http://ktechpit.com)); all upstream copyrigh
 and authorship is preserved. The fork is maintained by
 **[Ángel Guzmán Maeso](https://shakaran.net)**.
 
+**Contributions.** Some features build on work by
+**[Gert Bolten Maizonave](https://github.com/gbmaizol)** (`gbmaizol`),
+contributed as pull requests to upstream WhatSie: identifying the app in the
+phone's linked-devices list
+([#324](https://github.com/keshavbhatt/whatsie/pull/324)), the fix for the dark
+theme resetting across restarts
+([#326](https://github.com/keshavbhatt/whatsie/pull/326)), and Windows support
+([#321](https://github.com/keshavbhatt/whatsie/pull/321)).
+
 Released under the [MIT License](LICENSE). Not affiliated with WhatsApp or Meta;
 "WhatsApp" is a trademark of its respective owner.
 
