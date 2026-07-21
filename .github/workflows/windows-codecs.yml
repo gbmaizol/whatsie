@@ -79,14 +79,19 @@ jobs:
         if: ${{ github.event.inputs.full_build == 'true' }}
         shell: pwsh
         run: |
-          cd qtwebengine
-          # Configure the module against the installed Qt, Release, codecs ON,
-          # and skip QtPdf (unused by Whatly and it doubles the Chromium build).
-          & "$env:QT_ROOT_DIR\bin\qt-configure-module.bat" . `
+          # qt-configure-module must run from a SEPARATE build directory pointing
+          # at the source; running it in-source produced a degenerate configure
+          # that only ran the "configure check" and compiled nothing.
+          $src = "$pwd\qtwebengine"
+          New-Item -ItemType Directory -Force build-we | Out-Null
+          cd build-we
+          & "$env:QT_ROOT_DIR\bin\qt-configure-module.bat" $src `
             -- -DCMAKE_BUILD_TYPE=Release `
                -DQT_FEATURE_webengine_proprietary_codecs=ON `
                -DQT_FEATURE_qtpdf_build=OFF
+          if ($LASTEXITCODE -ne 0) { throw "configure failed" }
           cmake --build . --parallel
+          if ($LASTEXITCODE -ne 0) { throw "build failed" }
           cmake --install .
 
       - name: Upload built module
@@ -94,5 +99,11 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: qtwebengine-codecs-${{ github.event.inputs.qt_version }}
-          path: qtwebengine/**/*.dll
+          path: |
+            build-we/**/QtWebEngineCore.dll
+            build-we/**/libEGL.dll
+            build-we/**/libGLESv2.dll
+            build-we/**/QtWebEngineProcess.exe
+            build-we/**/resources/**
+            build-we/**/*.pak
           if-no-files-found: warn
