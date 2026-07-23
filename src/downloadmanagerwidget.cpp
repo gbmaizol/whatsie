@@ -20,7 +20,7 @@ void DownloadManagerWidget::downloadRequested(
       SettingsManager::instance().settings().value("defaultDownloadLocation",
                  QStandardPaths::writableLocation(
                      QStandardPaths::DownloadLocation) +
-                     QDir::separator() + QApplication::applicationDisplayName())
+                     QLatin1Char('/') + QApplication::applicationDisplayName())
           .toString();
 
   QDir().mkpath(path);
