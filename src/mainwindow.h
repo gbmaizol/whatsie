@@ -11,6 +11,8 @@
 class WebView;
 class QTabBar;
 class QStackedWidget;
+class QScrollArea;
+class QSplitter;
 class GlobalShortcut;
 class ScheduledMessages;
 class DetachedAccountWindow;
@@ -70,6 +72,12 @@ protected slots:
   void showEvent(QShowEvent *event) override;
   void hideEvent(QHideEvent *event) override;
   void changeEvent(QEvent *e) override;
+
+protected:
+  // Watches the grid scroll area's viewport so the grid container is kept at
+  // max(viewport, whole-grid-minimum) — the scroll area then owns the only
+  // scrollbars, and tiles never shrink small enough to grow their own.
+  bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
   const QIcon getTrayIcon(const int &notificationCount) const;
@@ -201,6 +209,26 @@ private:
   // mode is active. m_displayStack flips between the tabbed stack and the grid.
   QStackedWidget *m_displayStack = nullptr;
   QWidget *m_gridContainer = nullptr;
+  QScrollArea *m_gridScroll = nullptr; // wraps the grid so tiles never clip
+  // The grid is a vertical splitter of rows, each a horizontal splitter of
+  // tiles, so the dividers between them can be dragged. Column widths are kept
+  // in sync across rows so a drag resizes a whole column.
+  QSplitter *m_gridVSplit = nullptr;
+  QList<QPointer<QSplitter>> m_gridRowSplits;
+  bool m_gridCustomized = false; // user dragged a divider or resized the grid
+  bool m_gridSyncing = false;    // guards column-sync / setSizes re-entry
+  bool m_gridResizing = false;   // guards our own programmatic grid resizes
+  QRect m_gridSavedGeom;         // remembered grid window size (when customized)
+  QList<int> m_gridSavedRows;    // remembered row heights (when customized)
+  QList<int> m_gridSavedCols;    // remembered column widths (when customized)
+  QSize m_gridMinSize;           // the whole grid at minimum tile size
+  void syncGridContainerSize();  // resize the grid to max(viewport, m_gridMinSize)
+  void resetGridTiles();         // distribute rows/cols equally + grow window
+  void applyGridSizes();         // apply remembered sizes, or reset if they don't fit
+  void captureGridSizes();       // snapshot current divider sizes + grid geometry
+  void markGridCustomized();     // record a user divider/size change
+  void syncGridColumns(QSplitter *source); // mirror one row's columns to the rest
+  void growWindowForGrid();      // enlarge so each tile is >= the WebApp minimum
   QList<QPointer<QLabel>> m_gridLabels;
   // The window geometry before Grid grew the window to fit its tiles, restored
   // when Grid is left. Null when not in (a grown) Grid.

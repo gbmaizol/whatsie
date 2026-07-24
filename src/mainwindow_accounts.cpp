@@ -3,6 +3,7 @@
 // a single-account setup is untouched by any of this.
 #include "mainwindow.h"
 
+#include <QEvent>
 #include <QFile>
 #include <QInputDialog>
 #include <QMessageBox>
@@ -15,7 +16,10 @@
 #include <QHBoxLayout>
 #include <QSizeGrip>
 #include <QLabel>
+#include <QScreen>
+#include <QScrollArea>
 #include <QSet>
+#include <QSplitter>
 #include <QWidget>
 #include <QtMath>
 
@@ -86,15 +90,30 @@ void MainWindow::buildAccountArea() {
   // The grid container holds every account view at once when the grid mode is
   // active. The display stack flips between the tabbed stack (page 0) and the
   // grid (page 1); the account views are re-parented between the two on switch.
-  m_gridContainer = new QWidget(central);
-  auto *grid = new QGridLayout(m_gridContainer);
-  grid->setContentsMargins(0, 0, 0, 0);
-  grid->setSpacing(2);
+  m_gridContainer = new QWidget;
+  auto *gbox = new QVBoxLayout(m_gridContainer);
+  gbox->setContentsMargins(0, 0, 0, 0);
+  gbox->setSpacing(0); // relayoutGrid fills this with the row/column splitters
+  // A scroll area guarantees no tile is ever clipped/hidden: when the window is
+  // too small to show every account at its usable minimum, thin scrollbars span
+  // the grid instead of dropping tiles off the bottom.
+  m_gridScroll = new QScrollArea(central);
+  // NOT widget-resizable: we size the container ourselves (syncGridContainerSize)
+  // to max(viewport, whole-grid-minimum), so the scroll area owns the only
+  // scrollbars and no tile is ever shrunk into growing its own.
+  m_gridScroll->setWidgetResizable(false);
+  m_gridScroll->setFrameShape(QFrame::NoFrame);
+  m_gridScroll->setStyleSheet(QStringLiteral(
+      "QScrollBar:vertical{width:8px;margin:0;}"
+      "QScrollBar:horizontal{height:8px;margin:0;}"
+      "QScrollBar::add-line,QScrollBar::sub-line{width:0;height:0;}"));
+  m_gridScroll->setWidget(m_gridContainer);
+  m_gridScroll->viewport()->installEventFilter(this); // track viewport resizes
 
   m_displayStack = new QStackedWidget(central);
   m_displayStack->setSizePolicy(expanding);
   m_displayStack->addWidget(m_accountStack);   // page 0: tabs
-  m_displayStack->addWidget(m_gridContainer);  // page 1: grid
+  m_displayStack->addWidget(m_gridScroll);     // page 1: grid (scrollable)
 
   layout->addWidget(m_accountBar);
   layout->addWidget(m_displayStack);
@@ -245,36 +264,40 @@ void MainWindow::showCommandPalette() {
   QWidget *host = QApplication::activeWindow();
   auto *palette = new CommandPalette(cmds, host ? host : this);
   palette->setAttribute(Qt::WA_DeleteOnClose);
-  palette->exec();
+  // Non-modal so a click outside dismisses it (CommandPalette closes itself on
+  // deactivation); it runs commands through the stored lambdas, so no exec().
+  palette->show();
+  palette->raise();
+  palette->activateWindow();
 }
 
 // Tear the grid down, first rescuing the account views (which are owned by the
-// app, not by the cell wrappers) so deleting a wrapper never deletes a view.
+// app, not by the tiles) so deleting the splitter tree never deletes a view.
 void MainWindow::clearGridCells() {
-  auto *grid = m_gridContainer
-                   ? qobject_cast<QGridLayout *>(m_gridContainer->layout())
-                   : nullptr;
-  // Rescue every account view that currently lives in a grid cell, so deleting
-  // the cell wrappers never deletes a view.
   for (const Account &account : m_accounts)
     if (account.view && m_gridContainer &&
-        m_gridContainer->isAncestorOf(account.view))
+        m_gridContainer->isAncestorOf(account.view)) {
       account.view->setParent(nullptr);
-  if (grid) {
-    while (QLayoutItem *item = grid->takeAt(0)) {
-      if (item->widget())
-        item->widget()->deleteLater();
-      delete item;
+      account.view->setMinimumSize(0, 0); // drop the grid-only minimum
     }
+  m_gridRowSplits.clear();
+  if (m_gridVSplit) {
+    delete m_gridVSplit; // deletes the row splitters + tile wrappers + captions
+    m_gridVSplit = nullptr;
   }
+  if (m_gridContainer)
+    m_gridContainer->setMinimumSize(0, 0);
+  m_gridMinSize = QSize(); // stop syncGridContainerSize sizing a torn-down grid
   m_gridLabels.clear();
 }
 
+// Build the grid as a vertical splitter of rows, each a horizontal splitter of
+// tiles (caption + account view). Dragging a divider resizes a row or column;
+// column widths are mirrored across rows so a column stays uniform. Every view
+// keeps the WebApp's usable minimum, so the scroll area scrolls rather than
+// hiding a tile when the window is too small.
 void MainWindow::relayoutGrid() {
   if (!m_gridContainer)
-    return;
-  auto *grid = qobject_cast<QGridLayout *>(m_gridContainer->layout());
-  if (!grid)
     return;
   clearGridCells();
 
@@ -282,35 +305,199 @@ void MainWindow::relayoutGrid() {
   if (n == 0)
     return;
 
-  // Grid shows EVERY account at once, wherever it normally lives — its view is
-  // pulled out of its window into a tile, and handed back when Grid is left.
   const int cols = qMax(1, static_cast<int>(qCeil(qSqrt(qreal(n)))));
-  for (int i = 0; i < n; ++i) {
-    WebView *view = m_accounts[i].view;
-    if (!view) {
-      m_gridLabels.append(QPointer<QLabel>(nullptr));
-      continue;
+  const int rows = (n + cols - 1) / cols;
+
+  m_gridVSplit = new QSplitter(Qt::Vertical, m_gridContainer);
+  m_gridVSplit->setChildrenCollapsible(false);
+  m_gridVSplit->setHandleWidth(3);
+  m_gridContainer->layout()->addWidget(m_gridVSplit);
+
+  int idx = 0;
+  for (int r = 0; r < rows; ++r) {
+    auto *rowSplit = new QSplitter(Qt::Horizontal, m_gridVSplit);
+    rowSplit->setChildrenCollapsible(false);
+    rowSplit->setHandleWidth(3);
+    for (int c = 0; c < cols && idx < n; ++c, ++idx) {
+      WebView *view = m_accounts[idx].view;
+      if (!view) {
+        m_gridLabels.append(QPointer<QLabel>(nullptr));
+        continue;
+      }
+      // Each tile is a caption (account name + unread) above its account view,
+      // so it is obvious which tile is which.
+      auto *cell = new QWidget;
+      auto *box = new QVBoxLayout(cell);
+      box->setContentsMargins(0, 0, 0, 0);
+      box->setSpacing(0);
+      auto *caption = new QLabel(cell);
+      caption->setObjectName(QStringLiteral("gridCellCaption"));
+      caption->setAlignment(Qt::AlignCenter);
+      caption->setContentsMargins(4, 2, 4, 2);
+      view->setAccessibleName(m_accounts[idx].name);
+      view->setMinimumSize(kBaseMinWidth, kBaseMinHeight);
+      box->addWidget(caption);
+      box->addWidget(view, 1); // reparents the view into the tile, from anywhere
+      m_gridLabels.append(caption);
+      rowSplit->addWidget(cell);
+      view->show();
     }
-    // Each cell is a caption (account name + unread) above its account view, so
-    // it is obvious which tile is which.
-    auto *cell = new QWidget(m_gridContainer);
-    auto *box = new QVBoxLayout(cell);
-    box->setContentsMargins(0, 0, 0, 0);
-    box->setSpacing(0);
-    auto *caption = new QLabel(cell);
-    caption->setObjectName(QStringLiteral("gridCellCaption"));
-    caption->setAlignment(Qt::AlignCenter);
-    caption->setContentsMargins(4, 2, 4, 2);
-    // The caption labels its tile for assistive tech, and the view itself gets
-    // the account name so focus announcements are meaningful.
-    view->setAccessibleName(m_accounts[i].name);
-    box->addWidget(caption);
-    box->addWidget(view, 1); // reparents the view into the cell, from anywhere
-    m_gridLabels.append(caption);
-    grid->addWidget(cell, i / cols, i % cols);
-    view->show();
+    m_gridVSplit->addWidget(rowSplit);
+    m_gridRowSplits.append(rowSplit);
+    // Dragging a column divider in one row mirrors to the others and counts as
+    // a user customization.
+    connect(rowSplit, &QSplitter::splitterMoved, this,
+            [this, rowSplit](int, int) {
+              if (m_gridSyncing)
+                return;
+              syncGridColumns(rowSplit);
+              markGridCustomized();
+            });
   }
+  // Dragging a row divider counts as a user customization.
+  connect(m_gridVSplit, &QSplitter::splitterMoved, this, [this](int, int) {
+    if (m_gridSyncing)
+      return;
+    markGridCustomized();
+  });
+
+  // The whole grid at minimum tile size. syncGridContainerSize keeps the
+  // container at least this big, so the scroll area shows a single full-grid
+  // scrollbar when the window is too small — instead of shrinking each tile
+  // until it grows its own scrollbar.
+  const int handle = 3, captionH = 24;
+  m_gridMinSize = QSize(cols * kBaseMinWidth + (cols - 1) * handle,
+                        rows * (kBaseMinHeight + captionH) + (rows - 1) * handle);
+  syncGridContainerSize();
   updateGridCaptions();
+}
+
+// Keep the grid container at max(viewport, whole-grid-minimum) so the scroll
+// area (not the tiles) owns the scrollbars.
+void MainWindow::syncGridContainerSize() {
+  if (!m_gridContainer || !m_gridScroll || m_gridMinSize.isEmpty())
+    return;
+  const QSize vp = m_gridScroll->viewport()->size();
+  m_gridContainer->resize(qMax(vp.width(), m_gridMinSize.width()),
+                          qMax(vp.height(), m_gridMinSize.height()));
+}
+
+bool MainWindow::eventFilter(QObject *watched, QEvent *event) {
+  if (m_gridScroll && watched == m_gridScroll->viewport() &&
+      event->type() == QEvent::Resize)
+    syncGridContainerSize();
+  return QMainWindow::eventFilter(watched, event);
+}
+
+// Mirror one row's column widths onto every other row, so a column resize is
+// uniform across the grid.
+void MainWindow::syncGridColumns(QSplitter *source) {
+  if (!source)
+    return;
+  const QList<int> sizes = source->sizes();
+  m_gridSyncing = true;
+  for (QSplitter *rs : m_gridRowSplits)
+    if (rs && rs != source && rs->count() == sizes.size())
+      rs->setSizes(sizes);
+  m_gridSyncing = false;
+}
+
+// Snapshot the current dividers and grid window size, so a customized layout can
+// be reapplied on re-entry and (when opted in) persisted across restarts.
+void MainWindow::captureGridSizes() {
+  if (m_gridVSplit)
+    m_gridSavedRows = m_gridVSplit->sizes();
+  if (!m_gridRowSplits.isEmpty() && m_gridRowSplits.first())
+    m_gridSavedCols = m_gridRowSplits.first()->sizes();
+  if (!isMaximized() && !isFullScreen())
+    m_gridSavedGeom = geometry();
+}
+
+// The user dragged a divider (or resized the grid window): remember it.
+void MainWindow::markGridCustomized() {
+  if (m_gridResizing || m_viewMode != ViewMode::Grid)
+    return;
+  m_gridCustomized = true;
+  captureGridSizes();
+  saveWindowLayout();
+}
+
+// Grow the window so a grid of every account fits at the WebApp's usable
+// minimum, capped to the screen (the scroll area covers any shortfall).
+void MainWindow::growWindowForGrid() {
+  if (isMaximized() || isFullScreen())
+    return; // already plenty of room, or cannot resize — the scroll area copes
+  const int n = qMax(1, m_accounts.size());
+  const int cols = qMax(1, static_cast<int>(qCeil(qSqrt(qreal(n)))));
+  const int rows = (n + cols - 1) / cols;
+  const int spacing = 3, captionH = 24;
+  const int needW = cols * kBaseMinWidth + (cols - 1) * spacing;
+  const int needH = rows * (kBaseMinHeight + captionH) + (rows - 1) * spacing;
+  // Grow the WINDOW by however much more the display area needs, so window
+  // chrome (title bar, margins) is accounted for automatically.
+  const QSize cur = m_displayStack ? m_displayStack->size() : size();
+  int targetW = width() + qMax(0, needW - cur.width());
+  int targetH = height() + qMax(0, needH - cur.height());
+  int nx = x(), ny = y();
+  if (QScreen *scr = screen()) {
+    const QRect avail = scr->availableGeometry();
+    targetW = qMin(targetW, avail.width());
+    targetH = qMin(targetH, avail.height());
+    // Growing can push the window past the screen edge — slide it back so the
+    // whole (now larger) window is visible.
+    if (nx + targetW > avail.right())
+      nx = avail.right() - targetW;
+    if (ny + targetH > avail.bottom())
+      ny = avail.bottom() - targetH;
+    nx = qMax(nx, avail.left());
+    ny = qMax(ny, avail.top());
+  }
+  m_gridResizing = true;
+  resize(targetW, targetH);
+  move(nx, ny);
+  QTimer::singleShot(0, this, [this]() { m_gridResizing = false; });
+}
+
+// Distribute the rows and columns equally and grow the window to fit; clears the
+// "customized" flag so nothing is remembered until the user drags again.
+void MainWindow::resetGridTiles() {
+  if (m_viewMode != ViewMode::Grid)
+    return;
+  m_gridCustomized = false;
+  growWindowForGrid();
+  m_gridSyncing = true;
+  if (m_gridVSplit)
+    m_gridVSplit->setSizes(QList<int>(m_gridVSplit->count(), 1 << 16));
+  for (QSplitter *rs : m_gridRowSplits)
+    if (rs)
+      rs->setSizes(QList<int>(rs->count(), 1 << 16));
+  m_gridSyncing = false;
+  saveWindowLayout(); // persists gridCustomized = false
+}
+
+// Reapply a remembered custom layout (dividers + window size). If the saved
+// shape no longer matches the current tile count, fall back to a clean reset.
+void MainWindow::applyGridSizes() {
+  const int rows = m_gridVSplit ? m_gridVSplit->count() : 0;
+  const int cols = (!m_gridRowSplits.isEmpty() && m_gridRowSplits.first())
+                       ? m_gridRowSplits.first()->count()
+                       : 0;
+  if (rows == 0 || m_gridSavedRows.size() != rows ||
+      m_gridSavedCols.size() != cols) {
+    resetGridTiles();
+    return;
+  }
+  if (m_gridSavedGeom.isValid() && !isMaximized() && !isFullScreen()) {
+    m_gridResizing = true;
+    setGeometry(m_gridSavedGeom);
+    QTimer::singleShot(0, this, [this]() { m_gridResizing = false; });
+  }
+  m_gridSyncing = true;
+  m_gridVSplit->setSizes(m_gridSavedRows);
+  for (QSplitter *rs : m_gridRowSplits)
+    if (rs)
+      rs->setSizes(m_gridSavedCols);
+  m_gridSyncing = false;
 }
 
 // Keep each tile's caption in step with the account name and unread count.
@@ -337,25 +524,22 @@ void MainWindow::setViewMode(ViewMode mode) {
       wins.insert(a.window);
 
   if (mode == ViewMode::Grid) {
-    // Grow the window so each tile is at least the WebApp's usable minimum,
-    // remembering the current size to restore when Grid is left. When the window
-    // is already big enough the grid layout just divides the space equally. A
-    // maximised / full-screen window already has plenty of room.
-    if (!isMaximized() && !isFullScreen()) {
+    // Remember the tabbed size to restore when Grid is left.
+    if (!isMaximized() && !isFullScreen())
       m_preGridGeometry = geometry();
-      const int n = qMax(1, m_accounts.size());
-      const int cols = qMax(1, static_cast<int>(qCeil(qSqrt(qreal(n)))));
-      const int rows = (n + cols - 1) / cols;
-      resize(qMax(width(), cols * kBaseMinWidth),
-             qMax(height(), rows * (kBaseMinHeight + 30)));
-    }
     // Collapse everything: hide the strip and the detached windows, and pull
     // every account's view into the tiles.
     m_accountBar->hide();
     for (DetachedAccountWindow *w : wins)
       w->hide();
-    relayoutGrid(); // tiles ALL accounts, reparenting their views into cells
-    m_displayStack->setCurrentWidget(m_gridContainer);
+    relayoutGrid(); // build the splitter tree, reparenting views into tiles
+    m_displayStack->setCurrentWidget(m_gridScroll);
+    // Reapply the user's remembered layout, or lay the tiles out equally and
+    // grow the window so each is at least the WebApp's usable minimum.
+    if (m_gridCustomized)
+      applyGridSizes();
+    else
+      resetGridTiles();
   } else {
     // Restore: rescue the views out of the tiles, hand each back to the window
     // it belongs to, then show the strips and the detached windows again.
@@ -1298,6 +1482,30 @@ void MainWindow::saveWindowLayout() {
   s.setValue(QStringLiteral("detachedGeoms"), geoms);
   s.setValue(QStringLiteral("detachedActives"), actives);
   s.setValue(QStringLiteral("mainActive"), mainActive);
+
+  // Grid view: remember the user's dragged tile sizes + grid window size, but
+  // only while they have actually customized it (otherwise the tiles are
+  // distributed equally on every entry).
+  s.setValue(QStringLiteral("gridCustomized"), m_gridCustomized);
+  if (m_gridCustomized) {
+    s.setValue(QStringLiteral("gridGeom"),
+               QStringLiteral("%1,%2,%3,%4")
+                   .arg(m_gridSavedGeom.x())
+                   .arg(m_gridSavedGeom.y())
+                   .arg(m_gridSavedGeom.width())
+                   .arg(m_gridSavedGeom.height()));
+    QStringList rows, cols;
+    for (int v : m_gridSavedRows)
+      rows << QString::number(v);
+    for (int v : m_gridSavedCols)
+      cols << QString::number(v);
+    s.setValue(QStringLiteral("gridRows"), rows);
+    s.setValue(QStringLiteral("gridCols"), cols);
+  } else {
+    s.remove(QStringLiteral("gridGeom"));
+    s.remove(QStringLiteral("gridRows"));
+    s.remove(QStringLiteral("gridCols"));
+  }
   s.endGroup();
 }
 
@@ -1362,10 +1570,31 @@ void MainWindow::restoreWindowLayout() {
   const QStringList actives =
       s.value(QStringLiteral("detachedActives")).toStringList();
   const QString mainActive = s.value(QStringLiteral("mainActive")).toString();
+  const bool gridCustomized =
+      s.value(QStringLiteral("gridCustomized"), false).toBool();
+  const QString gridGeom = s.value(QStringLiteral("gridGeom")).toString();
+  const QStringList gridRows = s.value(QStringLiteral("gridRows")).toStringList();
+  const QStringList gridCols = s.value(QStringLiteral("gridCols")).toStringList();
   s.endGroup();
 
   const bool remember =
       s.value(QStringLiteral("rememberWindowLayout"), false).toBool();
+
+  // Grid tile sizes are remembered only when opted in — independent of whether
+  // any window was detached, so load them before the present() early-out.
+  if (remember && gridCustomized) {
+    m_gridCustomized = true;
+    const QStringList p = gridGeom.split(QLatin1Char(','));
+    if (p.size() == 4)
+      m_gridSavedGeom =
+          QRect(p[0].toInt(), p[1].toInt(), p[2].toInt(), p[3].toInt());
+    m_gridSavedRows.clear();
+    for (const QString &v : gridRows)
+      m_gridSavedRows << v.toInt();
+    m_gridSavedCols.clear();
+    for (const QString &v : gridCols)
+      m_gridSavedCols << v.toInt();
+  }
 
   if (!present)
     return; // no multi-window layout was ever saved; the single window is fine

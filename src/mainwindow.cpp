@@ -315,6 +315,11 @@ void MainWindow::hideEvent(QHideEvent *event) {
 void MainWindow::resizeEvent(QResizeEvent *event) {
   QMainWindow::resizeEvent(event);
   trackNormalGeometry();
+  // A user resize while the grid is showing counts as a customization (ours are
+  // flagged via m_gridResizing so they don't).
+  if (m_viewMode == ViewMode::Grid && !m_gridResizing &&
+      event->oldSize().isValid() && event->size() != event->oldSize())
+    markGridCustomized();
   if (!m_lockWidget || event->size() == event->oldSize())
     return;
   // Track the central widget it now lives in, not the whole window.
@@ -422,6 +427,11 @@ void MainWindow::zoomIn() { zoomBy(0.1); }
 void MainWindow::zoomOut() { zoomBy(-0.1); }
 
 void MainWindow::zoomReset() {
+  // In grid view, Ctrl+0 redistributes the tiles equally instead of zooming.
+  if (m_viewMode == ViewMode::Grid) {
+    resetGridTiles();
+    return;
+  }
   const bool maximized = windowState().testFlag(Qt::WindowMaximized) ||
                          windowState().testFlag(Qt::WindowFullScreen);
   const QString key = maximized ? QStringLiteral("zoomFactorMaximized")
