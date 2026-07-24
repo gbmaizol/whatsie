@@ -1238,6 +1238,15 @@ void MainWindow::moveAccountToWindow(const QString &id,
   targetWin->show();
   targetWin->raise();
   targetWin->activateWindow();
+  if (view)
+    view->setFocus(Qt::OtherFocusReason);
+  // A tear-off/dock happens mid-interaction (a drag, or a menu closing), and
+  // Windows tends to keep focus on the source window then. Re-assert focus once
+  // the current event has unwound so the new/target window really comes forward.
+  QTimer::singleShot(0, targetWin, [targetWin]() {
+    targetWin->raise();
+    targetWin->activateWindow();
+  });
   if (m_viewMode == ViewMode::Grid)
     relayoutGrid();
   updateTrayUnread();
